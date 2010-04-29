@@ -45,6 +45,7 @@ Since commands can be stacked we can say something like:
 * Module information
 lm - display all the modules
 lmf - with full path
+!lmi module_name - display information about a particular module
 
 * Other
 put cursor at point and do Ctrl+Shift+I  - will alter the instruction pointer to exec this instruction next
