@@ -33,6 +33,7 @@ bc - clear breakpoint
 ~* - shows information for all the threads
 !token -n - display thread permissions
 !runaway - information about thread CPU consumption
+!thread - displays summary of information about the thread. used only in kernel debugging mode
 
 Since commands can be stacked we can say something like:
 ~*kv - show verbose call stack information for all threads
