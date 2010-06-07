@@ -41,12 +41,13 @@ Since commands can be stacked we can say something like:
 * Useful when debugging hangs:
 !locks - dump all the locks in the process.
 !handle - dump handles taken by all the threads in the process
-   This is especially useful to find which thread has taken a handle that some other thread is waiting on. We get the name (so to say) of the handle from the waiting thread, and we can use it to find information about the handle by running '!handle handle_name f'.
+This is especially useful to find which thread has taken a handle that some other thread is waiting on. We get the name (so to say) of the handle from the waiting thread, and we can use it to find information about the handle by running '!handle handle_name f'.
 
-* Module information
+* Information
 lm - display all the modules
 lmf - with full path
 !lmi module_name - display information about a particular module
+!address -summary - print summary of memory that the target process or target computer uses.
 
 * Other
 put cursor at point and do Ctrl+Shift+I  - will alter the instruction pointer to exec this instruction next
