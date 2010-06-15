@@ -1,0 +1,6 @@
+* Branching
+git checkout -b <branchname> <commit>		#The default commit is master.
+git checkout -d <branchname>			#delete branch
+git checkout -m <branchname> <newbranchname>	#Rename a branch
+git merge <branchname>				#Merge branch <branchname> with current branch
+
