@@ -1,3 +1,9 @@
+* Adding a remote to git repo
+git init
+git add .
+git commit -m
+git remote add origin git@github.com:vedang/reponame.git
+
 * Branching
 git checkout -b <branchname> <commit>		#The default commit is master.
 git checkout -d <branchname>			#delete branch
