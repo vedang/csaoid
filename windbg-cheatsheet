@@ -11,6 +11,7 @@ q - will quit, exit the process
 * Display
 dt - display type - shows the type of variable
 dv - display information about local variables
+dds, dqs, dps - display the contents of memory in the given range
 
 * Call Stacks
 k - show call stack
@@ -34,6 +35,7 @@ bc - clear breakpoint
 !token -n - display thread permissions
 !runaway - information about thread CPU consumption
 !thread - displays summary of information about the thread. used only in kernel debugging mode
+!teb - displays a formatted view of the information in the thread environment block
 
 Since commands can be stacked we can say something like:
 ~*kv - show verbose call stack information for all threads
