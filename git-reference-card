@@ -11,3 +11,8 @@ git checkout -m <branchname> <newbranchname>			#Rename a branch
 git merge <branchname>						#Merge branch <branchname> with current branch
 git push <remotename> <localbranchname>:<remotebranchname>	#Push a local branch to remote
 git push <remotename> :<branchname>				#Delete branch on remote. Literally, push /nothing/ into <branchname>
+
+*Tagging
+git push <remotename> <tagname>			#Push single tag to remote
+git push <remotename> <branchname> --tags	#Push all tags on branch <branchname> to remote
+
