@@ -5,8 +5,8 @@ git commit -m
 git remote add origin git@github.com:vedang/reponame.git
 
 * Branching
-git checkout -b <branchname> <commit>		#The default commit is master.
-git checkout -d <branchname>			#delete branch
-git checkout -m <branchname> <newbranchname>	#Rename a branch
-git merge <branchname>				#Merge branch <branchname> with current branch
-
+git checkout -b <branchname> <commit>			#The default commit is master.
+git checkout -d <branchname>				#delete branch
+git checkout -m <branchname> <newbranchname>		#Rename a branch
+git merge <branchname>					#Merge branch <branchname> with current branch
+git push remotename localbranchname:remotebranchname	#Push a local branch to remote
