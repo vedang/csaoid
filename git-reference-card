@@ -17,9 +17,14 @@ rm .git/index
 git clean -fdx
 ---
 
-*Tagging
+* Tagging
 git tag -u <key-id> <tagname> <commitid>        #Create a tag signed using gpg
 git push <remotename> <tagname>			#Push single tag to remote
 git push <remotename> <branchname> --tags	#Push all tags on branch <branchname> to remote
 git config --global user.signingkey <keyid>     #Save the gpg id so that you don't have to mention it everytime
 git tag -s <tagname> <commitid>                 #After above command
+
+* Misc
+git add -p			#interactively stage changes to file
+git cherry-pick <commit-id>	#selectively apply a commit from one branch to another
+git rebase			#break-up a large commit into smaller commits for cleaner understanding and cherry-picking
