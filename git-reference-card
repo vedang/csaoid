@@ -25,8 +25,11 @@ git config --global user.signingkey <keyid>     #Save the gpg id so that you don
 git tag -s <tagname> <commitid>                 #After above command
 
 * Misc
-git add -p			#interactively stage changes to file
-git cherry-pick <commit-id>	#selectively apply a commit from one branch to another
-git rebase			#break-up a large commit into smaller commits for cleaner understanding and cherry-picking
-git apply --whitespace=fix      #get rid of bloody trailing whitespace
-git config --list               #List your current git configuration
+git add -p						#interactively stage changes to file
+git cherry-pick <commit-id>				#selectively apply a commit from one branch to another
+git rebase						#break-up a large commit into smaller commits for cleaner understanding and cherry-picking
+git apply --whitespace=fix				#get rid of bloody trailing whitespace
+git config --list					#List your current git configuration
+git diff --name-only foo bar				#list all the files that have changed between two revisions
+git show --pretty="format:" --name-only <commitid>	#list files in a single commit
+git log --pretty=oneline                                #single line logs
