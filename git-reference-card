@@ -24,12 +24,14 @@ git push <remotename> <branchname> --tags	#Push all tags on branch <branchname> 
 git config --global user.signingkey <keyid>     #Save the gpg id so that you don't have to mention it everytime
 git tag -s <tagname> <commitid>                 #After above command
 
+* Listing and Display
+git diff --name-only foo bar				#list all the files that have changed between two revisions
+git show --pretty="format:" --name-only <commitid>	#list files in a single commit. format string is very, very useful
+git log --pretty=oneline                                #single line logs
+
 * Misc
 git add -p						#interactively stage changes to file
 git cherry-pick <commit-id>				#selectively apply a commit from one branch to another
 git rebase						#break-up a large commit into smaller commits for cleaner understanding and cherry-picking
 git apply --whitespace=fix				#get rid of bloody trailing whitespace
 git config --list					#List your current git configuration
-git diff --name-only foo bar				#list all the files that have changed between two revisions
-git show --pretty="format:" --name-only <commitid>	#list files in a single commit
-git log --pretty=oneline                                #single line logs
