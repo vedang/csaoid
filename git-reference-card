@@ -5,7 +5,7 @@ git commit -m
 git remote add origin git@github.com:vedang/reponame.git
 
 * Branching
-git checkout -b <branchname> <commit>				#The default commit is master.
+git checkout -b <branchname> <commit>				#The default commit is HEAD.
 git checkout -d <branchname>					#delete branch
 git checkout -m <branchname> <newbranchname>			#Rename a branch
 git merge <branchname>						#Merge branch <branchname> with current branch
@@ -28,6 +28,7 @@ git tag -s <tagname> <commitid>                 #After above command
 git diff --name-only foo bar				#list all the files that have changed between two revisions
 git show --pretty="format:" --name-only <commitid>	#list files in a single commit. format string is very, very useful
 git log --pretty=oneline                                #single line logs
+    							#some other fun things with log: --graph, --topo-order, --since
 
 * Misc
 git add -p						#interactively stage changes to file
