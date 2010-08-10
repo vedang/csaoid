@@ -36,3 +36,6 @@ git cherry-pick <commit-id>				#selectively apply a commit from one branch to an
 git rebase						#break-up a large commit into smaller commits for cleaner understanding and cherry-picking
 git apply --whitespace=fix				#get rid of bloody trailing whitespace
 git config --list					#List your current git configuration
+git commit --amend                                      #if you forgot to add a file to your latest commit, you can use this command to amend the commit
+git commit --amend -C HEAD                              #this will reuse the commit message used in the latest commit, so that you don't have to retype the
+                                                        #commit message
