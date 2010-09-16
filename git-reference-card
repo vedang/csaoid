@@ -29,6 +29,7 @@ git diff --name-only foo bar				#list all the files that have changed between tw
 git show --pretty="format:" --name-only <commitid>	#list files in a single commit. format string is very, very useful
 git log --pretty=oneline                                #single line logs
     							#some other fun things with log: --graph, --topo-order, --since
+git diff --name-status master..branch                   #show files changed between branches in a 'git status' way
 
 * Misc
 git add -p						#interactively stage changes to file
