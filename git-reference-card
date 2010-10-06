@@ -23,6 +23,7 @@ git push <remotename> <tagname>			#Push single tag to remote
 git push <remotename> <branchname> --tags	#Push all tags on branch <branchname> to remote
 git config --global user.signingkey <keyid>     #Save the gpg id so that you don't have to mention it everytime
 git tag -s <tagname> <commitid>                 #After above command
+git describe --match v*                         #Find out the latest version tag you have created (say v0.93.1.2)
 
 * Listing and Display
 git diff --name-only foo bar				#list all the files that have changed between two revisions
