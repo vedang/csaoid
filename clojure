@@ -1,0 +1,44 @@
+Clojure Cheat Sheet
+==================
+
+* Documentation
+
+doc find-doc source (clojure.contrib.repl-utils)
+
+* Data Structures
+
+** Numbers
+
+Computation	: + - * / inc dec quot rem min max rationalize
+Comparison	: == < > <= >= zero? pos? neg?
+Bitwise ops	: bit-{and, or, xor, not, flip, set, shift-right,
+                : shift-left, and-not, clear, test}
+Integer ops	: odd even
+Random num	: rand rand-int
+BigInt ops	: with-precision
+Unchecked	: unchecked-{add, dec, divide, inc, multiply, negate,
+                : remainder, subtract}
+
+** Strings
+
+str, string?, pr-str, prn-str, print-str, println-str, with-out-str
+
+** Characters
+
+char, char-name-string, char-escape-string
+
+** Lists
+
+Create		: () list list*
+List as stack	: peek, pop
+Examine		: list?
+
+** Vectors
+
+Create		: [] vector vec
+Examine		: get nth peek rseq vector?
+'Change'	: assoc pop subvec replace
+
+** Maps
+
+Create: {} hash-map sorted-map sorted-map-by
