@@ -41,4 +41,80 @@ Examine		: get nth peek rseq vector?
 
 ** Maps
 
-Create: {} hash-map sorted-map sorted-map-by
+Create		: {} hash-map sorted-map sorted-map-by
+'Change'	: assoc dissoc select-keys merge merge-with zipmap
+Examine		: get contains? find keys vals map?
+Entry		: key val
+
+** StructMaps
+
+Setup		: create-struct defstruct accessor
+Individual	: struct-map struct
+
+** ArrayMaps
+
+Create	        : array-map
+
+** Sets
+
+Create		: #{} hash-set sorted-set set get conj disj contains? count
+                : seq
+Operations	: union difference intersection
+Rel. Algebra	: select index rename join project map-invert rename-keys
+
+** Misc
+
+Collections	: count conj seq
+Keywords	: keyword keyword?
+Symbols		: symbol symbol? gensyms
+
+* Sequences
+
+** Seq in, Seq out
+
+Get shorter seq		: distinct filter remove for
+Get longer seq		: cons concat lazy-cat mapcat cycle interleave
+                        : interpose
+Head-items missing	: rest frest rrest drop drop-while nthrest for
+Tail-items missing	: take take-nth take-while butlast drop-last for
+Rearrangement		: reverse sort sort-by
+Nested Seqs		: split-at split-with partition
+Process each item	: map pmap mapcat for replace seque
+
+** Using a seq
+
+Extract item		: first ffirst rfirst second nth when-first last
+Construct a coll	: zipmap into reduce set vec into-array to-array-2d
+Pass items to fn	: apply
+Get a boolean		: empty? not-empty some not-any? every? not-every?
+                        : reduce seq? counted? sorted? contains? reversible?
+                        : sequential? associative?
+Search a seq		: some filter
+Force evaluation	: doseq dorun doall
+
+** Creating a lazy seq
+
+From collection		: seq vals keys rseq subseq rsubseq
+From producer fn	: lazy-seq repeatedly iterate
+From constant		: repeat replicate range
+From other objects	: line-seq resultset-seq re-seq tree-seq file-seq
+                        : xml-seq iterator-seq enumeration-seq
+
+* Reader macros
+
+'	: Quote 'form -> (quote form)
+\	: Character literal
+;	: Single line comment
+^	: Meta ^form -> (meta form)
+@	: Deref @form -> (deref form)
+`	: Syntax quote
+~	: Unquote
+~@	: Unquote-splicing
+#"p"	: Regex pattern p
+#^	: Meta data
+#'	: Var quote #'x -> (var x)
+#()	: #(...) -> (fn [args] (...))
+
+* Special forms
+
+def if do let quote var fn loop recur throw try monitor-enter monitor-exit
