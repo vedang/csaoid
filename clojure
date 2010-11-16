@@ -118,3 +118,7 @@ From other objects	: line-seq resultset-seq re-seq tree-seq file-seq
 * Special forms
 
 def if do let quote var fn loop recur throw try monitor-enter monitor-exit
+
+* Misc Idiomatic stuff
+
+Check if Seq contains a value: (some #{value} seq)
