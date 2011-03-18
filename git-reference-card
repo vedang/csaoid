@@ -5,41 +5,42 @@ git commit -m
 git remote add origin git@github.com:vedang/reponame.git
 
 * Branching
-git checkout -b <branchname> <commit>				#The default commit is HEAD.
-git checkout -d <branchname>					#delete branch
-git checkout -m <branchname> <newbranchname>			#Rename a branch
-git merge <branchname>						#Merge branch <branchname> with current branch
-git push <remotename> <localbranchname>:<remotebranchname>	#Push a local branch to remote
-git push <remotename> :<branchname>				#Delete branch on remote. Literally, push /nothing/ into <branchname>
+git checkout -b <branchname> <commit>                      #The default commit is HEAD.
+git checkout -d <branchname>                               #delete branch
+git checkout -m <branchname> <newbranchname>               #Rename a branch
+git merge <branchname>                                     #Merge branch <branchname> with current branch
+git push <remotename> <localbranchname>:<remotebranchname> #Push a local branch to remote
+git push <remotename> :<branchname>                        #Delete branch on remote. Literally, push /nothing/ into <branchname>
 ---
-git symbolic-ref HEAD refs/heads/newbranch 			#Create an empty new branch
+git symbolic-ref HEAD refs/heads/newbranch                 #Create an empty new branch
 rm .git/index
 git clean -fdx
 ---
 
 * Tagging
-git tag -u <key-id> <tagname> <commitid>        #Create a tag signed using gpg
-git push <remotename> <tagname>			#Push single tag to remote
-git push <remotename> <branchname> --tags	#Push all tags on branch <branchname> to remote
-git config --global user.signingkey <keyid>     #Save the gpg id so that you don't have to mention it everytime
-git tag -s <tagname> <commitid>                 #After above command
-git describe --match v*                         #Find out the latest version tag you have created (say v0.93.1.2)
+git tag -u <key-id> <tagname> <commitid>                   #Create a tag signed using gpg
+git push <remotename> <tagname>                            #Push single tag to remote
+git push <remotename> <branchname> --tags                  #Push all tags on branch <branchname> to remote
+git config --global user.signingkey <keyid>                #Save the gpg id so that you don't have to mention it everytime
+git tag -s <tagname> <commitid>                            #After above command
+git describe --match v*                                    #Find out the latest version tag you have created (say v0.93.1.2)
 
 * Listing and Display
-git diff --name-only foo bar				#list all the files that have changed between two revisions
-git show --pretty="format:" --name-only <commitid>	#list files in a single commit. format string is very, very useful
-git log --pretty=oneline                                #single line logs
-    							#some other fun things with log: --graph, --topo-order, --since
-git diff --name-status master..branch                   #show files changed between branches in a 'git status' way
+git diff --name-only foo bar                               #list all the files that have changed between two revisions
+git show --pretty="format:" --name-only <commitid>         #list files in a single commit. format string is very, very useful
+git log --pretty=oneline                                   #single line logs
+                                                           #some other fun things with log: --graph, --topo-order, --since
+git diff --name-status master..branch                      #show files changed between branches in a 'git status' way
+git log -p <filename>                                      #show changes in a single file
 
 * Misc
-git add -p						#interactively stage changes to file
-git cherry-pick <commit-id>				#selectively apply a commit from one branch to another
-git rebase						#break-up a large commit into smaller commits for cleaner
-                                                        #understanding and cherry-picking
-git apply --whitespace=fix				#get rid of bloody trailing whitespace
-git config --list					#List your current git configuration
-git commit --amend                                      #if you forgot to add a file to your latest commit,
-                                                        #you can use this command to amend the commit
-git commit --amend -C HEAD                              #this will reuse the commit message used in the latest commit,
-                                                        #so that you don't have to retype the commit message
+git add -p                                                 #interactively stage changes to file
+git cherry-pick <commit-id>                                #selectively apply a commit from one branch to another
+git rebase                                                 #break-up a large commit into smaller commits for cleaner
+                                                           #understanding and cherry-picking
+git apply --whitespace=fix                                 #get rid of bloody trailing whitespace
+git config --list                                          #List your current git configuration
+git commit --amend                                         #if you forgot to add a file to your latest commit,
+                                                           #you can use this command to amend the commit
+git commit --amend -C HEAD                                 #this will reuse the commit message used in the latest commit,
+                                                           #so that you don't have to retype the commit message
