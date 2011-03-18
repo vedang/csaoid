@@ -29,7 +29,10 @@ git push <remotename> <tagname>                            #Push single tag to r
 git push <remotename> <branchname> --tags                  #Push all tags on branch <branchname> to remote
 git config --global user.signingkey <keyid>                #Save the gpg id so that you don't have to mention it everytime
 git tag -s <tagname> <commitid>                            #After above command
+git tag -l                                                 #list tags
 git describe --match v*                                    #Find out the latest version tag you have created (say v0.93.1.2)
+git show v2.5:fs/locks.c                                   #Show an old version of the file
+git rev-parse name                                         #Get the commit-id from a tag name
 
 * Listing and Display
 git diff --name-only foo bar                               #list all the files that have changed between two revisions
@@ -53,3 +56,7 @@ git commit --amend                                         #if you forgot to add
                                                            #you can use this command to amend the commit
 git commit --amend -C HEAD                                 #this will reuse the commit message used in the latest commit,
                                                            #so that you don't have to retype the commit message
+git bisect start                                           #To find a regression that happened between v2.6.18 and master
+git bisect good v2.6.18
+git bisect bad master
+
