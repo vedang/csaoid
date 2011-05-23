@@ -30,9 +30,12 @@ git push <remotename> <branchname> --tags                  #Push all tags on bra
 git config --global user.signingkey <keyid>                #Save the gpg id so that you don't have to mention it everytime
 git tag -s <tagname> <commitid>                            #After above command
 git tag -l                                                 #list tags
+git tag -a                                                 #Create a tag without signing it
 git describe --match v*                                    #Find out the latest version tag you have created (say v0.93.1.2)
 git show v2.5:fs/locks.c                                   #Show an old version of the file
 git rev-parse name                                         #Get the commit-id from a tag name
+git tag -d 12345                                           #Deleting a tag locally
+git push origin :refs/tags/12345                           #and from origin
 
 * Listing and Display
 git diff --name-only foo bar                               #list all the files that have changed between two revisions
