@@ -2,6 +2,7 @@
 git config –global user.name “FirstName LastName”
 git config –global user.email “user@example.com”
 git config –global color.ui “auto”                         #Fancy colors
+git config --global rerere.enabled 1                       #Always enable git-rerere
 git config --list                                          #List your current git configuration
 
 * Adding a remote to git repo
