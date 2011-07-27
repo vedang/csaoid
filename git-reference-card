@@ -62,4 +62,4 @@ git commit --amend -C HEAD                                 #this will reuse the 
 git bisect start                                           #To find a regression that happened between v2.6.18 and master
 git bisect good v2.6.18
 git bisect bad master
-
+git reflog                                                 #List of commits that HEAD pointed to in the past.
