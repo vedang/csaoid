@@ -1,7 +1,7 @@
 * Config
-git config –global user.name “FirstName LastName”
-git config –global user.email “user@example.com”
-git config –global color.ui “auto”                         #Fancy colors
+git config --global user.name "FirstName LastName"
+git config --global user.email "user@example.com"
+git config --global color.ui "auto"                         #Fancy colors
 git config --global rerere.enabled 1                       #Always enable git-rerere
 git config --global branch.autosetuprebase always          #Always pull with the rebase switch
 git config --list                                          #List your current git configuration
