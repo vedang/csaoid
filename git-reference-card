@@ -57,6 +57,14 @@ git apply --stat diff-with-master.patch                    #Check the stats of t
 git apply --check diff-with-master.patch                   #Check if the patch will apply cleanly
 git am --signoff < diff-with-master.patch                  #Apply the patch to the master branch
 
+*Submodules
+git submodule add path_to_git_repo local_dir               #Adding another repository as a submodule
+git submodule init                                         #Initialize the submodules in a cloned repository
+git submodule update                                       #Pull in the code from submodules in a cloned repository
+                                                           #Git submodule update keeps the submodule in headless state.
+                                                           #When you want to bring the submodule up-to-date, remember to
+                                                           #checkout to a branch first.
+
 * Misc
 git add -p                                                 #interactively stage changes to file
 git cherry-pick <commit-id>                                #selectively apply a commit from one branch to another
