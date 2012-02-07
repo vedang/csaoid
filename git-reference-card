@@ -63,7 +63,7 @@ git format-patch -k -s --stdout R1..R2 | git am -3 -k      #Apply commits select
 git format-patch master --stdout > diff-with-master.patch  #Create a patch of the commits present in this branch but not in master
 git apply --stat diff-with-master.patch                    #Check the stats of the patch
 git apply --check diff-with-master.patch                   #Check if the patch will apply cleanly
-git am --signoff < diff-with-master.patch                  #Apply the patch to the master branch
+git am -3 --signoff < diff-with-master.patch               #Apply the patch to the master branch
 
 *Submodules
 git submodule add path_to_git_repo local_dir               #Adding another repository as a submodule
