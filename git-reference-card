@@ -1,3 +1,4 @@
+-*- mode: org; -*-
 * Config
 git config --global user.name "FirstName LastName"
 git config --global user.email "user@example.com"
@@ -85,3 +86,4 @@ git bisect start                                           #To find a regression
 git bisect good v2.6.18
 git bisect bad master
 git reflog                                                 #List of commits that HEAD pointed to in the past.
+git shortlog master..branch                                #Generate changelog for a branch
