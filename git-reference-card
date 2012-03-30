@@ -88,5 +88,16 @@ git bisect start                                           #To find a regression
 git bisect good v2.6.18
 git bisect bad master
 
+git fsck --lost-found --no-reflog                          #Show me a list of dangling commits and blobs
+git reflog
+gitk v1.5.0.. <filenames/directorynames>                   #Show me all commits that touched a file / multiple files /
+                                                           #files in a given directory / files in multiple directories
+                                                           #since version v1.5.0
+gitk --since="2 weeks ago" -- <filename>                   #show me all changes to file in the in the last 2 weeks
+gitk --max-count=100 --all -- <filename>                   #Show me the last 100 changes to the file across all branches
+
+gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' ) #gitk can take a selective list of commits and
+                                                           #show them to you, this allows us to see all the dangling
+                                                           #commits and select the ones we want to recover.
 * Misc
 git apply --whitespace=fix                                 #get rid of bloody trailing whitespace
