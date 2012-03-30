@@ -55,6 +55,8 @@ git log --pretty=oneline                                   #single line logs
 git log --author=foo                                       #some other fun things with log: --graph, --topo-order, --since
 git diff --name-status master..branch                      #show files changed between branches in a 'git status' way
 git log -p <filename>                                      #show changes in a single file
+git reflog                                                 #List of commits that HEAD pointed to in the past.
+git shortlog master..branch                                #Generate changelog for a branch
 
 * Patches
 git diff [commit-id-before] [commit-id-after] > my.patch   #Create a patch between two ids
@@ -66,7 +68,7 @@ git apply --stat diff-with-master.patch                    #Check the stats of t
 git apply --check diff-with-master.patch                   #Check if the patch will apply cleanly
 git am -3 --signoff < diff-with-master.patch               #Apply the patch to the master branch
 
-*Submodules
+* Submodules
 git submodule add path_to_git_repo local_dir               #Adding another repository as a submodule
 git submodule init                                         #Initialize the submodules in a cloned repository
 git submodule update                                       #Pull in the code from submodules in a cloned repository
@@ -74,16 +76,17 @@ git submodule update                                       #Pull in the code fro
                                                            #When you want to bring the submodule up-to-date, remember to
                                                            #checkout to a branch first.
 
-* Misc
+* Adding & Committing
 git add -p                                                 #interactively stage changes to file
 git cherry-pick <commit-id>                                #selectively apply a commit from one branch to another
-git apply --whitespace=fix                                 #get rid of bloody trailing whitespace
 git commit --amend                                         #if you forgot to add a file to your latest commit,
                                                            #you can use this command to amend the commit
 git commit --amend -C HEAD                                 #this will reuse the commit message used in the latest commit,
                                                            #so that you don't have to retype the commit message
+* Debugging and Recovery
 git bisect start                                           #To find a regression that happened between v2.6.18 and master
 git bisect good v2.6.18
 git bisect bad master
-git reflog                                                 #List of commits that HEAD pointed to in the past.
-git shortlog master..branch                                #Generate changelog for a branch
+
+* Misc
+git apply --whitespace=fix                                 #get rid of bloody trailing whitespace
