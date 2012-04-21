@@ -25,7 +25,22 @@ git symbolic-ref HEAD refs/heads/newbranch                 #Create an empty new 
 rm .git/index
 git clean -fdx
 ---
-
+#Creating a separate repository from a range of commits restricted to a sub-directory
+git filter-branch --subdirectory-filter trunk HEAD         #Create a new repository from a sub-directory named trunk
+                                                           #Git will also automatically remove commits that
+                                                           #did not affect the subdirectory
+                                                           #from - http://progit.org/book/ch6-4.html
+git remote add trunk /path/to/trunk
+git push trunk master                                      #this will create a new repository at given path
+                                                           #with only the commits for a certain sub-directory
+#Getting back original master
+git checkout masters_original_HEAD
+git checkout -b tmp
+git merge -s ours master
+git checkout master
+git merge tmp
+git reset --soft HEAD^                                     #To remove the merge and revert the local repo back to
+                                                           #state before filter-branch
 * Merging
 ---
 git checkout dev                                           #Basically, replace the current master entirely with the dev branch.
