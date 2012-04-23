@@ -25,7 +25,22 @@ git symbolic-ref HEAD refs/heads/newbranch                 #Create an empty new 
 rm .git/index
 git clean -fdx
 ---
-
+#Creating a separate repository from a range of commits restricted to a sub-directory
+git filter-branch --subdirectory-filter trunk HEAD         #Create a new repository from a sub-directory named trunk
+                                                           #Git will also automatically remove commits that
+                                                           #did not affect the subdirectory
+                                                           #from - http://progit.org/book/ch6-4.html
+git remote add trunk /path/to/trunk
+git push trunk master                                      #this will create a new repository at given path
+                                                           #with only the commits for a certain sub-directory
+#Getting back original master
+git checkout masters_original_HEAD
+git checkout -b tmp
+git merge -s ours master
+git checkout master
+git merge tmp
+git reset --soft HEAD^                                     #To remove the merge and revert the local repo back to
+                                                           #state before filter-branch
 * Merging
 ---
 git checkout dev                                           #Basically, replace the current master entirely with the dev branch.
@@ -33,7 +48,11 @@ git merge -s ours master                                   #Useful when the code
 git checkout master
 git merge dev
 ---
-
+# merge project A into subdirectory A - From http://jasonkarns.com/blog/merge-two-git-repositories-into-one/
+git remote add -f projA /path/to/projA                    #Path should be a remote.
+git merge -s ours --no-commit projA/master
+git read-tree --prefix=subdirA/ -u projA/master
+git ci -m "merging projA into subdirA"                    #This makes your history look like this directory was in the repo all along
 * Tagging
 git tag -u <key-id> <tagname> <commitid>                   #Create a tag signed using gpg
 git push <remotename> <tagname>                            #Push single tag to remote
