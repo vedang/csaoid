@@ -1,0 +1,301 @@
+-*- mode: org; comment-column: 0; -*-
+
+# This file contains a list of git commands that I've found handy in situations
+# I've faced over time. These are commands that _I_ have used (successfully).
+# I'm not claiming that this is the only way or even the right
+# way to handle a particular situation that you may face. YMMV.
+
+# Along with commands, there are also some general git patterns that I have noted
+# down. I hope this file is of help to you, or at least teaches you something
+# about git that you didn't know beforehand
+
+# The commands are ordered by type rather than difficulty, so you are going to
+# find intermediate and slightly advanced commands intermingled with the easy
+# ones. I mean for this document to be used as a cheat-sheet, not a tutorial,
+# but if you are confused about something shoot me a mail
+
+* Basics: Adding a remote to git repo
+
+$ git init
+
+$ git add .
+
+$ git commit -m
+
+$ git remote add origin git@github.com:vedang/reponame.git
+
+* Branching
+
+# The default commit is HEAD.
+$ git checkout -b <branchname> <commit>
+
+# delete branch
+$ git checkout -d <branchname>
+
+# Rename a branch
+$ git checkout -m <branchname> <newbranchname>
+
+# Merge branch <branchname> with current branch
+$ git merge <branchname>
+
+# Push a local branch to remote
+$ git push <remotename> <localbranchname>:<remotebranchname>
+
+# Delete branch on remote. Literally, push /nothing/ into <branchname>
+$ git push <remotename> :<branchname>
+
+# Create an empty branch
+$ git symbolic-ref HEAD refs/heads/newbranch
+$ rm .git/index
+$ git clean -fdx
+
+# Create a separate repository from a range of commits restricted to a
+# sub-directory
+
+# Create a new repository from a sub-directory named trunk
+# Git will also automatically remove commits that
+# did not affect the subdirectory
+$ git filter-branch --subdirectory-filter trunk HEAD
+$ git remote add trunk /path/to/trunk
+$ git push trunk master
+
+# from - http://progit.org/book/ch6-4.html
+
+# Getting back original master
+$ git checkout masters_original_HEAD
+$ git checkout -b tmp
+$ git merge -s ours master
+$ git checkout master
+$ git merge tmp
+$ git reset --soft HEAD^
+
+# The final step removes the merge-commit and reverts the local repo back to
+# state before filter-branch
+
+* Merging
+
+# Merge the code from some other branch into our branch, keeping our code
+# on every conflict
+$ git merge -s ours <branchname>
+
+# Similarly, we can also use theirs with -s to keep the incoming copy of code
+
+# This strategy (above) is especially useful if the code on master has
+# become a total mess and you just want to replace it with the code on a sane
+# branch (say develop)
+$ git checkout develop
+$ git merge -s ours <branchname>
+$ git checkout master
+$ git merge develop
+
+# You can also use this strategy to resolve merge-conflicts on a per-file basis
+[~/testing (develop *+|MERGING u+7)]
+$ git status
+# On branch develop
+# Your branch is ahead of 'origin/develop' by 7 commits.
+#
+# Changes to be committed:
+#
+#       modified:   INSTALL.txt
+#       modified:   License.txt
+#
+# Unmerged paths:
+#   (use "git add/rm <file>..." as appropriate to mark resolution)
+#
+#       both modified:      README.txt
+#
+
+# to keep the changes on our branch
+$ git checkout --ours README.txt
+$ git add README.txt
+$ git commit
+
+* Tagging
+
+# Create a tag signed using gpg
+$ git tag -u <key-id> <tagname> <commitid>
+
+# Push single tag to remote
+$ git push <remotename> <tagname>
+
+# Push all tags on branch <branchname> to remote
+$ git push <remotename> <branchname> --tags
+
+# If you have saved your signing key in git config:
+$ git tag -s <tagname> <commitid>
+
+# list tags
+$ git tag -l
+
+# Create a tag without signing it (annotated tag)
+$ git tag -a
+
+# Find out the latest version tag you have created (say v0.93.1.2)
+$ git describe --match v*
+
+# Show an old version of the file
+$ git show v2.5:fs/locks.c
+
+# Get the commit-id from a tag name
+$ git rev-parse name
+
+# Deleting a tag locally
+$ git tag -d 12345
+
+# and from origin
+$ git push origin :refs/tags/12345
+
+* Listing and Display
+
+# list all the files that have changed between two revisions
+$ git diff --name-only rev1 rev2
+
+# list files in a single commit. format string is very, very useful
+$ git show --pretty="format:" --name-only <commitid>
+
+# single line logs
+$ git log --pretty=oneline
+
+# commits by author
+$ git log --author=foo
+
+# some other fun things with log: --graph, --topo-order, --since
+# here is a particularly good example of playing with log for fun and profit
+$ git log --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)[%an]%Creset' --graph
+
+# show files changed between branches in a 'git status' way
+$ git diff --name-status master..branch
+
+# show changes in a single file
+$ git log -p <filename>
+
+# Generate changelog for a branch
+$ git shortlog master..branch
+
+* Patches
+
+# Create a patch between two ids
+$ git diff [commit-id-before] [commit-id-after] > my.patch
+
+# Create a ready-to-send patch with the last 3 commits
+$ git format-patch -3
+
+# Apply commits selectively from one branch to another.
+$ git format-patch -k -s --stdout R1..R2 | git am -3 -k
+
+# -k keep subject -s signoff -3 use diff3 in case of conflict
+# there is also an easier way of doing this
+$ git cherry-pick R1..R2
+
+# Create a patch of the commits present in this branch but not in master
+git format-patch master --stdout > diff-with-master.patch
+
+# Check the stats of the patch
+$ git apply --stat diff-with-master.patch
+
+# Check if the patch will apply cleanly
+$ git apply --check diff-with-master.patch
+
+# Apply the patch to the master branch
+$ git am -3 --signoff < diff-with-master.patch
+
+* Submodules
+
+# Adding another repository as a submodule
+$ git submodule add path_to_git_repo local_dir
+$ git submodule init
+$ git submodule update
+
+# Git submodule update keeps the submodule in headless state.
+# When you want to bring the submodule up-to-date, remember to
+# checkout to a branch first.
+# NOTE: This is not true with the latest versions of git. These versions
+# will checkout the default branch in the submodule for you
+
+# Get all the submodules in a repository while cloning it
+$ git clone --recursive <path-to-remote-repo>
+
+* Adding & Committing
+
+# interactively stage changes to file
+$ git add -p
+
+# selectively apply a commit from one branch to another
+$ git cherry-pick <commit-id>
+
+# if you forgot to add a file to your latest commit,
+# you can use this command to amend the commit
+$ git commit --amend
+
+# this will reuse the commit message used in the latest commit,
+# so that you don't have to retype the commit message
+$ git commit --amend -C HEAD
+
+* Debugging and Recovery
+
+# To find a regression that happened between v2.6.18 and master
+$ git bisect start
+$ git bisect good v2.6.18
+$ git bisect bad master
+
+# Git will now take you to a commit in between v2.6.18 and master,
+# verify if the commit is good or bad and mark it using
+$ git bisect good # or
+$ git bisect bad
+
+# Show me a list of dangling commits and blobs
+$ git fsck --lost-found --no-reflog
+
+# Show me everywhere that HEAD has pointed to in the past
+git reflog
+
+# Show me all commits that touched a file / multiple files /
+# files in a given directory / files in multiple directories
+# since version v1.5.0
+$ gitk v1.5.0.. <filenames/directorynames>
+
+# show me all changes to file in the in the last 2 weeks
+$ gitk --since="2 weeks ago" -- <filename>
+
+# Show me the last 100 changes to the file across all branches
+$ gitk --max-count=100 --all -- <filename>
+
+# gitk can take a selective list of commits and
+# show them to you, this allows us to see all the dangling
+# commits and select the ones we want to recover.
+$ gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
+
+* Misc
+
+# get rid of bloody trailing whitespace
+$ git apply --whitespace=fix
+
+* Extra configuration for a better Git experience
+
+$ git config --global user.name "FirstName LastName"
+
+$ git config --global user.email "user@example.com"
+
+# Fancy colors on the terminal
+$ git config --global color.ui "auto"
+
+# Reuse Rebase Resolution, always
+$ git config --global rerere.enabled 1
+
+# Always pull with the rebase switch
+$ git config --global branch.autosetuprebase always
+
+# Always setup a branch for merging
+$ git config --global branch.autosetupmerge always
+
+# Use shortlog summary when creating a merge commit
+$ git config --global merge.summary true
+
+# Save your gpg signing key so that you don't have to type it every time
+$ git config --global user.signingkey <keyid>
+
+# List your current git configuration
+$ git config --list
+
+# Find extra configuration for my personal use-case in my dotfiles directory
+# https://github.com/vedang/dotfiles/blob/master/.gitconfig
