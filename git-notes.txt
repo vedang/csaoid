@@ -110,6 +110,17 @@ $ git checkout --ours README.txt
 $ git add README.txt
 $ git commit
 
+# merge project A into subdirectory A
+# - From http://jasonkarns.com/blog/merge-two-git-repositories-into-one/
+# Path should be a remote
+# the -f option runs `git fetch <name>` immediately after the remote info
+# is set up.
+# This makes your history look like this directory was in the repo all along
+$ git remote add -f projA /path/to/projA
+$ git merge -s ours --no-commit projA/master
+$ git read-tree --prefix=subdirA/ -u projA/master
+$ git commit -m "merging projA into subdirA"
+
 * Tagging
 
 # Create a tag signed using gpg
