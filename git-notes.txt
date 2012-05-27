@@ -84,7 +84,7 @@ $ git merge -s ours <branchname>
 # become a total mess and you just want to replace it with the code on a sane
 # branch (say develop)
 $ git checkout develop
-$ git merge -s ours <branchname>
+$ git merge -s ours master
 $ git checkout master
 $ git merge develop
 
