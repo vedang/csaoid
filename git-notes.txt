@@ -226,6 +226,13 @@ $ git submodule update
 # Get all the submodules in a repository while cloning it
 $ git clone --recursive <path-to-remote-repo>
 
+# Deleting a Submodule
+# 1. Delete the relevant section from the .gitmodules file.
+# 2. Delete the relevant section from .git/config.
+# 3.
+$ git rm --cached path_to_submodule # (no trailing slash)
+# 4. Commit and delete the now untracked submodule files.
+
 * Adding & Committing
 
 # interactively stage changes to file
