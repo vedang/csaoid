@@ -1,0 +1,20 @@
+-*- mode: org; -*-
+
+* Installing Emacs from source
+
+$ git clone git://git.savannah.gnu.org/emacs.git
+
+$ sudo apt-get install libxaw7-dev libjpeg-dev libgif-dev libxpm-dev
+libpng12-dev libtiff4-dev libncurses5-dev libtinfo-dev libglib2.0-dev
+intl-fonts libgtk2.0-dev libxaw3dxft6 librsvg2-dev imagemagick libdbus-1-dev
+libgconf2-dev libm17n-dev libotf-dev graphicsmagick-libmagick-dev-compat
+
+# This second step can probably be avoided/replaced with
+# $ sudo build-dep emacs
+# Need to try that out one of these days
+
+$ ./configure --prefix=/opt/emacs/ --with-xft --with-x-toolkit
+
+$ make
+
+$ sudo make install
