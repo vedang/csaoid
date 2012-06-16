@@ -249,7 +249,7 @@ $ git commit --amend
 # so that you don't have to retype the commit message
 $ git commit --amend -C HEAD
 
-* Debugging and Recovery
+* Debugging, Recovery & Undoing
 
 # To find a regression that happened between v2.6.18 and master
 $ git bisect start
@@ -282,6 +282,30 @@ $ gitk --max-count=100 --all -- <filename>
 # show them to you, this allows us to see all the dangling
 # commits and select the ones we want to recover.
 $ gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
+
+# Undo a commit amend:
+
+# 1. When you haven't pushed the commit to remote
+# From: http://stackoverflow.com/a/1459264/137430
+# Move the current head so that it's pointing at the old commit
+# Leave the index intact for redoing the commit
+$ git reset --soft HEAD@{1}
+
+# commit the current tree using the commit details of the previous
+# HEAD commit. (Note that HEAD@{1} is pointing somewhere different from the
+# previous command. It's now pointing at the erroneously amended commit.)
+$ git commit -C HEAD@{1}
+
+# 2. When you have pushed the original commit to remote
+$ git reset --soft HEAD^1
+
+$ git stash
+
+$ git pull origin <branchname>
+
+$ git stash pop
+# Resolve whatever conflicts you may have and create a new commit with the
+# changes you wanted to amend.
 
 * Misc
 
