@@ -291,7 +291,7 @@ $ git apply --whitespace=fix
 # Rewrite Author's email address
 # WARNING: This rewrites every commit in repository i.e. All SHAs will
 #          change. Use this on a New repository
-git filter-branch --commit-filter '
+$ git filter-branch --commit-filter '
         if [ "$GIT_AUTHOR_EMAIL" = "original_email_address" ];
         then
                 GIT_AUTHOR_NAME="FirstName LastName";
