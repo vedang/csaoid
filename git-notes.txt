@@ -261,6 +261,12 @@ $ git bisect bad master
 $ git bisect good # or
 $ git bisect bad
 
+# When you've found the bad commit and are done with the bisect
+$ git bisect reset
+
+# You can also specify a script to auto mark a commit as good or bad
+$ git bisect run my_script
+
 # Show me a list of dangling commits and blobs
 $ git fsck --lost-found --no-reflog
 
