@@ -58,6 +58,9 @@ $ git clean -fdx
 $ git filter-branch --subdirectory-filter trunk HEAD
 $ git remote add trunk /path/to/trunk
 $ git push trunk master
+# This can also be done using git-subtree on git 1.7.11+
+$ git subtree split --prefix=subdir/ -b split
+$ git push git@github.com:yourname/your-repo.git split:master
 
 # from - http://progit.org/book/ch6-4.html
 
@@ -116,10 +119,17 @@ $ git commit
 # the -f option runs `git fetch <name>` immediately after the remote info
 # is set up.
 # This makes your history look like this directory was in the repo all along
+# There is a good explanation of this on github here -
+# https://help.github.com/articles/working-with-subtree-merge
 $ git remote add -f projA /path/to/projA
 $ git merge -s ours --no-commit projA/master
 $ git read-tree --prefix=subdirA/ -u projA/master
 $ git commit -m "merging projA into subdirA"
+
+# This can also be done much easily using the new git subtree command. git-subtree
+# in now included in git 1.7.11+ in the contrib section
+# To add a repo just do the following :
+$ git subtree add --prefix=subdir/ <subtree-repo> <subtree-branch> -m "merging subtree"
 
 * Tagging
 
