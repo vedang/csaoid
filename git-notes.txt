@@ -243,7 +243,7 @@ $ git clone --recursive <path-to-remote-repo>
 $ git rm --cached path_to_submodule # (no trailing slash)
 # 4. Commit and delete the now untracked submodule files.
 
-* Adding & Committing
+* Adding, Removing & Committing
 
 # interactively stage changes to file
 $ git add -p
@@ -258,6 +258,12 @@ $ git commit --amend
 # this will reuse the commit message used in the latest commit,
 # so that you don't have to retype the commit message
 $ git commit --amend -C HEAD
+
+# Delete all untracked files in the repository
+# -d : delete untracked directories
+# -x : delete ignored files.
+# -f : force. This command is disabled otherwise.
+$ git clean -dxf <path>
 
 * Debugging, Recovery & Undoing
 
