@@ -2,6 +2,8 @@
 
 * Installing Emacs from source
 
+** Ubuntu 12.04
+
 $ git clone git://git.savannah.gnu.org/emacs.git
 
 $ sudo apt-get install libxaw7-dev libjpeg-dev libgif-dev libxpm-dev
@@ -18,3 +20,14 @@ $ ./configure --prefix=/opt/emacs/ --with-xft --with-x-toolkit
 $ make
 
 $ sudo make install
+
+** Mac OS X 10.7
+
+$ brew install emacs --HEAD --cocoa --use-git-head
+
+$ brew linkapps
+
+# After installing from brew, head to /Library/Caches/Homebrew/emacs--git/
+# (source is downloaded here) and make tags for the source
+
+$ make tags
