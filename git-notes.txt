@@ -338,6 +338,18 @@ $ git log -g  # Walks reflog and shows you a history of your actions
 # Walk the history of your actions until the moment before you began
 # the rebase, then reset your branch here. Voila.
 
+# Undo a git-rerere conflict resolution
+# rerere is awesome, we are all agreed upon this.
+# However, sometimes, we can make a _bad_ conflict resolution
+# And then we are royally screwed.
+# When we figure out that a bad resolution has been applied,
+# we can undo the rebase and do it again. Unfortunately for us, rerere
+# will have stored the resolution, and it will happily go ahead and
+# apply the resolution. Now what?
+# Recover conflict markers in a file by running the following command:
+
+$ git checkout -m <file>
+
 * Misc
 
 # get rid of bloody trailing whitespace
