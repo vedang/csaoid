@@ -329,6 +329,15 @@ $ git stash pop
 # Resolve whatever conflicts you may have and create a new commit with the
 # changes you wanted to amend.
 
+# Undo a rebase
+# Sometimes, we rebase by mistake. Here is an easy way to fix it,
+# using git's awesome reflog
+$ git log -g  # Walks reflog and shows you a history of your actions
+              # This command is invaluable and needs to be cross
+              # documented in the logging section.
+# Walk the history of your actions until the moment before you began
+# the rebase, then reset your branch here. Voila.
+
 * Misc
 
 # get rid of bloody trailing whitespace
