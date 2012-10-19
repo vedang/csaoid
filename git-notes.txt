@@ -243,6 +243,12 @@ $ git clone --recursive <path-to-remote-repo>
 $ git rm --cached path_to_submodule # (no trailing slash)
 # 4. Commit and delete the now untracked submodule files.
 
+# Updating all submodules while pulling upstream changes
+# 1. Get all the changes
+$ git pull --recurse-submodules #requires git 1.7.3+
+# 2. Checkout the proper SHA-1
+$ git submodule update --recursive
+
 * Adding, Removing & Committing
 
 # interactively stage changes to file
@@ -367,6 +373,9 @@ $ git filter-branch --commit-filter '
         else
                 git commit-tree "$@";
         fi' HEAD
+# Re-write author's email in the last _unpushed_ commit
+# 1. Set the new author name and email using git config and then use :
+$ git commit --amend --reset-author
 
 
 * Extra configuration for a better Git experience
