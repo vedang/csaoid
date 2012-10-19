@@ -373,6 +373,9 @@ $ git filter-branch --commit-filter '
         else
                 git commit-tree "$@";
         fi' HEAD
+# Re-write author's email in the last _unpushed_ commit
+# 1. Set the new author name and email using git config and then use :
+$ git commit --amend --reset-author
 
 
 * Extra configuration for a better Git experience
