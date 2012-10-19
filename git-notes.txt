@@ -243,6 +243,12 @@ $ git clone --recursive <path-to-remote-repo>
 $ git rm --cached path_to_submodule # (no trailing slash)
 # 4. Commit and delete the now untracked submodule files.
 
+# Updating all submodules while pulling upstream changes
+# 1. Get all the changes
+$ git pull --recurse-submodules #requires git 1.7.3+
+# 2. Checkout the proper SHA-1
+$ git submodule update --recursive
+
 * Adding, Removing & Committing
 
 # interactively stage changes to file
