@@ -75,7 +75,7 @@ $ git reset --soft HEAD^
 # The final step removes the merge-commit and reverts the local repo back to
 # state before filter-branch
 
-* Merging
+* Merging and Rebasing
 
 # Merge the code from some other branch into our branch, keeping our code
 # on every conflict
@@ -130,6 +130,12 @@ $ git commit -m "merging projA into subdirA"
 # in now included in git 1.7.11+ in the contrib section
 # To add a repo just do the following :
 $ git subtree add --prefix=subdir/ <subtree-repo> <subtree-branch> -m "merging subtree"
+
+# Sometimes, it's irritating that rebase destroys merge commits.
+# I want the merge commit there to indicate the flow of the work
+# Enter --preserve-merges or -p
+$ git rebase -p <branchname>
+
 
 * Tagging
 
