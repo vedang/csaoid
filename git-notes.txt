@@ -136,7 +136,6 @@ $ git subtree add --prefix=subdir/ <subtree-repo> <subtree-branch> -m "merging s
 # Enter --preserve-merges or -p
 $ git rebase -p <branchname>
 
-
 * Tagging
 
 # Create a tag signed using gpg
@@ -254,6 +253,21 @@ $ git rm --cached path_to_submodule # (no trailing slash)
 $ git pull --recurse-submodules #requires git 1.7.3+
 # 2. Checkout the proper SHA-1
 $ git submodule update --recursive
+
+* Subtree (1.7.11+)
+# Splitting out code from an existing repository into a new repository
+$ git subtree split --prefix=subdir/ --annotate='(split)' -b split_dir
+$ git push git@github.com:yourname/your-repo.git split_dir:master
+
+# Adding a repository as a subtree to your current repository
+$ git subtree add --prefix=path/in/curr/repo --squash \
+		git://github.com/yourname/your-repo.git master
+
+# Pushing the changes that you have made in a subtree back upstream
+$ git subtree split --prefix=subdir/ --annotate='(split)' -b split_dir_latest
+# subtree guarantees that previously seen commits with retain the same SHAs
+# which makes this operation very straightforward
+$ git push git@github.com:yourname/your-repo.git split_dir_latest:master
 
 * Adding, Removing & Committing
 
