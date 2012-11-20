@@ -150,6 +150,13 @@ $ git push <remotename> <branchname> --tags
 # If you have saved your signing key in git config:
 $ git tag -s <tagname> <commitid>
 
+# Fetch tags from origin
+$ git fetch --tags origin
+# Note: a plain git-fetch fetches all branches, all commits associated with
+# those branches, and all tags _reachable_ from those branches.
+# This means that if a certain tag is no longer reachable from any branch, it
+# will not be fetched. Hence the explicit git fetch --tags command.
+
 # list tags
 $ git tag -l
 
