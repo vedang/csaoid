@@ -166,6 +166,9 @@ $ git tag -a
 # Find out the latest version tag you have created (say v0.93.1.2)
 $ git describe --match v*
 
+# Find the latest tag that you have created.
+$ git describe --tags `git rev-list --tags --max-count=1`
+
 # Show an old version of the file
 $ git show v2.5:fs/locks.c
 
