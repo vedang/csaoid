@@ -49,6 +49,10 @@ $ git symbolic-ref HEAD refs/heads/newbranch
 $ rm .git/index
 $ git clean -fdx
 
+# Simpler method with git v1.7.2+
+$ git checkout --orphan newbranch
+$ git rm -rf .
+
 # Create a separate repository from a range of commits restricted to a
 # sub-directory
 
