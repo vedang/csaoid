@@ -31,3 +31,8 @@ $ brew linkapps
 # (source is downloaded here) and make tags for the source
 
 $ make tags
+
+
+* Clj -> Elisp Cheat Sheet
+** map = mapcar
+** apply = funcall
