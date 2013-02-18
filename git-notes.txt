@@ -49,6 +49,10 @@ $ git symbolic-ref HEAD refs/heads/newbranch
 $ rm .git/index
 $ git clean -fdx
 
+# Simpler method with git v1.7.2+
+$ git checkout --orphan newbranch
+$ git rm -rf .
+
 # Create a separate repository from a range of commits restricted to a
 # sub-directory
 
@@ -59,10 +63,7 @@ $ git filter-branch --subdirectory-filter trunk HEAD
 $ git remote add trunk /path/to/trunk
 $ git push trunk master
 # This can also be done using git-subtree on git 1.7.11+
-$ git subtree split --prefix=subdir/ -b split
-$ git push git@github.com:yourname/your-repo.git split:master
-
-# from - http://progit.org/book/ch6-4.html
+# Refer to [[id:171BE2FB-7835-4E96-A984-FC2B24E91019][Subtree (1.7.11+)]]
 
 # Getting back original master
 $ git checkout masters_original_HEAD
@@ -128,8 +129,7 @@ $ git commit -m "merging projA into subdirA"
 
 # This can also be done much easily using the new git subtree command. git-subtree
 # in now included in git 1.7.11+ in the contrib section
-# To add a repo just do the following :
-$ git subtree add --prefix=subdir/ <subtree-repo> <subtree-branch> -m "merging subtree"
+# Refer to [[id:171BE2FB-7835-4E96-A984-FC2B24E91019][Subtree (1.7.11+)]]
 
 # Sometimes, it's irritating that rebase destroys merge commits.
 # I want the merge commit there to indicate the flow of the work
@@ -265,6 +265,9 @@ $ git pull --recurse-submodules #requires git 1.7.3+
 $ git submodule update --recursive
 
 * Subtree (1.7.11+)
+  :PROPERTIES:
+  :ID:       171BE2FB-7835-4E96-A984-FC2B24E91019
+  :END:
 # Splitting out code from an existing repository into a new repository
 $ git subtree split --prefix=subdir/ --annotate='(split)' -b split_dir
 $ git push git@github.com:yourname/your-repo.git split_dir:master
