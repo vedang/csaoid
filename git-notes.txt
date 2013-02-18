@@ -49,6 +49,10 @@ $ git symbolic-ref HEAD refs/heads/newbranch
 $ rm .git/index
 $ git clean -fdx
 
+# Simpler method with git v1.7.2+
+$ git checkout --orphan newbranch
+$ git rm -rf .
+
 # Create a separate repository from a range of commits restricted to a
 # sub-directory
 
@@ -58,11 +62,6 @@ $ git clean -fdx
 $ git filter-branch --subdirectory-filter trunk HEAD
 $ git remote add trunk /path/to/trunk
 $ git push trunk master
-# This can also be done using git-subtree on git 1.7.11+
-$ git subtree split --prefix=subdir/ -b split
-$ git push git@github.com:yourname/your-repo.git split:master
-
-# from - http://progit.org/book/ch6-4.html
 
 # Getting back original master
 $ git checkout masters_original_HEAD
