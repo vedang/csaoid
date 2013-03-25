@@ -276,6 +276,10 @@ $ git push git@github.com:yourname/your-repo.git split_dir:master
 $ git subtree add --prefix=path/in/curr/repo --squash \
 		git://github.com/yourname/your-repo.git master
 
+# Pulling changes from subtree
+$ git subtree pull --prefix=path/in/curr/repo --squash \
+		git://github.com/yourname/your-repo.git master
+
 # Pushing the changes that you have made in a subtree back upstream
 $ git subtree split --prefix=subdir/ --annotate='(split)' -b split_dir_latest
 # subtree guarantees that previously seen commits with retain the same SHAs
