@@ -35,4 +35,19 @@ $ make tags
 
 * Clj -> Elisp Cheat Sheet
 ** map = mapcar
-** apply = funcall
+mapc is similar to mapcar, expect that it does not accumulate the results.
+mapc should be used for side-effects, where we don't care about the
+return value.
+** apply = apply
+The way to call this is:
+(apply #'equal '(:a :A))
+** keep = delq nil
+** = = equal
+** first = car
+** rest = cdr
+** Other Notes:
+The function `funcall` can be used to treat the first argument as a
+function on the rest of the arguments.
+
+Eg: (funcall #'equal :a :A) => nil
+    (funcall #'equal :a :a) => t
