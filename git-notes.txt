@@ -181,6 +181,9 @@ $ git tag -d 12345
 # and from origin
 $ git push origin :refs/tags/12345
 
+# Print list of tags that contain a given commit
+$ git tag --contains <SHA>
+
 * Listing and Display
 
 # list all the files that have changed between two revisions
