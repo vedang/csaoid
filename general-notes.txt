@@ -83,3 +83,33 @@ $ openssl enc -d -aes-256-cbc -a -in file.enc
       # blacklist i2c_piix4
     - Update initramfs
       # update-initramfs -u -k all
+
+** General notes
+*** Mounting the Vbox root in the host machine (for fsck or other FUBAR scenarios)
+    If you want to mount your Vbox root partition without using Virtual Box,
+    you might find the following commands useful :
+    # This assumes you have an Ubuntu Linux host or have copied the .vdi image to a Linux host
+    # This also assumes that the Guest instance is _not_ running when you do this
+
+    # on the host machine
+
+    $ sudo apt-get install qemu-kvm # Assumes you use Ubuntu as host
+    $ sudo modprobe nbd
+    $ sudo su
+
+    # As root
+
+    $ qemu-nbd -c /dev/nbd0 /media/Misc/ubuntu10.10-OS.vdi
+    # use your own path for .vdi
+    # (I suggest you take a backup of the .vdi before all this)
+
+    $ mount /dev/nbd0p1 /mnt
+
+    # You can find the partitions of interest using fdisk -l /dev/nbd0
+
+    Now you should be able to the see all your files in /mnt.
+
+    For fsck :
+
+    $ umount /mnt
+    $ fsck /dev/nbd0p1
