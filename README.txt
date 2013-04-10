@@ -23,3 +23,8 @@ Git-notes
 
 Chinmay Kamat (@cdkamat)
 Kiran Kulkarni (@kirankulkarni)
+
+General-notes
+-------------
+
+Chinmay Kamat (@cdkamat)
