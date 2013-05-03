@@ -51,3 +51,16 @@ function on the rest of the arguments.
 
 Eg: (funcall #'equal :a :A) => nil
     (funcall #'equal :a :a) => t
+
+
+* Regex replacements
+  Taken right from the Emacs Manual (I always seem to forget this).
+  http://www.gnu.org/software/emacs/manual/html_node/emacs/Regexp-Replace.html
+
+  M-x replace-regexp <RET> c[ad]+r <RET> \&-safe <RET>
+  replaces (for example) ‘cadr’ with ‘cadr-safe’ and ‘cddr’ with ‘cddr-safe’.
+
+  M-x replace-regexp <RET> \(c[ad]+r\)-safe <RET> \1 <RET>
+  ‘\d’ in newstring, where d is a digit, stands for whatever matched the dth
+  parenthesized grouping in regexp.
+  Note : The parens making groups need to be escaped.

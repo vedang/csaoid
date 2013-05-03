@@ -33,3 +33,8 @@ GDB-notes
 -------------
 
 Chinmay Kamat (@cdkamat)
+
+Emacs-notes
+-------------
+
+Chinmay Kamat (@cdkamat)
