@@ -1,0 +1,22 @@
+# gdb-notes.txt : Contains random bits of information that I seem to Google for
+# quite a often and can't find easily in the manual or in
+# "Debugging with gdb: the gnu Source-Level Debugger for gdb" at
+# http://www.sourceware.org/gdb/current/onlinedocs/gdb.html
+#
+# Last Modified : Fri, 3 May 2013 04:47:01 EDT
+
+
+* Conditional Breakpoints
+** Conditionals on strings
+   (gdb) set $string_var = "StringToMatch"
+   (gdb) cond 1 strcmp (string_variable_in_code, $string_var) == 0
+
+* Inserting a breakpoint in code
+  - Can be done using inline ASM code.
+    asm volatile ("int3;");
+  - These can't be disabled, so it's a good idea to keep them conditional. For eg:
+    if (NULL == string) {
+        /* I want to break here */
+        asm volatile ("int3;");
+    }
+  - Example code : https://github.com/kmcallister/embedded-breakpoints
