@@ -76,6 +76,11 @@ $ git reset --soft HEAD^
 # The final step removes the merge-commit and reverts the local repo back to
 # state before filter-branch
 
+# Change the upstream target for a branch
+# (change the branch being tracked)
+$ git checkout <branch_name>
+$ git branch --set-upstream-to=origin/<branch_name>
+
 * Merging and Rebasing
 
 # Merge the code from some other branch into our branch, keeping our code
