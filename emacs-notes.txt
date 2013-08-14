@@ -15,10 +15,10 @@ libgconf2-dev libm17n-dev libotf-dev graphicsmagick-libmagick-dev-compat
 # $ sudo build-dep emacs
 # Need to try that out one of these days
 
+$ make distclean
+$ ./autogen.sh
 $ ./configure --prefix=/opt/emacs/ --with-xft --with-x-toolkit
-
-$ make
-
+$ make bootstrap
 $ sudo make install
 
 ** Mac OS X 10.7
