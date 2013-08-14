@@ -202,6 +202,9 @@ $ git log --author=foo
 # here is a particularly good example of playing with log for fun and profit
 $ git log --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)[%an]%Creset' --graph
 
+# Work done in the last 7 Days
+$ git log --author=$USER --format="- %B" --since=-7days --reverse
+
 # show files changed between branches in a 'git status' way
 $ git diff --name-status master..branch
 
