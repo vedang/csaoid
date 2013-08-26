@@ -219,6 +219,18 @@ $ git log -p <filename>
 # Generate changelog for a branch
 $ git shortlog master..branch
 
+# List all unpushed local commits
+$ git log --branches --not --remotes
+
+# List the most recent unpushed local commits on each branch
+$ git log --branches --not --remotes --simplify-by-decoration --decorate --oneline
+
+# List unpushed local commits in the current branch
+$ git log @{u}..
+
+# List all local changes (origin/master is the remote branch in this example)
+$ git diff origin/master..HEAD
+
 * Patches
 
 # Create a patch between two ids
