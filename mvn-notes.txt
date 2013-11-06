@@ -3,6 +3,10 @@
 # This file contains a bunch of useful Maven commands that I don't want
 # to forget.
 
+# Fetch source jars and javadocs for your dependencies.
+$ mvn dependency:sources
+$ mvn dependency:resolve -Dclassifier=javadoc
+
 # Convert your maven project into something supported by eclipse.
 # 1. Copy the project into your Eclipse Workspace folder.
 # 2. Run:
