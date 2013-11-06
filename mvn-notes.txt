@@ -1,0 +1,13 @@
+-*- mode: org; comment-column: 0; -*-
+
+# This file contains a bunch of useful Maven commands that I don't want
+# to forget.
+
+# Convert your maven project into something supported by eclipse.
+# 1. Copy the project into your Eclipse Workspace folder.
+# 2. Run:
+$ mvn eclipse:eclipse
+# 3. Run:
+$ mvn -Declipse.workspace="/path/to/eclipse_workspace" eclipse:configure-workspace
+# 4. From inside Eclipse, Import the project by clicking on
+# File->Import->Existing project.
