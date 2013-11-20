@@ -213,7 +213,7 @@ $ git log --author=$USER --format="- %B" --since=-7days --reverse
 # show files changed between branches in a 'git status' way
 $ git diff --name-status master..branch
 
-# show changes in a single file
+# show changes in a single file (log + diff)
 $ git log -p <filename>
 
 # Generate changelog for a branch
@@ -230,6 +230,9 @@ $ git log @{u}..
 
 # List all local changes (origin/master is the remote branch in this example)
 $ git diff origin/master..HEAD
+
+# Show changes made to a file from rev1 to rev2
+$ git log rev1:filename rev2:filename
 
 * Patches
 
