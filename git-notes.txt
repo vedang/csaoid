@@ -232,7 +232,8 @@ $ git log @{u}..
 $ git diff origin/master..HEAD
 
 # Show changes made to a file from rev1 to rev2
-$ git log rev1:filename rev2:filename
+# rev1 occurs before in time than rev2
+$ git diff rev1:filename rev2:filename
 
 * Patches
 
