@@ -457,6 +457,9 @@ $ git config --global rerere.enabled 1
 # Always pull with the rebase switch
 $ git config --global branch.autosetuprebase always
 
+# Setting up rebase for existing branches
+$ git config branch.*branch-name*.rebase true
+
 # Always setup a branch for merging
 $ git config --global branch.autosetupmerge always
 
