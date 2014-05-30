@@ -183,7 +183,7 @@ $ git rev-parse name
 # Deleting a tag locally
 $ git tag -d 12345
 
-# and from origin
+# and deleting a tag from origin
 $ git push origin :refs/tags/12345
 
 # Print list of tags that contain a given commit
@@ -222,6 +222,8 @@ $ git shortlog master..branch
 # List all unpushed local commits
 $ git log --branches --not --remotes
 
+# Here is an interesting log format
+$ git log --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)[%an]%Creset' --graph
 # List the most recent unpushed local commits on each branch
 $ git log --branches --not --remotes --simplify-by-decoration --decorate --oneline
 
