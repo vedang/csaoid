@@ -165,6 +165,9 @@ $ git fetch --tags origin
 # list tags
 $ git tag -l
 
+# list tags and sort numbered versions correctly.
+$ git tag --list --sort=version:refname
+
 # Create a tag without signing it (annotated tag)
 $ git tag -a
 
