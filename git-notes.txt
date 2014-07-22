@@ -408,6 +408,9 @@ $ git log -g  # Walks reflog and shows you a history of your actions
 # Walk the history of your actions until the moment before you began
 # the rebase, then reset your branch here. Voila.
 
+# Check the history of a branch. It will output all changes made to the branch, including its creation.
+git reflog show --no-abbrev <branch name>
+
 # Undo a git-rerere conflict resolution
 # rerere is awesome, we are all agreed upon this.
 # However, sometimes, we can make a _bad_ conflict resolution
