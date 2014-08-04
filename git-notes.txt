@@ -141,6 +141,10 @@ $ git commit -m "merging projA into subdirA"
 # Enter --preserve-merges or -p
 $ git rebase -p <branchname>
 
+# Find the common base between two branches. (useful to know what will
+# merge / has diverged)
+$ git merge-base <branch1> <branch2>
+
 * Tagging
 
 # Create a tag signed using gpg
@@ -412,6 +416,10 @@ $ git log -g  # Walks reflog and shows you a history of your actions
               # documented in the logging section.
 # Walk the history of your actions until the moment before you began
 # the rebase, then reset your branch here. Voila.
+
+# Check the history of a branch. It will output all changes made to
+# the branch, including its creation.
+$ git reflog show --no-abbrev <branch name>
 
 # Undo a git-rerere conflict resolution
 # rerere is awesome, we are all agreed upon this.
