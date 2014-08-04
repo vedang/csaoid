@@ -1,0 +1,90 @@
+-*- mode: org; comment-column: 0; -*-
+
+# This file contains a list of java/jvm commands that I've found handy
+# in situations I've faced over time. These are commands that _I_ have
+# used (successfully).  I'm not claiming that this is the only way or
+# even the right way to handle a particular situation that you may
+# face. YMMV.
+
+
+* Basics
+
+** Print Java processes running on the system
+
+$ jps
+
+** Take thread-dumps of a given process
+
+$ sudo jstack -F <pid> > /tmp/threaddump
+
+* Debugging
+
+** Print the values of all the flags for the JVM.
+
+# This will print the default values of all flags.
+$ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal
+
+# Choose your flags and run the command again, check diff to see all
+# the stuff that changes because of your change.
+$ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -XX:+UseConcMarkSweepGC
+
+* GC Tuning
+** Thumb Rules of GC Tuning
+
+1. Try to maximize objects reclaimed in young gen. Minimize Full GC
+   frequency.
+2. Set -Xms and -Xmx to 3x to 4x of LDS.
+3. Set both -XX:PermSize and -XX:MaxPermSize to 1.5x max perm gen size.
+4. Young gen should be 1.5x of LDS. (around 1/3 - 1/4 of heap size)
+   (use -XX:NewRatio to set ratio of young gen to heap size)
+5. Old gen should be 2x to 3x of LDS.
+6. Which garbage collector should I use?
+   Read: https://blogs.oracle.com/jonthecollector/entry/our_collectors
+
+** Enable GC Logging in production for better insights.
+
+$ java -Xloggc:<file> -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+UseGCLogFileRotation -XX:+NumberOfGCLogFiles=5 -XX:+GCLogFileSize=10M
+
+** Use [[https://github.com/chewiebug/GCViewer][GCViewer]] for offline analysis of GC logs.
+
+** Calculate Live Data Size (LDS) to see which objects are being instantiated.
+
+$ jmap -histo:live <pid>
+
+# GC Log will also give approximation on LDS (Heap occupancy after
+# each full GC), max perm gen size, and worst case latency scenario
+# due to full GC
+** Parallel Scavenge GC
+- Default in JDK 6, stop-the-world GC
+- -XX:+UseParallelGC (for new gen)
+- -XX:+UseParallelOldGC (for old gen)
+- By default, GC threads = number of cores.
+  Control number using -XX:+ParallelGCThreads=<n>
+** Concurrent Mark and Sweep GC
+- Low latencies collector, very small stop-the-world (for initial
+  marking)
+- to improve throughput, use ParNewGC for young gen
+  -XX:+UseParNewGC (and -XX:+ParallelGCThreads=<n>)
+  (CMS will run on old gen and parnew on new gen, so there will be a
+  small pause for new gen objects)
+- CMS with ParNewGC is a good option for availability
+** G1 GC (The Garbage First GC)
+- officially supported from JDK 7u4
+- -XX:+UseG1GC
+- This is replacement for CMS.
+  - parallel
+  - concurrent
+  - generational
+  - good throughput
+  - low latency
+  ** Differences with CMS begin here **
+  - compacting
+  - predictable
+  - improved ease-of-use
+- G1GC is great for:
+  - Large heaps with limited GC latencies (typically 6GB or larger)
+  - Varied object allocation rate, and undesired long GC/compaction
+    pauses (> 0.5s)
+- More Reading:
+  http://www.infoq.com/presentations/java-g1
+  http://www.oracle.com/technetwork/articles/java/g1gc-1984535.html
