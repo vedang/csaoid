@@ -487,3 +487,15 @@ $ git config --list
 
 # Find extra configuration for my personal use-case in my dotfiles directory
 # https://github.com/vedang/dotfiles/blob/master/.gitconfig
+
+
+* Quick Git Server for local network
+
+# http://stackoverflow.com/a/377293
+$ git config --global alias.serve '!git daemon --reuseaddr --verbose --base-path=. --export-all ./.git'
+
+# Find your computer ip
+$ ifconfig | grep "inet " | awk '{ print $2 }'
+
+# On other computer:
+$ git clone git://192.168.254.135/ project
