@@ -488,6 +488,21 @@ $ git filter-branch --commit-filter '
 # 1. Set the new author name and email using git config and then use :
 $ git commit --amend --reset-author
 
+# Quick Git Server for local network
+# You can run the git daemon if you want other people to clone your
+# repository over the local network.
+$ git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
+
+# You can define a handy alias for this. I use =git serve=
+$ git config --global alias.serve '!git daemon --reuseaddr --verbose --base-path=. --export-all ./.git'
+# Refer http://stackoverflow.com/a/377293
+
+# To clone from this daemon, give your computer ip to your colleagues.
+# Find your computer ip
+# $ ifconfig | grep "inet " | awk '{ print $2 }'
+
+# On other computer:
+$ git clone git://192.168.254.135/ project
 
 * Extra configuration for a better Git experience
 
