@@ -145,6 +145,40 @@ $ git rebase -p <branchname>
 # merge / has diverged)
 $ git merge-base <branch1> <branch2>
 
+# Reverting a merge commit is almost (but not quite) like reverting a
+# normal commit. In the normal case, if you want to revert commit M,
+# you just say =git revert M=, but if M is a merge-commit, you have to
+# specify _which side (parent) of the merge_ you want to revert.
+# Eg: Do you want to revert the changes (A B), or (C D)?
+   # ---C---D---M---x---x
+   #           /
+   #   ---A---B
+
+# The git log will show you this information for a merge commit:
+
+   # commit 87e6940c98b9b297320ad31919210a901ced9ff0
+   # Merge: 80f9a47 b866156
+   # Author: Vedang Manerikar <ved.manerikar@gmail.com>
+   # Date:   Thu Aug 7 13:56:08 2014 +0530
+   #
+   #     Merge branch 'feature/X' into master
+
+# Here D = 80f9a47 and B = b866156
+# So if you want to revert (A B), you have to tell git to revert the
+# 2nd parent, and keep the 1st.
+
+$ git revert M -m 2
+
+# The tree will now look like :
+   # ---C---D---M---x---x---W
+   #           /
+   #   ---A---B
+# where W reverts the changes introduced in M.
+
+# NOTE: This causes problems if you ever want to merge (A B) back into
+# this branch! You have to remember to "revert the revert commit".
+# For more information on why git behaves this way, read:
+# https://www.kernel.org/pub/software/scm/git/docs/howto/revert-a-faulty-merge.txt
 * Tagging
 
 # Create a tag signed using gpg
