@@ -260,6 +260,12 @@ $ git log -p <filename>
 # Generate changelog for a branch
 $ git shortlog master..branch
 
+# list all commits that differ between branches.
+# Note: --cherry-pick can be replaced by --cherry-mark. --cherry-mark
+# marks equivalent commits with = rather than omitting them, and in-equivalent
+# ones with +.
+$ git log --left-right --graph --cherry-pick --oneline branch1...branch2
+
 # List all unpushed local commits
 $ git log --branches --not --remotes
 
