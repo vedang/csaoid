@@ -45,6 +45,7 @@ $ git push <remotename> <localbranchname>:<remotebranchname>
 $ git push <remotename> :<branchname>
 
 # Create an empty branch
+# (Check out the simpler version right below this example)
 $ git symbolic-ref HEAD refs/heads/newbranch
 $ rm .git/index
 $ git clean -fdx
@@ -52,6 +53,12 @@ $ git clean -fdx
 # Simpler method with git v1.7.2+
 $ git checkout --orphan newbranch
 $ git rm -rf .
+
+# Create an empty commit
+# This trick is useful when initializing the git repository, since the
+# initial commit has special properties which stop it from being used
+# in rebase operations.
+$ git commit -m "Empty initial commit" --allow-empty
 
 # Create a separate repository from a range of commits restricted to a
 # sub-directory
