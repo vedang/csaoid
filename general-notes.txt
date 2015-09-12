@@ -113,3 +113,8 @@ $ openssl enc -d -aes-256-cbc -a -in file.enc
 
     $ umount /mnt
     $ fsck /dev/nbd0p1
+* ffmpeg
+** Converting from flac to mp3
+#+BEGIN_SRC shell
+  $ ffmpeg -i input.flac -ab 320k -map_metadata 0 -id3v2_version 3 output.mp3
+#+END_SRC
