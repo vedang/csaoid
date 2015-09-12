@@ -17,6 +17,10 @@ $ jps
 
 $ sudo jstack -F <pid> > /tmp/threaddump
 
+** Take heap dumps of a given process
+
+$ jmap -dump:format=b,file=cheap.bin <pid>
+
 * Debugging
 
 ** Print the values of all the flags for the JVM.
