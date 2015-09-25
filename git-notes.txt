@@ -80,13 +80,37 @@ $ git checkout master
 $ git merge tmp
 $ git reset --soft HEAD^
 
-# The final step removes the merge-commit and reverts the local repo back to
-# state before filter-branch
+# The final step removes the merge-commit and reverts the local repo
+# back to state before filter-branch
 
 # Change the upstream target for a branch
 # (change the branch being tracked)
 $ git checkout <branch_name>
 $ git branch --set-upstream-to=origin/<branch_name>
+
+# Use Git Worktrees (2.5+) for working on multiple things in parallel
+# I want to run tests on the work I've done on `feature/s`
+
+[v@hm ~/src/m (feature/s $ u+1)]
+$ git worktree add -b s-tests ../mtesting feature/s
+Enter ../mtesting (identifier mtesting)
+Branch s-tests set up to track local branch feature/s by rebasing.
+Switched to a new branch 's-tests'
+
+[v@hm ~/src/m (feature/s $ u+1)]
+$ cd ../mtesting
+
+# Voila! I have a new directory with a new branch that is linked to my
+# original repository!
+[v@hm ~/src/mtesting (s-tests $ u=)]
+$ make testclj
+
+# Now I can start my tests here and go back to my work in the original
+# repository without worrying about breaking anything!
+[v@hm ~/src/mtesting (s-tests $ u=)]
+$ cd ../m
+[v@hm ~/src/m (feature/s $ u+1)]
+$
 
 * Merging and Rebasing
 
