@@ -32,6 +32,9 @@ $ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal
 # the stuff that changes because of your change.
 $ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -XX:+UseConcMarkSweepGC
 
+** Browsing JMX beans on a production server
+$ j4psh http://localhost:8778/jolokia
+
 * GC Tuning
 ** Thumb Rules of GC Tuning
 
