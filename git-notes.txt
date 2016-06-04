@@ -88,30 +88,6 @@ $ git reset --soft HEAD^
 $ git checkout <branch_name>
 $ git branch --set-upstream-to=origin/<branch_name>
 
-# Use Git Worktrees (2.5+) for working on multiple things in parallel
-# I want to run tests on the work I've done on `feature/s`
-
-[v@hm ~/src/m (feature/s $ u+1)]
-$ git worktree add -b s-tests ../mtesting feature/s
-Enter ../mtesting (identifier mtesting)
-Branch s-tests set up to track local branch feature/s by rebasing.
-Switched to a new branch 's-tests'
-
-[v@hm ~/src/m (feature/s $ u+1)]
-$ cd ../mtesting
-
-# Voila! I have a new directory with a new branch that is linked to my
-# original repository!
-[v@hm ~/src/mtesting (s-tests $ u=)]
-$ make testclj
-
-# Now I can start my tests here and go back to my work in the original
-# repository without worrying about breaking anything!
-[v@hm ~/src/mtesting (s-tests $ u=)]
-$ cd ../m
-[v@hm ~/src/m (feature/s $ u+1)]
-$
-
 * Merging and Rebasing
 
 # Merge the code from some other branch into our branch, keeping our code
@@ -392,6 +368,34 @@ $ git subtree split --prefix=subdir/ --annotate='(split)' -b split_dir_latest
 # subtree guarantees that previously seen commits with retain the same SHAs
 # which makes this operation very straightforward
 $ git push git@github.com:yourname/your-repo.git split_dir_latest:master
+
+* Worktree (2.5+)
+# Use Git Worktrees (2.5+) for working on multiple things in parallel
+# I want to run tests on the work I've done on `feature/s`
+
+[v@hm ~/src/m (feature/s $ u+1)]
+$ git worktree add -b s-tests ../mtesting feature/s
+Enter ../mtesting (identifier mtesting)
+Branch s-tests set up to track local branch feature/s by rebasing.
+Switched to a new branch 's-tests'
+
+[v@hm ~/src/m (feature/s $ u+1)]
+$ cd ../mtesting
+
+# Voila! I have a new directory with a new branch that is linked to my
+# original repository!
+[v@hm ~/src/mtesting (s-tests $ u=)]
+$ make testclj
+
+# Now I can start my tests here and go back to my work in the original
+# repository without worrying about breaking anything!
+[v@hm ~/src/mtesting (s-tests $ u=)]
+$ cd ../m
+[v@hm ~/src/m (feature/s $ u+1)]
+$
+
+# List existing worktrees
+$ git worktree list
 
 * Adding, Removing & Committing
 
