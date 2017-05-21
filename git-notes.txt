@@ -352,8 +352,8 @@ $ git submodule update --recursive
   :ID:       171BE2FB-7835-4E96-A984-FC2B24E91019
   :END:
 # Splitting out code from an existing repository into a new repository
-$ git subtree split --prefix=subdir/ --annotate='(split)' -b split_dir
-$ git push git@github.com:yourname/your-repo.git split_dir:master
+$ git subtree split --prefix=subdir/ --annotate='(split)' -b split_branch
+$ git push git@github.com:yourname/your-repo.git split_branch:master
 
 # Adding a repository as a subtree to your current repository
 $ git subtree add --prefix=path/in/curr/repo --squash \
