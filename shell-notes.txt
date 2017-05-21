@@ -1,0 +1,16 @@
+-*- mode: org; comment-column: 0; -*-
+
+# This file contains a list of shell commands that I've found handy in situations
+# I've faced over time. These are commands that _I_ have used (successfully).
+# I'm not claiming that this is the only way or even the right
+# way to handle a particular situation that you may face. YMMV.
+
+# The commands are ordered by type rather than difficulty, so you are going to
+# find intermediate and slightly advanced commands intermingled with the easy
+# ones. I mean for this document to be used as a cheat-sheet, not a tutorial,
+# but if you are confused about something shoot me a mail
+
+* Redirection
+  - some_cmd > some_file 2>&1 &
+    # ^ How do I redirect the output of a process to a log file, and
+    # background the process at the same time?
