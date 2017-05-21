@@ -1,0 +1,24 @@
+-*- mode: org; comment-column: 0; -*-
+
+# This file contains a list of ledger commands that I've found handy in situations
+# I've faced over time. These are commands that _I_ have used (successfully).
+# I'm not claiming that this is the only way or even the right
+# way to handle a particular situation that you may face. YMMV.
+
+# The commands are ordered by type rather than difficulty, so you are going to
+# find intermediate and slightly advanced commands intermingled with the easy
+# ones. I mean for this document to be used as a cheat-sheet, not a tutorial,
+# but if you are confused about something shoot me a mail
+
+# *NOTE*: I use the aliases I've defined in all the commands.
+* Ledger Aliases
+  - alias lreport='/path/to/ledger/contrib/report'
+    # ^ Reporting tool provided in ledger contrib
+  - alias gledger='gpg -d /path/to/my-file.gpg | ledger -f -'
+  - alias greport='gpg -d /path/to/my-file.gpg | lreport -f -'
+    # ^ convenient for reading my encrypted ledger file.
+
+* Listing and Display
+
+  - gledger reg account:name -p "from 2017/01/22 to 2017/02/28" -X Rs --real
+    # ^ List all entries related to an account for a given period of time.
