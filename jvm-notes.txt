@@ -21,6 +21,41 @@ $ sudo jstack -F <pid> > /tmp/threaddump
 
 $ jmap -dump:format=b,file=cheap.bin <pid>
 
+* Multiple JDKs
+  *Note*: The following function is taken from a stack overflow
+  answer:
+  - If you are moving to Java 8 and still want to run Java 7 the
+    following script might help you. Insert the below code block in
+    your ~.bashrc~ or ~.bash_profile~ scripts in your home directory:
+    #+begin_src shell
+      function setjdk() {
+        if [ $# -ne 0 ]; then
+         removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
+         if [ -n "${JAVA_HOME+x}" ]; then
+          removeFromPath $JAVA_HOME
+         fi
+         export JAVA_HOME=`/usr/libexec/java_home -v $@`
+         export PATH=$JAVA_HOME/bin:$PATH
+        fi
+       }
+
+      function removeFromPath() {
+        export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+      }
+    #+end_src
+  - Use ~setjdk~ to switch between versions on the command line as follows:
+    #+begin_example
+      $ setjdk 1.7
+      $ java -version
+      java version "1.7.0_60"
+      Java(TM) SE Runtime Environment (build 1.7.0_60-b19)
+      Java HotSpot(TM) 64-Bit Server VM (build 24.60-b09, mixed mode)
+
+      $ setjdk 1.8
+      java version "1.8.0_66"
+      Java(TM) SE Runtime Environment (build 1.8.0_66-b17)
+      Java HotSpot(TM) 64-Bit Server VM (build 25.66-b17, mixed mode)
+    #+end_example
 * Debugging
 
 ** Print the values of all the flags for the JVM.
