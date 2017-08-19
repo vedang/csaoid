@@ -22,3 +22,8 @@
 
   - gledger reg account:name -p "from 2017/01/22 to 2017/02/28" -X Rs --real
     # ^ List all entries related to an account for a given period of time.
+  - gledger reg account:name and @"payee:name" -p "from 2016/04/01 to 2017/04/01" -X Rs --real
+    # ^ List all entries related to an account and a payee for a given period.
+    # Useful for finding things like: Show me all the interest I earned in this period.
+  - gledger reg %"tag:name" -p "from 2016/04/01" -X Rs --real
+    # ^ List all entries related to a tagged entity.
