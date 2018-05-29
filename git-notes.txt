@@ -419,6 +419,9 @@ $ git commit --amend -C HEAD
 # -f : force. This command is disabled otherwise.
 $ git clean -dxf <path>
 
+# Selectively copy a file from a different branch into the current
+# branch
+$ git checkout <branch_name> <filename>
 * Debugging, Recovery & Undoing
 
 # To find a regression that happened between v2.6.18 and master
