@@ -85,8 +85,29 @@ $ j4psh http://localhost:8778/jolokia
 
 ** Enable GC Logging in production for better insights.
 
-$ java -Xloggc:<file> -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+UseGCLogFileRotation -XX:+NumberOfGCLogFiles=5 -XX:+GCLogFileSize=10M
-
+   - Interesting Command Line flags ::
+        -Xloggc:<file>
+        -XX:+CMSIncrementalMode
+        -XX:+DoEscapeAnalysis
+        -XX:+GCLogFileSize=10M
+        -XX:InitialHeapSize=3758096384
+        -XX:MaxHeapSize=3758096384
+        -XX:MaxTenuringThreshold=6
+        -XX:NewRatio=4
+        -XX:NumberOfGCLogFiles=10
+        -XX:OldPLABSize=16
+        -XX:+PrintCommandLineFlags
+        -XX:+PrintGC
+        -XX:+PrintGCDateStamps
+        -XX:+PrintGCDetails
+        -XX:+PrintGCTimeStamps
+        -XX:+PrintTenuringDistribution
+        -XX:+UseBiasedLocking
+        -XX:+UseCompressedClassPointers
+        -XX:+UseCompressedOops
+        -XX:+UseConcMarkSweepGC
+        -XX:+UseGCLogFileRotation
+        -XX:+UseParNewGC
 ** Use [[https://github.com/chewiebug/GCViewer][GCViewer]] for offline analysis of GC logs.
 
 ** Calculate Live Data Size (LDS) to see which objects are being instantiated.
