@@ -11,6 +11,10 @@
 # but if you are confused about something shoot me a mail
 
 * Redirection
+  # How do I redirect the output of a process to a log file, and
+  # background the process at the same time?
   - some_cmd > some_file 2>&1 &
-    # ^ How do I redirect the output of a process to a log file, and
-    # background the process at the same time?
+  # How to I capture both STDOUT as well as STDERR in a file for
+  # analysis?
+  # https://stackoverflow.com/questions/692000/how-do-i-write-stderr-to-a-file-while-using-tee-with-a-pipe/692407#692407
+  - some_cmd > >(tee -a stdout.log) 2> >(tee -a stderr.log >&2)
