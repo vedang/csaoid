@@ -1,0 +1,91 @@
+-*- mode: org; -*-
+
+# This file contains wisdom. Read and reflect on it often.
+
+* The Python Way
+  https://mail.python.org/pipermail/python-list/1999-June/001951.html
+
+  - Beautiful is better than ugly.
+  - Explicit is better than implicit.
+  - Simple is better than complex.
+  - Complex is better than complicated.
+  - Flat is better than nested.
+  - Sparse is better than dense.
+  - Readability counts.
+  - Special cases aren't special enough to break the rules.
+  - Although practicality beats purity.
+  - Errors should never pass silently.
+  - Unless explicitly silenced.
+  - In the face of ambiguity, refuse the temptation to guess.
+  - There should be one-- and preferably only one --obvious way to do it.
+  - Although that way may not be obvious at first unless you're Dutch.
+  - Now is better than never.
+  - Although never is often better than *right* now.
+  - If the implementation is hard to explain, it's a bad idea.
+  - If the implementation is easy to explain, it may be a good idea.
+  - Namespaces are one honking great idea -- let's do more of those!
+
+* Unix Philosophy
+  https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html
+
+  - Rule of Modularity :: Write simple parts connected by clean interfaces.
+  - Rule of Clarity :: Clarity is better than cleverness.
+  - Rule of Composition :: Design programs to be connected to other programs.
+  - Rule of Separation :: Separate policy from mechanism; separate interfaces from engines.
+  - Rule of Simplicity :: Design for simplicity; add complexity only where you must.
+  - Rule of Parsimony :: Write a big program only when it is clear by demonstration that nothing else will do.
+  - Rule of Transparency :: Design for visibility to make inspection and debugging easier.
+  - Rule of Robustness :: Robustness is the child of transparency and simplicity.
+  - Rule of Representation :: Fold knowledge into data so program logic can be stupid and robust.
+  - Rule of Least Surprise :: In interface design, always do the least surprising thing.
+  - Rule of Silence :: When a program has nothing surprising to say, it should say nothing.
+  - Rule of Repair :: When you must fail, fail noisily and as soon as possible.
+  - Rule of Economy :: Programmer time is expensive; conserve it in preference to machine time.
+  - Rule of Generation :: Avoid hand-hacking; write programs to write programs when you can.
+  - Rule of Optimization :: Prototype before polishing. Get it working before you optimize it.
+  - Rule of Diversity :: Distrust all claims for the "one true way".
+  - Rule of Extensibility :: Design for the future, because it will be here sooner than you think.
+
+* Rob Pike's Rules of Programming
+
+  - You can't tell where a program is going to spend its time.
+    Bottlenecks occur in surprising places, so don't try to second
+    guess and put in a speed hack until you've proven that's where the
+    bottleneck is.
+
+  - Measure. Don't tune for speed until you've measured, and even then
+    don't unless one part of the code overwhelms the rest.
+
+  - Fancy algorithms are slow when n is small, and n is usually small.
+    Fancy algorithms have big constants. Until you know that n is
+    frequently going to be big, don't get fancy. (Even if n does get
+    big, use Rule 2 first.)
+
+  - Fancy algorithms are buggier than simple ones, and they're much
+    harder to implement. Use simple algorithms as well as simple data
+    structures.
+
+  - Data dominates. If you've chosen the right data structures and
+    organized things well, the algorithms will almost always be
+    self-evident. Data structures, not algorithms, are central to
+    programming.
+
+  - There is no Rule 6.
+
+* Doug McIlroy's philosophy
+
+  - Make each program do one thing well. To do a new job, build afresh
+    rather than complicate old programs by adding new features.
+
+  - Expect the output of every program to become the input to another,
+    as yet unknown, program. Don't clutter output with extraneous
+    information. Avoid stringently columnar or binary input formats.
+    Don't insist on interactive input.
+
+  - Design and build software, even operating systems, to be tried
+    early, ideally within weeks. Don't hesitate to throw away the
+    clumsy parts and rebuild them.
+
+  - Use tools in preference to unskilled help to lighten a programming
+    task, even if you have to detour to build the tools and expect to
+    throw some of them out after you've finished using them.
