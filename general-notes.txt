@@ -118,3 +118,8 @@ $ openssl enc -d -aes-256-cbc -a -in file.enc
 #+BEGIN_SRC shell
   $ ffmpeg -i input.flac -ab 320k -map_metadata 0 -id3v2_version 3 output.mp3
 #+END_SRC
+* nmap
+** Scan for all devices connected to your network
+#+BEGIN_SRC shell
+  $ sudo nmap -sn 192.168.1.0/24
+#+END_SRC
