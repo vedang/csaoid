@@ -18,3 +18,32 @@
   # analysis?
   # https://stackoverflow.com/questions/692000/how-do-i-write-stderr-to-a-file-while-using-tee-with-a-pipe/692407#692407
   - some_cmd > >(tee -a stdout.log) 2> >(tee -a stderr.log >&2)
+* Shell shortcuts
+  # Copy the last command on the shell
+  - !!
+  # Copy the nth command on the shell
+  - !N
+  # Copy the last argument of the previous command
+  - !$ or Esc .
+  # Just print any command in history starting with something. eg: rsync:p
+  - :p
+  # Expand the variable
+  - C-M-e or ESC C-e
+  # Search through previous command history
+  - C-r
+  # Copy all args of the last command
+  - !*
+  # Delete backwards
+  - C-w
+  # Replace old with new in the previous command
+  - ^old^new
+  # Exansions across multiple folders. eg: cp handlers/{user,site,profile}/ .
+  - {}
+  # Get specific arguments from previous commands (with pos/neg count)
+  - M-.
+  # Show matching expansions
+  - M-=
+  # Expand hostname
+  - M-@
+  # Comment out the command
+  - M-#
