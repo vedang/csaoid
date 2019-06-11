@@ -18,6 +18,7 @@
   # analysis?
   # https://stackoverflow.com/questions/692000/how-do-i-write-stderr-to-a-file-while-using-tee-with-a-pipe/692407#692407
   - some_cmd > >(tee -a stdout.log) 2> >(tee -a stderr.log >&2)
+
 * Shell shortcuts
   # Copy the last command on the shell
   - !!
@@ -47,3 +48,8 @@
   - M-@
   # Comment out the command
   - M-#
+
+* Info
+  # To install a downloaded info file to a dir file. Note, if dir does
+  # not exist, install-info will create it properly.
+  - install-info --info-file=sicp.info --dir-file=dir
