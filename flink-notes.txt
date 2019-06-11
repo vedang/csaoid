@@ -1,0 +1,14 @@
+-*- mode: org; comment-column: 0; -*-
+
+* Starting / Stopping a Flink stand-alone cluster
+  - /vagrant_data/flink-1.2.0/bin/start-local.sh
+  - /vagrant_data/flink-1.2.0/bin/stop-local.sh
+* Submitting a Job for execution
+  - /vagrant_data/flink-1.2.0/bin/flink run /vagrant_data/clink-0.1.0-SNAPSHOT-standalone.jar
+* Flink logs
+    # jobmanager stdout file
+  - tail -F -n 50 /vagrant_data/flink-1.2.0/log/flink-vagrant-jobmanager-0-vagrant-ubuntu-precise-64.out
+    # jobmanager log file
+  - tail -F /vagrant_data/flink-1.2.0/log/flink-vagrant-jobmanager-0-vagrant-ubuntu-precise-64.log
+* Flink Dashboard
+  - <vagrant-ip>:8081/

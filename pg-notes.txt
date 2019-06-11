@@ -1,0 +1,5 @@
+-*- mode: org; comment-column: 0; -*-
+
+* Basics
+** Dropping a PG Table
+   - DROP TABLE [ IF EXISTS ]  <table_name> [, ...] [ CASCADE | RESTRICT ]

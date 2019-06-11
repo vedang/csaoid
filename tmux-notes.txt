@@ -1,0 +1,5 @@
+* Capture tmux output to a file
+  - $ capture-pane -S -3000
+    # 3000 is the number of lines to capture.
+  - $ save-buffer <full-path-of-file>
+    # save the captured lines to a file
