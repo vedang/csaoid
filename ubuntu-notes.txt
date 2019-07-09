@@ -33,3 +33,17 @@ xinput disable 12
 
 (and enable via a similar command)
 #+end_src
+* Jenv on Ubuntu
+  - Install jenv from : https://github.com/jenv/jenv
+  - Follow the instructions above to install it. The instructions
+    contain Mac specific information on how to install multiple
+    versions of java.
+  - For Ubuntu specific information, refer to
+    https://aboullaite.me/switching-between-java-versions-on-ubuntu-linux/.
+    (The important package is =update-java-alternatives=)
+  - Ubuntu jvm paths to add to jenv look like this:
+    =/usr/lib/jvm/java-13-openjdk-amd64/=
+    #+begin_src shell
+      jenv add /usr/lib/jvm/java-13-openjdk-amd64/
+    #+end_src
+  - List all installed versions with =jenv versions=
