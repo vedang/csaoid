@@ -53,3 +53,7 @@
   # To install a downloaded info file to a dir file. Note, if dir does
   # not exist, install-info will create it properly.
   - install-info --info-file=sicp.info --dir-file=dir
+* Find tips and tricks
+  # How do I run a command in all directories under the current directory?
+  - find . -maxdepth 1 -type d \( ! -name . \) -print0 | xargs -0 -L1 sh -c 'echo "Working in $0" && cd "$0" && git fetch origin'
+  - find . -maxdepth 1 -type d \( ! -name . \) -exec sh -c 'echo "Working in $0" && cd "$0" && git fetch origin'
