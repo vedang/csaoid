@@ -1,0 +1,12 @@
+-*- mode: org; -*-
+* Change the Lock Screen Keyboard Shortcut
+  - Launch System Preferences and go to the Keyboard pane.
+  - Select the 'Keyboard Shortcuts' tab.
+  - From the list on the left, select 'Application Shortcuts'.
+  - Click on the plus (+) button below to add your new shortcut.
+  - In the dialog box we'll want to leave 'All Applications' selected
+    in the first menu. Enter 'Lock Screen' as the Menu Title. Please
+    note this has to be exactly the same name you entered when saving
+    the service in Automator. Finally, enter your keyboard shortcut.
+    Let's go with Option+Shift+Q
+  - Click Add and you're all done!
