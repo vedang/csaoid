@@ -47,3 +47,5 @@ xinput disable 12
       jenv add /usr/lib/jvm/java-13-openjdk-amd64/
     #+end_src
   - List all installed versions with =jenv versions=
+* Opening any file in it's default application from the terminal
+  - Use =xdg-open=
