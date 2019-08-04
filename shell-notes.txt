@@ -57,3 +57,5 @@
   # How do I run a command in all directories under the current directory?
   - find . -maxdepth 1 -type d \( ! -name . \) -print0 | xargs -0 -L1 sh -c 'echo "Working in $0" && cd "$0" && git fetch origin'
   - find . -maxdepth 1 -type d \( ! -name . \) -exec sh -c 'echo "Working in $0" && cd "$0" && git fetch origin'
+  # How do I list all files of *.h and *.cc?
+  - find . \( -name "*.h" -o -name "*.cc" \) -print
