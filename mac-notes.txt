@@ -10,3 +10,11 @@
     the service in Automator. Finally, enter your keyboard shortcut.
     Let's go with Option+Shift+Q
   - Click Add and you're all done!
+* Turn the wifi on/off from the terminal
+  - You have to use =networksetup= for this
+    #+begin_src shell-script
+      # List all the hardware ports controlled by networksetup
+      networksetup -listallhardwareports
+      # Turn the wifi on
+      networksetup -setairportpower en0 on # or off
+    #+end_src
