@@ -59,3 +59,9 @@
   - find . -maxdepth 1 -type d \( ! -name . \) -exec sh -c 'echo "Working in $0" && cd "$0" && git fetch origin'
   # How do I list all files of *.h and *.cc?
   - find . \( -name "*.h" -o -name "*.cc" \) -print
+* Shell + Emacs
+  # How do I redirect the output of a shell command into Emacs for editing?
+  - command | (f=$(mktemp); cat > $f; emacsclient $f; rm -v $f)
+  - command | (f=$(mktemp); cat > $f; emacsclient $f; cat $f)
+  # How do I run a shell command from inside Emacs?
+  - Run M-! in Emacs
