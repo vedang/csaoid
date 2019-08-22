@@ -49,3 +49,14 @@ xinput disable 12
   - List all installed versions with =jenv versions=
 * Opening any file in it's default application from the terminal
   - Use =xdg-open=
+* Recording the screen in Ubuntu
+  - Use the built-in screen recorder provided by Gnome.
+  - Start/Stop the screen recorder using the hotkey <Ctrl + Alt + Shift + R>.
+  - Whether the recording is on or not is indicated by a red dot in
+    the notification center at the top-right of the screen.
+  - By default, recording stops after 30 seconds. To change the
+    default =max-screencast-length=, install =dconf-editor= and change
+    the setting
+    =/org/gnome/settings-daemon/plugins/media-keys/max-screencast-length=.
+* Recording audio on Ubuntu
+  - Use the built-in audio recorder =arecord= from the command-line.
