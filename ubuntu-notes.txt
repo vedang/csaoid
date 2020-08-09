@@ -75,3 +75,16 @@ xargs sudo apt-get -y purge
 ** References:
 + https://askubuntu.com/a/90219: Also an excellent explanation of globbing on the shell
 + https://askubuntu.com/a/259092: The actual answer to this question
+* Steps when using apt to update your distribution
+** Ensure that your packages are up-to-date
+#+begin_src shell-script
+  sudo apt update && sudo apt -y upgrade && sudo apt -y full-upgrade && sudo apt -y dist-upgrade
+#+end_src
+** Remove unused and unnecessary packages
+#+begin_src shell-script
+  sudo apt -y autoremove && sudo apt autoclean
+#+end_src
+** Run the upgrade command for PopOS
+#+begin_src shell-script
+  sudo pop-upgrade release upgrade systemd
+#+end_src
