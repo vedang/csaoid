@@ -88,3 +88,7 @@ xargs sudo apt-get -y purge
 #+begin_src shell-script
   sudo pop-upgrade release upgrade systemd
 #+end_src
+* Searching for installed packages using apt
+#+begin_src
+apt list --installed | grep texlive
+#+end_src
