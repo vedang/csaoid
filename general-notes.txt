@@ -114,6 +114,40 @@ $ openssl enc -d -aes-256-cbc -a -in file.enc
     $ umount /mnt
     $ fsck /dev/nbd0p1
 * ffmpeg
+** Recording a full desktop screencast
+   :PROPERTIES:
+   :URL:      https://www.howtogeek.com/446706/how-to-create-a-screencast-on-linux/
+   :END:
+*** Identify the max screen resolution that your system can support
+#+begin_src shell :results raw
+  xrandr
+#+end_src
+Take the top-most value
+*** Identify the pulseaudio sound sources available to you
+#+begin_src shell :results raw
+  pactl list sources
+#+end_src
+Look for the input source =alsa_input= and note the source number.
+(eg: Source #1)
+*** Check what the value of $DISPLAY is, you need it to capture the display
+#+begin_src shell
+echo $DISPLAY
+#+end_src
+*** Record the video with the following command
+#+begin_src shell
+  ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :1 -f pulse -ac 2 -i 1 output.mkv -async 1 -vsync 1
+#+end_src
+- =video_size=  :: screen resolution, taken from the output of =xrandr=
+- =framerate=   :: the framerate you want
+- =f=           :: video format. In this case, input format is the
+  output of the  X server (=x11grab=)
+- =i=           :: The video input, taken from output of =echo $DISPLAY=
+- =f=           :: Set expected format to be PulseAudio (=pulse=)
+- =ac=          :: Set the number of audio channels (2)
+- =i=           :: The audio input, taken from output of =pactl=
+- output.mkv    :: Output filename
+- =async,vsync= :: Deprecated options. Added to avoid cluttering output log.
+
 ** Converting from flac to mp3
 #+BEGIN_SRC shell
   $ ffmpeg -i input.flac -ab 320k -map_metadata 0 -id3v2_version 3 output.mp3
