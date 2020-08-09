@@ -2,90 +2,158 @@
 
 # This file contains wisdom. Read and reflect on it often.
 
-* The Python Way
-  https://mail.python.org/pipermail/python-list/1999-June/001951.html
+* ESR: the UNIX Philosophy
+  :PROPERTIES:
+  :url:      https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html
+  :END:
 
-  - Beautiful is better than ugly.
-  - Explicit is better than implicit.
-  - Simple is better than complex.
-  - Complex is better than complicated.
-  - Flat is better than nested.
-  - Sparse is better than dense.
-  - Readability counts.
-  - Special cases aren't special enough to break the rules.
-  - Although practicality beats purity.
-  - Errors should never pass silently.
-  - Unless explicitly silenced.
-  - In the face of ambiguity, refuse the temptation to guess.
-  - There should be one-- and preferably only one --obvious way to do it.
-  - Although that way may not be obvious at first unless you're Dutch.
-  - Now is better than never.
-  - Although never is often better than *right* now.
-  - If the implementation is hard to explain, it's a bad idea.
-  - If the implementation is easy to explain, it may be a good idea.
-  - Namespaces are one honking great idea -- let's do more of those!
+- Rule of Modularity :: Write simple parts connected by clean interfaces.
+- Rule of Clarity :: Clarity is better than cleverness.
+- Rule of Composition :: Design programs to be connected to other programs.
+- Rule of Separation :: Separate policy from mechanism; separate interfaces from engines.
+- Rule of Simplicity :: Design for simplicity; add complexity only where you must.
+- Rule of Parsimony :: Write a big program only when it is clear by demonstration that nothing else will do.
+- Rule of Transparency :: Design for visibility to make inspection and debugging easier.
+- Rule of Robustness :: Robustness is the child of transparency and simplicity.
+- Rule of Representation :: Fold knowledge into data so program logic can be stupid and robust.
+- Rule of Least Surprise :: In interface design, always do the least surprising thing.
+- Rule of Silence :: When a program has nothing surprising to say, it should say nothing.
+- Rule of Repair :: When you must fail, fail noisily and as soon as possible.
+- Rule of Economy :: Programmer time is expensive; conserve it in preference to machine time.
+- Rule of Generation :: Avoid hand-hacking; write programs to write programs when you can.
+- Rule of Optimization :: Prototype before polishing. Get it working before you optimize it.
+- Rule of Diversity :: Distrust all claims for the "one true way".
+- Rule of Extensibility :: Design for the future, because it will be here sooner than you think.
 
-* Unix Philosophy
-  https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html
+* Rob Pike: Rules of Programming
+  :PROPERTIES:
+  :url:      https://users.ece.utexas.edu/~adnan/pike.html
+  :END:
 
-  - Rule of Modularity :: Write simple parts connected by clean interfaces.
-  - Rule of Clarity :: Clarity is better than cleverness.
-  - Rule of Composition :: Design programs to be connected to other programs.
-  - Rule of Separation :: Separate policy from mechanism; separate interfaces from engines.
-  - Rule of Simplicity :: Design for simplicity; add complexity only where you must.
-  - Rule of Parsimony :: Write a big program only when it is clear by demonstration that nothing else will do.
-  - Rule of Transparency :: Design for visibility to make inspection and debugging easier.
-  - Rule of Robustness :: Robustness is the child of transparency and simplicity.
-  - Rule of Representation :: Fold knowledge into data so program logic can be stupid and robust.
-  - Rule of Least Surprise :: In interface design, always do the least surprising thing.
-  - Rule of Silence :: When a program has nothing surprising to say, it should say nothing.
-  - Rule of Repair :: When you must fail, fail noisily and as soon as possible.
-  - Rule of Economy :: Programmer time is expensive; conserve it in preference to machine time.
-  - Rule of Generation :: Avoid hand-hacking; write programs to write programs when you can.
-  - Rule of Optimization :: Prototype before polishing. Get it working before you optimize it.
-  - Rule of Diversity :: Distrust all claims for the "one true way".
-  - Rule of Extensibility :: Design for the future, because it will be here sooner than you think.
+- Rule 1 :: You can't tell where a program is going to spend its time.
+  Bottlenecks occur in surprising places, so don't try to second guess
+  and put in a speed hack until you've proven that's where the
+  bottleneck is.
 
-* Rob Pike's Rules of Programming
+- Rule 2 :: Measure. Don't tune for speed until you've measured, and
+  even then don't unless one part of the code overwhelms the rest.
 
-  - You can't tell where a program is going to spend its time.
-    Bottlenecks occur in surprising places, so don't try to second
-    guess and put in a speed hack until you've proven that's where the
-    bottleneck is.
+- Rule 3 :: Fancy algorithms are slow when n is small, and n is
+  usually small. Fancy algorithms have big constants. Until you know
+  that n is frequently going to be big, don't get fancy. (Even if n
+  does get big, use Rule 2 first.)
 
-  - Measure. Don't tune for speed until you've measured, and even then
-    don't unless one part of the code overwhelms the rest.
+- Rule 4 :: Fancy algorithms are buggier than simple ones, and they're
+  much harder to implement. Use simple algorithms as well as simple
+  data structures.
 
-  - Fancy algorithms are slow when n is small, and n is usually small.
-    Fancy algorithms have big constants. Until you know that n is
-    frequently going to be big, don't get fancy. (Even if n does get
-    big, use Rule 2 first.)
+- Rule 5 :: Data dominates. If you've chosen the right data structures
+  and organized things well, the algorithms will almost always be
+  self-evident. Data structures, not algorithms, are central to
+  programming.
 
-  - Fancy algorithms are buggier than simple ones, and they're much
-    harder to implement. Use simple algorithms as well as simple data
-    structures.
+- Rule 6 :: There is no Rule 6.
 
-  - Data dominates. If you've chosen the right data structures and
-    organized things well, the algorithms will almost always be
-    self-evident. Data structures, not algorithms, are central to
-    programming.
+** Notes on the Rules                                              :noexport:
+- Rules 1 and 2 restate Tony Hoare's famous maxim "Premature
+  optimization is the root of all evil."
+- Ken Thompson rephrased Rules 3 and 4 as "When in doubt, use brute force."
+- Rules 3 and 4 are instances of the design philosophy KISS.
+- Rule 5 was previously stated by Fred Brooks in The Mythical
+  Man-Month. Rule 5 is often shortened to "write stupid code that uses
+  smart objects".
+  + Fred Brooks: "Show me your flow charts and conceal your tables
+    and I shall continue to be mystified, show me your tables and I
+    won't usually need your flow charts; they'll be obvious".
 
-  - There is no Rule 6.
+* Doug McIlroy: the UNIX philosophy
+  :PROPERTIES:
+  :citation: The Bell System Technical Journal. Bell Laboratories. M. D. McIlroy, E. N. Pinson, and B. A. Tague. “Unix Time-Sharing System Forward”. 1978. 57 (6, part 2). p. 1902.
+  :url:      http://www.catb.org/~esr/writings/taoup/html/ch01s06.html
+  :END:
 
-* Doug McIlroy's philosophy
+- Make each program do one thing well. To do a new job, build afresh
+  rather than complicate old programs by adding new features.
 
-  - Make each program do one thing well. To do a new job, build afresh
-    rather than complicate old programs by adding new features.
+- Expect the output of every program to become the input to another,
+  as yet unknown, program. Don't clutter output with extraneous
+  information. Avoid stringently columnar or binary input formats.
+  Don't insist on interactive input.
 
-  - Expect the output of every program to become the input to another,
-    as yet unknown, program. Don't clutter output with extraneous
-    information. Avoid stringently columnar or binary input formats.
-    Don't insist on interactive input.
+- Design and build software, even operating systems, to be tried
+  early, ideally within weeks. Don't hesitate to throw away the
+  clumsy parts and rebuild them.
 
-  - Design and build software, even operating systems, to be tried
-    early, ideally within weeks. Don't hesitate to throw away the
-    clumsy parts and rebuild them.
+- Use tools in preference to unskilled help to lighten a programming
+  task, even if you have to detour to build the tools and expect to
+  throw some of them out after you've finished using them.
 
-  - Use tools in preference to unskilled help to lighten a programming
-    task, even if you have to detour to build the tools and expect to
-    throw some of them out after you've finished using them.
+* Tim Peters: The Python Way
+  :PROPERTIES:
+  :url:      https://mail.python.org/pipermail/python-list/1999-June/001951.html
+  :END:
+
+- Beautiful is better than ugly.
+- Explicit is better than implicit.
+- Simple is better than complex.
+- Complex is better than complicated.
+- Flat is better than nested.
+- Sparse is better than dense.
+- Readability counts.
+- Special cases aren't special enough to break the rules.
+- Although practicality beats purity.
+- Errors should never pass silently.
+- Unless explicitly silenced.
+- In the face of ambiguity, refuse the temptation to guess.
+- There should be one - and preferably only one - obvious way to do it.
+- Although that way may not be obvious at first unless you're Dutch.
+- Now is better than never.
+- Although never is often better than *right* now.
+- If the implementation is hard to explain, it's a bad idea.
+- If the implementation is easy to explain, it may be a good idea.
+- Namespaces are one honking great idea -- let's do more of those!
+
+* Gene Kim: The Five Ideals of DevOps
+  :PROPERTIES:
+  :citation: The Unicorn Project
+  :END:
+- The First Ideal :: *Locality and Simplicity*. Build simple,
+  decoupled systems that can iterate in isolation.
+- The Second Ideal :: *Focus, Flow and Joy*. Work in small batches
+  with fast and continuous feedback.
+- The Third Ideal :: *Improvement of Daily Work*. Make sure that daily
+  work can be done with minimum impediments. Prioritize developer
+  productivity over everything else.
+- The Fourth Ideal :: *Psychological Safety*. Solving problems
+  requires preventing problems, which requires honesty, which requires
+  the absence of fear.
+- The Fifth Ideal :: *Customer Focus*. Build only that which actually
+  matters to our customers.
+
+* Gene Kim: The Three Ways of doing excellent Work
+  :PROPERTIES:
+  :citation: The Phoenix Project
+  :END:
+- The Flow of Work :: Maximizing the rate of flow of work is the key
+  to success. Limiting the work in progress is the fastest way to
+  achieve Flow.
+- Fast Feedback from Work :: Setup systems to get fast feedback at
+  every stage of work, from concept through shipping to maintaining in
+  production.
+- Continual Experimentation and Learning :: Keep dedicated time for
+  experiments, at every level of the company. A culture of innovation
+  is necessary for achieving and maintaining Flow and Feedback.
+
+* Gene Kim: The Four Types of Work
+  :PROPERTIES:
+  :citation: The Phoenix Project
+  :END:
+- Business Projects :: "Feature Work". This is the most visible type of work.
+- Internal IT Projects :: Release Automation, QA Automation, Developer
+  Tooling. Mostly un-tracked and invisible, but most crucial to long
+  term success.
+- Updates and Changes :: Generally generated from above to categories
+  of work. Introduces delay as breadth of existing surface area
+  increases.
+- Unplanned Work :: Fire-fighting at all levels of the company. Ruins
+  planned work, so root causes need to be aggressively remediated.
