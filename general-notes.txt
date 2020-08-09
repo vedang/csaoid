@@ -157,3 +157,18 @@ echo $DISPLAY
 #+BEGIN_SRC shell
   $ sudo nmap -sn 192.168.1.0/24
 #+END_SRC
+* SSH
+** Creating a new key pair
+#+begin_src shell
+  ssh-keygen -f full_output_file_path.id_rsa
+  # Fill out the necessary values to override the defaults The -f is
+  # provided here, because if you make a mistake this command will
+  # override your id_rsa file.
+#+end_src
+** Adding a key to ssh-agent
+#+begin_src shell
+  ssh-add -t 86400 -k ~/.ssh/id_rsa
+  # -t = time for which key should be stored in agent
+  # -k = key to add to agent
+#+end_src
+* PGP
