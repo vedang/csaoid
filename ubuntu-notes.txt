@@ -92,3 +92,8 @@ xargs sudo apt-get -y purge
 #+begin_src
 apt list --installed | grep texlive
 #+end_src
+* Installing LaTeX packages
+#+begin_src
+sudo apt install texlive-base texlive texlive-binaries texlive-latex-base texlive-latex-recommended texlive-luatex texlive-latex-extra texlive-xetex
+#+end_src
+- The whole shebang can be installed by installing =texlive-full=, but is unnecessary.
