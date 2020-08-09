@@ -62,3 +62,16 @@ xinput disable 12
   - Use the built-in audio recorder =arecord= from the command-line.
 * Taking a screenshot on Ubuntu
   - Select the =Screenshot= application from Activities
+* Dealing with 'boot space is filled up' warning
+** Get the list of kernels that you have installed but are no longer using:
+#+begin_src shell
+dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e '[0-9]'
+#+end_src
+** Confirm that the output above does not contain the results of =uname -r=
+** Remove the unused kernels by piping the output to =apt-get purge=
+#+begin_src shell
+xargs sudo apt-get -y purge
+#+end_src
+** References:
++ https://askubuntu.com/a/90219: Also an excellent explanation of globbing on the shell
++ https://askubuntu.com/a/259092: The actual answer to this question
