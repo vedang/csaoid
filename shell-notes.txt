@@ -65,3 +65,9 @@
   - command | (f=$(mktemp); cat > $f; emacsclient $f; cat $f)
   # How do I run a shell command from inside Emacs?
   - Run M-! in Emacs
+* Process utils
+- ps -eTp
+- /usr/share/bcc/tools/cachetop
+- /usr/share/bcc/tools/filetop -s writes -p `pgrep mongod`
+- sudo perf record -F99 -p `pgrep mongod`-g -- sleep 120
+- procs as a replacement for ps
