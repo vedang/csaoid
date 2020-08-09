@@ -60,3 +60,5 @@ xinput disable 12
     =/org/gnome/settings-daemon/plugins/media-keys/max-screencast-length=.
 * Recording audio on Ubuntu
   - Use the built-in audio recorder =arecord= from the command-line.
+* Taking a screenshot on Ubuntu
+  - Select the =Screenshot= application from Activities
