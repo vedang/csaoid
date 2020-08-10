@@ -71,3 +71,17 @@
 - /usr/share/bcc/tools/filetop -s writes -p `pgrep mongod`
 - sudo perf record -F99 -p `pgrep mongod`-g -- sleep 120
 - procs as a replacement for ps
+* Sum numbers in shell
+  - <cmd> | paste -sd+ - | bc
+* SSH break bad connection
+- Press ~. on the shell
+* NTP: fix the date on your machine
+- Install =ntp= and =ntpdate=
+  + sudo apt install ntp ntpdate
+- Sync time with ntpdate
+  + sudo ntpdate 0.us.pool.ntp.org
+- If you see an error that ntp socket is already in use, turn off ntpd
+  (that is generally what is running on 123 port)
+  + ps ax | grep ntpd
+  + sudo kill <pid>
+- This should sync your time correctly with the ntp servers.
