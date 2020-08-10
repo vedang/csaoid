@@ -20,11 +20,11 @@ kn - frame number for each call
 kp - displays full paramaters for each function call
 
 * Breakpoints:
-bp - set breakpoint
-bl - list breakpoint
-bd - disable breakpoint
-be - enable breakpoint
-bc - clear breakpoint
+- bp - set breakpoint
+- bl - list breakpoint
+- bd - disable breakpoint
+- be - enable breakpoint
+- bc - clear breakpoint
 
 * Threads:
 ~. - current thread
