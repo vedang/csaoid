@@ -172,3 +172,10 @@ echo $DISPLAY
   # -k = key to add to agent
 #+end_src
 * PGP
+
+* Latex
+** Converting a PDF to a PNG
+- Use poppler's pdftoppm
+  #+begin_src shell
+    pdftoppm -png file.pdf > file.png
+  #+end_src
