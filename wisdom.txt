@@ -243,13 +243,14 @@
   Prioritize security over the network for any sensitive data.
 
 - Topology doesn't change :: Think about local state, tolerance for
-  staleness, co-ordination overheads, recovery mechanisms
+  staleness, co-ordination overheads, recovery mechanisms for split
+  brains, inability to reach endpoints.
 
 - There is one administrator :: Remember to test the end-to-end flow
   and think through production components not controlled by you.
 
 - Transport cost is zero :: Think through data transfer costs in cloud
-  environments.
+  environments. Monitor payload sizes.
 
 - The network is homogeneous :: Think about connection drops,
   reconnects, client timeouts. Use the following patterns:
