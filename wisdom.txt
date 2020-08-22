@@ -1,11 +1,18 @@
--*- mode: org; -*-
-
+# -*- mode: org; -*-
+#+hugo_base_dir: ../../
+#+setupfile: ../setup.org
+#+filetags: @wisdom:wisdom
 # This file contains wisdom. Read and reflect on it often.
 
-* ESR: the UNIX Philosophy
+* ESR: the UNIX Philosophy                                     :programming:
   :PROPERTIES:
   :url:      https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html
+  :EXPORT_HUGO_SECTION: notes
+  :EXPORT_FILE_NAME: esr-unix-philosophy
+  :EXPORT_HUGO_DRAFT: nil
   :END:
+
+/Snippet from: [[https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html][The Art of Unix Programming]]/
 
 - Rule of Modularity :: Write simple parts connected by clean interfaces.
 - Rule of Clarity :: Clarity is better than cleverness.
@@ -25,11 +32,15 @@
 - Rule of Diversity :: Distrust all claims for the "one true way".
 - Rule of Extensibility :: Design for the future, because it will be here sooner than you think.
 
-* Doug McIlroy: the UNIX philosophy
+* Doug McIlroy: the UNIX philosophy                            :programming:
   :PROPERTIES:
   :citation: The Bell System Technical Journal. Bell Laboratories. M. D. McIlroy, E. N. Pinson, and B. A. Tague. “Unix Time-Sharing System Forward”. 1978. 57 (6, part 2). p. 1902.
   :url:      http://www.catb.org/~esr/writings/taoup/html/ch01s06.html
+  :EXPORT_HUGO_SECTION: notes
+  :EXPORT_FILE_NAME: doug-mcilroy-unix-philosophy
   :END:
+
+/Snippet from: [[https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html][The Art of Unix Programming]]/
 
 - *Make each program do one thing well*. To do a new job, build afresh
   rather than complicate old programs by adding new features.
@@ -47,10 +58,14 @@
   task*, even if you have to detour to build the tools and expect to
   throw some of them out after you've finished using them.
 
-* Rob Pike: Rules of Programming
+* Rob Pike: Rules of Programming                               :programming:
   :PROPERTIES:
   :url:      https://users.ece.utexas.edu/~adnan/pike.html
+  :EXPORT_FILE_NAME: rob-pike-rules
+  :EXPORT_HUGO_SECTION: notes
   :END:
+
+/Snippet from: [[https://www.lysator.liu.se/c/pikestyle.html][Notes on C Programming]]/
 
 - No Speed Hacks :: You can't tell where a program is going to spend its time.
   Bottlenecks occur in surprising places, so don't try to second guess
@@ -86,10 +101,15 @@
     and I shall continue to be mystified, show me your tables and I
     won't usually need your flow charts; they'll be obvious".
 
-* Gene Kim: The Five Ideals of DevOps
+* Gene Kim: The Five Ideals of DevOps                                :devops:
   :PROPERTIES:
   :citation: The Unicorn Project
+  :EXPORT_HUGO_SECTION: notes
+  :EXPORT_FILE_NAME: gene-kim-the-five-ideals
   :END:
+
+/Snippet from: [[https://www.amazon.in/Unicorn-Project-Developers-Disruption-Thriving-ebook/dp/B07QT9QR41][The Unicorn Project]], along with my own notes/
+
 - The First Ideal :: /*Locality and Simplicity*/. Build simple,
   decoupled systems that can iterate in isolation.
 
@@ -107,10 +127,15 @@
 - The Fifth Ideal :: /*Customer Focus*/. Build only that which
   actually matters to our customers.
 
-* Gene Kim: The Three Ways of doing excellent Work
+* Gene Kim: The Three Ways of doing excellent Work   :engineering_management:
   :PROPERTIES:
   :citation: The Phoenix Project
+  :EXPORT_FILE_NAME: gene-kim-the-three-ways
+  :EXPORT_HUGO_SECTION: notes
   :END:
+
+/Snippet from: [[https://www.amazon.in/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B078Y98RG8/][The Phoenix Project]], along with my own notes/
+
 - Flow :: Maximizing the rate of flow of work is the key to success.
   Limiting the work in progress is the fastest way to achieve Flow.
 
@@ -121,10 +146,15 @@
   at every level of the company. A culture of innovation is necessary
   for achieving and maintaining Flow and Feedback.
 
-* Gene Kim: The Four Types of Work
+* Gene Kim: The Four Types of Work                   :engineering_management:
   :PROPERTIES:
   :citation: The Phoenix Project
+  :EXPORT_HUGO_SECTION: notes
+  :EXPORT_FILE_NAME: gene-kim-the-four-types
   :END:
+
+/Snippet from: [[https://www.amazon.in/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B078Y98RG8/][The Phoenix Project]], along with my own notes/
+
 - Business Projects :: "Feature Work". This is the most visible type
   of work.
 
@@ -139,10 +169,14 @@
 - Unplanned Work :: Fire-fighting at all levels of the company. Ruins
   planned work, so root causes need to be aggressively remediated.
 
-* Tim Peters: The Python Way
+* Tim Peters: The Python Way                                   :programming:
   :PROPERTIES:
   :url:      https://mail.python.org/pipermail/python-list/1999-June/001951.html
+  :EXPORT_FILE_NAME: tim-peters-the-python-way
+  :EXPORT_HUGO_SECTION: notes
   :END:
+
+/Snippet from: [[https://mail.python.org/pipermail/python-list/1999-June/001951.html][The Python Mailing List]]/
 
 - Beautiful is better than ugly.
 
@@ -182,10 +216,14 @@
 
 - Namespaces are one honking great idea -- let's do more of those!
 
-* L Peter Deutsch: The Fallacies of Distributed Computing
+* L Peter Deutsch: The Fallacies of Distributed Computing :distributed_systems:
   :PROPERTIES:
   :url:      https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
+  :EXPORT_HUGO_SECTION: notes
+  :EXPORT_FILE_NAME: l-peter-deutsch-the-fallacies-of-distributed-computing
   :END:
+
+/Snippet from: [[https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing][The Wikipedia Article]], along with my own notes/
 
 - The network is reliable :: Think about error-handling on network
   failures. Use the following patterns: Timeouts, Retries, Circuit
