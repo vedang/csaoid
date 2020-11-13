@@ -126,3 +126,9 @@ Eg: (funcall #'equal :a :A) => nil
   substituted a function which took optional arguments with another
   function which took 0 arguments. This seems to not work within
   native compilation.
+
+* How to check dependents of a library
+#+begin_src emacs-lisp
+  (require 'loadhist)
+  (file-dependents (feature-file 'cl))
+#+end_src
