@@ -86,7 +86,7 @@ xargs sudo apt-get -y purge
 #+end_src
 ** Run the upgrade command for PopOS
 #+begin_src shell-script
-  sudo pop-upgrade release upgrade systemd
+  sudo pop-upgrade release upgrade
 #+end_src
 * Searching for installed packages using apt
 #+begin_src
@@ -97,3 +97,8 @@ apt list --installed | grep texlive
 sudo apt install texlive-base texlive texlive-binaries texlive-latex-base texlive-latex-recommended texlive-luatex texlive-latex-extra texlive-xetex
 #+end_src
 - The whole shebang can be installed by installing =texlive-full=, but is unnecessary.
+
+* Change Caps Lock behavior
+  - Install and use =gnome-tweak-tool=
+  - In the keyboard section of =gnome-tweak-tool=, search for
+    =Additional Layout Options=.
