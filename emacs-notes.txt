@@ -32,7 +32,9 @@ $ brew linkapps
 
 $ make tags
 
-
+* Emacs Refcards
+  - M-x locate <RET> refcard <RET>
+  - profit.
 * Clj -> Elisp Cheat Sheet
 ** map = mapcar
 mapc is similar to mapcar, expect that it does not accumulate the results.
@@ -51,7 +53,6 @@ function on the rest of the arguments.
 
 Eg: (funcall #'equal :a :A) => nil
     (funcall #'equal :a :a) => t
-
 
 * Regex replacements
   Taken right from the Emacs Manual (I always seem to forget this).
