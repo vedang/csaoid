@@ -102,3 +102,19 @@ sudo apt install texlive-base texlive texlive-binaries texlive-latex-base texliv
   - Install and use =gnome-tweak-tool=
   - In the keyboard section of =gnome-tweak-tool=, search for
     =Additional Layout Options=.
+
+* Observing traffic on the network
+** ngrep
+- Any UDP from any local interfaces to 91.22.38.4:12201
+  #+begin_src shell-script :eval no
+    ngrep -W byline -d any udp and host 91.22.38.4 and dst port 12201
+  #+end_src
+** tcpdump
+- Show UDP packet header and data parts
+  #+begin_src shell-script :eval no
+    tcpdump -i lo -n udp port 8125 -X
+  #+end_src
+- Save packets to pcap file for inspection in wireshark
+  #+begin_src shell-script :eval no
+    tcpdump -i lo -n udp port 14550 -w packets.pcap
+  #+end_src
