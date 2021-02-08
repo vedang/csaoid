@@ -85,3 +85,14 @@
   + ps ax | grep ntpd
   + sudo kill <pid>
 - This should sync your time correctly with the ntp servers.
+
+* Locate
+** Updating locate db on Mac
+   #+begin_src shell-script :eval no
+     sudo /usr/libexec/locate.updatedb
+   #+end_src
+** Updating locate db on Ubuntu
+   #+begin_src shell-script :eval no
+     sudo updatedb
+   #+end_src
+
