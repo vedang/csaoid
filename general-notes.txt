@@ -179,3 +179,35 @@ echo $DISPLAY
   #+begin_src shell
     pdftoppm -png file.pdf > file.png
   #+end_src
+* Email
+** How to delete email in your Notmuch / mbsync setup
+- In =.mbsyncrc=, set =Expunge= to =Both= for your email channels.
+  This propagates the deletions to the mail servers when mbsync runs a
+  sync operation.
+- List all the deleted emails
+  #+begin_src shell-script :eval no
+    notmuch search --output=files --exclude=false tag:deleted
+  #+end_src
+- Add the correct =maildir= flag (=T= to indicate Trash) to the end of
+  the maildir files where it is missing. Ensure that the maildir file
+  ends in the correct flags.
+  + Flags are as follows
+    - =T= : Trash
+    - =D= : Draft
+    - =S= : Seen
+    - =P= : Passed (Forwarded)
+    - =R= : Replied
+  + File should end in =2,<flags>= (eg: =2,ST=).
+- Make sure that you are only dealing with maildir files with the
+  correct flag information.
+  #+begin_src shell-script :eval no
+    notmuch search --output=files --exclude=false tag:deleted | grep "2,ST$" | wc -l
+  #+end_src
+- TODO : Add a step here to add the T flag to the files if it is missing.
+- Sync the files to the remote mailbox using mbsync, as you would
+  normally do. (eg: =/usr/local/bin/mbsync gmail;=)
+  + This will mark the files for deletion on the remote mailbox.
+- Delete the files from the local mailbox
+  #+begin_src shell-script :eval no
+    notmuch search --output=files --exclude=false tag:deleted | grep "2,ST$" | xargs rm
+  #+end_src
