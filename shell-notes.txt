@@ -96,3 +96,5 @@
      sudo updatedb
    #+end_src
 
+* Dig
+  - https://www.thegeekstuff.com/2012/02/dig-command-examples/
