@@ -92,9 +92,10 @@ $ git branch --set-upstream-to=origin/<branch_name>
 
 # Merge the code from some other branch into our branch, keeping our code
 # on every conflict
-$ git merge -s ours <branchname>
+$ git merge -s recursive -Xours <branchname>
 
 # Similarly, we can also use theirs with -s to keep the incoming copy of code
+$ git merge -s recursive -Xtheirs <branchname>
 
 # This strategy (above) is especially useful if the code on master has
 # become a total mess and you just want to replace it with the code on a sane
