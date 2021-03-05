@@ -130,3 +130,9 @@
 * wget notes
 ** Recursively fetch data from a webpage.
 ** Download from wget such that you can resume the download
+
+* Shell Script
+  To read the scripting manual, run =man bash=.
+** Conditionals and tests in Shell Script
+   To understand all the conditional flags that you can use in a shell
+   script, read =man test=.
