@@ -87,6 +87,14 @@ $ git reset --soft HEAD^
 # (change the branch being tracked)
 $ git checkout <branch_name>
 $ git branch --set-upstream-to=origin/<branch_name>
+** Does my branch have the latest master?
+   #+begin_src shell-script :eval no
+     git branch -r --merged origin/branchname | rg origin/master
+   #+end_src
+** Was my branch merged into master?
+   #+begin_src shell-script :eval no
+     git branch -r --merged origin/master | rg origin/branchname
+   #+end_src
 
 * Merging and Rebasing
 
