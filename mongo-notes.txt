@@ -1,0 +1,5 @@
+-*- mode: org; comment-column: 0; -*-
+* List in-progress operations for the database instance
+#+begin_example
+  db.currentOp()
+#+end_example
