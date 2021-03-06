@@ -300,7 +300,7 @@ $ git diff origin/master..HEAD
 # rev1 occurs before in time than rev2
 $ git diff rev1:filename rev2:filename
 
-* Patches
+* Patches and Pull Requests
 
 # Create a patch between two ids
 $ git diff [commit-id-before] [commit-id-after] > my.patch
@@ -326,6 +326,23 @@ $ git apply --check diff-with-master.patch
 
 # Apply the patch to the master branch
 $ git am -3 --signoff < diff-with-master.patch
+
+** Create a beautiful pull request for submitting to another repository.
+   The aim here is to inform another author of your public repository,
+   what they can find there and what they should do to pull those
+   changes into their own repository. The way to do this:
+
+   - Push all the changes to your public repository, preferably in a
+     well-named branch.
+   - Run the following command to generate a well-formatted message:
+     #+begin_src shell-script
+       git request-pull master https://github.com/vedang/pdf-tools/ feature/render-improvements
+     #+end_src
+     + Here, =master= is the upstream branch that you want to generate
+       a PR against.
+     + =https://github.com/vedang/pdf-tools/= is your public repository
+     + =feature/render-improvements= is your branch (which contains
+       the changes you want to submit)
 
 * Submodules
 
