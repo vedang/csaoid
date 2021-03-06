@@ -48,6 +48,22 @@
   - M-@
   # Comment out the command
   - M-#
+** Redirect both error and output of a command to a file using tee
+   #+begin_src shell-script :eval no
+     lein deps :tree |& tee deps.log
+   #+end_src
+
+   This command (above) is a shortcut for:
+
+   #+begin_src shell-script :eval no
+     lein deps :tree 2&1 | tee deps.log
+   #+end_src
+** Redirect error to one file and output to another file
+   If you want to collect the output into two different files, use
+   process substitution.
+   #+begin_src shell-script :eval no
+     lein deps :tree > >(tee depsout.log) 2> >(tee depserr.log >&2)
+   #+end_src
 
 * Info
   # To install a downloaded info file to a dir file. Note, if dir does
