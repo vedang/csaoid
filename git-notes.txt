@@ -16,84 +16,122 @@
 
 * Basics: Adding a remote to git repo
 
-$ git init
+** Initialize a git repository
+   #+begin_src shell-script :eval no
+     git init
+   #+end_src
+   My recommendation is to always create an empty commit after your
+   initialize the repo.
 
-$ git add .
+*** Create an empty commit
+    #+begin_src shell-script :eval no
+      git commit -m "Empty initial commit" --allow-empty
+    #+end_src
 
-$ git commit -m
+    This trick is useful when initializing the git repository, since
+    the initial commit has special properties which stop it from being
+    used in rebase operations.
 
-$ git remote add origin git@github.com:vedang/reponame.git
+** Mark everything in the current dir for committing to git
+   #+begin_src shell-script :eval no
+     git add .
+   #+end_src
+
+** Create a git commit
+   #+begin_src shell-script :eval no
+     git commit -m
+   #+end_src
+
+** Add a new remote (public url) to your git repository
+   #+begin_src shell-script :eval no
+     git remote add origin git@github.com:vedang/reponame.git
+   #+end_src
 
 * Branching
 
-# The default commit is HEAD.
-$ git checkout -b <branchname> <commit>
+** The default commit is HEAD.
+   #+begin_src shell-script :eval no
+     git checkout -b <branchname> <commit>
+   #+end_src
 
-# delete branch
-$ git checkout -d <branchname>
+** Delete a branch
+   #+begin_src shell-script :eval no
+     git checkout -d <branchname>
+   #+end_src
 
-# Rename a branch
-$ git checkout -m <branchname> <newbranchname>
+** Rename a branch
+   #+begin_src shell-script :eval no
+     git checkout -m <branchname> <newbranchname>
+   #+end_src
 
-# Merge branch <branchname> with current branch
-$ git merge <branchname>
+** Merge branch <branchname> with current branch
+   #+begin_src shell-script :eval no
+     git merge <branchname>
+   #+end_src
 
-# Push a local branch to remote
-$ git push <remotename> <localbranchname>:<remotebranchname>
+** Push a local branch to remote
+   #+begin_src shell-script :eval no
+     git push <remotename> <localbranchname>:<remotebranchname>
+   #+end_src
 
-# Delete branch on remote. Literally, push /nothing/ into <branchname>
-$ git push <remotename> :<branchname>
+** Delete branch on remote. Literally, push /nothing/ into <branchname>
+   #+begin_src shell-script :eval no
+     git push <remotename> :<branchname>
+   #+end_src
 
-# Create an empty branch
-# (Check out the simpler version right below this example)
-$ git symbolic-ref HEAD refs/heads/newbranch
-$ rm .git/index
-$ git clean -fdx
+** Create an empty branch
+   #+begin_src shell-script :eval no
+     git symbolic-ref HEAD refs/heads/newbranch
+     rm .git/index
+     git clean -fdx
+   #+end_src
 
-# Simpler method with git v1.7.2+
-$ git checkout --orphan newbranch
-$ git rm -rf .
+   There is a much simpler way to do this in modern Git (above
+   v1.7.2). This is as follows:
+   #+begin_src shell-script :eval no
+     git checkout --orphan newbranch
+     git rm -rf .
+   #+end_src
 
-# Create an empty commit
-# This trick is useful when initializing the git repository, since the
-# initial commit has special properties which stop it from being used
-# in rebase operations.
-$ git commit -m "Empty initial commit" --allow-empty
-
-# Create a separate repository from a range of commits restricted to a
-# sub-directory
-
-# Create a new repository from a sub-directory named trunk
-# Git will also automatically remove commits that
-# did not affect the subdirectory
-$ git filter-branch --subdirectory-filter trunk HEAD
-$ git remote add trunk /path/to/trunk
-$ git push trunk master
-# This can also be done using git-subtree on git 1.7.11+
-# Refer to [[id:171BE2FB-7835-4E96-A984-FC2B24E91019][Subtree (1.7.11+)]]
-
-# Getting back original master
-$ git checkout masters_original_HEAD
-$ git checkout -b tmp
-$ git merge -s ours master
-$ git checkout master
-$ git merge tmp
-$ git reset --soft HEAD^
-
-# The final step removes the merge-commit and reverts the local repo
-# back to state before filter-branch
-
-# Change the upstream target for a branch
-# (change the branch being tracked)
-$ git checkout <branch_name>
-$ git branch --set-upstream-to=origin/<branch_name>
 ** Does my branch have the latest master?
    #+begin_src shell-script :eval no
      git branch -r --merged origin/branchname | rg origin/master
    #+end_src
+
 ** Was my branch merged into master?
    #+begin_src shell-script :eval no
      git branch -r --merged origin/master | rg origin/branchname
+
+** Create a separate repository from a range of commits restricted to a sub-directory
+   #+begin_src shell-script :eval no
+     git filter-branch --subdirectory-filter trunk HEAD
+     git remote add neworigin /path/to/trunk
+     git push neworigin master
+   #+end_src
+   Basically, what this snippet is doing is the following:
+   - Create a new repository from a sub-directory named trunk.
+   - Automatically remove commits that did not affect the sub-directory
+
+   This can also be done using git-subtree on git 1.7.11+
+   Refer to [[id:171BE2FB-7835-4E96-A984-FC2B24E91019][Subtree (1.7.11+)]]
+
+*** Getting back original master
+    #+begin_src shell-script :eval no
+      git checkout masters_original_HEAD
+      git checkout -b tmp
+      git merge -s ours master
+      git checkout master
+      git merge tmp
+      git reset --soft HEAD^
+    #+end_src
+
+    The final step removes the merge-commit and reverts the local repo
+    back to state before the =filter-branch=.
+
+** Change the upstream target for a branch
+   #+begin_src shell-script :eval no
+     git checkout <branch_name>
+     git branch --set-upstream-to=origin/<branch_name>
    #+end_src
 
 * Merging and Rebasing
