@@ -302,30 +302,49 @@ $ git diff rev1:filename rev2:filename
 
 * Patches and Pull Requests
 
-# Create a patch between two ids
-$ git diff [commit-id-before] [commit-id-after] > my.patch
+** Create a patch between two ids
+   #+begin_src shell-script :eval no
+     git diff [commit-id-before] [commit-id-after] > my.patch
+   #+end_src
 
-# Create a ready-to-send patch with the last 3 commits
-$ git format-patch -3
+** Create a ready-to-send patch with the last 3 commits
+   #+begin_src shell-script :eval no
+     git format-patch -3
+   #+end_src
 
-# Apply commits selectively from one branch to another.
-$ git format-patch -k -s --stdout R1..R2 | git am -3 -k
+** Apply commits selectively from one branch to another.
+   #+begin_src shell-script :eval no
+     git format-patch -k -s --stdout R1..R2 | git am -3 -k
+   #+end_src
+   Here, the flags mean the following:
+   - =-k=: keep subject
+   - =-s=: signoff
+   - =-3=: use diff3 in case of conflict
 
-# -k keep subject -s signoff -3 use diff3 in case of conflict
-# there is also an easier way of doing this
-$ git cherry-pick R1..R2
+   There is also an easier way of doing this:
+   #+begin_src shell-script :eval no
+     git cherry-pick R1..R2
+   #+end_src
 
-# Create a patch of the commits present in this branch but not in master
-git format-patch master --stdout > diff-with-master.patch
+** Create a patch of the commits present in this branch but not in master
+   #+begin_src shell-script :eval no
+     git format-patch master --stdout > diff-with-master.patch
+   #+end_src
 
-# Check the stats of the patch
-$ git apply --stat diff-with-master.patch
+** Check the stats of the patch
+   #+begin_src shell-script :eval no
+     git apply --stat diff-with-master.patch
+   #+end_src
 
-# Check if the patch will apply cleanly
-$ git apply --check diff-with-master.patch
+** Check if the patch will apply cleanly
+   #+begin_src shell-script :eval no
+     git apply --check diff-with-master.patch
+   #+end_src
 
-# Apply the patch to the master branch
-$ git am -3 --signoff < diff-with-master.patch
+** Apply the patch to the master branch
+   #+begin_src shell-script :eval no
+     git am -3 --signoff < diff-with-master.patch
+   #+end_src
 
 ** Create a beautiful pull request for submitting to another repository.
    The aim here is to inform another author of your public repository,

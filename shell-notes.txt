@@ -20,33 +20,33 @@
   - some_cmd > >(tee -a stdout.log) 2> >(tee -a stderr.log >&2)
 
 * Shell shortcuts
-  # Copy the last command on the shell
+** Copy the last command on the shell
   - !!
-  # Copy the nth command on the shell
+** Copy the nth command on the shell
   - !N
-  # Copy the last argument of the previous command
+** Copy the last argument of the previous command
   - !$ or Esc .
-  # Just print any command in history starting with something. eg: rsync:p
+** Just print any command in history starting with something. eg: rsync:p
   - :p
-  # Expand the variable
+** Expand the variable
   - C-M-e or ESC C-e
-  # Search through previous command history
+** Search through previous command history
   - C-r
-  # Copy all args of the last command
+** Copy all args of the last command
   - !*
-  # Delete backwards
+** Delete backwards
   - C-w
-  # Replace old with new in the previous command
+** Replace old with new in the previous command
   - ^old^new
-  # Exansions across multiple folders. eg: cp handlers/{user,site,profile}/ .
+** Exansions across multiple folders. eg: cp handlers/{user,site,profile}/ .
   - {}
-  # Get specific arguments from previous commands (with pos/neg count)
+** Get specific arguments from previous commands (with pos/neg count)
   - M-.
-  # Show matching expansions
+** Show matching expansions
   - M-=
-  # Expand hostname
+** Expand hostname
   - M-@
-  # Comment out the command
+** Comment out the command
   - M-#
 ** Redirect both error and output of a command to a file using tee
    #+begin_src shell-script :eval no
@@ -126,3 +126,7 @@
 
 * Dig
   - https://www.thegeekstuff.com/2012/02/dig-command-examples/
+
+* wget notes
+** Recursively fetch data from a webpage.
+** Download from wget such that you can resume the download
