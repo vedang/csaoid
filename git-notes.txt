@@ -403,54 +403,92 @@ $ git diff rev1:filename rev2:filename
 
 * Submodules
 
-# Adding another repository as a submodule
-$ git submodule add path_to_git_repo local_dir
-$ git submodule init
-$ git submodule update
+** Adding another repository as a submodule
+   #+begin_src shell-script :eval no
+     git submodule add path_to_git_repo local_dir &&
+     git submodule init &&
+     git submodule update;
+   #+end_src
 
-# Git submodule update keeps the submodule in headless state.
-# When you want to bring the submodule up-to-date, remember to
-# checkout to a branch first.
-# NOTE: This is not true with the latest versions of git. These versions
-# will checkout the default branch in the submodule for you
+** Pulling from the remote and updating a submodule
+- Git submodule update keeps the submodule in headless state. When you
+  want to bring the submodule up-to-date, remember to checkout to a
+  branch first.
+  + NOTE: This is not true with the latest versions of git. These
+    versions will checkout the default branch in the submodule for you
+- Updating all submodules while pulling upstream changes:
+  1. Get all the changes
+     #+begin_src shell-script :eval no
+       git pull --recurse-submodules #requires git 1.7.3+
+     #+end_src
+  2. Checkout the proper SHA-1
+     #+begin_src shell-script :eval no
+       git submodule update --recursive
+     #+end_src
 
-# Get all the submodules in a repository while cloning it
-$ git clone --recursive <path-to-remote-repo>
+** Getting all the submodules in a repository while cloning it
+   #+begin_src shell-script :eval no
+     git clone --recursive <path-to-remote-repo>
+   #+end_src
 
-# Deleting a Submodule
-# 1. Delete the relevant section from the .gitmodules file.
-# 2. Delete the relevant section from .git/config.
-# 3.
-$ git rm --cached path_to_submodule # (no trailing slash)
-# 4. Commit and delete the now untracked submodule files.
-
-# Updating all submodules while pulling upstream changes
-# 1. Get all the changes
-$ git pull --recurse-submodules #requires git 1.7.3+
-# 2. Checkout the proper SHA-1
-$ git submodule update --recursive
+** Deleting a Submodule
+1. Delete the relevant section from the =.gitmodules= file.
+2. Delete the relevant section from =.git/config=.
+3. Run:
+   #+begin_src shell-script :eval no
+     git rm --cached path_to_submodule # (no trailing slash)
+   #+end_src
+4. Commit and delete the now untracked submodule files.
 
 * Subtree (1.7.11+)
   :PROPERTIES:
   :ID:       171BE2FB-7835-4E96-A984-FC2B24E91019
   :END:
-# Splitting out code from an existing repository into a new repository
-$ git subtree split --prefix=subdir/ --annotate='(split)' -b split_branch
-$ git push git@github.com:yourname/your-repo.git split_branch:master
+- The primary difference between submodules and subtrees is in the
+  intent behind their usage.
+  + If you are adding your own child repo to a parent repo, and you
+    plan to actively develop the child repo from inside the parent
+    repo, use submodules.
+  + If you are adding an external child repo to a parent repo, and you
+    never plan to contribute changes back to the child repo from
+    inside the parent repo, use subtrees.
+- Submodules : a pointer to a specific commit in another repository
+  + This means its trivial to push changes back, but you have to be
+    careful about pulling changes. The submodule is an entirely
+    different repo.
+- Subtrees: a full copy of a repository pulled into a parent
+  repository.
+  + This means it's trivial to pull changes, but you have to be
+    careful about pushing changes. The subtree is a copy of a
+    different repo, we don't know anything about that repo in the
+    parent. We only benefit from having the content.
 
-# Adding a repository as a subtree to your current repository
-$ git subtree add --prefix=path/in/curr/repo --squash \
-		git://github.com/yourname/your-repo.git master
+** Adding a repository as a subtree to your current repository
+   #+begin_src shell-script :eval no
+     git subtree add --prefix=path/in/curr/repo --squash \
+         git://github.com/yourname/your-repo.git master
+   #+end_src
 
-# Pulling changes from subtree
-$ git subtree pull --prefix=path/in/curr/repo --squash \
-		git://github.com/yourname/your-repo.git master
+** Pulling changes from subtree
+   #+begin_src shell-script :eval no
+     git subtree pull --prefix=path/in/curr/repo --squash \
+         git://github.com/yourname/your-repo.git master
+   #+end_src
 
-# Pushing the changes that you have made in a subtree back upstream
-$ git subtree split --prefix=subdir/ --annotate='(split)' -b split_dir_latest
-# subtree guarantees that previously seen commits with retain the same SHAs
-# which makes this operation very straightforward
-$ git push git@github.com:yourname/your-repo.git split_dir_latest:master
+** Pushing the changes that you have made in a subtree back upstream
+   #+begin_src shell-script :eval no
+     git subtree split --prefix=subdir/ --annotate='(split)' -b split_dir_latest
+     git push git@github.com:yourname/your-repo.git split_dir_latest:master
+   #+end_src
+
+   Git subtree guarantees that previously seen commits with retain the
+   same SHAs which makes this operation relatively straightforward.
+
+** Splitting out code from an existing repository into a new repository
+   #+begin_src shell-script :eval no
+     git subtree split --prefix=subdir/ --annotate='(split)' -b split_branch
+     git push git@github.com:yourname/your-repo.git split_branch:master
+   #+end_src
 
 * Worktree (2.5+)
 # Use Git Worktrees (2.5+) for working on multiple things in parallel
