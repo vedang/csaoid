@@ -1,5 +1,16 @@
+-*- mode: org; comment-column: 0; -*-
+
 * Capture tmux output to a file
   - $ capture-pane -S -3000
     # 3000 is the number of lines to capture.
   - $ save-buffer <full-path-of-file>
     # save the captured lines to a file
+* Use tmux plugin manager for a beautiful tmux
+  - Create your =.tmux.conf= file and add plugins to it. My tmux.conf
+    file is in my dotfiles repository.
+  - Clojure the tmux plugins repo
+    #+begin_src shell :eval no
+      git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+      tmux source ~/.tmux.conf
+    #+end_src
+  - Enjoy!
