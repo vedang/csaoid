@@ -409,6 +409,8 @@ $ git diff rev1:filename rev2:filename
      git submodule init &&
      git submodule update;
    #+end_src
+   - =path_to_git_repo=: eg: git@github.com:vedang/csaoid
+   - =local-dir=: eg: lib/csaoid
 
 ** Pulling from the remote and updating a submodule
 - Git submodule update keeps the submodule in headless state. When you

@@ -57,7 +57,6 @@ $ jmap -dump:format=b,file=cheap.bin <pid>
       Java HotSpot(TM) 64-Bit Server VM (build 25.66-b17, mixed mode)
     #+end_example
 * Debugging
-
 ** Print the values of all the flags for the JVM.
 
 # This will print the default values of all flags.
@@ -68,8 +67,11 @@ $ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal
 $ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -XX:+UseConcMarkSweepGC
 
 ** Browsing JMX beans on a production server
-$ j4psh http://localhost:8778/jolokia
-
+   #+begin_src shell
+     j4psh http://localhost:8778/jolokia
+   #+end_src
+- When this works, try out commands like =ls= =cd= and =cat= for more
+  information about the mbeans
 * GC Tuning
 ** Thumb Rules of GC Tuning
 
