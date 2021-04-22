@@ -634,6 +634,16 @@ $ git reflog show --no-abbrev <branch name>
 
 $ git checkout -m <file>
 
+* Searching
+** Search for =regex= in the entire repo.
+   #+begin_src sh :eval no
+     git grep regex
+   #+end_src
+** Search for =search_regex= only in files that match =file_regex=
+   #+begin_src sh :eval no
+     git grep search_regex -- 'file_regex'
+   #+end_src
+
 * Misc
 
 # get rid of bloody trailing whitespace
@@ -670,12 +680,6 @@ $ git config --global alias.serve '!git daemon --reuseaddr --verbose --base-path
 
 # On other computer:
 $ git clone git://192.168.254.135/ project
-
-# Searching for search_regex in the entire repo.
-$ git grep search_regex
-
-# Searching for search_regex only in files that match file_regex.
-$ git grep search_regex -- '*file_regex'
 
 * Extra configuration for a better Git experience
 
