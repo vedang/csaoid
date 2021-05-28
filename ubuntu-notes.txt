@@ -96,8 +96,11 @@ xargs sudo apt-get -y purge
 apt list --installed | grep texlive
 #+end_src
 * Installing LaTeX packages
+:PROPERTIES:
+:ID:       459db3c9-5332-4ef4-87f9-40eab17f6b2d
+:END:
 #+begin_src
-sudo apt install texlive-base texlive texlive-binaries texlive-latex-base texlive-latex-recommended texlive-luatex texlive-latex-extra texlive-xetex
+sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive texlive-binaries texlive-latex-recommended texlive-luatex texlive-latex-extra texlive-xetex texlive-fonts-recommended
 #+end_src
 - The whole shebang can be installed by installing =texlive-full=, but is unnecessary.
 
@@ -106,4 +109,53 @@ sudo apt install texlive-base texlive texlive-binaries texlive-latex-base texliv
   - In the keyboard section of =gnome-tweak-tool=, search for
     =Additional Layout Options=.
 
+* My personal Operating System setup from scratch for Pop OS 20.10
+** Install the basics for getting started with anything else
+#+begin_src sh :eval no
+  sudo apt install tmux mercurial gnome-tweaks subversion aspell aspell-en automake texinfo shellcheck gawk default-jre-headless default-jre
+#+end_src
+** Install LaTex and Texinfo packages
+- Refer to [[id:459db3c9-5332-4ef4-87f9-40eab17f6b2d][Installing LaTeX packages]]
+** Install Imagemagick from source
+I install it from source because I want the latest ImageMagick for
+integration with Emacs.
+#+begin_src sh :eval no
+  git clone https://github.com/ImageMagick/ImageMagick.git ImageMagick
+  cd ImageMagick
+  ./configure --with-rsvg --with-perl --with-gslib
+  make
+  sudo make install
+  sudo ldconfig /usr/local/lib
+  # Verify the installation
+  /usr/local/bin/convert logo: logo.gif
+#+end_src
+** Install Emacs from source
+- Refer to [[id:700381b6-78ef-4abb-9f68-6b514b5b83ba][Compiling and Running Emacs 28 on master branch (Ubuntu).]]
+- Clone https://github.com/vedang/emacs-up to ~.emacs.d~
+** Install tmux-tpm from source
+- Clone the tmux-tpm repo from https://github.com/tmux-plugins/tpm as
+  per instructions in the README.
+- Symlink ~.tmux.conf~ to home dir
+- Execute ~C-b I~ inside tmux once to install all the plugins
+** Install Rust and my trusty Rust based CLI tools
+- Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
+- Install all the tools I use
+  #+begin_src sh :eval no
+    cargo install ripgrep du-dust exa zoxide fd-find procs bat
   #+end_src
+** Install zsh and  oh-my-zsh
+- Refer to instructions here:
+  + https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
+  + https://github.com/ohmyzsh/ohmyzsh/wiki
+- Symlink ~.zhsrc~, ~.zshenv~ to home dir.
+- Symlink ~personal.zsh~ to ~custom/~ dir in oh-my-zsh
+** Install fzf
+Refer to the *Using Git* section here: https://github.com/junegunn/fzf#installation
+
+** Install Ledger CLI from source
+*** Install the prerequisites
+#+begin_src sh :eval no
+  sudo apt-get install build-essential cmake doxygen libboost-system-dev libboost-dev python3-dev gettext git libboost-date-time-dev libboost-filesystem-dev libboost-iostreams-dev libboost-python-dev libboost-regex-dev libboost-test-dev libedit-dev libgmp3-dev libmpfr-dev texinfo tzdata
+#+end_src
+*** Follow the instructions
+at: https://github.com/ledger/ledger
