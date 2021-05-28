@@ -75,6 +75,9 @@ xargs sudo apt-get -y purge
 ** References:
 + https://askubuntu.com/a/90219: Also an excellent explanation of globbing on the shell
 + https://askubuntu.com/a/259092: The actual answer to this question
+** Do this the next time you format your machine
+- Make sure there is enough place in ~/boot/efi/~ drive. Currently,
+  I'm using 2 GB and it's working like a charm so far.
 * Steps when using apt to update your distribution
 ** Ensure that your packages are up-to-date
 #+begin_src shell-script
