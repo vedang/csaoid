@@ -6,6 +6,10 @@
 # way to handle a particular situation that you may face. YMMV.
 
 * Disable the touchpad
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       50d63d9d-82de-45ae-88ec-c5dd9fd94995
+:END:
   - Checking to see if this interferes with typing due to the placement of the touchpad on the system76
 #+begin_src fundamental
 Run the following command in a terminal:
@@ -34,6 +38,10 @@ xinput disable 12
 (and enable via a similar command)
 #+end_src
 * Jenv on Ubuntu
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       cbd2378f-3706-42df-a823-b56e94d898ba
+:END:
   - Install jenv from : https://github.com/jenv/jenv
   - Follow the instructions above to install it. The instructions
     contain Mac specific information on how to install multiple
@@ -48,8 +56,16 @@ xinput disable 12
     #+end_src
   - List all installed versions with =jenv versions=
 * Opening any file in it's default application from the terminal
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       4761b97b-29f9-4437-b0ec-fdd81464b59f
+:END:
   - Use =xdg-open=
 * Recording the screen in Ubuntu
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       60886e26-47a3-4fe6-b091-a0e3530daaaf
+:END:
   - Use the built-in screen recorder provided by Gnome.
   - Start/Stop the screen recorder using the hotkey <Ctrl + Alt + Shift + R>.
   - Whether the recording is on or not is indicated by a red dot in
@@ -59,39 +75,91 @@ xinput disable 12
     the setting
     =/org/gnome/settings-daemon/plugins/media-keys/max-screencast-length=.
 * Recording audio on Ubuntu
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       483e9c68-12d8-42e6-b4cb-260c3e6f7151
+:END:
   - Use the built-in audio recorder =arecord= from the command-line.
 * Taking a screenshot on Ubuntu
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       674e1e53-4722-4a52-a342-822428bb327e
+:END:
   - Select the =Screenshot= application from Activities
 * Dealing with 'boot space is filled up' warning
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       118fb692-c146-4a47-8f66-e7afe39d5852
+:END:
 ** Get the list of kernels that you have installed but are no longer using:
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       36436dcc-817f-4db6-80b6-5da8bd25e6c3
+:END:
 #+begin_src shell
 dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e '[0-9]'
 #+end_src
 ** Confirm that the output above does not contain the results of =uname -r=
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       103c1a54-344e-465e-8456-361f01ba45b4
+:END:
 ** Remove the unused kernels by piping the output to =apt-get purge=
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       99d77b30-0753-4f82-8e59-15da4693dd78
+:END:
 #+begin_src shell
 xargs sudo apt-get -y purge
 #+end_src
 ** References:
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       7eb9fd2a-750e-4ddc-b719-7f835f51f5d8
+:END:
 + https://askubuntu.com/a/90219: Also an excellent explanation of globbing on the shell
 + https://askubuntu.com/a/259092: The actual answer to this question
 ** Do this the next time you format your machine
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       54ad067c-2a20-4a04-b594-bf01f50a1f8b
+:END:
 - Make sure there is enough place in ~/boot/efi/~ drive. Currently,
   I'm using 2 GB and it's working like a charm so far.
 * Steps when using apt to update your distribution
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       a46018eb-6702-4287-9b01-6ff388d11014
+:END:
 ** Ensure that your packages are up-to-date
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       1a8a8943-a7e9-4531-a04c-060d89961f04
+:END:
 #+begin_src shell-script
   sudo apt update && sudo apt -y upgrade && sudo apt -y full-upgrade && sudo apt -y dist-upgrade
 #+end_src
 ** Remove unused and unnecessary packages
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       a6fe5225-990d-4823-b176-c1a8ce02c024
+:END:
 #+begin_src shell-script
   sudo apt -y autoremove && sudo apt autoclean
 #+end_src
 ** Run the upgrade command for PopOS
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       96cc74c8-522a-4ecd-999b-e0f074355209
+:END:
 #+begin_src shell-script
   sudo pop-upgrade release upgrade
 #+end_src
 * Searching for installed packages using apt
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       866a3cee-93be-4966-9f6e-5d3b1c5813e1
+:END:
 #+begin_src
 apt list --installed | grep texlive
 #+end_src
@@ -105,18 +173,38 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
 - The whole shebang can be installed by installing =texlive-full=, but is unnecessary.
 
 * Change Caps Lock behavior
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       7e028629-e5de-4bd3-b3c1-bcb4046d88d2
+:END:
   - Install and use =gnome-tweak-tool=
   - In the keyboard section of =gnome-tweak-tool=, search for
     =Additional Layout Options=.
 
 * My personal Operating System setup from scratch for Pop OS 20.10
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       f506800f-67ab-4231-ab8d-aab341dc4eb4
+:END:
 ** Install the basics for getting started with anything else
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       6d55077f-2489-491a-80ac-f397351b382b
+:END:
 #+begin_src sh :eval no
   sudo apt install tmux mercurial gnome-tweaks subversion aspell aspell-en automake texinfo shellcheck gawk default-jre-headless default-jre
 #+end_src
 ** Install LaTex and Texinfo packages
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       1f194add-a1dd-4479-ba2e-a47050fe99bf
+:END:
 - Refer to [[id:459db3c9-5332-4ef4-87f9-40eab17f6b2d][Installing LaTeX packages]]
 ** Install Imagemagick from source
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       fd8efb4e-50aa-4f82-9218-eb3123165c5b
+:END:
 I install it from source because I want the latest ImageMagick for
 integration with Emacs.
 #+begin_src sh :eval no
@@ -130,32 +218,75 @@ integration with Emacs.
   /usr/local/bin/convert logo: logo.gif
 #+end_src
 ** Install Emacs from source
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       71a1c516-4ec2-4773-a9a7-657aa2e6551d
+:END:
 - Refer to [[id:700381b6-78ef-4abb-9f68-6b514b5b83ba][Compiling and Running Emacs 28 on master branch (Ubuntu).]]
 - Clone https://github.com/vedang/emacs-up to ~.emacs.d~
+- Clone https://github.com/cask/cask to ~.cask~ in order to run cask based tests
+- ~sudo apt install libx32stdc++-10-dev~ to run pdf-tools
+  ~have_packages_installed~ check correctly.
 ** Install tmux-tpm from source
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       feeaeed3-f9f0-4859-b459-0bb78a770683
+:END:
 - Clone the tmux-tpm repo from https://github.com/tmux-plugins/tpm as
   per instructions in the README.
 - Symlink ~.tmux.conf~ to home dir
 - Execute ~C-b I~ inside tmux once to install all the plugins
 ** Install Rust and my trusty Rust based CLI tools
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       14c19bb7-db3a-47cd-9c67-d606d88aeff0
+:END:
 - Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
 - Install all the tools I use
   #+begin_src sh :eval no
     cargo install ripgrep du-dust exa zoxide fd-find procs bat
   #+end_src
 ** Install zsh and  oh-my-zsh
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       b303ec83-8c3b-4391-b550-5105e2cf6f4f
+:END:
 - Refer to instructions here:
   + https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
   + https://github.com/ohmyzsh/ohmyzsh/wiki
 - Symlink ~.zhsrc~, ~.zshenv~ to home dir.
 - Symlink ~personal.zsh~ to ~custom/~ dir in oh-my-zsh
 ** Install fzf
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       8f249335-bdfd-4379-86b5-4dc5e23f53d6
+:END:
 Refer to the *Using Git* section here: https://github.com/junegunn/fzf#installation
 
 ** Install Ledger CLI from source
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       14db5d6f-434f-477f-9bef-9fee477a20dd
+:END:
 *** Install the prerequisites
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       2561c6d9-0be4-49fb-9007-d73416cb7eb9
+:END:
 #+begin_src sh :eval no
   sudo apt-get install build-essential cmake doxygen libboost-system-dev libboost-dev python3-dev gettext git libboost-date-time-dev libboost-filesystem-dev libboost-iostreams-dev libboost-python-dev libboost-regex-dev libboost-test-dev libedit-dev libgmp3-dev libmpfr-dev texinfo tzdata
 #+end_src
 *** Follow the instructions
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       359b0831-3408-4603-838d-32e7f9e97a9c
+:END:
 at: https://github.com/ledger/ledger
+
+** Install podman from the Kubic project
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       7b78bd17-99ce-4954-90fb-d0e817241ca1
+:END:
+- Follow instructions here to add the Kubic PPA: https://software.opensuse.org//download.html?project=devel%3Akubic%3Alibcontainers%3Astable&package=podman
+- ~sudo apt install podman buildah skopeo~
