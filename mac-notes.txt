@@ -18,3 +18,7 @@
       # Turn the wifi on
       networksetup -setairportpower en0 on # or off
     #+end_src
+* Check if your machine is overheating
+  #+begin_src sh :eval no
+    pmset -g thermlog
+  #+end_src
