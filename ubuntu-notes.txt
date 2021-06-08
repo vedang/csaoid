@@ -290,3 +290,73 @@ at: https://github.com/ledger/ledger
 :END:
 - Follow instructions here to add the Kubic PPA: https://software.opensuse.org//download.html?project=devel%3Akubic%3Alibcontainers%3Astable&package=podman
 - ~sudo apt install podman buildah skopeo~
+
+** Install everything needed for Clojure development
+:PROPERTIES:
+:CREATED:  [2021-06-14 Mon 21:15]
+:ID:       76a25f6e-d2db-455b-b3c4-9a8ee0e34fc2
+:END:
+*** Install leiningen from it's website
+:PROPERTIES:
+:CREATED:  [2021-06-05 Sat 14:00]
+:ID:       27987b80-675f-4649-8c74-27d9145aded0
+:END:
+*** Install clj-kondo from it's website
+:PROPERTIES:
+:CREATED:  [2021-06-14 Mon 21:15]
+:ID:       8f993f83-3a01-4cca-9df5-4816fd25b912
+:END:
+*** Install cljstyle from it's website
+:PROPERTIES:
+:CREATED:  [2021-06-14 Mon 21:15]
+:ID:       f4aea7d7-a87b-45d9-beda-b6819bc670cf
+:END:
+*** Symlink ~lein~ from private-dotfiles to ~.lein~ in home
+:PROPERTIES:
+:CREATED:  [2021-06-14 Mon 21:16]
+:ID:       3965cb21-c700-486a-9f70-79c01550d261
+:END:
+*** Install jdk sources
+:PROPERTIES:
+:CREATED:  [2021-06-14 Mon 22:26]
+:ID:       8239e1c9-1c62-46b8-972e-4f3bd34442c4
+:END:
+- ~sudo apt install openjdk-11-jdk openjdk-11-source openjdk-11-demo visualvm~
+** Setup email via notmuch
+:PROPERTIES:
+:CREATED:  [2021-06-08 Tue 17:42]
+:ID:       711b53be-49ea-404c-87fe-0e9844066004
+:END:
+- Install notmuch deps manually
+  #+begin_src sh :eval no
+    sudo apt-get install libxapian-dev libgmime-3.0-dev libtalloc-dev zlib1g-dev xapian-tools
+  #+end_src
+- Note that notmuch will be installed as part of Emacs and you don't
+  have to do this manually.
+- Install mbsync and msmtp
+  #+begin_src sh :eval no
+    sudo apt install isync msmtp
+  #+end_src
+- Symlink ~notmuch/.notmuch-config~, ~.mbsyncrc~ and ~.msmtprc~ from
+  private dotfiles to Home.
+- Symlink ~notmuch~ dir in private-dotfiles to ~<maildir>/.notmuch/hooks~
+
+** Install org-protocol prerequisites
+:PROPERTIES:
+:CREATED:  [2021-06-08 Tue 21:18]
+:ID:       a10630bc-3bec-4e25-adb4-bdc3ebe6d147
+:END:
+- Follow the instructions in the README file of
+  ~org-protocol-capture-html~
+
+** Install Timeshift for backups
+:PROPERTIES:
+:CREATED:  [2021-06-30 Wed 10:37]
+:ID:       e4295bd7-3c3c-4957-b25b-d1158181a71b
+:END:
+- Set it up to take daily backups. After configuring, run timeshift from the command line.
+  #+begin_src sh :eval no
+    sudo apt install timeshift
+    # Open timeshift GUI and configure
+    sudo timeshift --check
+  #+end_src
