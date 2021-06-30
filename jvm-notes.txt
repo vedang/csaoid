@@ -8,20 +8,40 @@
 
 
 * Basics
+  :PROPERTIES:
+  :CREATED:  [2021-06-14 Mon 09:40]
+  :ID:       59F88DFA-47AE-4BAE-B807-F9B935DBB75B
+  :END:
 
 ** Print Java processes running on the system
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       B214E7E5-8ED9-4B92-8791-38D7329A3FE8
+   :END:
 
 $ jps
 
 ** Take thread-dumps of a given process
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       F8D0A26D-3E0B-4A97-A046-B0ABE1E0DC8F
+   :END:
 
 $ sudo jstack -F <pid> > /tmp/threaddump
 
 ** Take heap dumps of a given process
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       2768F358-AC0A-41AB-B46F-86379A95B3CE
+   :END:
 
 $ jmap -dump:format=b,file=cheap.bin <pid>
 
 * Multiple JDKs
+  :PROPERTIES:
+  :CREATED:  [2021-06-14 Mon 09:40]
+  :ID:       2FC7377C-9EC4-4F87-97EE-01BB9DAB4E10
+  :END:
   *Note*: The following function is taken from a stack overflow
   answer:
   - If you are moving to Java 8 and still want to run Java 7 the
@@ -57,7 +77,15 @@ $ jmap -dump:format=b,file=cheap.bin <pid>
       Java HotSpot(TM) 64-Bit Server VM (build 25.66-b17, mixed mode)
     #+end_example
 * Debugging
+  :PROPERTIES:
+  :CREATED:  [2021-06-14 Mon 09:40]
+  :ID:       C6121A13-B0E3-4264-A30E-48B10FAB38A3
+  :END:
 ** Print the values of all the flags for the JVM.
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       E37A9A05-5285-409B-993A-68062B969870
+   :END:
 
 # This will print the default values of all flags.
 $ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal
@@ -67,13 +95,25 @@ $ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal
 $ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -XX:+UseConcMarkSweepGC
 
 ** Browsing JMX beans on a production server
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       2D222945-2B75-45E6-8ED4-DFC7218C88A8
+   :END:
    #+begin_src shell
      j4psh http://localhost:8778/jolokia
    #+end_src
 - When this works, try out commands like =ls= =cd= and =cat= for more
   information about the mbeans
 * GC Tuning
+  :PROPERTIES:
+  :CREATED:  [2021-06-14 Mon 09:40]
+  :ID:       3B0645AD-2E05-4E07-B6DE-95E2AEE5E746
+  :END:
 ** Thumb Rules of GC Tuning
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       1E695D37-C1F2-4C5A-9138-611A59AECAA2
+   :END:
 
 1. Try to maximize objects reclaimed in young gen. Minimize Full GC
    frequency.
@@ -86,6 +126,10 @@ $ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -
    Read: https://blogs.oracle.com/jonthecollector/entry/our_collectors
 
 ** Enable GC Logging in production for better insights.
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       B7FF6FFB-E19A-4FEE-B5BD-8929AE427216
+   :END:
 
    - Interesting Command Line flags ::
         -Xloggc:<file>
@@ -111,8 +155,16 @@ $ java -XX:+AggressiveOpts -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -
         -XX:+UseGCLogFileRotation
         -XX:+UseParNewGC
 ** Use [[https://github.com/chewiebug/GCViewer][GCViewer]] for offline analysis of GC logs.
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       BD0C804F-1060-41D3-899D-E0545CE4B3CE
+   :END:
 
 ** Calculate Live Data Size (LDS) to see which objects are being instantiated.
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       94450E25-870A-42F3-A431-A5A073195D84
+   :END:
 
 $ jmap -histo:live <pid>
 
@@ -120,12 +172,20 @@ $ jmap -histo:live <pid>
 # each full GC), max perm gen size, and worst case latency scenario
 # due to full GC
 ** Parallel Scavenge GC
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       D8683DDD-D254-4F31-8DAA-609B83DE7113
+   :END:
 - Default in JDK 6, stop-the-world GC
 - -XX:+UseParallelGC (for new gen)
 - -XX:+UseParallelOldGC (for old gen)
 - By default, GC threads = number of cores.
   Control number using -XX:+ParallelGCThreads=<n>
 ** Concurrent Mark and Sweep GC
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       D547950E-6C7E-4D5B-85A4-C823CDD0FBEE
+   :END:
 - Low latencies collector, very small stop-the-world (for initial
   marking)
 - to improve throughput, use ParNewGC for young gen
@@ -134,6 +194,10 @@ $ jmap -histo:live <pid>
   small pause for new gen objects)
 - CMS with ParNewGC is a good option for availability
 ** G1 GC (The Garbage First GC)
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       DF291B93-FD75-4B91-A7ED-E3577BA65810
+   :END:
 - officially supported from JDK 7u4
 - -XX:+UseG1GC
 - This is replacement for CMS.
@@ -155,7 +219,15 @@ $ jmap -histo:live <pid>
   http://www.oracle.com/technetwork/articles/java/g1gc-1984535.html
 
 * Finding Memory Leaks
+  :PROPERTIES:
+  :CREATED:  [2021-06-14 Mon 09:40]
+  :ID:       9CD49816-2495-48A0-B0B6-62258350934A
+  :END:
 ** Extensive Leaks
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       21E919D4-A7CF-451F-8187-84A4B66C6E02
+   :END:
 When looking at an OutOfMemoryError induced heapdump post mortem, one can usually assume that the Memory Leak filled the majority of the memory. But how big is the leak? While the dump contains all object instances, Eclipse MAT shows in its Class Histogramm only class names, amount of instances and the sum of their shallow size. Shallow Size is basically the sum of the sizes of all contained primitive data types, as well as the size of the references to other objects. But the so called Retained Heap is more important for finding leaks, as it is the total size of all objects being kept alive by this dominator. To get this number, MAT needs to calculate the Retained Size by following all object references. As sorting by Retained Heap is very helpful for finding leaks, MAT displays the largest retained heaps in a pie chart. A prominent example for a lot of Retained Heap in web applications is usually the
 
 org.apache.catalina.session.StandardManager
@@ -165,9 +237,17 @@ The purpose is clear: keep user data for the time of their session. But very oft
 To determine who is creating these objects, or find out what the purpose of some structures is, the actual instances with their incoming and outgoing references are required. To get them, choose List Objects with incoming References from the context menu. Now a tree structure is displayed, showing all instances with all incoming references. Those references keep the object alive and prevented them from being garbage collected. Outgoing References are interesting as well, because they show the actual contents of the instances, helping to find out their purpose. They are especially interesting when the actual dominator, like the SessionManagers, should not be removed, but the excessive objects referenced by it should.
 
 ** Sneaking Memory Leaks
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       F1A9350C-2FEA-4A4D-9938-BAC92F1ECD1F
+   :END:
 Finding Memory Leaks long before an OutOfMemoryError occurs is possible by creating multiple snapshots with the previously described method. A single snapshot alone can seldom help deciding whether the amount of objects is ok or not. But slowly growing object counts can hint at leaks. Eclipse MAT allows comparing two heapdump snapshots and finding growing structures and instance counts. But this requires two well timed dumps. With some amount of load they should be minutes apart, with few load hours or days. Having a greater time lag helps in separating normal jitter from real issues.
 
 ** Tips and Tricks
+   :PROPERTIES:
+   :CREATED:  [2021-06-14 Mon 09:40]
+   :ID:       5E43954E-11B2-44D4-BD21-C87EDF707E04
+   :END:
  The following list of tips and tricks are very useful for proper memory dump analysis to go smoothly, so I highly recommend you use them.
 
     Reduce the size of your applicationÕs heap as much as possible before generating memory dumps. Analyzing heap memory dumps is a process that requires a lot of memory, and usually, despite the tools best efforts to reduce memory consumption, you will need at least as much free memory as the size of the uncompressed heap memory dump file. So for a 4GB dump file you will need 4GB of free memory on the machine that will perform the analysis. So making the JVM heap as small as possible will generate smaller heap dumps, which will therefore be easier to analyze. Of course this is not always possible but when it is this will prove extremely useful.
@@ -194,7 +274,29 @@ Finding Memory Leaks long before an OutOfMemoryError occurs is possible by creat
 
     Although it is tempting, avoid as much as possible using allocation recording. Most profilers offer a feature called Òrecord allocationsÓ. Most of the time this feature will slow down the JVM to a crawl, so unless you have exhausted all other ways of analyzing the contents of the memory and what code is generating the objects, I strongly recommend against using this. Personally I tried to use it alot at first, but now I rarely activate it at all. In general, any feature that has a heavy performance impact is usually not very useful, since it completely changes the behavior of the application.
 * MAT
+  :PROPERTIES:
+  :CREATED:  [2021-06-14 Mon 09:40]
+  :ID:       C277073A-FAB8-4B33-AD4A-4CC72E41B2D9
+  :END:
   - Note: if the analysis fails with "Java Heap Space" you are not starting MAT with enough Heap Mem. Give the following options:
     #+begin_src sh
       $ MemoryAnalyzer -vmargs -Xmx8g -XX: -UsedGCOverheadLimit
     #+end_src
+
+* Preserve frame points in JVM
+  :PROPERTIES:
+  :CREATED:  [2021-06-14 Mon 09:40]
+  :ID:       B87B6D86-AC2F-4CBE-AD69-3B89ED2A7E48
+  :END:
+- [[brain:1ffbffa6-9bef-4156-bcd3-1170e5489285][Flame graphs]] are a tool for understanding the performance statistics
+  of an application.
+- To get reliable flame graphs in Java, we need to tell Hotspot to
+  stop removing frame pointers.
+  + From [[brain:828E11D6-DCE6-43D7-BF4F-8513121B83E1][Brendan Gregg]]'s http://www.brendangregg.com/perf.html
+    #+begin_quote
+    Note that Java may not show full stacks to begin with, due to
+    hotspot on x86 omitting the frame pointer (just like gcc). On
+    newer versions (JDK 8u60+), you can use the
+    -XX:+PreserveFramePointer option to fix this behavior, and profile
+    fully using perf.
+    #+end_quote
