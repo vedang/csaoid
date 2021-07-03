@@ -360,3 +360,24 @@ at: https://github.com/ledger/ledger
     # Open timeshift GUI and configure
     sudo timeshift --check
   #+end_src
+** Install pip and pygments
+:PROPERTIES:
+:CREATED:  [2021-07-02 Fri 17:48]
+:ID:       19dc725c-07f8-4b6c-b0d0-f01567c144d0
+:END:
+- For source code highlighting in org-exports
+#+begin_src sh :eval no
+  sudo apt install python3-pip
+  pip install Pygments
+#+end_src
+- Add ~/.local/bin to the path (committed in zsh files)
+* Install pympress for PDF based presentations
+:PROPERTIES:
+:CREATED:  [2021-07-02 Fri 19:41]
+:ID:       a24d350c-d049-458c-832d-a52fb7e29a97
+:END:
+#+begin_src sh :eval no
+  # Doesn't need other packages because they have been previously installed
+  sudo apt install pympress gobject-introspection
+
+#+end_src
