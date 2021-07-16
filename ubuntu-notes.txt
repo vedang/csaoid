@@ -244,7 +244,7 @@ integration with Emacs.
 - Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
 - Install all the tools I use
   #+begin_src sh :eval no
-    cargo install ripgrep du-dust exa zoxide fd-find procs bat
+    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat
   #+end_src
 ** Install zsh and  oh-my-zsh
 :PROPERTIES:
@@ -380,4 +380,13 @@ at: https://github.com/ledger/ledger
   # Doesn't need other packages because they have been previously installed
   sudo apt install pympress gobject-introspection
 
+#+end_src
+
+* Install youtube-dl for downloading videos from Youtube
+:PROPERTIES:
+:CREATED:  [2021-07-06 Tue 19:44]
+:ID:       8ba6188d-0307-4a72-af51-3fc8703c06e9
+:END:
+#+begin_src sh :eval no
+sudo apt install youtube-dl
 #+end_src
