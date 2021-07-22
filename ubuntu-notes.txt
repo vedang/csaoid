@@ -192,7 +192,7 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
 :ID:       6d55077f-2489-491a-80ac-f397351b382b
 :END:
 #+begin_src sh :eval no
-  sudo apt install tmux mercurial gnome-tweaks subversion aspell aspell-en automake texinfo shellcheck gawk default-jre-headless default-jre
+  sudo apt install tmux mercurial gnome-tweaks subversion aspell aspell-en automake texinfo shellcheck gawk default-jre-headless default-jre tree wget curl git
 #+end_src
 ** Install LaTex and Texinfo packages
 :PROPERTIES:
@@ -371,7 +371,7 @@ at: https://github.com/ledger/ledger
   pip install Pygments
 #+end_src
 - Add ~/.local/bin to the path (committed in zsh files)
-* Install pympress for PDF based presentations
+** Install pympress for PDF based presentations
 :PROPERTIES:
 :CREATED:  [2021-07-02 Fri 19:41]
 :ID:       a24d350c-d049-458c-832d-a52fb7e29a97
@@ -382,7 +382,7 @@ at: https://github.com/ledger/ledger
 
 #+end_src
 
-* Install youtube-dl for downloading videos from Youtube
+** Install youtube-dl for downloading videos from Youtube
 :PROPERTIES:
 :CREATED:  [2021-07-06 Tue 19:44]
 :ID:       8ba6188d-0307-4a72-af51-3fc8703c06e9
