@@ -390,3 +390,14 @@ at: https://github.com/ledger/ledger
 #+begin_src sh :eval no
 sudo apt install youtube-dl
 #+end_src
+
+** Install nvm, node and npm
+:PROPERTIES:
+:CREATED:  [2021-07-25 Sun 14:21]
+:ID:       069f15a5-8c9d-4429-a790-8fa98f60db91
+:END:
+#+begin_src sh :eval no
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+  nvm install node
+  nvm install-latest-npm
+#+end_src
