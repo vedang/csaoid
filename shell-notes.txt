@@ -164,3 +164,18 @@
   #+begin_src sh :eval no
     nc localhost 3000
   #+end_src
+
+* Ripgrep (rg) notes
+** Searching in the entire dir, including in ignore files
+#+begin_src sh :eval no
+  rg --no-ignore <text to search>
+  rg -uu <text to search>
+#+end_src
+From the man page:
+
+  -u, --unrestricted
+      Reduce the level of "smart" searching. A single -u won't respect .gitignore
+      (etc.) files. Two -u flags will additionally search hidden files and
+      directories. Three -u flags will additionally search binary files.
+
+      'rg -uuu' is roughly equivalent to 'grep -r'.

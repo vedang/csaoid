@@ -1,6 +1,11 @@
 -*- mode: org; -*-
 
-* Installing Emacs from source
+* RESTRUCTURED Installing Emacs from source                        :noexport:
+CLOSED: [2021-10-18 Mon 18:01]
+:LOGBOOK:
+- State "RESTRUCTURED" from              [2021-10-18 Mon 18:01] \\
+  Outdated now, please refer to [[id:700381b6-78ef-4abb-9f68-6b514b5b83ba][Compiling and Running Emacs 28 on master branch (Ubuntu).]]
+:END:
 
 ** Ubuntu 12.04
 
@@ -66,7 +71,12 @@ Eg: (funcall #'equal :a :A) => nil
   parenthesized grouping in regexp.
   Note : The parens making groups need to be escaped.
 
-* Compiling and Running Emacs 28 on the native-comp feature branch (Ubuntu).
+* RESTRUCTURED Compiling and Running Emacs 28 on the native-comp feature branch (Ubuntu). :noexport:
+CLOSED: [2021-10-18 Mon 18:02]
+:LOGBOOK:
+- State "RESTRUCTURED" from              [2021-10-18 Mon 18:02] \\
+  - Outdated, please refer to [[id:700381b6-78ef-4abb-9f68-6b514b5b83ba][Compiling and Running Emacs 28 on master branch (Ubuntu).]]
+:END:
 ** The gist of it, building Emacs from Source
   #+begin_src shell-script
     ./autogen.sh
@@ -134,7 +144,7 @@ Eg: (funcall #'equal :a :A) => nil
   (file-dependents (feature-file 'cl))
 #+end_src
 
-* Compiling and Running Emacs 28 on master branch (Ubuntu).
+* Compiling and Running Emacs 28 on master branch (Ubuntu)
 :PROPERTIES:
 :ID:       700381b6-78ef-4abb-9f68-6b514b5b83ba
 :END:
@@ -153,6 +163,7 @@ This command is created by:
 #+end_src
 ** Run the installation commands from inside Emacs source directory
 #+begin_src shell-script
+  make distclean
   ./autogen.sh
   ./configure --with-imagemagick --with-json --with-native-compilation --with-xft --with-xwidgets
   # If everything works
