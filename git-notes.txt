@@ -80,6 +80,9 @@
    #+end_src
 
 ** Create an empty branch
+:PROPERTIES:
+:ID:       51fd0f0a-92f7-4750-a2dc-22be31f93ab2
+:END:
    #+begin_src shell-script :eval no
      git symbolic-ref HEAD refs/heads/newbranch
      rm .git/index
@@ -384,7 +387,7 @@ $ git diff rev1:filename rev2:filename
      git am -3 --signoff < diff-with-master.patch
    #+end_src
 
-** Create a beautiful pull request for submitting to another repository.
+** Create a beautiful pull request for submitting to another repository
    The aim here is to inform another author of your public repository,
    what they can find there and what they should do to pull those
    changes into their own repository. The way to do this:
@@ -400,6 +403,13 @@ $ git diff rev1:filename rev2:filename
      + =https://github.com/vedang/pdf-tools/= is your public repository
      + =feature/render-improvements= is your branch (which contains
        the changes you want to submit)
+** Generating release notes for your open source work
+   - Generate the pull request as shown above
+     #+begin_src sh
+       git request-pull master https://github.com/vedang/clj_fdb/ dev
+     #+end_src
+   - Copy the changes as mentioned in the output above
+   - Create a changelogs file.
 
 * Submodules
 
@@ -681,6 +691,13 @@ $ git config --global alias.serve '!git daemon --reuseaddr --verbose --base-path
 # On other computer:
 $ git clone git://192.168.254.135/ project
 
+** Connecting to SSH over IPV6 causes a problem
+debug2: resolving "github.com" port 22
+debug2: ssh_connect_direct
+debug1: Connecting to github.com [64:ff9b::dea:d226] port 22.
+debug1: connect to address 64:ff9b::dea:d226 port 22: Connection timed out
+debug1: Connecting to github.com [13.234.176.102] port 22.
+debug1: Connection established.
 * Extra configuration for a better Git experience
 
 $ git config --global user.name "FirstName LastName"

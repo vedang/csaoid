@@ -174,7 +174,7 @@ echo $DISPLAY
 * PGP
 
 * Latex
-** Converting a PDF to a PNG
+** Converting a PDF to a PNG (pdf-images)
 - Use poppler's pdftoppm
   #+begin_src shell
     pdftoppm -png file.pdf > file.png
