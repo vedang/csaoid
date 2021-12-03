@@ -263,6 +263,9 @@ integration with Emacs.
 :END:
 Refer to the *Using Git* section here: https://github.com/junegunn/fzf#installation
 
+** Install Go based CLI tools
+- gron (grepping through JSON)
+
 ** Install Ledger CLI from source
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
