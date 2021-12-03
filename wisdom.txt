@@ -257,3 +257,10 @@
   Idempotency, Eventual Consistency
 
 - Plan for the fallacies in your benchmarks and testing.
+
+* Nicole Forsgren: The Four Key Metrics of High Performance :engineering_management:
+/Snippet from [[https://itrevolution.com/book/accelerate/][Accelerate]]/
+- Lead Time ::
+- Mean Time to Recover ::
+- Change Failure Rate ::
+- Deployment Frequency ::
