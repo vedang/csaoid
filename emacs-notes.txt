@@ -1,13 +1,142 @@
 -*- mode: org; -*-
 
+* Emacs Refcards
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       7a562f06-4f89-42a1-a83d-a3d1fba23e3d
+:END:
+  - M-x locate <RET> refcard <RET>
+  - profit.
+* Clj -> Elisp Cheat Sheet
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       72cb0317-95bb-4d26-b4ae-03b3588b5dff
+:END:
+** map = mapcar
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       f155caaf-c551-49aa-8dfa-d98dfd68027d
+:END:
+mapc is similar to mapcar, expect that it does not accumulate the results.
+mapc should be used for side-effects, where we don't care about the
+return value.
+** apply = apply
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       605eaf64-5468-46f1-ad66-f8674686ebd7
+:END:
+The way to call this is:
+(apply #'equal '(:a :A))
+** keep = delq nil
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       1a6907f0-c9ef-458d-b024-112033f759d6
+:END:
+** = = equal
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       c4682d46-b1f6-42fd-9ec9-aefbd857e99c
+:END:
+** first = car
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       2e77e7e0-fcd1-43f4-95d9-888c64a51d1a
+:END:
+** rest = cdr
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       aa8db6b5-4184-4732-88d6-063ab628f1e8
+:END:
+** Other Notes:
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       4070eae1-ecd2-4808-8a77-5584f3b1f6e6
+:END:
+The function `funcall` can be used to treat the first argument as a
+function on the rest of the arguments.
+
+Eg: (funcall #'equal :a :A) => nil
+    (funcall #'equal :a :a) => t
+
+* Regex replacements
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       6202bc0e-6d49-4302-a4a9-05f24f493205
+:END:
+  Taken right from the Emacs Manual (I always seem to forget this).
+  http://www.gnu.org/software/emacs/manual/html_node/emacs/Regexp-Replace.html
+
+  M-x replace-regexp <RET> c[ad]+r <RET> \&-safe <RET>
+  replaces (for example) ‘cadr’ with ‘cadr-safe’ and ‘cddr’ with ‘cddr-safe’.
+
+  M-x replace-regexp <RET> \(c[ad]+r\)-safe <RET> \1 <RET>
+  ‘\d’ in newstring, where d is a digit, stands for whatever matched the dth
+  parenthesized grouping in regexp.
+  Note : The parens making groups need to be escaped.
+
+* How to check dependents of a library
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       55125e2d-597b-4604-b058-b29c04f0b21e
+:END:
+#+begin_src emacs-lisp
+  (require 'loadhist)
+  (file-dependents (feature-file 'cl))
+#+end_src
+
+* Compiling and Running Emacs 28 on master branch (Ubuntu)
+:PROPERTIES:
+:ID:       700381b6-78ef-4abb-9f68-6b514b5b83ba
+:END:
+** Set up the prerequisite libraries
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       8c88714b-8cda-4b0f-8e60-8c30132d0d99
+:END:
+This command is created by:
+1. Run the command ~sudo apt build-dep emacs~ and copy all the
+   packages it will install. (*Don't actually install the packages*)
+2. Remove all the ImageMagick related libraries from this command, we
+   have installed it from source.
+3. Review the output of ~./configure~ command in Emacs. See if there
+   are new options which are not covered by your distribution's old
+   version of Emacs.
+
+#+begin_src sh :eval no
+  sudo apt install libx11-dev libtiff-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libcairo2-dev libexif-dev libexpat1-dev libglx-dev libgmp-dev libgnutls-openssl27 libgnutls28-dev libgraphite2-dev libharfbuzz-dev libharfbuzz-gobject0 libice-dev libidn2-dev libilmbase-dev libilmbase25 libjbig-dev libjpeg-turbo8-dev libgnutlsxx28 libjpeg8-dev liblcms2-dev liblockfile-bin liblockfile-dev liblockfile1 liblqr-1-0 liblqr-1-0-dev libltdl-dev liblzma-dev libm17n-0 libm17n-dev libgtk-3-dev libncurses-dev libncurses5-dev libopenexr-dev libopenexr25 libopengl-dev libopengl0 libotf-dev libotf0 libp11-kit-dev libpango1.0-dev libpixman-1-dev libpng-dev libpthread-stubs0-dev librsvg2-dev libsm-dev libsub-override-perl libsystemd-dev libtasn1-6-dev libthai-dev libtiff-dev libtiffxx5 libtool libunbound8 libwayland-bin libwayland-dev libwmf-dev libwmf0.2-7 libx11-dev libxau-dev libxaw7-dev libxcb-render0-dev libxcb-shm0-dev libxcb1-dev libxcomposite-dev libxcursor-dev libxdamage-dev libxdmcp-dev libxext-dev libxfixes-dev libxft-dev libxi-dev libxinerama-dev libxkbcommon-dev libxmu-dev libxmu-headers libxpm-dev libxrandr-dev libxrender-dev libxt-dev libxtst-dev m17n-db nettle-dev pango1.0-tools po-debconf postfix quilt sharutils wayland-protocols x11proto-core-dev x11proto-dev x11proto-input-dev x11proto-randr-dev x11proto-record-dev x11proto-xext-dev x11proto-xinerama-dev xaw3dg xaw3dg-dev xorg-sgml-doctools xtrans-dev xutils-dev gnutls-bin graphviz autopoint gsfonts libxaw3dxft8-dev libwebkit2gtk-4.0-dev libgccjit-10-dev libjson-c-dev libjson-glib-dev libjansson-dev
+#+end_src
+** Run the installation commands from inside Emacs source directory
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       e7f2e40a-8df2-48ce-9311-fcd086e5f81a
+:END:
+#+begin_src shell-script
+  make distclean
+  ./autogen.sh
+  ./configure --with-imagemagick --with-json --with-native-compilation --with-xft --with-xwidgets
+  # If everything works
+  make
+  # Test the binary
+  src/emacs -Q
+  # Install the binary
+  sudo make install
+#+end_src
 * RESTRUCTURED Installing Emacs from source                        :noexport:
 CLOSED: [2021-10-18 Mon 18:01]
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       11884933-cb35-491d-b6d3-889b6844253f
+:END:
 :LOGBOOK:
 - State "RESTRUCTURED" from              [2021-10-18 Mon 18:01] \\
   Outdated now, please refer to [[id:700381b6-78ef-4abb-9f68-6b514b5b83ba][Compiling and Running Emacs 28 on master branch (Ubuntu).]]
 :END:
 
 ** Ubuntu 12.04
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       a0a34a92-c1ee-4a37-86bb-7f985191bd22
+:END:
 
 $ git clone git://git.savannah.gnu.org/emacs.git
 
@@ -27,6 +156,10 @@ $ make bootstrap
 $ sudo make install
 
 ** Mac OS X 10.7
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       55ce3338-410b-4560-ad5f-87398db10e2d
+:END:
 
 $ brew install emacs --HEAD --cocoa --use-git-head
 
@@ -36,48 +169,21 @@ $ brew linkapps
 # (source is downloaded here) and make tags for the source
 
 $ make tags
-
-* Emacs Refcards
-  - M-x locate <RET> refcard <RET>
-  - profit.
-* Clj -> Elisp Cheat Sheet
-** map = mapcar
-mapc is similar to mapcar, expect that it does not accumulate the results.
-mapc should be used for side-effects, where we don't care about the
-return value.
-** apply = apply
-The way to call this is:
-(apply #'equal '(:a :A))
-** keep = delq nil
-** = = equal
-** first = car
-** rest = cdr
-** Other Notes:
-The function `funcall` can be used to treat the first argument as a
-function on the rest of the arguments.
-
-Eg: (funcall #'equal :a :A) => nil
-    (funcall #'equal :a :a) => t
-
-* Regex replacements
-  Taken right from the Emacs Manual (I always seem to forget this).
-  http://www.gnu.org/software/emacs/manual/html_node/emacs/Regexp-Replace.html
-
-  M-x replace-regexp <RET> c[ad]+r <RET> \&-safe <RET>
-  replaces (for example) ‘cadr’ with ‘cadr-safe’ and ‘cddr’ with ‘cddr-safe’.
-
-  M-x replace-regexp <RET> \(c[ad]+r\)-safe <RET> \1 <RET>
-  ‘\d’ in newstring, where d is a digit, stands for whatever matched the dth
-  parenthesized grouping in regexp.
-  Note : The parens making groups need to be escaped.
-
 * RESTRUCTURED Compiling and Running Emacs 28 on the native-comp feature branch (Ubuntu). :noexport:
 CLOSED: [2021-10-18 Mon 18:02]
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       f3936699-9215-48d4-b14a-62b08043d6d8
+:END:
 :LOGBOOK:
 - State "RESTRUCTURED" from              [2021-10-18 Mon 18:02] \\
   - Outdated, please refer to [[id:700381b6-78ef-4abb-9f68-6b514b5b83ba][Compiling and Running Emacs 28 on master branch (Ubuntu).]]
 :END:
 ** The gist of it, building Emacs from Source
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       c6d5889c-57d9-42b4-ba78-653d7f8ed058
+:END:
   #+begin_src shell-script
     ./autogen.sh
     ./configure --with-nativecomp
@@ -89,7 +195,15 @@ CLOSED: [2021-10-18 Mon 18:02]
     sudo make install
   #+end_src
 ** Problems during Installation
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       d723db24-90ce-4526-8a8f-af1b566177ea
+:END:
 *** Configure fails because libgccjit fails the smoketest
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       db4ac342-1450-4bae-ba0e-251ed9cf0216
+:END:
 - Ensure that libgccjit is installed and at the latest version (at
   this point in time, the latest version is 10)
 - Ensure that gcc is at the same version as libgccjit (also 10)
@@ -109,11 +223,23 @@ CLOSED: [2021-10-18 Mon 18:02]
 - Ensure that gcc-10 is selected, so that you don't see the 'failed
   smoke test' error message from libgccjit.
 *** Configure fails because various libraries don't exist on your system.
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       264d9eac-39bd-4937-a3b6-4f845b965f11
+:END:
 - Emacs needs a number of different libraries during compilation. You
   should look for an install the =-dev= version of any such libraries
   that are missing. (Eg: =libxpm-dev=, =libgif-dev=, =libtiff-dev=)
 ** Problems Post Installation
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       74b99997-5c55-4825-9254-63adfbe43d15
+:END:
 *** You need to generate native compiled files for all your emacs-lisp code
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       fd203d28-8a32-45b5-86e5-9b9183656b85
+:END:
 - Add this to your init.el
   #+begin_src emacs-lisp
     (if (and (fboundp 'native-comp-available-p)
@@ -129,47 +255,19 @@ CLOSED: [2021-10-18 Mon 18:02]
     #+end_src
 - This will create all the necessary =.eln= files for you.
 *** You need to clean install your packages, preferably the latest versions of the packages
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       58929e92-dffa-4163-bef7-a38ad5df183f
+:END:
 - Best to just reinstall all the packages you depend on, to ensure
   that they get compiled properly.
 *** Start and profit, huge speed boosts.
+:PROPERTIES:
+:CREATED:  [2021-11-27 Sat 09:56]
+:ID:       f9f1f647-182d-4359-a13b-efdaf1b99434
+:END:
 - Very little configuration code broke for me (only one =isearch=
   modification broke, which used =substitute-key-definition= and
   substituted a function which took optional arguments with another
   function which took 0 arguments. This seems to not work within
   native compilation.
-
-* How to check dependents of a library
-#+begin_src emacs-lisp
-  (require 'loadhist)
-  (file-dependents (feature-file 'cl))
-#+end_src
-
-* Compiling and Running Emacs 28 on master branch (Ubuntu)
-:PROPERTIES:
-:ID:       700381b6-78ef-4abb-9f68-6b514b5b83ba
-:END:
-** Set up the prerequisite libraries
-This command is created by:
-1. Run the command ~sudo apt build-dep emacs~ and copy all the
-   packages it will install. (*Don't actually install the packages*)
-2. Remove all the ImageMagick related libraries from this command, we
-   have installed it from source.
-3. Review the output of ~./configure~ command in Emacs. See if there
-   are new options which are not covered by your distribution's old
-   version of Emacs.
-
-#+begin_src sh :eval no
-  sudo apt install libx11-dev libtiff-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libcairo2-dev libexif-dev libexpat1-dev libglx-dev libgmp-dev libgnutls-openssl27 libgnutls28-dev libgraphite2-dev libharfbuzz-dev libharfbuzz-gobject0 libice-dev libidn2-dev libilmbase-dev libilmbase25 libjbig-dev libjpeg-turbo8-dev libgnutlsxx28 libjpeg8-dev liblcms2-dev liblockfile-bin liblockfile-dev liblockfile1 liblqr-1-0 liblqr-1-0-dev libltdl-dev liblzma-dev libm17n-0 libm17n-dev libgtk-3-dev libncurses-dev libncurses5-dev libopenexr-dev libopenexr25 libopengl-dev libopengl0 libotf-dev libotf0 libp11-kit-dev libpango1.0-dev libpixman-1-dev libpng-dev libpthread-stubs0-dev librsvg2-dev libsm-dev libsub-override-perl libsystemd-dev libtasn1-6-dev libthai-dev libtiff-dev libtiffxx5 libtool libunbound8 libwayland-bin libwayland-dev libwmf-dev libwmf0.2-7 libx11-dev libxau-dev libxaw7-dev libxcb-render0-dev libxcb-shm0-dev libxcb1-dev libxcomposite-dev libxcursor-dev libxdamage-dev libxdmcp-dev libxext-dev libxfixes-dev libxft-dev libxi-dev libxinerama-dev libxkbcommon-dev libxmu-dev libxmu-headers libxpm-dev libxrandr-dev libxrender-dev libxt-dev libxtst-dev m17n-db nettle-dev pango1.0-tools po-debconf postfix quilt sharutils wayland-protocols x11proto-core-dev x11proto-dev x11proto-input-dev x11proto-randr-dev x11proto-record-dev x11proto-xext-dev x11proto-xinerama-dev xaw3dg xaw3dg-dev xorg-sgml-doctools xtrans-dev xutils-dev gnutls-bin graphviz autopoint gsfonts libxaw3dxft8-dev libwebkit2gtk-4.0-dev libgccjit-10-dev libjson-c-dev libjson-glib-dev libjansson-dev
-#+end_src
-** Run the installation commands from inside Emacs source directory
-#+begin_src shell-script
-  make distclean
-  ./autogen.sh
-  ./configure --with-imagemagick --with-json --with-native-compilation --with-xft --with-xwidgets
-  # If everything works
-  make
-  # Test the binary
-  src/emacs -Q
-  # Install the binary
-  sudo make install
-#+end_src
