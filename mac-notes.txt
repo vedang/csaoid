@@ -22,3 +22,131 @@
   #+begin_src sh :eval no
     pmset -g thermlog
   #+end_src
+* My personal Operating System setup from scratch for macOS Monterey
+** Install the basics for getting started with anything else
+- Install brew from https://brew.sh
+- Install basic packages from brew
+  #+begin_src sh :eval no
+    brew install tmux mercurial subversion aspell automake shellcheck tree wget curl git ledger podman skopeo
+  #+end_src
+- Install basic casks from brew
+  #+begin_src sh :eval no
+    brew install iterm2 firefox keepassxc ripcord mactex
+  #+end_src
+
+** Set up file sharing to access private files
+- Symlink ssh keys and gpg keys
+- Make sure permissions are correctly set on the keys
+** Clone my public dotfiles into my source folder
+** Install zsh and  oh-my-zsh
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       b303ec83-8c3b-4391-b550-5105e2cf6f4f
+:END:
+- Refer to instructions here:
+  + https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
+  + https://github.com/ohmyzsh/ohmyzsh/wiki
+- Symlink ~.zshrc~, ~.zshenv~ to from dotfiles home dir.
+- Symlink ~personal.zsh~ to ~custom/~ dir in oh-my-zsh
+** Install Rust and Rust based CLI tools
+- Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
+- Install all the tools I use
+  #+begin_src sh :eval no
+    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat
+  #+end_src
+- Install ~rust-analyzer~ for Rust LSP
+  #+begin_src sh :eval no
+    git clone https://github.com/rust-analyzer/rust-analyzer.git && cd rust-analyzer
+    cargo xtask install --server
+  #+end_src
+** Install Go and Go based CLI Tools
+- Install golang from brew
+  #+begin_src sh :eval no
+    brew install golang
+  #+end_src
+- Install ~gopls~ (LSP) by following instructions in Go Wiki
+- Install Go tools from brew
+  #+begin_src sh :eval no
+    brew install gron
+  #+end_src
+*** Install fzf
+Refer to the *Using Git* section here: https://github.com/junegunn/fzf#installation
+
+** Install tmux-tpm from source
+- Symlink ~.tmux.conf~ in dotfiles to home dir and restart tmux
+- Clone the ~tmux-tpm~ repo
+  #+begin_src sh :eval no
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  #+end_src
+- Execute ~C-b I~ inside tmux once to install all the plugins
+
+** Install everything needed for Clojure development
+#+begin_src sh :eval no
+  brew install leiningen clojure borkdude/brew/clj-kondo borkdude/brew/babashka cljstyle
+#+end_src
+*** Symlink my lein folder from private-dotfiles to ~.lein~ in home
+
+*** Install jdk sources
+#+begin_src sh :eval no
+  brew install java visualvm
+#+end_src
+** Setup email via notmuch
+:PROPERTIES:
+:CREATED:  [2021-06-08 Tue 17:42]
+:ID:       711b53be-49ea-404c-87fe-0e9844066004
+:END:
+- Install notmuch deps manually
+  #+begin_src sh :eval no
+    brew install xapian gmime talloc zlib notmuch msmtp isync
+  #+end_src
+- Symlink ~notmuch/.notmuch-config~, ~.mbsyncrc~ and ~.msmtprc~ from private dotfiles to Home.
+- Symlink ~notmuch~ dir in private-dotfiles to ~<maildir>/.notmuch/hooks~
+** Install my favorite Nerd Fonts
+https://www.nerdfonts.com/font-downloads
+** Install Emacs from jimeh
+  #+begin_src sh :eval no
+    brew tap jimeh/emacs-builds
+    brew install emacs-app-good
+  #+end_src
+- Clone https://github.com/vedang/emacs-up to ~.emacs.d~
+- Clone https://github.com/cask/cask to ~.cask~ in order to run cask based tests
+- Symlink my  ~personal.el~ file and ~common.el~ file from private dotfiles into ~.emacs.d~
+** Install pip and pygments
+:PROPERTIES:
+:CREATED:  [2021-07-02 Fri 17:48]
+:ID:       19dc725c-07f8-4b6c-b0d0-f01567c144d0
+:END:
+- For source code highlighting in org-exports
+#+begin_src sh :eval no
+  pip3 install Pygments
+#+end_src
+** Install pympress for PDF based presentations
+:PROPERTIES:
+:CREATED:  [2021-07-02 Fri 19:41]
+:ID:       a24d350c-d049-458c-832d-a52fb7e29a97
+:END:
+#+begin_src sh :eval no
+  # Doesn't need other packages because they have been previously installed
+  brew install pympress
+#+end_src
+
+** Install youtube-dl for downloading videos from Youtube
+:PROPERTIES:
+:CREATED:  [2021-07-06 Tue 19:44]
+:ID:       8ba6188d-0307-4a72-af51-3fc8703c06e9
+:END:
+#+begin_src sh :eval no
+brew install youtube-dl
+#+end_src
+
+** Install nvm, node and npm
+:PROPERTIES:
+:CREATED:  [2021-07-25 Sun 14:21]
+:ID:       069f15a5-8c9d-4429-a790-8fa98f60db91
+:END:
+- Note that NVM version might have upgraded, so check the website! There is no better way at the moment.
+#+begin_src sh :eval no
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  nvm install node
+  nvm install-latest-npm
+#+end_src
