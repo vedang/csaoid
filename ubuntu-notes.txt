@@ -194,6 +194,46 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
 #+begin_src sh :eval no
   sudo apt install tmux mercurial gnome-tweaks subversion aspell aspell-en automake texinfo shellcheck gawk default-jre-headless default-jre tree wget curl git
 #+end_src
+** Set up file sharing to access private files
+- Symlink ssh keys and gpg keys
+- Make sure permissions are correctly set on the keys
+** Clone my public dotfiles into my source folder
+** Install zsh and  oh-my-zsh
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       b303ec83-8c3b-4391-b550-5105e2cf6f4f
+:END:
+- Refer to instructions here:
+  + https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
+  + https://github.com/ohmyzsh/ohmyzsh/wiki
+- Symlink ~.zhsrc~, ~.zshenv~ to home dir.
+- Symlink ~personal.zsh~ to ~custom/~ dir in oh-my-zsh
+** Install Rust and Rust based CLI tools
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       14c19bb7-db3a-47cd-9c67-d606d88aeff0
+:END:
+- Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
+- Install all the tools I use
+  #+begin_src sh :eval no
+    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat
+  #+end_src
+- Install ~rust-analyzer~ for Rust LSP
+  #+begin_src sh :eval no
+    git clone https://github.com/rust-analyzer/rust-analyzer.git && cd rust-analyzer
+    cargo xtask install --server
+  #+end_src
+
+** Install Go and Go based CLI tools
+- Install ~gopls~ (LSP) by following instructions in Go Wiki
+- Install ~gron~ (grepping through JSON)
+*** Install fzf
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       8f249335-bdfd-4379-86b5-4dc5e23f53d6
+:END:
+Refer to the *Using Git* section here: https://github.com/junegunn/fzf#installation
+
 ** Install LaTex and Texinfo packages
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
@@ -217,83 +257,15 @@ integration with Emacs.
   # Verify the installation
   /usr/local/bin/convert logo: logo.gif
 #+end_src
-** Install Emacs from source
-:PROPERTIES:
-:CREATED:  [2021-05-29 Sat 11:46]
-:ID:       71a1c516-4ec2-4773-a9a7-657aa2e6551d
-:END:
-- Refer to [[id:700381b6-78ef-4abb-9f68-6b514b5b83ba][Compiling and Running Emacs 28 on master branch (Ubuntu).]]
-- Clone https://github.com/vedang/emacs-up to ~.emacs.d~
-- Clone https://github.com/cask/cask to ~.cask~ in order to run cask based tests
-- ~sudo apt install libx32stdc++-10-dev~ to run pdf-tools
-  ~have_packages_installed~ check correctly.
 ** Install tmux-tpm from source
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       feeaeed3-f9f0-4859-b459-0bb78a770683
 :END:
+- Symlink ~.tmux.conf~ to home dir
 - Clone the tmux-tpm repo from https://github.com/tmux-plugins/tpm as
   per instructions in the README.
-- Symlink ~.tmux.conf~ to home dir
 - Execute ~C-b I~ inside tmux once to install all the plugins
-** Install Rust and my trusty Rust based CLI tools
-:PROPERTIES:
-:CREATED:  [2021-05-29 Sat 11:46]
-:ID:       14c19bb7-db3a-47cd-9c67-d606d88aeff0
-:END:
-- Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
-- Install all the tools I use
-  #+begin_src sh :eval no
-    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat
-  #+end_src
-** Install zsh and  oh-my-zsh
-:PROPERTIES:
-:CREATED:  [2021-05-29 Sat 11:46]
-:ID:       b303ec83-8c3b-4391-b550-5105e2cf6f4f
-:END:
-- Refer to instructions here:
-  + https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
-  + https://github.com/ohmyzsh/ohmyzsh/wiki
-- Symlink ~.zhsrc~, ~.zshenv~ to home dir.
-- Symlink ~personal.zsh~ to ~custom/~ dir in oh-my-zsh
-** Install fzf
-:PROPERTIES:
-:CREATED:  [2021-05-29 Sat 11:46]
-:ID:       8f249335-bdfd-4379-86b5-4dc5e23f53d6
-:END:
-Refer to the *Using Git* section here: https://github.com/junegunn/fzf#installation
-
-** Install Go based CLI tools
-- gron (grepping through JSON)
-
-** Install Ledger CLI from source
-:PROPERTIES:
-:CREATED:  [2021-05-29 Sat 11:46]
-:ID:       14db5d6f-434f-477f-9bef-9fee477a20dd
-:END:
-*** Install the prerequisites
-:PROPERTIES:
-:CREATED:  [2021-05-29 Sat 11:46]
-:ID:       2561c6d9-0be4-49fb-9007-d73416cb7eb9
-:END:
-#+begin_src sh :eval no
-  sudo apt-get install build-essential cmake doxygen libboost-system-dev libboost-dev python3-dev gettext git libboost-date-time-dev libboost-filesystem-dev libboost-iostreams-dev libboost-python-dev libboost-regex-dev libboost-test-dev libedit-dev libgmp3-dev libmpfr-dev texinfo tzdata
-#+end_src
-*** Follow the instructions
-:PROPERTIES:
-:CREATED:  [2021-05-29 Sat 11:46]
-:ID:       359b0831-3408-4603-838d-32e7f9e97a9c
-:END:
-at: https://github.com/ledger/ledger
-
-** Install podman from the Kubic project
-:PROPERTIES:
-:CREATED:  [2021-05-29 Sat 11:46]
-:ID:       7b78bd17-99ce-4954-90fb-d0e817241ca1
-:END:
-- Follow instructions here to add the Kubic PPA: https://software.opensuse.org//download.html?project=devel%3Akubic%3Alibcontainers%3Astable&package=podman
-- ~sudo apt install podman buildah skopeo~
-
 ** Install everything needed for Clojure development
 :PROPERTIES:
 :CREATED:  [2021-06-14 Mon 21:15]
@@ -314,7 +286,8 @@ at: https://github.com/ledger/ledger
 :CREATED:  [2021-06-14 Mon 21:15]
 :ID:       f4aea7d7-a87b-45d9-beda-b6819bc670cf
 :END:
-*** Symlink ~lein~ from private-dotfiles to ~.lein~ in home
+*** Install Babashka from it's website
+*** Symlink my lein folder from private-dotfiles to ~.lein~ in home
 :PROPERTIES:
 :CREATED:  [2021-06-14 Mon 21:16]
 :ID:       3965cb21-c700-486a-9f70-79c01550d261
@@ -343,6 +316,47 @@ at: https://github.com/ledger/ledger
 - Symlink ~notmuch/.notmuch-config~, ~.mbsyncrc~ and ~.msmtprc~ from
   private dotfiles to Home.
 - Symlink ~notmuch~ dir in private-dotfiles to ~<maildir>/.notmuch/hooks~
+** Install my favorite Nerd Fonts
+https://www.nerdfonts.com/font-downloads
+
+** Install Emacs from source
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       71a1c516-4ec2-4773-a9a7-657aa2e6551d
+:END:
+- Refer to [[id:700381b6-78ef-4abb-9f68-6b514b5b83ba][Compiling and Running Emacs 28 on master branch (Ubuntu).]]
+- Clone https://github.com/vedang/emacs-up to ~.emacs.d~
+- Clone https://github.com/cask/cask to ~.cask~ in order to run cask based tests
+- Symlink my  ~personal.el~ file and ~common.el~ file from private dotfiles into ~.emacs.d~
+- ~sudo apt install libx32stdc++-10-dev~ to run pdf-tools
+  ~have_packages_installed~ check correctly.
+** Install Ledger CLI from source
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       14db5d6f-434f-477f-9bef-9fee477a20dd
+:END:
+*** Install the prerequisites
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       2561c6d9-0be4-49fb-9007-d73416cb7eb9
+:END:
+#+begin_src sh :eval no
+  sudo apt-get install build-essential cmake doxygen libboost-system-dev libboost-dev python3-dev gettext git libboost-date-time-dev libboost-filesystem-dev libboost-iostreams-dev libboost-python-dev libboost-regex-dev libboost-test-dev libedit-dev libgmp3-dev libmpfr-dev texinfo tzdata
+#+end_src
+*** Follow the instructions
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       359b0831-3408-4603-838d-32e7f9e97a9c
+:END:
+at: https://github.com/ledger/ledger
+
+** Install podman from the Kubic project
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       7b78bd17-99ce-4954-90fb-d0e817241ca1
+:END:
+- Follow instructions here to add the Kubic PPA: https://software.opensuse.org//download.html?project=devel%3Akubic%3Alibcontainers%3Astable&package=podman
+- ~sudo apt install podman buildah skopeo~
 
 ** Install org-protocol prerequisites
 :PROPERTIES:
