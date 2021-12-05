@@ -197,6 +197,7 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
 ** Set up file sharing to access private files
 - Symlink ssh keys and gpg keys
 - Make sure permissions are correctly set on the keys
+- Symlink .gitconfig and .gitattributes from dotfiles to home dir
 ** Clone my public dotfiles into my source folder
 ** Install zsh and  oh-my-zsh
 :PROPERTIES:
