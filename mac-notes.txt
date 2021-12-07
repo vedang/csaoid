@@ -25,47 +25,25 @@
 * My personal Operating System setup from scratch for macOS Monterey
 ** Install the basics for getting started with anything else
 - Install brew from https://brew.sh
-- Install basic packages from brew
+- Install common packages from brew, as mentioned in [[id:6d55077f-2489-491a-80ac-f397351b382b][Ubuntu:Install the basics for getting started with anything else]]
+- Install casks and brew-specific packages
   #+begin_src sh :eval no
-    brew install tmux mercurial subversion aspell automake shellcheck tree wget curl git ledger podman skopeo
-  #+end_src
-- Install basic casks from brew
-  #+begin_src sh :eval no
-    brew install iterm2 firefox keepassxc ripcord mactex
+    brew install iterm2 firefox keepassxc ripcord mactex ledger podman skopeo
   #+end_src
 
 ** Set up file sharing to access private files
-- Symlink ssh keys and gpg keys
-- Make sure permissions are correctly set on the keys
-- Symlink .gitconfig and .gitattributes from dotfiles to home dir
+Follow the instructions in [[id:71127cac-ef78-4b97-944a-fdeb83f2e9fa][Ubuntu:Set up file sharing to access private files]]
 ** Clone my public dotfiles into my source folder
 ** Install zsh and  oh-my-zsh
-:PROPERTIES:
-:CREATED:  [2021-05-29 Sat 11:46]
-:ID:       b303ec83-8c3b-4391-b550-5105e2cf6f4f
-:END:
-- Refer to instructions here:
-  + https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
-  + https://github.com/ohmyzsh/ohmyzsh/wiki
-- Symlink ~.zshrc~, ~.zshenv~ to from dotfiles home dir.
-- Symlink ~personal.zsh~ to ~custom/~ dir in oh-my-zsh
+Follow the instructions in [[id:b303ec83-8c3b-4391-b550-5105e2cf6f4f][Ubuntu:Install zsh and oh-my-zsh]]
 ** Install Rust and Rust based CLI tools
-- Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
-- Install all the tools I use
-  #+begin_src sh :eval no
-    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat
-  #+end_src
-- Install ~rust-analyzer~ for Rust LSP
-  #+begin_src sh :eval no
-    git clone https://github.com/rust-analyzer/rust-analyzer.git && cd rust-analyzer
-    cargo xtask install --server
-  #+end_src
+Follow the instructions in [[id:14c19bb7-db3a-47cd-9c67-d606d88aeff0][Ubuntu:Install Rust and Rust based CLI tools]]
 ** Install Go and Go based CLI Tools
 - Install golang from brew
   #+begin_src sh :eval no
     brew install golang
   #+end_src
-- Install ~gopls~ (LSP) by following instructions in Go Wiki
+- Install ~gopls~ (LSP) by following instructions in Go Wiki: https://pkg.go.dev/golang.org/x/tools/gopls#section-readme
 - Install Go tools from brew
   #+begin_src sh :eval no
     brew install gron
@@ -74,13 +52,7 @@
 Refer to the *Using Git* section here: https://github.com/junegunn/fzf#installation
 
 ** Install tmux-tpm from source
-- Symlink ~.tmux.conf~ in dotfiles to home dir and restart tmux
-- Clone the ~tmux-tpm~ repo
-  #+begin_src sh :eval no
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  #+end_src
-- Execute ~C-b I~ inside tmux once to install all the plugins
-
+Follow the instructions at [[id:feeaeed3-f9f0-4859-b459-0bb78a770683][Ubuntu:Install tmux-tpm from source]]
 ** Install everything needed for Clojure development
 #+begin_src sh :eval no
   brew install leiningen clojure borkdude/brew/clj-kondo borkdude/brew/babashka cljstyle

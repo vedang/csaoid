@@ -191,15 +191,24 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       6d55077f-2489-491a-80ac-f397351b382b
 :END:
-#+begin_src sh :eval no
-  sudo apt install tmux mercurial gnome-tweaks subversion aspell aspell-en automake texinfo shellcheck gawk default-jre-headless default-jre tree wget curl git
-#+end_src
+- Common packages (Replace ~sudo apt~ with ~brew~ for Mac OS)
+  #+begin_src sh :eval no
+    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl git
+  #+end_src
+- Linux specific packages
+  #+begin_src sh :eval no
+    sudo apt install gnome-tweaks aspell-en gawk default-jre-headless default-jre
+  #+end_src
+
 ** Set up file sharing to access private files
+:PROPERTIES:
+:ID:       71127cac-ef78-4b97-944a-fdeb83f2e9fa
+:END:
 - Symlink ssh keys and gpg keys
 - Make sure permissions are correctly set on the keys
 - Symlink .gitconfig and .gitattributes from dotfiles to home dir
 ** Clone my public dotfiles into my source folder
-** Install zsh and  oh-my-zsh
+** Install zsh and oh-my-zsh
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       b303ec83-8c3b-4391-b550-5105e2cf6f4f
@@ -226,7 +235,8 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
   #+end_src
 
 ** Install Go and Go based CLI tools
-- Install ~gopls~ (LSP) by following instructions in Go Wiki
+- Install Golang from https://go.dev/doc/install
+- Install ~gopls~ (LSP) by following instructions in Go Wiki: https://pkg.go.dev/golang.org/x/tools/gopls#section-readme
 - Install ~gron~ (grepping through JSON)
 *** Install fzf
 :PROPERTIES:
@@ -264,8 +274,10 @@ integration with Emacs.
 :ID:       feeaeed3-f9f0-4859-b459-0bb78a770683
 :END:
 - Symlink ~.tmux.conf~ to home dir
-- Clone the tmux-tpm repo from https://github.com/tmux-plugins/tpm as
-  per instructions in the README.
+- Clone the ~tmux-tpm~ repo
+  #+begin_src sh :eval no
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  #+end_src
 - Execute ~C-b I~ inside tmux once to install all the plugins
 ** Install everything needed for Clojure development
 :PROPERTIES:
