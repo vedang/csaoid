@@ -358,6 +358,7 @@ at: https://github.com/ledger/ledger
 :END:
 - Follow instructions here to add the Kubic PPA: https://software.opensuse.org//download.html?project=devel%3Akubic%3Alibcontainers%3Astable&package=podman
 - ~sudo apt install podman buildah skopeo~
+- ~pip3 install podman-compose~
 
 ** Install org-protocol prerequisites
 :PROPERTIES:
