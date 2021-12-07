@@ -217,7 +217,7 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
 - Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
 - Install all the tools I use
   #+begin_src sh :eval no
-    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat
+    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat tokei sd hyperfine tealdeer
   #+end_src
 - Install ~rust-analyzer~ for Rust LSP
   #+begin_src sh :eval no
