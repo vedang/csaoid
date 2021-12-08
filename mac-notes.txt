@@ -65,6 +65,11 @@ Follow the instructions at [[id:feeaeed3-f9f0-4859-b459-0bb78a770683][Ubuntu:Ins
 #+begin_src sh :eval no
   brew install java visualvm
 #+end_src
+~java~ needs to be symlinked when installed from brew:
+#+begin_src sh :eval no
+  sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+#+end_src
+Confirm installation by running ~java -version~
 ** Setup email via notmuch
 :PROPERTIES:
 :CREATED:  [2021-06-08 Tue 17:42]
