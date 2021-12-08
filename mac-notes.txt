@@ -23,12 +23,15 @@
     pmset -g thermlog
   #+end_src
 * My personal Operating System setup from scratch for macOS Monterey
+** Install my favorite Nerd Fonts
+https://www.nerdfonts.com/font-downloads
+This is the first step because ~starship~ in the next step requires a Nerd Font
 ** Install the basics for getting started with anything else
 - Install brew from https://brew.sh
 - Install common packages from brew, as mentioned in [[id:6d55077f-2489-491a-80ac-f397351b382b][Ubuntu:Install the basics for getting started with anything else]]
 - Install casks and brew-specific packages
   #+begin_src sh :eval no
-    brew install iterm2 firefox keepassxc ripcord mactex ledger podman skopeo
+    brew install iterm2 firefox keepassxc ripcord mactex ledger podman skopeo pinentry-mac starship
   #+end_src
 
 ** Set up file sharing to access private files
@@ -81,8 +84,6 @@ Confirm installation by running ~java -version~
   #+end_src
 - Symlink ~notmuch/.notmuch-config~, ~.mbsyncrc~ and ~.msmtprc~ from private dotfiles to Home.
 - Symlink ~notmuch~ dir in private-dotfiles to ~<maildir>/.notmuch/hooks~
-** Install my favorite Nerd Fonts
-https://www.nerdfonts.com/font-downloads
 ** Install Emacs from jimeh
   #+begin_src sh :eval no
     brew tap jimeh/emacs-builds

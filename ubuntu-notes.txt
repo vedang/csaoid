@@ -186,6 +186,9 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       f506800f-67ab-4231-ab8d-aab341dc4eb4
 :END:
+** Install my favorite Nerd Fonts
+https://www.nerdfonts.com/font-downloads
+This is the first step because ~starship~ in the next step requires a Nerd Font
 ** Install the basics for getting started with anything else
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
@@ -199,7 +202,7 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
   #+begin_src sh :eval no
     sudo apt install gnome-tweaks aspell-en gawk default-jre-headless default-jre
   #+end_src
-
+- Install ~starship~ from https://starship.rs/guide/#%F0%9F%9A%80-installation
 ** Set up file sharing to access private files
 :PROPERTIES:
 :ID:       71127cac-ef78-4b97-944a-fdeb83f2e9fa
@@ -336,9 +339,6 @@ integration with Emacs.
 - Symlink ~notmuch/.notmuch-config~, ~.mbsyncrc~ and ~.msmtprc~ from
   private dotfiles to Home.
 - Symlink ~notmuch~ dir in private-dotfiles to ~<maildir>/.notmuch/hooks~
-** Install my favorite Nerd Fonts
-https://www.nerdfonts.com/font-downloads
-
 ** Install Emacs from source
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
