@@ -208,6 +208,13 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
 - Make sure permissions are correctly set on the keys
 - Symlink .gitconfig and .gitattributes from dotfiles to home dir
 ** Clone my public dotfiles into my source folder
+** Install starship prompt
+:PROPERTIES:
+:CREATED:  [2021-12-12 Sun 08:19]
+:ID:       028de332-1b76-4d10-909f-4ff3eb771c31
+:END:
+- Install the starship prompt from https://starship.rs/
+- Symlink ~starship.toml~ to ~/.config/~
 ** Install zsh and oh-my-zsh
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]

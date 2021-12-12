@@ -34,6 +34,8 @@
 ** Set up file sharing to access private files
 Follow the instructions in [[id:71127cac-ef78-4b97-944a-fdeb83f2e9fa][Ubuntu:Set up file sharing to access private files]]
 ** Clone my public dotfiles into my source folder
+** Install starship prompt
+Follow the instructions in [[id:028de332-1b76-4d10-909f-4ff3eb771c31][Ubuntu:Install starship prompt]]
 ** Install zsh and  oh-my-zsh
 Follow the instructions in [[id:b303ec83-8c3b-4391-b550-5105e2cf6f4f][Ubuntu:Install zsh and oh-my-zsh]]
 ** Install Rust and Rust based CLI tools
