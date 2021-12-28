@@ -25,7 +25,7 @@
 * My personal Operating System setup from scratch for macOS Monterey
 ** Install my favorite Nerd Fonts
 https://www.nerdfonts.com/font-downloads
-This is the first step because ~starship~ in the next step requires a Nerd Font
+This is the first step because ~starship~ requires a Nerd Font
 ** Install the basics for getting started with anything else
 - Install brew from https://brew.sh
 - Install common packages from brew, as mentioned in [[id:6d55077f-2489-491a-80ac-f397351b382b][Ubuntu:Install the basics for getting started with anything else]]
@@ -38,7 +38,7 @@ This is the first step because ~starship~ in the next step requires a Nerd Font
 Follow the instructions in [[id:71127cac-ef78-4b97-944a-fdeb83f2e9fa][Ubuntu:Set up file sharing to access private files]]
 ** Clone my public dotfiles into my source folder
 ** Install starship prompt
-Follow the instructions in [[id:028de332-1b76-4d10-909f-4ff3eb771c31][Ubuntu:Install starship prompt]]
+We have already installed it using brew in one of the steps above. Follow the instructions in [[id:028de332-1b76-4d10-909f-4ff3eb771c31][Ubuntu:Install starship prompt]] to install configuration for starship.
 ** Install zsh and  oh-my-zsh
 Follow the instructions in [[id:b303ec83-8c3b-4391-b550-5105e2cf6f4f][Ubuntu:Install zsh and oh-my-zsh]]
 ** Install Rust and Rust based CLI tools
@@ -131,3 +131,10 @@ brew install youtube-dl
   nvm install node
   nvm install-latest-npm
 #+end_src
+
+** Install Jenv
+  - Install jenv from : https://github.com/jenv/jenv
+  - Follow the instructions above to install it. The instructions
+    contain Mac specific information on how to install multiple
+    versions of java.
+  - List all installed versions with =jenv versions=

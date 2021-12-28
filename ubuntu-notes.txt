@@ -37,24 +37,6 @@ xinput disable 12
 
 (and enable via a similar command)
 #+end_src
-* Jenv on Ubuntu
-:PROPERTIES:
-:CREATED:  [2021-05-29 Sat 11:46]
-:ID:       cbd2378f-3706-42df-a823-b56e94d898ba
-:END:
-  - Install jenv from : https://github.com/jenv/jenv
-  - Follow the instructions above to install it. The instructions
-    contain Mac specific information on how to install multiple
-    versions of java.
-  - For Ubuntu specific information, refer to
-    https://aboullaite.me/switching-between-java-versions-on-ubuntu-linux/.
-    (The important package is =update-java-alternatives=)
-  - Ubuntu jvm paths to add to jenv look like this:
-    =/usr/lib/jvm/java-13-openjdk-amd64/=
-    #+begin_src shell
-      jenv add /usr/lib/jvm/java-13-openjdk-amd64/
-    #+end_src
-  - List all installed versions with =jenv versions=
 * Opening any file in it's default application from the terminal
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
@@ -188,7 +170,7 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
 :END:
 ** Install my favorite Nerd Fonts
 https://www.nerdfonts.com/font-downloads
-This is the first step because ~starship~ in the next step requires a Nerd Font
+This is the first step because ~starship~ (installed later) requires a Nerd Font.
 ** Install the basics for getting started with anything else
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
@@ -202,7 +184,20 @@ This is the first step because ~starship~ in the next step requires a Nerd Font
   #+begin_src sh :eval no
     sudo apt install gnome-tweaks aspell-en gawk default-jre-headless default-jre
   #+end_src
-- Install ~starship~ from https://starship.rs/guide/#%F0%9F%9A%80-installation
+** Install JVM 17 on linux
+  #+begin_src sh :eval no
+    # Oracle
+    sudo apt-add-repository 'deb http://ppa.launchpad.net/linuxuprising/java/ubuntu focal main'
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 73C3DB2A
+    sudo apt-get update
+    sudo apt install oracle-java17-installer --install-recommends
+
+    # Azul
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    sudo apt update
+    sudo apt install zulu-17
+  #+end_src
 ** Set up file sharing to access private files
 :PROPERTIES:
 :ID:       71127cac-ef78-4b97-944a-fdeb83f2e9fa
@@ -439,3 +434,21 @@ sudo apt install youtube-dl
   nvm install node
   nvm install-latest-npm
 #+end_src
+** Install Jenv
+:PROPERTIES:
+:CREATED:  [2021-05-29 Sat 11:46]
+:ID:       cbd2378f-3706-42df-a823-b56e94d898ba
+:END:
+  - Install jenv from : https://github.com/jenv/jenv
+  - Follow the instructions above to install it. The instructions
+    contain Mac specific information on how to install multiple
+    versions of java.
+  - For Ubuntu specific information, refer to
+    https://aboullaite.me/switching-between-java-versions-on-ubuntu-linux/.
+    (The important package is =update-java-alternatives=)
+  - Ubuntu jvm paths to add to jenv look like this:
+    =/usr/lib/jvm/java-13-openjdk-amd64/=
+    #+begin_src shell
+      jenv add /usr/lib/jvm/java-13-openjdk-amd64/
+    #+end_src
+  - List all installed versions with =jenv versions=
