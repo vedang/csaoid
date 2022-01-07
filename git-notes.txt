@@ -654,6 +654,11 @@ $ git checkout -m <file>
      git grep search_regex -- 'file_regex'
    #+end_src
 
+** Find all the refs (tags, branches) that a given commit belongs to
+Note that this is only available for Git versions 2.7 and above
+   #+begin_src sh :eval no
+     git for-each-ref --contains SHA1
+   #+end_src
 * Misc
 
 # get rid of bloody trailing whitespace
