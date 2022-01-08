@@ -452,3 +452,16 @@ sudo apt install youtube-dl
       jenv add /usr/lib/jvm/java-13-openjdk-amd64/
     #+end_src
   - List all installed versions with =jenv versions=
+
+** Install Power-management tools
+- Install ~tlp~. Check their website to ensure instructions are correct: https://linrunner.de/tlp/installation/ubuntu.html
+  #+begin_src sh :eval no
+    sudo add-apt-repository ppa:linrunner/tlp
+    sudo apt update
+    sudo apt install tlp tlp-rdw ethtool
+  #+end_src
+- Install ~powertop~
+  #+begin_src sh :eval no
+    sudo apt install powertop
+  #+end_src
+- Review [[https://support.system76.com/articles/battery/][this article on battery]] by PopOS to better tune the power consumption.
