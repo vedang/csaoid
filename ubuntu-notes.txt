@@ -178,7 +178,7 @@ This is the first step because ~starship~ (installed later) requires a Nerd Font
 :END:
 - Common packages (Replace ~sudo apt~ with ~brew~ for Mac OS)
   #+begin_src sh :eval no
-    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl git
+    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl git jq
   #+end_src
 - Linux specific packages
   #+begin_src sh :eval no
@@ -231,7 +231,7 @@ This is the first step because ~starship~ (installed later) requires a Nerd Font
 - Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
 - Install all the tools I use
   #+begin_src sh :eval no
-    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat tokei sd hyperfine tealdeer
+    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat tokei sd hyperfine tealdeer choose broot
   #+end_src
 - Install ~rust-analyzer~ for Rust LSP
   #+begin_src sh :eval no
