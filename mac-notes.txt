@@ -138,3 +138,12 @@ brew install youtube-dl
     contain Mac specific information on how to install multiple
     versions of java.
   - List all installed versions with =jenv versions=
+
+** Install AWS CLI
+- ~brew install awscli~
+- ~awscli configure~
+- ~aws ecr get-login-password --region us-east-1 | podman login --username AWS --password-stdin <ecr-bucket>~
+
+** Install tarsnap
+- ~brew install openssl~
+- Follow instructions on the tarsnap site for compilation

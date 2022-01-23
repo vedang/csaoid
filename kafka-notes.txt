@@ -4,9 +4,7 @@
   :CREATED:  [2021-03-10 Wed 15:00]
   :ID:       ADA869CE-2546-48CB-B3EE-AA3D01E45898
   :END:
-  The use-case is to get a list of all the consumers connected to
-  Kafka Brokers in production, all the topics they are connected on
-  and what the lag is for each consumer.
+  The use-case is to get a list of all the consumers connected to Kafka Brokers in production, all the topics they are connected on and what the lag is for each consumer.
   #+begin_src shell-script :eval no
     ./kafka/current/bin/kafka-consumer-groups.sh --list --zookeeper zkcl01-01:2181,zkcl01-02:2181,zkcl01-03:2181/kafkaroot | grep -v "console-consumer" | while read -r gid ; do
         ./kafka/current/bin/kafka-consumer-groups.sh --describe --zookeeper zkcl01-01:2181,zkcl01-02:2181,zkcl01-03:2181/kafkaroot --group $gid
