@@ -107,6 +107,21 @@
 #+begin_src sh :eval no
 ps -eo pid,comm,lstart,etime,time,args | grep <process>
 #+end_src
+** Dealing with processes in the foreground and background
+:PROPERTIES:
+:CREATED:  [2022-01-23 Sun 19:57]
+:ID:       fb2bc3ab-8d3c-4484-913f-d727004893d1
+:END:
+- List all jobs: ~jobs -l~
+- Starting a process in the background: ~emacs &~
+- Bringing it to the foreground:
+  + ~jobs -l~ to see jobs
+  + ~fg %<job-num>~ to bring it in the foreground.
+- Pushing a job to the background
+  + ~C-z~ to stop the job
+  + ~jobs -l~ to see jobs
+  + ~bg %<job-num>~ to push the job in the background and start it again.
+
 * Sum numbers in shell
   - <cmd> | paste -sd+ - | bc
 * SSH break bad connection
