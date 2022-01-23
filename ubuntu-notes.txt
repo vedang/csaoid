@@ -178,7 +178,7 @@ This is the first step because ~starship~ (installed later) requires a Nerd Font
 :END:
 - Common packages (Replace ~sudo apt~ with ~brew~ for Mac OS)
   #+begin_src sh :eval no
-    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl git jq
+    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl git jq hugo
   #+end_src
 - Linux specific packages
   #+begin_src sh :eval no
@@ -454,6 +454,10 @@ sudo apt install youtube-dl
   - List all installed versions with =jenv versions=
 
 ** Install Power-management tools
+:PROPERTIES:
+:CREATED:  [2022-01-18 Tue 18:31]
+:ID:       61a5b48c-bee1-48be-b4fc-e02dc3fed36c
+:END:
 - Install ~tlp~. Check their website to ensure instructions are correct: https://linrunner.de/tlp/installation/ubuntu.html
   #+begin_src sh :eval no
     sudo add-apt-repository ppa:linrunner/tlp
