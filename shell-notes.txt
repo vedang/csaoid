@@ -94,11 +94,19 @@
   # How do I run a shell command from inside Emacs?
   - Run M-! in Emacs
 * Process utils
-- ps -eTp
-- /usr/share/bcc/tools/cachetop
-- /usr/share/bcc/tools/filetop -s writes -p `pgrep mongod`
-- sudo perf record -F99 -p `pgrep mongod`-g -- sleep 120
-- procs as a replacement for ps
+- ~ps -eTp~
+- ~/usr/share/bcc/tools/cachetop~
+- ~/usr/share/bcc/tools/filetop -s writes -p `pgrep mongod`~
+- ~sudo perf record -F99 -p `pgrep mongod`-g -- sleep 120~
+- ~procs~ as a replacement for ~ps~
+** Check the uptime of a process using ps
+:PROPERTIES:
+:CREATED:  [2022-01-23 Sun 11:05]
+:ID:       0E20085B-9A50-4BAB-8D3D-B084DAA2B481
+:END:
+#+begin_src sh :eval no
+ps -eo pid,comm,lstart,etime,time,args | grep <process>
+#+end_src
 * Sum numbers in shell
   - <cmd> | paste -sd+ - | bc
 * SSH break bad connection
