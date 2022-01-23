@@ -469,3 +469,14 @@ sudo apt install youtube-dl
     sudo apt install powertop
   #+end_src
 - Review [[https://support.system76.com/articles/battery/][this article on battery]] by PopOS to better tune the power consumption.
+
+** Install tarsnap
+:PROPERTIES:
+:CREATED:  [2022-01-18 Tue 18:31]
+:ID:       e8b8a15d-271c-45a1-935c-f60b8f8d8d2e
+:END:
+- Follow the instructions on https://www.tarsnap.com/download.html#source
+- sudo tarsnap-keygen \
+	--keyfile /root/tarsnap.key \
+	--user me@email.com \
+	--machine mybox
