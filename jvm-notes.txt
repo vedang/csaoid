@@ -42,8 +42,8 @@ $ jmap -dump:format=b,file=cheap.bin <pid>
   :CREATED:  [2021-06-14 Mon 09:40]
   :ID:       2FC7377C-9EC4-4F87-97EE-01BB9DAB4E10
   :END:
-  *Note*: The following function is taken from a stack overflow
-  answer:
+** Using a function in your bash / zsh scripts
+  *Note*: The following function is taken from a stack overflow answer:
   - If you are moving to Java 8 and still want to run Java 7 the
     following script might help you. Insert the below code block in
     your ~.bashrc~ or ~.bash_profile~ scripts in your home directory:
@@ -76,6 +76,28 @@ $ jmap -dump:format=b,file=cheap.bin <pid>
       Java(TM) SE Runtime Environment (build 1.8.0_66-b17)
       Java HotSpot(TM) 64-Bit Server VM (build 25.66-b17, mixed mode)
     #+end_example
+** Running the necessary changes manually
+- First, install all the versions of you want.
+  + Example: Installing Java 8 from Corretto:
+    - Download https://corretto.aws/downloads/latest/amazon-corretto-8-x64-macos-jdk.pkg
+    - Follow the install process.
+
+- Switching between versions
+  + ~/usr/libexec/java_home -V~ will show you all the versions you have installed. Example:
+    #+begin_example
+      ? /usr/libexec/java_home -V
+      Matching Java Virtual Machines (2):
+          17.0.1 (x86_64) "Homebrew" - "OpenJDK 17.0.1" /usr/local/Cellar/openjdk/17.0.1_1/libexec/openjdk.jdk/Contents/Home
+          1.8.0_322 (x86_64) "Amazon" - "Amazon Corretto 8" /Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
+      /usr/local/Cellar/openjdk/17.0.1_1/libexec/openjdk.jdk/Contents/Home
+    #+end_example
+  + Export the version you want to use. Example:
+    #+begin_example
+      export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_322)
+    #+end_example
+  + Done. Now, ~java -version~ should be according to what you set ~$JAVA_HOME~ to in the previous step.
+- Note: On the Mac, when you first run it, you may need to go to ~Preferences -> Security & Privacy~ and allow it to run.
+- Hat-Tip to Samuel Chase for writing this down so succinctly.
 * Debugging
   :PROPERTIES:
   :CREATED:  [2021-06-14 Mon 09:40]
