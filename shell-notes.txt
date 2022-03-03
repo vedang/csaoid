@@ -202,3 +202,13 @@ From the man page:
       directories. Three -u flags will additionally search binary files.
 
       'rg -uuu' is roughly equivalent to 'grep -r'.
+
+* Remove color markers from command output
+:PROPERTIES:
+:CREATED:  [2022-03-03 Thu 09:45]
+:ID:       863AF267-B0D5-4815-A23D-FCF40B046CB4
+:END:
+Commands which print output in color make it difficult to work with data using pipes etc. Here is a simple [[brain:C3A60958-E079-4894-83D3-544F6F2D7553][Sed]] script to remove the markers:
+#+begin_src sh :eval no
+  gsed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"
+#+end_src
