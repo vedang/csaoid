@@ -1,16 +1,25 @@
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       1518f569-dbda-4abd-a1bb-39856423d5f5
+:END:
 -*- mode: org; -*-
+#+title: Tips and Tricks on MacOS
 * Change the Lock Screen Keyboard Shortcut
-  - Launch System Preferences and go to the Keyboard pane.
-  - Select the 'Keyboard Shortcuts' tab.
-  - From the list on the left, select 'Application Shortcuts'.
-  - Click on the plus (+) button below to add your new shortcut.
-  - In the dialog box we'll want to leave 'All Applications' selected
-    in the first menu. Enter 'Lock Screen' as the Menu Title. Please
-    note this has to be exactly the same name you entered when saving
-    the service in Automator. Finally, enter your keyboard shortcut.
-    Let's go with Option+Shift+Q
-  - Click Add and you're all done!
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       74e093a7-5b6d-4c16-af36-b37933d760fe
+:END:
+- Launch System Preferences and go to the Keyboard pane.
+- Select the 'Keyboard Shortcuts' tab.
+- From the list on the left, select 'Application Shortcuts'.
+- Click on the plus (+) button below to add your new shortcut.
+- In the dialog box we'll want to leave 'All Applications' selected in the first menu. Enter 'Lock Screen' as the Menu Title. Please note this has to be exactly the same name you entered when saving the service in Automator. Finally, enter your keyboard shortcut. Let's go with Option+Shift+Q
+- Click Add and you're all done!
 * Turn the wifi on/off from the terminal
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       f06189ab-092c-42c0-a96c-b2a217633bd2
+:END:
   - You have to use =networksetup= for this
     #+begin_src shell-script
       # List all the hardware ports controlled by networksetup
@@ -19,6 +28,10 @@
       networksetup -setairportpower en0 on # or off
     #+end_src
 * Check if your machine is overheating
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       d0b7c3e0-b545-4150-a731-bebe0e549dc7
+:END:
   #+begin_src sh :eval no
     pmset -g thermlog
   #+end_src
@@ -58,10 +71,22 @@ To load secrets, you can now create a function in your script as follows:
 #+end_src
 
 * My personal Operating System setup from scratch for macOS Monterey
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       eec0482f-6b83-45f7-b584-d42fd13d3bef
+:END:
 ** Install my favorite Nerd Fonts
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       a623ed27-7628-44ae-8568-2088b1b3e79b
+:END:
 https://www.nerdfonts.com/font-downloads
 This is the first step because ~starship~ requires a Nerd Font
 ** Install the basics for getting started with anything else
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       7c821c94-9d93-4bc5-a157-82047ff841f4
+:END:
 - Install brew from https://brew.sh
 - Install common packages from brew, as mentioned in [[id:6d55077f-2489-491a-80ac-f397351b382b][Ubuntu:Install the basics for getting started with anything else]]
 - Install casks and brew-specific packages
@@ -70,15 +95,39 @@ This is the first step because ~starship~ requires a Nerd Font
   #+end_src
 
 ** Set up file sharing to access private files
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       d1581c2b-4d38-4820-b931-96ae0944c1dd
+:END:
 Follow the instructions in [[id:71127cac-ef78-4b97-944a-fdeb83f2e9fa][Ubuntu:Set up file sharing to access private files]]
 ** Clone my public dotfiles into my source folder
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       0e5ed504-8d54-4de7-a1eb-f31e4f4915c3
+:END:
 ** Install starship prompt
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       8bca4e63-1d26-40e5-9e83-3c4d5dc26e7d
+:END:
 We have already installed it using brew in one of the steps above. Follow the instructions in [[id:028de332-1b76-4d10-909f-4ff3eb771c31][Ubuntu:Install starship prompt]] to install configuration for starship.
 ** Install zsh and  oh-my-zsh
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       e2512189-4002-4b62-8de6-e45b871accf8
+:END:
 Follow the instructions in [[id:b303ec83-8c3b-4391-b550-5105e2cf6f4f][Ubuntu:Install zsh and oh-my-zsh]]
 ** Install Rust and Rust based CLI tools
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       6781bcab-99e0-420c-a74f-0b13d161021b
+:END:
 Follow the instructions in [[id:14c19bb7-db3a-47cd-9c67-d606d88aeff0][Ubuntu:Install Rust and Rust based CLI tools]]
 ** Install Go and Go based CLI Tools
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       c0de3a60-6c61-45ab-a535-23dca168b894
+:END:
 - Install golang from brew
   #+begin_src sh :eval no
     brew install golang
@@ -89,17 +138,37 @@ Follow the instructions in [[id:14c19bb7-db3a-47cd-9c67-d606d88aeff0][Ubuntu:Ins
     brew install gron
   #+end_src
 *** Install fzf
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       8f44ce16-9a0f-4c63-9c79-c4a6076ebf50
+:END:
 Refer to the *Using Git* section here: https://github.com/junegunn/fzf#installation
 
 ** Install tmux-tpm from source
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       c67cb4bd-e63d-45cd-9e27-d786cb642118
+:END:
 Follow the instructions at [[id:feeaeed3-f9f0-4859-b459-0bb78a770683][Ubuntu:Install tmux-tpm from source]]
 ** Install everything needed for Clojure development
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       c25c8d41-6e2e-4412-8826-df0d97ee6cb8
+:END:
 #+begin_src sh :eval no
   brew install leiningen clojure borkdude/brew/clj-kondo borkdude/brew/babashka cljstyle
 #+end_src
 *** Symlink my lein folder from private-dotfiles to ~.lein~ in home
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       ec38483d-2c98-40b0-94e1-65fc4f620934
+:END:
 
 *** Install jdk sources
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       b2ddefdf-390a-4e5a-aa92-c82eaa5013c3
+:END:
 #+begin_src sh :eval no
   brew install java visualvm mvn
 #+end_src
@@ -120,6 +189,10 @@ Confirm installation by running ~java -version~
 - Symlink ~notmuch/.notmuch-config~, ~.mbsyncrc~ and ~.msmtprc~ from private dotfiles to Home.
 - Symlink ~notmuch~ dir in private-dotfiles to ~<maildir>/.notmuch/hooks~
 ** Install Emacs from jimeh
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       8e38eec9-c1df-4a8c-85f6-978cee261331
+:END:
   #+begin_src sh :eval no
     brew tap jimeh/emacs-builds
     brew install emacs-app-good
@@ -168,6 +241,10 @@ brew install youtube-dl
 #+end_src
 
 ** Install Jenv
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       e261ba2b-1df6-4851-a633-b4fdb133b9f2
+:END:
   - Install jenv from : https://github.com/jenv/jenv
   - Follow the instructions above to install it. The instructions
     contain Mac specific information on how to install multiple
@@ -175,10 +252,18 @@ brew install youtube-dl
   - List all installed versions with =jenv versions=
 
 ** Install AWS CLI
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       ecae10ce-f843-4315-9b56-e32961acd5f7
+:END:
 - ~brew install awscli~
 - ~awscli configure~
 - ~aws ecr get-login-password --region us-east-1 | podman login --username AWS --password-stdin <ecr-bucket>~
 
 ** Install tarsnap
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:10]
+:ID:       e31877fe-10da-4ca7-9b57-188515d8bfc3
+:END:
 - ~brew install openssl~
 - Follow instructions on the tarsnap site for compilation
