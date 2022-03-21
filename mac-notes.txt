@@ -22,6 +22,41 @@
   #+begin_src sh :eval no
     pmset -g thermlog
   #+end_src
+* Using secrets in shell scripts and config files
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:11]
+:ID:       3fa0dfe5-53ba-47c7-a19d-ef3bdfbb9940
+:BRAIN_PARENTS: FCE04B5D-71FB-4A3B-9ABC-FB9B6A531BE2
+:END:
+:RESOURCES:
+- [[https://www.netmeister.org/blog/keychain-passwords.html][Using the OS X Keychain to store and retrieve passwords]]
+:END:
+If you have a local script or ~.bashrc~ or some other config script, avoid exporting/setting secret variables directly in these scripts. Instead:
+
+1. Open *Keychain Access.app*
+2. Add a new keychain from *File > New keychain*
+   - Using new keychain will allow you to use a different password than login for storing secrets.
+   - You can also use the login keychain, if you don't want to enter password each time
+3. Add a name for the keychain, once you will click on Save button, it will ask to enter the password for the new keychain.
+   - Add a decently complex password.
+4. Once added, select the newly created keychain from the left pane of the Keychain Access app.
+5. To add a new password item, select *File > New Password Item*. Fill in the following details:
+   - Keychain item name: This is the keyword to access your keychain item.
+   - Account Name: This could be anything, usually used to group 1 or more password items
+   - Password: This is the secret you want to store in the Keychain against this item.
+6. Once added, you should test the secret access in terminal with following command:
+   #+begin_src sh :eval no
+     security find-generic-password -a TEST_account_name -s TEST_item_name -w
+   #+end_src
+
+To load secrets, you can now create a function in your script as follows:
+#+begin_src sh :eval no
+  function load_secrets () {
+    export SECRET1=$(security find-generic-password -a TEST_account1 -s TEST_item1 -w)
+    export SECRET2=$(security find-generic-password -a TEST_account1 -s TEST_item2 -w)
+  }
+#+end_src
+
 * My personal Operating System setup from scratch for macOS Monterey
 ** Install my favorite Nerd Fonts
 https://www.nerdfonts.com/font-downloads
