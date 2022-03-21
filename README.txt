@@ -5,19 +5,25 @@
 * Cheat Sheets And Other Interesting Documents
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: tinylog
+  :CREATED:  [2022-03-21 Mon 13:19]
+  :ID:       85a68624-84d6-46f8-823e-2953439fe5e6
   :END:
 
-I spend way too much time on the net searching for the same things
-over and over again. Usually it's the tiny odd-job that I am looking
-to get done, or that one special or obscure command that I _just can't
-remember_. This collection is for exactly such things.
+I spend way too much time on the net searching for the same things over and over again. Usually it's the tiny odd-job that I am looking to get done, or that one special or obscure command that I _just can't remember_. This collection is for exactly such things.
 
 ** Author                                                          :noexport:
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:19]
+:ID:       98b75f25-6229-43fe-84e5-4914dee77089
+:END:
 Vedang Manerikar (@vedang)
 
 ** Contributors                                                    :noexport:
-- Git-notes: Chinmay Kamat (@cdkamat), Kiran Kulkarni
-  (@kirankulkarni), Swaroop CH (@swaroopch)
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:19]
+:ID:       a7a7b389-bad6-441b-ad6c-49806ea4aa93
+:END:
+- Git-notes: Chinmay Kamat (@cdkamat), Kiran Kulkarni (@kirankulkarni), Swaroop CH (@swaroopch)
 - General-notes: Chinmay Kamat (@cdkamat)
 - GDB-notes: Chinmay Kamat (@cdkamat)
 - Emacs-notes: Chinmay Kamat (@cdkamat)
