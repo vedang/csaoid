@@ -1,22 +1,27 @@
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       d82ea2b4-2339-4ca0-b391-85cc362b9904
+:END:
 -*- mode: org; comment-column: 0; -*-
+#+title: Notes on using Git
 
-# This file contains a list of git commands that I've found handy in situations
-# I've faced over time. These are commands that _I_ have used (successfully).
-# I'm not claiming that this is the only way or even the right
-# way to handle a particular situation that you may face. YMMV.
+This file contains a list of git commands that I've found handy in situations I've faced over time. These are commands that _I_ have used (successfully). I'm not claiming that this is the only way or even the right way to handle a particular situation that you may face. YMMV.
 
-# Along with commands, there are also some general git patterns that I have noted
-# down. I hope this file is of help to you, or at least teaches you something
-# about git that you didn't know beforehand
+Along with commands, there are also some general git patterns that I have noted down. I hope this file is of help to you, or at least teaches you something about git that you didn't know beforehand
 
-# The commands are ordered by type rather than difficulty, so you are going to
-# find intermediate and slightly advanced commands intermingled with the easy
-# ones. I mean for this document to be used as a cheat-sheet, not a tutorial,
-# but if you are confused about something shoot me a mail
+The commands are ordered by type rather than difficulty, so you are going to find intermediate and slightly advanced commands intermingled with the easy ones. I mean for this document to be used as a cheat-sheet, not a tutorial, but if you are confused about something shoot me a mail
 
 * Basics: Adding a remote to git repo
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       c5ed1e5a-ab5f-4738-8b6f-f13744023f3a
+:END:
 
 ** Initialize a git repository
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       f9fa51ca-3dea-4f07-9fe3-da0254586bbf
+:END:
    #+begin_src shell-script :eval no
      git init
    #+end_src
@@ -24,6 +29,10 @@
    initialize the repo.
 
 *** Create an empty commit
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       175615b8-0ca7-47ed-931e-96e043c463f2
+:END:
     #+begin_src shell-script :eval no
       git commit -m "Empty initial commit" --allow-empty
     #+end_src
@@ -33,48 +42,88 @@
     used in rebase operations.
 
 ** Mark everything in the current dir for committing to git
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       2054d43d-3fad-4d56-baf2-47a5e16ee8ab
+:END:
    #+begin_src shell-script :eval no
      git add .
    #+end_src
 
 ** Create a git commit
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       6b888a0d-0b2b-48b5-963b-f15bea1858e3
+:END:
    #+begin_src shell-script :eval no
      git commit -m
    #+end_src
 
 ** Add a new remote (public url) to your git repository
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       56e83423-5fce-4cb9-9551-114748be81c1
+:END:
    #+begin_src shell-script :eval no
      git remote add origin git@github.com:vedang/reponame.git
    #+end_src
 
 * Branching
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       67eb95dc-3260-4534-b1fa-7a2954bb3eb6
+:END:
 
 ** The default commit is HEAD.
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       716716b9-7f99-4e36-afd0-107c48d668b3
+:END:
    #+begin_src shell-script :eval no
      git checkout -b <branchname> <commit>
    #+end_src
 
 ** Delete a branch
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       5b7fbced-7b2a-4ce4-89d6-3636cbad830f
+:END:
    #+begin_src shell-script :eval no
      git checkout -d <branchname>
    #+end_src
 
 ** Rename a branch
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       94563a10-8e3d-447a-a548-9d48b150b948
+:END:
    #+begin_src shell-script :eval no
      git checkout -m <branchname> <newbranchname>
    #+end_src
 
 ** Merge branch <branchname> with current branch
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       d9f7f09f-3900-47d9-9769-40f19b18a8d9
+:END:
    #+begin_src shell-script :eval no
      git merge <branchname>
    #+end_src
 
 ** Push a local branch to remote
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       158e0ba4-c0be-4b7f-82cc-e03dc6b3863b
+:END:
    #+begin_src shell-script :eval no
      git push <remotename> <localbranchname>:<remotebranchname>
    #+end_src
 
 ** Delete branch on remote. Literally, push /nothing/ into <branchname>
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       791ba3a1-7fc5-4298-8bcc-fbbbad88ebcc
+:END:
    #+begin_src shell-script :eval no
      git push <remotename> :<branchname>
    #+end_src
@@ -97,15 +146,27 @@
    #+end_src
 
 ** Does my branch have the latest master?
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       33ebb53b-a9b1-43be-96b3-cbfdaa89a737
+:END:
    #+begin_src shell-script :eval no
      git branch -r --merged origin/branchname | rg origin/master
    #+end_src
 
 ** Was my branch merged into master?
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       485b88ca-ff04-45db-826c-be553981fe5b
+:END:
    #+begin_src shell-script :eval no
      git branch -r --merged origin/master | rg origin/branchname
 
 ** Create a separate repository from a range of commits restricted to a sub-directory
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       6baa94fc-2e01-4fe1-b6d0-6f43a5aa0183
+:END:
    #+begin_src shell-script :eval no
      git filter-branch --subdirectory-filter trunk HEAD
      git remote add neworigin /path/to/trunk
@@ -119,6 +180,10 @@
    Refer to [[id:171BE2FB-7835-4E96-A984-FC2B24E91019][Subtree (1.7.11+)]]
 
 *** Getting back original master
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       4e37d227-ee46-4392-9ca6-218c75e0fb41
+:END:
     #+begin_src shell-script :eval no
       git checkout masters_original_HEAD
       git checkout -b tmp
@@ -132,12 +197,20 @@
     back to state before the =filter-branch=.
 
 ** Change the upstream target for a branch
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       1bd52a24-daf2-4983-9633-a200d33eb068
+:END:
    #+begin_src shell-script :eval no
      git checkout <branch_name>
      git branch --set-upstream-to=origin/<branch_name>
    #+end_src
 
 * Merging and Rebasing
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       5d3071fb-739d-4611-a7a7-c395ab65b738
+:END:
 
 # Merge the code from some other branch into our branch, keeping our code
 # on every conflict
@@ -237,6 +310,10 @@ $ git revert M -m 2
 # For more information on why git behaves this way, read:
 # https://www.kernel.org/pub/software/scm/git/docs/howto/revert-a-faulty-merge.txt
 * Tagging
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       3e535c95-bee1-4b00-943f-314ae190e734
+:END:
 
 # Create a tag signed using gpg
 $ git tag -u <key-id> <tagname> <commitid>
@@ -288,6 +365,10 @@ $ git push origin :refs/tags/12345
 $ git tag --contains <SHA>
 
 * Listing and Display
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       4df162db-813d-4473-84c6-853fa3147a08
+:END:
 
 # list all the files that have changed between two revisions
 $ git diff --name-only rev1 rev2
@@ -342,18 +423,34 @@ $ git diff origin/master..HEAD
 $ git diff rev1:filename rev2:filename
 
 * Patches and Pull Requests
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       c793db08-b328-4de6-8aee-a6ee9e48df9d
+:END:
 
 ** Create a patch between two ids
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       8471f379-1783-466f-9d22-e09a1378610a
+:END:
    #+begin_src shell-script :eval no
      git diff [commit-id-before] [commit-id-after] > my.patch
    #+end_src
 
 ** Create a ready-to-send patch with the last 3 commits
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       2147d876-1839-409a-8644-d912895d97dc
+:END:
    #+begin_src shell-script :eval no
      git format-patch -3
    #+end_src
 
 ** Apply commits selectively from one branch to another.
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       e8f910ff-ad99-4b6d-89ea-f61e500b81b7
+:END:
    #+begin_src shell-script :eval no
      git format-patch -k -s --stdout R1..R2 | git am -3 -k
    #+end_src
@@ -368,26 +465,46 @@ $ git diff rev1:filename rev2:filename
    #+end_src
 
 ** Create a patch of the commits present in this branch but not in master
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       cde92784-d8b5-4ffe-a18d-c0edc4be10dd
+:END:
    #+begin_src shell-script :eval no
      git format-patch master --stdout > diff-with-master.patch
    #+end_src
 
 ** Check the stats of the patch
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       e5a6b3e2-c68e-42e3-9eb5-cd9e2f58f1ce
+:END:
    #+begin_src shell-script :eval no
      git apply --stat diff-with-master.patch
    #+end_src
 
 ** Check if the patch will apply cleanly
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       be32948f-f3d9-4f7b-8a12-8491ad36ca13
+:END:
    #+begin_src shell-script :eval no
      git apply --check diff-with-master.patch
    #+end_src
 
 ** Apply the patch to the master branch
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       6592b613-bb98-4150-8ea3-1ae637ba5257
+:END:
    #+begin_src shell-script :eval no
      git am -3 --signoff < diff-with-master.patch
    #+end_src
 
 ** Create a beautiful pull request for submitting to another repository
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       3d6c7bea-b240-4bdf-af21-2243e5d463d6
+:END:
    The aim here is to inform another author of your public repository,
    what they can find there and what they should do to pull those
    changes into their own repository. The way to do this:
@@ -404,6 +521,10 @@ $ git diff rev1:filename rev2:filename
      + =feature/render-improvements= is your branch (which contains
        the changes you want to submit)
 ** Generating release notes for your open source work
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       0ae857c9-37b0-47de-8044-b27954fa36fa
+:END:
    - Generate the pull request as shown above
      #+begin_src sh
        git request-pull master https://github.com/vedang/clj_fdb/ dev
@@ -412,8 +533,16 @@ $ git diff rev1:filename rev2:filename
    - Create a changelogs file.
 
 * Submodules
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       4dcd6e04-0875-4307-bde4-fa8554387770
+:END:
 
 ** Adding another repository as a submodule
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       2bcd3a87-a4a2-4a8a-9c14-e0ea7db787b7
+:END:
    #+begin_src shell-script :eval no
      git submodule add path_to_git_repo local_dir &&
      git submodule init &&
@@ -423,6 +552,10 @@ $ git diff rev1:filename rev2:filename
    - =local-dir=: eg: lib/csaoid
 
 ** Pulling from the remote and updating a submodule
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       1686bf54-34e6-44e3-8e72-92a04b0428c8
+:END:
 - Git submodule update keeps the submodule in headless state. When you
   want to bring the submodule up-to-date, remember to checkout to a
   branch first.
@@ -439,11 +572,19 @@ $ git diff rev1:filename rev2:filename
      #+end_src
 
 ** Getting all the submodules in a repository while cloning it
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       5dfd698b-99b5-4241-8066-bf322287fa36
+:END:
    #+begin_src shell-script :eval no
      git clone --recursive <path-to-remote-repo>
    #+end_src
 
 ** Deleting a Submodule
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       897ceec6-4ea9-4327-9c1c-fafc4ed873d7
+:END:
 1. Delete the relevant section from the =.gitmodules= file.
 2. Delete the relevant section from =.git/config=.
 3. Run:
@@ -476,18 +617,30 @@ $ git diff rev1:filename rev2:filename
     parent. We only benefit from having the content.
 
 ** Adding a repository as a subtree to your current repository
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       380c8226-d9b4-45a1-b397-a113b045d68f
+:END:
    #+begin_src shell-script :eval no
      git subtree add --prefix=path/in/curr/repo --squash \
          git://github.com/yourname/your-repo.git master
    #+end_src
 
 ** Pulling changes from subtree
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       b310e9e8-8c05-4118-9187-6f004be84914
+:END:
    #+begin_src shell-script :eval no
      git subtree pull --prefix=path/in/curr/repo --squash \
          git://github.com/yourname/your-repo.git master
    #+end_src
 
 ** Pushing the changes that you have made in a subtree back upstream
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       3c53565f-950c-42d0-8e02-66f719d8acb8
+:END:
    #+begin_src shell-script :eval no
      git subtree split --prefix=subdir/ --annotate='(split)' -b split_dir_latest
      git push git@github.com:yourname/your-repo.git split_dir_latest:master
@@ -497,12 +650,20 @@ $ git diff rev1:filename rev2:filename
    same SHAs which makes this operation relatively straightforward.
 
 ** Splitting out code from an existing repository into a new repository
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       b361b467-c675-45aa-9561-875a62cb077e
+:END:
    #+begin_src shell-script :eval no
      git subtree split --prefix=subdir/ --annotate='(split)' -b split_branch
      git push git@github.com:yourname/your-repo.git split_branch:master
    #+end_src
 
 * Worktree (2.5+)
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       b1435fef-b78d-4e57-9ec1-8ed06bb8a194
+:END:
 # Use Git Worktrees (2.5+) for working on multiple things in parallel
 # I want to run tests on the work I've done on `feature/s`
 
@@ -531,6 +692,10 @@ $
 $ git worktree list
 
 * Adding, Removing & Committing
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       45c8605f-6168-4b9a-ada9-bdb0fd55db99
+:END:
 
 # interactively stage changes to file
 $ git add -p
@@ -556,6 +721,10 @@ $ git clean -dxf <path>
 # branch
 $ git checkout <branch_name> <filename>
 * Debugging, Recovery & Undoing
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       cad9dc30-7c68-4b07-930c-4f8a3ebb546f
+:END:
 
 # To find a regression that happened between v2.6.18 and master
 $ git bisect start
@@ -645,21 +814,41 @@ $ git reflog show --no-abbrev <branch name>
 $ git checkout -m <file>
 
 * Searching
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       8a8b181e-b73e-4202-b296-6f66e0c8a029
+:END:
 ** Search for =regex= in the entire repo.
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       e0375acc-6cc4-46e9-954e-60278408fffd
+:END:
    #+begin_src sh :eval no
      git grep regex
    #+end_src
 ** Search for =search_regex= only in files that match =file_regex=
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       36b79552-8ba6-4373-bfb5-58ac880ea75c
+:END:
    #+begin_src sh :eval no
      git grep search_regex -- 'file_regex'
    #+end_src
 
 ** Find all the refs (tags, branches) that a given commit belongs to
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       24115789-50e1-4b29-ae51-9829d7672e09
+:END:
 Note that this is only available for Git versions 2.7 and above
    #+begin_src sh :eval no
      git for-each-ref --contains SHA1
    #+end_src
 * Misc
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       dc11c2a1-72fa-465f-9a69-2adc248520c8
+:END:
 
 # get rid of bloody trailing whitespace
 $ git apply --whitespace=fix
@@ -697,6 +886,10 @@ $ git config --global alias.serve '!git daemon --reuseaddr --verbose --base-path
 $ git clone git://192.168.254.135/ project
 
 ** Connecting to SSH over IPV6 causes a problem
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       cd0f32a3-b7b0-41ce-b829-1f1fa96eff76
+:END:
 debug2: resolving "github.com" port 22
 debug2: ssh_connect_direct
 debug1: Connecting to github.com [64:ff9b::dea:d226] port 22.
@@ -704,6 +897,10 @@ debug1: connect to address 64:ff9b::dea:d226 port 22: Connection timed out
 debug1: Connecting to github.com [13.234.176.102] port 22.
 debug1: Connection established.
 * Extra configuration for a better Git experience
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       1b675482-480b-4f49-b945-597e28efbb8b
+:END:
 
 $ git config --global user.name "FirstName LastName"
 
