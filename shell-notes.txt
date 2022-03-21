@@ -1,16 +1,19 @@
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       e2d57c6d-081d-43fa-8220-b7a6ff7f6bf4
+:END:
 -*- mode: org; comment-column: 0; -*-
+#+title: Notes on the Shell and associated commands
 
-# This file contains a list of shell commands that I've found handy in situations
-# I've faced over time. These are commands that _I_ have used (successfully).
-# I'm not claiming that this is the only way or even the right
-# way to handle a particular situation that you may face. YMMV.
+This file contains a list of shell commands that I've found handy in situations I've faced over time. These are commands that _I_ have used (successfully). I'm not claiming that this is the only way or even the right way to handle a particular situation that you may face. YMMV.
 
-# The commands are ordered by type rather than difficulty, so you are going to
-# find intermediate and slightly advanced commands intermingled with the easy
-# ones. I mean for this document to be used as a cheat-sheet, not a tutorial,
-# but if you are confused about something shoot me a mail
+The commands are ordered by type rather than difficulty, so you are going to find intermediate and slightly advanced commands intermingled with the easy ones. I mean for this document to be used as a cheat-sheet, not a tutorial, but if you are confused about something shoot me a mail
 
 * Redirection
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       094ab442-5d4a-45c4-b015-c11a549e996b
+:END:
   # How do I redirect the output of a process to a log file, and
   # background the process at the same time?
   - some_cmd > some_file 2>&1 &
@@ -20,35 +23,99 @@
   - some_cmd > >(tee -a stdout.log) 2> >(tee -a stderr.log >&2)
 
 * Shell shortcuts
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       e305d891-6471-45aa-94ab-16024a6d2771
+:END:
 ** Copy the last command on the shell
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       212913e3-b336-428b-8248-85a232a6e2cf
+:END:
   - !!
 ** Copy the nth command on the shell
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       3611494a-00d4-436d-bdff-fa72382b5ad8
+:END:
   - !N
 ** Copy the last argument of the previous command
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       25231d06-2469-4f1b-9590-b8478efc28fb
+:END:
   - !$ or Esc .
 ** Just print any command in history starting with something. eg: rsync:p
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       19f13554-ac25-4ccf-965e-ccaa35cf4bdd
+:END:
   - :p
 ** Expand the variable
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       c6cbadf3-3855-4aca-8241-e63c68cf180e
+:END:
   - C-M-e or ESC C-e
 ** Search through previous command history
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       5c2a54d4-0805-43b3-8efb-6d2e466d782b
+:END:
   - C-r
 ** Copy all args of the last command
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       9e55e416-e203-43a5-810b-fdfb77c6141e
+:END:
   - !*
 ** Delete backwards
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       72d412a4-a742-40fe-9c53-795b1d5c6ea5
+:END:
   - C-w
 ** Replace old with new in the previous command
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       21d19bfc-536b-44b3-aabf-8ef3214cf4ab
+:END:
   - ^old^new
 ** Exansions across multiple folders. eg: cp handlers/{user,site,profile}/ .
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       7ac5632b-c03c-41a2-8b0a-4d8129abf78f
+:END:
   - {}
 ** Get specific arguments from previous commands (with pos/neg count)
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       92c73384-01ff-460f-b7f2-95c1ccaa27d2
+:END:
   - M-.
 ** Show matching expansions
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       c0bd2ef5-cf1d-432f-925c-299beed3c47b
+:END:
   - M-=
 ** Expand hostname
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       74d3fccf-a65f-49ae-9668-c7b6b4bac0ce
+:END:
   - M-@
 ** Comment out the command
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       3038d37e-8dc0-4c50-b7d6-f0fce979db43
+:END:
   - M-#
 ** Redirect both error and output of a command to a file using tee
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       581d7634-0aca-400c-a208-a3e7677103a0
+:END:
    #+begin_src shell-script :eval no
      lein deps :tree |& tee deps.log
    #+end_src
@@ -59,6 +126,10 @@
      lein deps :tree 2&1 | tee deps.log
    #+end_src
 ** Redirect error to one file and output to another file
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       6878b0df-de44-439d-87f8-7cfb6bd7089b
+:END:
    If you want to collect the output into two different files, use
    process substitution.
    #+begin_src shell-script :eval no
@@ -66,11 +137,23 @@
    #+end_src
 
 * Info
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       9d91c03e-03ba-4c32-9d30-685d1b5aabf9
+:END:
   # To install a downloaded info file to a dir file. Note, if dir does
   # not exist, install-info will create it properly.
   - install-info --info-file=sicp.info --dir-file=dir
 * Finding things
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       e1f7d15f-8e46-4ff8-a662-7fe0f974f665
+:END:
 ** How do I run a command in all directories under the current directory?
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       85949fc7-0f08-4b95-8f31-7fa61cabb74b
+:END:
    #+begin_src shell-script
      find . -maxdepth 1 -type d \( ! -name . \) -print0 | xargs -0 -L1 sh -c 'echo "Working in $0" && cd "$0" && git fetch origin'
    #+end_src
@@ -79,21 +162,37 @@
      find . -maxdepth 1 -type d \( ! -name . \) -exec sh -c 'echo "Working in $0" && cd "$0" && git fetch origin'
    #+end_src
 ** How do I list all files of *.h and *.cc?
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       0b5a1c83-a989-49ec-ac1f-487527ac50c3
+:END:
    #+begin_src shell-script
      find . \( -name "*.h" -o -name "*.cc" \) -print
    #+end_src
 ** How to I list all the directories in which a certain string occurs?
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       7bb98d9a-649f-43aa-8901-71d9820d0ade
+:END:
    Useful for finding, for example, API keys across repos
    #+begin_src shell-script
      rg -l -uu string-to-search . | cut -d'/' -f2 | uniq
    #+end_src
 * Shell + Emacs
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       ea958105-e589-49eb-9773-b21903ae4863
+:END:
   # How do I redirect the output of a shell command into Emacs for editing?
   - command | (f=$(mktemp); cat > $f; emacsclient $f; rm -v $f)
   - command | (f=$(mktemp); cat > $f; emacsclient $f; cat $f)
   # How do I run a shell command from inside Emacs?
   - Run M-! in Emacs
 * Process utils
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       ac516dc5-e37c-423a-94cd-8d71befde836
+:END:
 - ~ps -eTp~
 - ~/usr/share/bcc/tools/cachetop~
 - ~/usr/share/bcc/tools/filetop -s writes -p `pgrep mongod`~
@@ -123,10 +222,22 @@ ps -eo pid,comm,lstart,etime,time,args | grep <process>
   + ~bg %<job-num>~ to push the job in the background and start it again.
 
 * Sum numbers in shell
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       e21e9f25-4f12-428b-9ec4-1c9338e8e441
+:END:
   - <cmd> | paste -sd+ - | bc
 * SSH break bad connection
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       dd92a658-1fc3-4699-9f62-45adb3781f0c
+:END:
 - Press ~. on the shell
 * NTP: fix the date on your machine
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       89c7b207-f2cc-4c61-8d38-c0bd4ccdc9ab
+:END:
 - Install =ntp= and =ntpdate=
   + sudo apt install ntp ntpdate
 - Sync time with ntpdate
@@ -138,35 +249,83 @@ ps -eo pid,comm,lstart,etime,time,args | grep <process>
 - This should sync your time correctly with the ntp servers.
 
 * Locate
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       d301a91d-aaa7-4cb4-94ae-c9912b31ac52
+:END:
 ** Updating locate db on Mac
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       23c04cdb-beb8-473e-9ba0-f8e302452ac7
+:END:
    #+begin_src shell-script :eval no
      sudo /usr/libexec/locate.updatedb
    #+end_src
 ** Updating locate db on Ubuntu
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       bfcbffed-67cd-4943-81a4-3764a4899a06
+:END:
    #+begin_src shell-script :eval no
      sudo updatedb
    #+end_src
 
 * Dig
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       24624e24-e542-4279-85d5-b2d21013032e
+:END:
   - https://www.thegeekstuff.com/2012/02/dig-command-examples/
 
 * wget notes
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       d797090e-f5f6-4dcf-9038-6fc16755fe2e
+:END:
 ** Recursively fetch data from a webpage.
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       3bfa8deb-bb92-47fd-967c-ab1db03ae578
+:END:
 ** Download from wget such that you can resume the download
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       4d555dff-949c-4c71-b9c6-52121c23f988
+:END:
 
 * Shell Script
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       a4681e1d-7a1b-4aa1-8c93-bf97ead1a18b
+:END:
   To read the scripting manual, run =man bash=.
 ** Conditionals and tests in Shell Script
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       799e16b4-b53e-4c39-acaa-1ea9e04583eb
+:END:
    To understand all the conditional flags that you can use in a shell
    script, read =man test=.
 
 * Observing traffic on the network
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       f9029253-aa88-472a-a01a-a89bf6e61fe8
+:END:
 ** ngrep
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       8ad621dd-44c2-402e-9532-0d9e3eed4ce1
+:END:
 - Any UDP from any local interfaces to 91.22.38.4:12201
   #+begin_src shell-script :eval no
     ngrep -W byline -d any udp and host 91.22.38.4 and dst port 12201
   #+end_src
 ** tcpdump
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       dfc85f3d-64f5-47cf-817d-c035be8f332f
+:END:
 - Show UDP packet header and data parts
   #+begin_src shell-script :eval no
     tcpdump -i lo -n udp port 8125 -X
@@ -177,7 +336,15 @@ ps -eo pid,comm,lstart,etime,time,args | grep <process>
   #+end_src
 
 * Sending traffic to a socket
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       473b8a53-1a05-40e1-a96c-88a0830ed05c
+:END:
 ** nc (netcat)
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       a0d224d8-1ca9-4952-b0fc-7c0194efdf71
+:END:
 - ~nc~ is great because you can pipe stdin / stdout to it.
 - Start a server:
   #+begin_src sh :eval no
@@ -189,7 +356,15 @@ ps -eo pid,comm,lstart,etime,time,args | grep <process>
   #+end_src
 
 * Ripgrep (rg) notes
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       8f578e20-8026-41fb-a7b7-708b68ee3301
+:END:
 ** Searching in the entire dir, including in ignore files
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:08]
+:ID:       18490df6-8024-4e92-a472-28d13a9483ea
+:END:
 #+begin_src sh :eval no
   rg --no-ignore <text to search>
   rg -uu <text to search>
