@@ -168,10 +168,11 @@ sudo apt install texlive-base texlive-latex-base texlive-plain-generic texlive t
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       f506800f-67ab-4231-ab8d-aab341dc4eb4
 :END:
-** Install my favorite Nerd Fonts
+** Ubuntu: Install my favorite Nerd Fonts
 https://www.nerdfonts.com/font-downloads
 This is the first step because ~starship~ (installed later) requires a Nerd Font.
-** Install the basics for getting started with anything else
+
+** Ubuntu: Install the basics for getting started with anything else
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       6d55077f-2489-491a-80ac-f397351b382b
@@ -184,7 +185,8 @@ This is the first step because ~starship~ (installed later) requires a Nerd Font
   #+begin_src sh :eval no
     sudo apt install gnome-tweaks aspell-en gawk default-jre-headless default-jre
   #+end_src
-** Install JVM 17 on linux
+
+** Ubuntu: Install JVM 17 on linux
   #+begin_src sh :eval no
     # Oracle
     sudo apt-add-repository 'deb http://ppa.launchpad.net/linuxuprising/java/ubuntu focal main'
@@ -198,22 +200,25 @@ This is the first step because ~starship~ (installed later) requires a Nerd Font
     sudo apt update
     sudo apt install zulu-17
   #+end_src
-** Set up file sharing to access private files
+** Ubuntu: Set up file sharing to access private files
 :PROPERTIES:
 :ID:       71127cac-ef78-4b97-944a-fdeb83f2e9fa
 :END:
-- Symlink ssh keys and gpg keys
-- Make sure permissions are correctly set on the keys
-- Symlink .gitconfig and .gitattributes from dotfiles to home dir
-** Clone my public dotfiles into my source folder
-** Install starship prompt
+- Setup my file-sharing systems to get access to my common files
+- Symlink my ssh keys and gpg keys from my file-sharing systems to the home dir
+- Make sure that [[id:39F38876-3B5D-4547-B608-A0384EFE540B][permissions are correctly set on the keys]]
+
+** Ubuntu: Clone my public dotfiles into my source folder
+- Symlink ~.gitconfig~ and ~.gitattributes~ from my public ~dotfiles~ to the home dir.
+
+** Ubuntu: Install starship prompt
 :PROPERTIES:
 :CREATED:  [2021-12-12 Sun 08:19]
 :ID:       028de332-1b76-4d10-909f-4ff3eb771c31
 :END:
-- Install the starship prompt from https://starship.rs/
+- Install the ~starship~ prompt from https://starship.rs/
 - Symlink ~starship.toml~ to ~/.config/~
-** Install zsh and oh-my-zsh
+** Ubuntu: Install zsh and oh-my-zsh
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       b303ec83-8c3b-4391-b550-5105e2cf6f4f
@@ -222,8 +227,8 @@ This is the first step because ~starship~ (installed later) requires a Nerd Font
   + https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
   + https://github.com/ohmyzsh/ohmyzsh/wiki
 - Symlink ~.zhsrc~, ~.zshenv~ to home dir.
-- Symlink ~personal.zsh~ to ~custom/~ dir in oh-my-zsh
-** Install Rust and Rust based CLI tools
+- Symlink ~personal.zsh~ in ~/.oh-my-zsh/custom/~ dir.
+** Ubuntu: Install Rust and Rust based CLI tools
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       14c19bb7-db3a-47cd-9c67-d606d88aeff0
@@ -239,7 +244,7 @@ This is the first step because ~starship~ (installed later) requires a Nerd Font
     cargo xtask install --server
   #+end_src
 
-** Install Go and Go based CLI tools
+** Ubuntu: Install Go and Go based CLI tools
 - Install Golang from https://go.dev/doc/install
 - Install ~gopls~ (LSP) by following instructions in Go Wiki: https://pkg.go.dev/golang.org/x/tools/gopls#section-readme
 - Install ~gron~ (grepping through JSON)
@@ -250,13 +255,13 @@ This is the first step because ~starship~ (installed later) requires a Nerd Font
 :END:
 Refer to the *Using Git* section here: https://github.com/junegunn/fzf#installation
 
-** Install LaTex and Texinfo packages
+** Ubuntu: Install LaTex and Texinfo packages
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       1f194add-a1dd-4479-ba2e-a47050fe99bf
 :END:
 - Refer to [[id:459db3c9-5332-4ef4-87f9-40eab17f6b2d][Installing LaTeX packages]]
-** Install Imagemagick from source
+** Ubuntu: Install Imagemagick from source
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       fd8efb4e-50aa-4f82-9218-eb3123165c5b
@@ -273,7 +278,7 @@ integration with Emacs.
   # Verify the installation
   /usr/local/bin/convert logo: logo.gif
 #+end_src
-** Install tmux-tpm from source
+** Ubuntu: Install tmux-tpm from source
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       feeaeed3-f9f0-4859-b459-0bb78a770683
@@ -284,7 +289,7 @@ integration with Emacs.
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   #+end_src
 - Execute ~C-b I~ inside tmux once to install all the plugins
-** Install everything needed for Clojure development
+** Ubuntu: Install everything needed for Clojure development
 :PROPERTIES:
 :CREATED:  [2021-06-14 Mon 21:15]
 :ID:       76a25f6e-d2db-455b-b3c4-9a8ee0e34fc2
@@ -316,7 +321,7 @@ integration with Emacs.
 :ID:       8239e1c9-1c62-46b8-972e-4f3bd34442c4
 :END:
 - ~sudo apt install openjdk-11-jdk openjdk-11-source openjdk-11-demo visualvm~
-** Setup email via notmuch
+** Ubuntu: Setup email via notmuch
 :PROPERTIES:
 :CREATED:  [2021-06-08 Tue 17:42]
 :ID:       711b53be-49ea-404c-87fe-0e9844066004
@@ -334,7 +339,7 @@ integration with Emacs.
 - Symlink ~notmuch/.notmuch-config~, ~.mbsyncrc~ and ~.msmtprc~ from
   private dotfiles to Home.
 - Symlink ~notmuch~ dir in private-dotfiles to ~<maildir>/.notmuch/hooks~
-** Install Emacs from source
+** Ubuntu: Install Emacs from source
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       71a1c516-4ec2-4773-a9a7-657aa2e6551d
@@ -345,7 +350,7 @@ integration with Emacs.
 - Symlink my  ~personal.el~ file and ~common.el~ file from private dotfiles into ~.emacs.d~
 - ~sudo apt install libx32stdc++-10-dev~ to run pdf-tools
   ~have_packages_installed~ check correctly.
-** Install Ledger CLI from source
+** Ubuntu: Install Ledger CLI from source
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       14db5d6f-434f-477f-9bef-9fee477a20dd
@@ -365,7 +370,7 @@ integration with Emacs.
 :END:
 at: https://github.com/ledger/ledger
 
-** Install podman from the Kubic project
+** Ubuntu: Install podman from the Kubic project
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       7b78bd17-99ce-4954-90fb-d0e817241ca1
@@ -374,7 +379,7 @@ at: https://github.com/ledger/ledger
 - ~sudo apt install podman buildah skopeo~
 - ~pip3 install podman-compose~
 
-** Install org-protocol prerequisites
+** Ubuntu: Install org-protocol prerequisites
 :PROPERTIES:
 :CREATED:  [2021-06-08 Tue 21:18]
 :ID:       a10630bc-3bec-4e25-adb4-bdc3ebe6d147
@@ -382,7 +387,7 @@ at: https://github.com/ledger/ledger
 - Follow the instructions in the README file of
   ~org-protocol-capture-html~
 
-** Install Timeshift for backups
+** Ubuntu: Install Timeshift for backups
 :PROPERTIES:
 :CREATED:  [2021-06-30 Wed 10:37]
 :ID:       e4295bd7-3c3c-4957-b25b-d1158181a71b
@@ -393,7 +398,7 @@ at: https://github.com/ledger/ledger
     # Open timeshift GUI and configure
     sudo timeshift --check
   #+end_src
-** Install pip and pygments
+** Ubuntu: Install pip and pygments
 :PROPERTIES:
 :CREATED:  [2021-07-02 Fri 17:48]
 :ID:       19dc725c-07f8-4b6c-b0d0-f01567c144d0
@@ -404,7 +409,7 @@ at: https://github.com/ledger/ledger
   pip install Pygments
 #+end_src
 - Add ~/.local/bin to the path (committed in zsh files)
-** Install pympress for PDF based presentations
+** Ubuntu: Install pympress for PDF based presentations
 :PROPERTIES:
 :CREATED:  [2021-07-02 Fri 19:41]
 :ID:       a24d350c-d049-458c-832d-a52fb7e29a97
@@ -415,7 +420,7 @@ at: https://github.com/ledger/ledger
 
 #+end_src
 
-** Install youtube-dl for downloading videos from Youtube
+** Ubuntu: Install youtube-dl for downloading videos from Youtube
 :PROPERTIES:
 :CREATED:  [2021-07-06 Tue 19:44]
 :ID:       8ba6188d-0307-4a72-af51-3fc8703c06e9
@@ -424,7 +429,7 @@ at: https://github.com/ledger/ledger
 sudo apt install youtube-dl
 #+end_src
 
-** Install nvm, node and npm
+** Ubuntu: Install nvm, node and npm
 :PROPERTIES:
 :CREATED:  [2021-07-25 Sun 14:21]
 :ID:       069f15a5-8c9d-4429-a790-8fa98f60db91
@@ -434,10 +439,15 @@ sudo apt install youtube-dl
   nvm install node
   nvm install-latest-npm
 #+end_src
-** Install Jenv
+** CANCELLED Ubuntu: Install Jenv                                :noexport:cancelled:
+CLOSED: [2022-03-29 Tue 10:52]
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
 :ID:       cbd2378f-3706-42df-a823-b56e94d898ba
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from              [2022-03-29 Tue 10:52] \\
+  I don't use this method anymore. Check [[file:jvm-notes.txt]] for a simpler method of switching Java versions
 :END:
   - Install jenv from : https://github.com/jenv/jenv
   - Follow the instructions above to install it. The instructions
@@ -453,7 +463,7 @@ sudo apt install youtube-dl
     #+end_src
   - List all installed versions with =jenv versions=
 
-** Install Power-management tools
+** Ubuntu: Install Power-management tools
 :PROPERTIES:
 :CREATED:  [2022-01-18 Tue 18:31]
 :ID:       61a5b48c-bee1-48be-b4fc-e02dc3fed36c
@@ -470,7 +480,7 @@ sudo apt install youtube-dl
   #+end_src
 - Review [[https://support.system76.com/articles/battery/][this article on battery]] by PopOS to better tune the power consumption.
 
-** Install tarsnap
+** Ubuntu: Install tarsnap
 :PROPERTIES:
 :CREATED:  [2022-01-18 Tue 18:31]
 :ID:       e8b8a15d-271c-45a1-935c-f60b8f8d8d2e
