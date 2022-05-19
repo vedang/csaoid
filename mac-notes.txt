@@ -1,8 +1,8 @@
+-*- mode: org; -*-
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       1518f569-dbda-4abd-a1bb-39856423d5f5
 :END:
--*- mode: org; -*-
 #+title: Tips and Tricks on MacOS
 * Change the Lock Screen Keyboard Shortcut
 :PROPERTIES:
@@ -92,7 +92,7 @@ To load secrets, you can now create a function in your script as follows:
 - Install common packages from ~brew~, as mentioned in the section copied from my Ubuntu guide (pasted below)
 - After completing common package installation, install casks and packages specific to MacOS
   #+begin_src sh :eval no
-    brew install iterm2 firefox keepassxc ripcord mactex ledger podman skopeo pinentry-mac starship gnu-sed signal gnupg coreutils
+    brew install iterm2 firefox keepassxc ripcord mactex ledger podman skopeo pinentry-mac starship gnu-sed signal gnupg coreutils dog
   #+end_src
 
 *** Ubuntu: Install the basics for getting started with anything else
@@ -237,10 +237,6 @@ Follow the instructions below to install ~tpm~ : The ~tmux~ plugin manager
 Confirm installation by running ~java -version~
 
 ** Mac: Setup email via notmuch
-:PROPERTIES:
-:CREATED:  [2021-06-08 Tue 17:42]
-:ID:       711b53be-49ea-404c-87fe-0e9844066004
-:END:
 - Install notmuch deps manually
   #+begin_src sh :eval no
     brew install xapian gmime talloc zlib notmuch msmtp isync
@@ -261,39 +257,25 @@ Confirm installation by running ~java -version~
 - Clone https://github.com/cask/cask to ~.cask~ in order to run cask based tests
 - Symlink my  ~personal.el~ file and ~common.el~ file from private dotfiles into ~.emacs.d~
 
-** Mac: Install pip and pygments
-:PROPERTIES:
-:CREATED:  [2021-07-02 Fri 17:48]
-:ID:       19dc725c-07f8-4b6c-b0d0-f01567c144d0
-:END:
-- For source code highlighting in ~org-exports~
+** Mac: Install pip and python packages
 #+begin_src sh :eval no
-  pip3 install Pygments
+  pip3 install Pygments concentration
 #+end_src
+- ~Pygments~ provides source code highlighting in ~org-exports~
+- ~concentration~ is useful for blocking distractions when working.
+
 ** Mac: Install pympress for PDF based presentations
-:PROPERTIES:
-:CREATED:  [2021-07-02 Fri 19:41]
-:ID:       a24d350c-d049-458c-832d-a52fb7e29a97
-:END:
 #+begin_src sh :eval no
   # Doesn't need other packages because they have been previously installed
   brew install pympress
 #+end_src
 
 ** Mac: Install youtube-dl for downloading videos from Youtube
-:PROPERTIES:
-:CREATED:  [2021-07-06 Tue 19:44]
-:ID:       8ba6188d-0307-4a72-af51-3fc8703c06e9
-:END:
 #+begin_src sh :eval no
 brew install youtube-dl
 #+end_src
 
-** Mac: Install nvm, node and npm
-:PROPERTIES:
-:CREATED:  [2021-07-25 Sun 14:21]
-:ID:       069f15a5-8c9d-4429-a790-8fa98f60db91
-:END:
+** Mac: Install nvm, node, npm, and npx
 - Note that NVM version might have upgraded, so check the website! There is no better way at the moment.
 #+begin_src sh :eval no
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
