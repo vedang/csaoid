@@ -287,6 +287,19 @@ ps -eo pid,comm,lstart,etime,time,args | grep <process>
 :CREATED:  [2022-03-21 Mon 13:08]
 :ID:       3bfa8deb-bb92-47fd-967c-ab1db03ae578
 :END:
+- https://twitter.com/vedang/status/1161705817797619713
+I've recently read through ~wget~'s man-page and boy is it a super tool! I wish someone had taught me about it earlier.
+#+begin_src sh :eval no
+  wget --directory-prefix=/Users/vedang/src/data/PBT/ -e robots=off --page-requisites --adjust-extension --convert-links --recursive -l 1 --span-hosts --accept-regex property-based-testing https://wickstrom.tech/blog.html
+#+end_src
+- ~page-requisites~ downloads all the images, js, stylesheets and stuff needed to render the page properly.
+- ~adjust-extension~ adds extensions to filenames based on content-type (in case the proper extension does not already exist)
+- ~convert-links~ adjusts any links on the page to point to the locally downloaded resources (_if_ the resource has been downloaded).
+- ~recursive -l 1~ says to recursively download content upto a depth of 1 from the parent page.
+- ~span-hosts~ says that it's okay to visit other websites when recursively downloading data.
+- ~accept-regex~ gives a regular expression to filter a subset of URLs to download in the recursive descent.
+
+All of this put together means that I can download the exact 4 posts I want in this example for easy offline reading.
 ** Download from wget such that you can resume the download
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:08]
