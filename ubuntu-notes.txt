@@ -245,6 +245,10 @@ This is the first step because ~starship~ (installed later) requires a Nerd Font
   #+end_src
 
 ** Ubuntu: Install Go and Go based CLI tools
+:PROPERTIES:
+:CREATED:  [2022-05-12 Thu 16:36]
+:ID:       74629EBB-AB9C-47EE-B355-359FD347093E
+:END:
 - Install Golang from https://go.dev/doc/install
 - Install ~gopls~ (LSP) by following instructions in Go Wiki: https://pkg.go.dev/golang.org/x/tools/gopls#section-readme
 - Install ~gron~ (grepping through JSON)
@@ -370,6 +374,18 @@ integration with Emacs.
 :END:
 at: https://github.com/ledger/ledger
 
+** Ubuntu: Install pip and python packages
+:PROPERTIES:
+:CREATED:  [2021-07-02 Fri 17:48]
+:ID:       19dc725c-07f8-4b6c-b0d0-f01567c144d0
+:END:
+#+begin_src sh :eval no
+  sudo apt install python3-pip
+  pip3 install Pygments concentration
+#+end_src
+- ~Pygments~ provides source code highlighting in ~org-exports~
+- ~concentration~ is useful for blocking distractions when working.
+- Add ~/.local/bin to the path (committed in zsh files)
 ** Ubuntu: Install podman from the Kubic project
 :PROPERTIES:
 :CREATED:  [2021-05-29 Sat 11:46]
@@ -398,17 +414,6 @@ at: https://github.com/ledger/ledger
     # Open timeshift GUI and configure
     sudo timeshift --check
   #+end_src
-** Ubuntu: Install pip and pygments
-:PROPERTIES:
-:CREATED:  [2021-07-02 Fri 17:48]
-:ID:       19dc725c-07f8-4b6c-b0d0-f01567c144d0
-:END:
-- For source code highlighting in org-exports
-#+begin_src sh :eval no
-  sudo apt install python3-pip
-  pip install Pygments
-#+end_src
-- Add ~/.local/bin to the path (committed in zsh files)
 ** Ubuntu: Install pympress for PDF based presentations
 :PROPERTIES:
 :CREATED:  [2021-07-02 Fri 19:41]
