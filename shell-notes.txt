@@ -400,3 +400,15 @@ Commands which print output in color make it difficult to work with data using p
 #+begin_src sh :eval no
   gsed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"
 #+end_src
+
+* Cron and Crontab
+:PROPERTIES:
+:CREATED:  [2022-05-05 Thu 11:15]
+:ID:       7D13CA38-6742-4884-A88C-DE6180ACAD0D
+:END:
+:RESOURCES:
+- [[https://crontab.guru/][Crontab.guru - The cron schedule expression editor]]
+:END:
+Some basic commands:
+- ~crontab -l~ to list all the current running cron jobs
+- ~crontab -e~ to add a new job to the list.
