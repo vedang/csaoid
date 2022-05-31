@@ -97,7 +97,7 @@ $ jmap -dump:format=b,file=cheap.bin <pid>
     #+end_example
   + Done. Now, ~java -version~ should be according to what you set ~$JAVA_HOME~ to in the previous step.
 - Note: On the Mac, when you first run it, you may need to go to ~Preferences -> Security & Privacy~ and allow it to run.
-- Hat-Tip to Samuel Chase for writing this down so succinctly.
+- Hat-Tip to [[id:3c44953c-5948-46ce-9e1c-5c7349d98755][Samuel Chase]] for writing this down so succinctly.
 * Debugging
   :PROPERTIES:
   :CREATED:  [2021-06-14 Mon 09:40]
