@@ -1,4 +1,3 @@
--*- mode: org; comment-column: 0; -*-
 
 * Capture tmux output to a file
   - $ capture-pane -S -3000

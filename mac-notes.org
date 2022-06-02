@@ -1,4 +1,3 @@
--*- mode: org; -*-
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       1518f569-dbda-4abd-a1bb-39856423d5f5

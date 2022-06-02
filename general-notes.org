@@ -1,4 +1,3 @@
--*- mode: org; -*-
 
 # This file contains general hacks which I have found useful.
 

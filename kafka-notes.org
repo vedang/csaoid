@@ -1,4 +1,3 @@
--*- mode: org; -*-
 * Describe all the consumer groups running in production
   :PROPERTIES:
   :CREATED:  [2021-03-10 Wed 15:00]

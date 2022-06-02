@@ -1,4 +1,3 @@
--*- mode: org; comment-column: 0; -*-
 
 # This file contains a list of commands that I've found handy in situations
 # I've faced over time. These are commands that _I_ have used (successfully).
