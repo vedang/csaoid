@@ -179,6 +179,10 @@ Follow the instructions below to install Rust and Rust based CLI tools.
     brew install golang
   #+end_src
 - Install ~gopls~ (LSP) by following instructions in Go Wiki: https://pkg.go.dev/golang.org/x/tools/gopls#section-readme
+- Install Golang tools
+  #+begin_src sh :eval no
+    go get pup
+  #+end_src
 - Install Go CLI tools from ~brew~
   #+begin_src sh :eval no
     brew install gron
