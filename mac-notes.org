@@ -161,7 +161,7 @@ Follow the instructions below to install Rust and Rust based CLI tools.
 - Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
 - Install all the tools I use
   #+begin_src sh :eval no
-    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat tokei sd hyperfine tealdeer choose broot
+    cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat tokei sd hyperfine tealdeer choose broot sqlx-cli
   #+end_src
 - Install ~rust-analyzer~ for Rust LSP
   #+begin_src sh :eval no
