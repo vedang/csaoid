@@ -505,21 +505,18 @@ $ git diff rev1:filename rev2:filename
 :CREATED:  [2022-03-21 Mon 13:20]
 :ID:       3d6c7bea-b240-4bdf-af21-2243e5d463d6
 :END:
-   The aim here is to inform another author of your public repository,
-   what they can find there and what they should do to pull those
-   changes into their own repository. The way to do this:
+The aim here is to inform another author of your public repository, what they can find there and what they should do to pull those changes into their own repository. The way to do this:
 
-   - Push all the changes to your public repository, preferably in a
-     well-named branch.
-   - Run the following command to generate a well-formatted message:
-     #+begin_src shell-script
-       git request-pull master https://github.com/vedang/pdf-tools/ feature/render-improvements
-     #+end_src
-     + Here, =master= is the upstream branch that you want to generate
-       a PR against.
-     + =https://github.com/vedang/pdf-tools/= is your public repository
-     + =feature/render-improvements= is your branch (which contains
-       the changes you want to submit)
+- Push all the changes to your public repository, preferably in a well-named branch.
+- Run the following command to generate a well-formatted message:
+  #+begin_src shell-script
+    git request-pull master https://github.com/vedang/pdf-tools/ feature/render-improvements
+  #+end_src
+  + Here, =master= is the upstream branch that you want to generate
+    a PR against.
+  + =https://github.com/vedang/pdf-tools/= is your public repository
+  + =feature/render-improvements= is your branch (which contains
+    the changes you want to submit)
 ** Generating release notes for your open source work
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:20]
@@ -696,30 +693,64 @@ $ git worktree list
 :CREATED:  [2022-03-21 Mon 13:20]
 :ID:       45c8605f-6168-4b9a-ada9-bdb0fd55db99
 :END:
+** Writing a good commit message
+:PROPERTIES:
+:CREATED:  [2022-06-01 Wed 22:49]
+:ID:       9C3B6CBF-03B5-40FC-ADF4-54FC922470E8
+:END:
+:RESOURCES:
+- [[https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html][tbaggery - A Note About Git Commit Messages]]
+:END:
+The *commit message* is your note to yourself, about *what your snapshot contains*. Refer to [[https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html][a Note about Commit Messages by Tim Pope]] on how to write a good commit message. I write the following in my messages:
 
-# interactively stage changes to file
-$ git add -p
+1. Brief explanation of what I've done and how I've tested it.
+2. Brief note on why I've done it this way.
+3. (Sometimes) list of pending stuff that I need to do as next steps / to complete the task / to add to the functionality.
 
-# selectively apply a commit from one branch to another
-$ git cherry-pick <commit-id>
+** Interactively stage changes to file
+:PROPERTIES:
+:CREATED:  [2022-06-01 Wed 22:47]
+:ID:       58E529EF-BDFE-412E-A010-506A03564C54
+:END:
+#+begin_src sh :eval no
+  git add -p
+#+end_src
 
-# if you forgot to add a file to your latest commit,
-# you can use this command to amend the commit
-$ git commit --amend
+** Selectively apply a commit from one branch to another
+:PROPERTIES:
+:CREATED:  [2022-06-01 Wed 22:47]
+:ID:       2F5CA089-FC8D-4D23-A1EF-A6F9D265FA5F
+:END:
+#+begin_src sh :eval no
+  git cherry-pick <commit-id>
+#+end_src
 
-# this will reuse the commit message used in the latest commit,
-# so that you don't have to retype the commit message
-$ git commit --amend -C HEAD
+** Reuse the commit message used in the latest commit, during amend
+:PROPERTIES:
+:CREATED:  [2022-06-01 Wed 22:47]
+:ID:       D20B2EB0-A3BF-4DCC-8C8B-640FD0C2769A
+:END:
+So that you don't have to retype the commit message
+#+begin_src sh :eval no
+  git commit --amend -C HEAD
+#+end_src
 
-# Delete all untracked files in the repository
-# -d : delete untracked directories
-# -x : delete ignored files.
-# -f : force. This command is disabled otherwise.
-$ git clean -dxf <path>
+** Delete all untracked files in the repository
+:PROPERTIES:
+:CREATED:  [2022-06-01 Wed 22:48]
+:ID:       8E6CA920-1A0A-4003-A719-7772532C07CF
+:END:
+#+begin_src sh :eval no
+  # -d : delete untracked directories
+  # -x : delete ignored files.
+  # -f : force. This command is disabled otherwise.
+  git clean -dxf <path>
+#+end_src
 
-# Selectively copy a file from a different branch into the current
-# branch
-$ git checkout <branch_name> <filename>
+** Selectively copy a file from a different branch into the current branch
+#+begin_src sh :eval no
+  git checkout <branch_name> <filename>
+#+end_src
 * Debugging, Recovery & Undoing
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:20]
