@@ -127,6 +127,27 @@ This command is created by:
   # Install the binary
   sudo make install
 #+end_src
+* Compiling and Running Emacs 29 on master branch (Mac)
+:PROPERTIES:
+:ID:       375BA0A4-6D52-4CDC-873B-1D0BBCE35682
+:END:
+I successfully compiled Emacs from source on the M1 Macbook Air right now (from https://github.com/jimeh/build-emacs-for-macos/). Noting down the steps in the hopes it will help others.
+
+Initially, I had a linker failure ~ld: library not found for -lwebp~. I added the line ~brew 'webp'~ to the ~Brewfile~ to install this dependency. However, later I realized that the problem was because the correct ~LIBRARY_PATH~ was not being set. So I'm not sure if this change is needed.
+
+The actual commands I executed were:
+#+begin_src sh :eval no
+  brew bundle
+  export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib/
+  export CPATH=$CPATH:/opt/homebrew/include/
+  ./build-emacs-for-macos --git-sha c00ffe263d9ffeb4d2a5e13cc124c786152137db
+#+end_src
+
+Once compilation was successful, I extracted the ~.tbz~ file created under ~builds~ and signed it as explained in https://github.com/jimeh/build-emacs-for-macos/pull/65/files
+#+begin_src sh :eval no
+  codesign --force --deep -s - Emacs.app
+#+end_src
+
 * RESTRUCTURED Installing Emacs from source                        :noexport:
 CLOSED: [2021-10-18 Mon 18:01]
 :PROPERTIES:
