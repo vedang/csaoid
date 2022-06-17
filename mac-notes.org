@@ -325,3 +325,10 @@ CLOSED: [2022-03-29 Tue 10:32]
   + Replace Spotlight with Alfred, as mentioned in the post
   + IMHO, Alfred is worth paying for.
 - Install my personal Alfred workflows from my private dotfiles.
+** Mac: Install pgFormatter
+- pgFormatter is a perl script and needs to be installed manually.
+- Download the ~pg_format~ script from https://raw.githubusercontent.com/darold/pgFormatter/master/pg_format
+  #+begin_src sh :eval no
+    curl -O https://raw.githubusercontent.com/darold/pgFormatter/master/pg_format
+  #+end_src
+- Make sure it is executable and copy it to somewhere on your PATH
