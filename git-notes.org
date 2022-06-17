@@ -661,32 +661,37 @@ The aim here is to inform another author of your public repository, what they ca
 :CREATED:  [2022-03-21 Mon 13:20]
 :ID:       b1435fef-b78d-4e57-9ec1-8ed06bb8a194
 :END:
-# Use Git Worktrees (2.5+) for working on multiple things in parallel
-# I want to run tests on the work I've done on `feature/s`
+Use Git Worktrees (2.5+) for working on multiple things in parallel. Suppose I want to run tests on the work I've done on ~feature/s~
 
-[v@hm ~/src/m (feature/s $ u+1)]
-$ git worktree add -b s-tests ../mtesting feature/s
-Enter ../mtesting (identifier mtesting)
-Branch s-tests set up to track local branch feature/s by rebasing.
-Switched to a new branch 's-tests'
+#+begin_example
+  [v@hm ~/src/m (feature/s $ u+1)]
+  $ git worktree add -b s-tests ../mtesting feature/s
+  Enter ../mtesting (identifier mtesting)
+  Branch s-tests set up to track local branch feature/s by rebasing.
+  Switched to a new branch 's-tests'
 
-[v@hm ~/src/m (feature/s $ u+1)]
-$ cd ../mtesting
+  [v@hm ~/src/m (feature/s $ u+1)]
+  $ cd ../mtesting
+#+end_example
 
-# Voila! I have a new directory with a new branch that is linked to my
-# original repository!
-[v@hm ~/src/mtesting (s-tests $ u=)]
-$ make testclj
+Voila! I have a new directory with a new branch that is linked to my original repository!
+#+begin_example
 
-# Now I can start my tests here and go back to my work in the original
-# repository without worrying about breaking anything!
-[v@hm ~/src/mtesting (s-tests $ u=)]
-$ cd ../m
-[v@hm ~/src/m (feature/s $ u+1)]
-$
+  [v@hm ~/src/mtesting (s-tests $ u=)]
+  $ make testclj
 
-# List existing worktrees
-$ git worktree list
+  # Now I can start my tests here and go back to my work in the original
+  # repository without worrying about breaking anything!
+  [v@hm ~/src/mtesting (s-tests $ u=)]
+  $ cd ../m
+  [v@hm ~/src/m (feature/s $ u+1)]
+  $
+#+end_example
+
+** List all existing git worktrees
+#+begin_src sh :eval no
+  git worktree list
+#+end_src
 
 * Adding, Removing & Committing
 :PROPERTIES:
