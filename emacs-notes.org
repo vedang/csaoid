@@ -98,13 +98,9 @@ Eg: (funcall #'equal :a :A) => nil
 :ID:       8c88714b-8cda-4b0f-8e60-8c30132d0d99
 :END:
 This command is created by:
-1. Run the command ~sudo apt build-dep emacs~ and copy all the
-   packages it will install. (*Don't actually install the packages*)
-2. Remove all the ImageMagick related libraries from this command, we
-   have installed it from source.
-3. Review the output of ~./configure~ command in Emacs. See if there
-   are new options which are not covered by your distribution's old
-   version of Emacs.
+1. Run the command ~sudo apt build-dep emacs~ and copy all the packages it will install. (*Don't actually install the packages*)
+2. Remove all the ImageMagick related libraries from this command, we have installed it from source.
+3. Review the output of ~./configure~ command in Emacs. See if there are new options which are not covered by your distribution's old version of Emacs.
 
 #+begin_src sh :eval no
   sudo apt install libx11-dev libtiff5-dev libtiff-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libcairo2-dev libexif-dev libexpat1-dev libglx-dev libgmp-dev libgnutls-openssl27 libgnutls28-dev libgraphite2-dev libharfbuzz-dev libharfbuzz-gobject0 libice-dev libidn2-dev libilmbase-dev libilmbase25 libjbig-dev libjpeg-turbo8-dev libgnutlsxx28 libjpeg8-dev liblcms2-dev liblockfile-bin liblockfile-dev liblockfile1 liblqr-1-0 liblqr-1-0-dev libltdl-dev liblzma-dev libm17n-0 libm17n-dev libgtk-3-dev libncurses-dev libncurses5-dev libopenexr-dev libopenexr25 libopengl-dev libopengl0 libotf-dev libotf0 libp11-kit-dev libpango1.0-dev libpixman-1-dev libpng-dev libpthread-stubs0-dev librsvg2-dev libsm-dev libsub-override-perl libsystemd-dev libtasn1-6-dev libthai-dev libtiff-dev libtiffxx5 libtool libunbound8 libwayland-bin libwayland-dev libwmf-dev libwmf0.2-7 libx11-dev libxau-dev libxaw7-dev libxcb-render0-dev libxcb-shm0-dev libxcb1-dev libxcomposite-dev libxcursor-dev libxdamage-dev libxdmcp-dev libxext-dev libxfixes-dev libxft-dev libxi-dev libxinerama-dev libxkbcommon-dev libxmu-dev libxmu-headers libxpm-dev libxrandr-dev libxrender-dev libxt-dev libxtst-dev m17n-db nettle-dev pango1.0-tools po-debconf postfix quilt sharutils wayland-protocols x11proto-core-dev x11proto-dev x11proto-input-dev x11proto-randr-dev x11proto-record-dev x11proto-xext-dev x11proto-xinerama-dev xaw3dg xaw3dg-dev xorg-sgml-doctools xtrans-dev xutils-dev gnutls-bin graphviz autopoint gsfonts libxaw3dxft8-dev libwebkit2gtk-4.0-dev libgccjit-10-dev libjson-c-dev libjson-glib-dev libjansson-dev
@@ -118,6 +114,8 @@ This command is created by:
   make distclean
   ./autogen.sh
   ./configure --with-imagemagick --with-json --with-native-compilation --with-xft --with-xwidgets --with-pgtk
+  # Alternative configure command:
+  ./configure --without-toolkit-scroll-bars --with-x-toolkit=gtk3 --with-xpm=ifavailable --with-jpeg=ifavailable --with-gif=ifavailable --with-tiff=ifavailable --with-xml2 --with-rsvg --without-pop --with-png --with-mailutils --with-native-compilation --with-cairo --with-harfbuzz
   # If everything works
   make bootstrap
   # If everything works
