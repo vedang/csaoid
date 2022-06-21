@@ -692,6 +692,40 @@ Voila! I have a new directory with a new branch that is linked to my original re
 #+begin_src sh :eval no
   git worktree list
 #+end_src
+** Using Joe Armstrong's method for re-writing from scratch with git-worktrees
+:PROPERTIES:
+:CREATED:  [2022-06-20 Mon 16:31]
+:ID:       AF44377B-0096-4B34-AF36-DB8CB1995913
+:BRAIN_PARENTS: FEA65785-D5BF-4D8B-AF9F-C7759EB46A06
+:END:
+1. Create the following folder structure to get started. For example, here we are developing the ~automerge-clj~ project.
+   #+begin_src sh :eval no
+     mkdir -p [work-dir]/automerge-clj/v1/
+     clojure -Tnew lib :name me.vedang/automerge-clj
+     cd automerge-clj
+     git init
+   #+end_src
+2. In the step above, the ~clojure new~ command creates another ~automerge-clj~ directory inside our ~v1~ directory. This is going to be the master repo that will drive our prototyping.
+3. Now we make as many commits in ~automerge-clj/v1/automerge-clj~ as we want.
+4. Once we feel the need to start a new prototype
+   #+begin_src sh :eval no
+     cd [work-dir]/automerge-clj/v1/automerge-clj
+     git worktree add ../../v2
+     cd ../../v2 # Here, git will have automatically created a new branch for us, called v2.
+   #+end_src
+5. Unfortunately, ~git-worktree~ and ~git-checkout~ are not tied together well at this point, so we create a useless branch ~v2~ in this case. We need to create an orphaned branch at the starting point of the repo in order to start from scratch again.
+   #+begin_src sh :eval no
+     git checkout --orphan auto-v2  $(git rev-list HEAD | tail -n 1)
+     git rm -rf .
+   #+end_src
+6. At this point, we can either delete the ~v2~ branch or leave it dangling. In any case, we have a blank starting point to work from in the branch ~auto-v2~.
+7. Caveat: note that it's ~v1/automerge-clj/deps.edn~ (for example) vs just ~v2/deps.edn~. This is another gotcha I didn't bother working around.
+8. When done with prototypes, or when you want to clean up space, you can just
+   #+begin_src sh :eval no
+     # from the "main" v1/project directory
+     git worktree list
+     git worktree remove path
+   #+end_src
 
 * Adding, Removing & Committing
 :PROPERTIES:
