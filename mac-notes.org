@@ -97,7 +97,7 @@ To load secrets, you can now create a function in your script as follows:
 *** Ubuntu: Install the basics for getting started with anything else
 - Common packages (Replace ~sudo apt~ with ~brew~ for Mac OS)
   #+begin_src sh :eval no
-    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl git jq hugo
+    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl git jq hugo direnv
   #+end_src
 - Linux specific packages
   #+begin_src sh :eval no
