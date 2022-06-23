@@ -148,6 +148,7 @@ Follow the instructions below to install and configure ~zsh~
 - Symlink ~.zhsrc~, ~.zshenv~ to home dir.
 - Symlink ~personal.zsh~ in ~/.oh-my-zsh/custom/~ dir.
 
+** Mac: Install fish shell
 ** Mac: Install Rust and Rust based CLI tools
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
