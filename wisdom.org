@@ -1,16 +1,26 @@
-# -*- mode: org; -*-
-#+hugo_base_dir: ../../
-#+setupfile: ../setup.org
-#+filetags: @wisdom:wisdom
-# This file contains wisdom. Read and reflect on it often.
+#+author: Vedang Manerikar
+#+email: vedang.manerikar@gmail.com
+#+title: Wisdom from the greats
+#+subtitle: Read and reflect on it often
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+options: toc:nil creator:t
+#+hugo_auto_set_lastmod: t
 
-* ESR: the UNIX Philosophy                                     :programming:
-  :PROPERTIES:
-  :url:      https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html
-  :EXPORT_HUGO_SECTION: notes
-  :EXPORT_FILE_NAME: esr-unix-philosophy
-  :EXPORT_HUGO_DRAFT: nil
-  :END:
+* DONE ESR: the UNIX Philosophy                                    :programming:wisdom:
+CLOSED: [2018-06-12 Tue 09:56]
+:PROPERTIES:
+:url:      https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html
+:EXPORT_HUGO_CATEGORIES: notes
+:EXPORT_HUGO_ALIASES: /notes/esr-unix-philosophy/
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug esr-unix-philosophy
+:CREATED:  [2022-07-04 Mon 10:04]
+:ID:       6941FD19-8E54-4D17-9ED7-12BDD8F4BAB2
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2022-07-04 Mon 09:56]
+:END:
 
 /Snippet from: [[https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html][The Art of Unix Programming]]/
 
@@ -32,13 +42,20 @@
 - Rule of Diversity :: Distrust all claims for the "one true way".
 - Rule of Extensibility :: Design for the future, because it will be here sooner than you think.
 
-* Doug McIlroy: the UNIX philosophy                            :programming:
-  :PROPERTIES:
-  :citation: The Bell System Technical Journal. Bell Laboratories. M. D. McIlroy, E. N. Pinson, and B. A. Tague. “Unix Time-Sharing System Forward”. 1978. 57 (6, part 2). p. 1902.
-  :url:      http://www.catb.org/~esr/writings/taoup/html/ch01s06.html
-  :EXPORT_HUGO_SECTION: notes
-  :EXPORT_FILE_NAME: doug-mcilroy-unix-philosophy
-  :END:
+* DONE Doug McIlroy: the UNIX philosophy                           :programming:wisdom:
+CLOSED: [2018-06-12 Tue 10:01]
+:PROPERTIES:
+:citation: The Bell System Technical Journal. Bell Laboratories. M. D. McIlroy, E. N. Pinson, and B. A. Tague. “Unix Time-Sharing System Forward”. 1978. 57 (6, part 2). p. 1902.
+:url:      http://www.catb.org/~esr/writings/taoup/html/ch01s06.html
+:EXPORT_HUGO_CATEGORIES: notes
+:EXPORT_HUGO_ALIASES: /notes/doug-mcilroy-unix-philosophy/
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug doug-mcilroy-unix-philosophy
+:CREATED:  [2022-07-04 Mon 10:05]
+:ID:       67ACD533-832E-4E7D-A1B0-D666E504F61D
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2022-07-04 Mon 10:01]
+:END:
 
 /Snippet from: [[https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html][The Art of Unix Programming]]/
 
@@ -58,12 +75,19 @@
   task*, even if you have to detour to build the tools and expect to
   throw some of them out after you've finished using them.
 
-* Rob Pike: Rules of Programming                               :programming:
-  :PROPERTIES:
-  :url:      https://users.ece.utexas.edu/~adnan/pike.html
-  :EXPORT_FILE_NAME: rob-pike-rules
-  :EXPORT_HUGO_SECTION: notes
-  :END:
+* DONE Rob Pike: Rules of Programming                              :programming:wisdom:
+CLOSED: [2018-06-12 Tue 10:05]
+:PROPERTIES:
+:url:      https://users.ece.utexas.edu/~adnan/pike.html
+:EXPORT_HUGO_ALIASES: /notes/rob-pike-rules/
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug rob-pike-rules
+:EXPORT_HUGO_CATEGORIES: notes
+:CREATED:  [2022-07-04 Mon 10:06]
+:ID:       68AF79A6-CC97-4747-A253-A60C4CF3D5AD
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2022-07-04 Mon 10:05]
+:END:
 
 /Snippet from: [[https://www.lysator.liu.se/c/pikestyle.html][Notes on C Programming]]/
 
@@ -101,12 +125,19 @@
     and I shall continue to be mystified, show me your tables and I
     won't usually need your flow charts; they'll be obvious".
 
-* Gene Kim: The Five Ideals of DevOps                                :devops:
-  :PROPERTIES:
-  :citation: The Unicorn Project
-  :EXPORT_HUGO_SECTION: notes
-  :EXPORT_FILE_NAME: gene-kim-the-five-ideals
-  :END:
+* DONE Gene Kim: The Five Ideals of DevOps                              :devops:wisdom:
+CLOSED: [2020-08-09 Sun 10:07]
+:PROPERTIES:
+:citation: The Unicorn Project
+:EXPORT_HUGO_CATEGORIES: notes
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug gene-kim-the-five-ideals
+:EXPORT_HUGO_ALIASES: /notes/gene-kim-the-five-ideals/
+:CREATED:  [2022-07-04 Mon 10:09]
+:ID:       A8F4AE71-2C93-48B5-8EC7-CCDABCA994F3
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2022-07-04 Mon 10:07]
+:END:
 
 /Snippet from: [[https://www.amazon.in/Unicorn-Project-Developers-Disruption-Thriving-ebook/dp/B07QT9QR41][The Unicorn Project]], along with my own notes/
 
@@ -127,12 +158,19 @@
 - The Fifth Ideal :: /*Customer Focus*/. Build only that which
   actually matters to our customers.
 
-* Gene Kim: The Three Ways of doing excellent Work   :engineering_management:
-  :PROPERTIES:
-  :citation: The Phoenix Project
-  :EXPORT_FILE_NAME: gene-kim-the-three-ways
-  :EXPORT_HUGO_SECTION: notes
-  :END:
+* DONE Gene Kim: The Three Ways of doing excellent Work :engineering_management:wisdom:
+CLOSED: [2020-08-11 Tue 10:09]
+:PROPERTIES:
+:citation: The Phoenix Project
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug gene-kim-the-three-ways
+:EXPORT_HUGO_CATEGORIES: notes
+:EXPORT_HUGO_ALIASES: /notes/gene-kim-the-three-ways/
+:CREATED:  [2022-07-04 Mon 10:11]
+:ID:       1464672D-75FA-4E9A-9388-7255722AA32C
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2022-07-04 Mon 10:09]
+:END:
 
 /Snippet from: [[https://www.amazon.in/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B078Y98RG8/][The Phoenix Project]], along with my own notes/
 
@@ -146,12 +184,19 @@
   at every level of the company. A culture of innovation is necessary
   for achieving and maintaining Flow and Feedback.
 
-* Gene Kim: The Four Types of Work                   :engineering_management:
+* DONE Gene Kim: The Four Types of Work          :engineering_management:wisdom:
+CLOSED: [2020-08-11 Tue 10:11]
   :PROPERTIES:
   :citation: The Phoenix Project
-  :EXPORT_HUGO_SECTION: notes
-  :EXPORT_FILE_NAME: gene-kim-the-four-types
+  :EXPORT_HUGO_CATEGORIES: notes
+  :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug gene-kim-the-four-types
+  :EXPORT_HUGO_ALIASES: /notes/gene-kim-the-four-types/
+  :CREATED:  [2022-07-04 Mon 10:11]
+  :ID:       13EF26B9-E51E-49F4-99EE-57C62F5E20E1
   :END:
+:LOGBOOK:
+- State "DONE"       from              [2022-07-04 Mon 10:11]
+:END:
 
 /Snippet from: [[https://www.amazon.in/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B078Y98RG8/][The Phoenix Project]], along with my own notes/
 
@@ -169,12 +214,19 @@
 - Unplanned Work :: Fire-fighting at all levels of the company. Ruins
   planned work, so root causes need to be aggressively remediated.
 
-* Tim Peters: The Python Way                                   :programming:
-  :PROPERTIES:
-  :url:      https://mail.python.org/pipermail/python-list/1999-June/001951.html
-  :EXPORT_FILE_NAME: tim-peters-the-python-way
-  :EXPORT_HUGO_SECTION: notes
-  :END:
+* DONE Tim Peters: The Python Way                                  :programming:wisdom:
+CLOSED: [2020-08-22 Sat 10:13]
+:PROPERTIES:
+:url:      https://mail.python.org/pipermail/python-list/1999-June/001951.html
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug tim-peters-the-python-way
+:EXPORT_HUGO_CATEGORIES: notes
+:EXPORT_HUGO_ALIASES: /notes/tim-peters-the-python-way/
+:CREATED:  [2022-07-04 Mon 10:13]
+:ID:       F3F64EB3-AB78-4746-8153-635FC933A6AB
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2022-07-04 Mon 10:13]
+:END:
 
 /Snippet from: [[https://mail.python.org/pipermail/python-list/1999-June/001951.html][The Python Mailing List]]/
 
@@ -216,12 +268,20 @@
 
 - Namespaces are one honking great idea -- let's do more of those!
 
-* L Peter Deutsch: The Fallacies of Distributed Computing :distributed_systems:
-  :PROPERTIES:
-  :url:      https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
-  :EXPORT_HUGO_SECTION: notes
-  :EXPORT_FILE_NAME: l-peter-deutsch-the-fallacies-of-distributed-computing
-  :END:
+* DONE L Peter Deutsch: The Fallacies of Distributed Computing :distributed_systems:wisdom:
+CLOSED: [2020-08-11 Tue 10:15]
+:PROPERTIES:
+:url:      https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
+:EXPORT_HUGO_SECTION: notes
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug l-peter-deutsch-the-fallacies-of-distributed-computing
+:EXPORT_HUGO_ALIASES: /notes/l-peter-deutsch-the-fallacies-of-distributed-computing
+:EXPORT_HUGO_CATEGORIES: notes
+:CREATED:  [2022-07-04 Mon 10:15]
+:ID:       D8B35F2D-9055-4C90-9742-818363F0F787
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2022-07-04 Mon 10:15]
+:END:
 
 /Snippet from: [[https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing][The Wikipedia Article]], along with my own notes/
 
