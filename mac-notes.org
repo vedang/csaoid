@@ -217,7 +217,7 @@ Follow the instructions below to install ~tpm~ : The ~tmux~ plugin manager
 :ID:       c25c8d41-6e2e-4412-8826-df0d97ee6cb8
 :END:
 #+begin_src sh :eval no
-  brew install leiningen clojure borkdude/brew/clj-kondo borkdude/brew/babashka cljstyle
+  brew install leiningen clojure borkdude/brew/clj-kondo borkdude/brew/babashka cljstyle borkdude/brew/jet lilactown/brew/eql
 #+end_src
 
 *** Symlink my lein folder from private-dotfiles to ~.lein~ in home
