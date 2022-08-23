@@ -91,7 +91,7 @@ To load secrets, you can now create a function in your script as follows:
 - Install common packages from ~brew~, as mentioned in the section copied from my Ubuntu guide (pasted below)
 - After completing common package installation, install casks and packages specific to MacOS
   #+begin_src sh :eval no
-    brew install iterm2 firefox keepassxc ripcord mactex ledger podman skopeo pinentry-mac starship gnu-sed signal gnupg coreutils dog
+    brew install iterm2 firefox keepassxc ripcord mactex ledger podman skopeo pinentry-mac starship gnu-sed signal gnupg coreutils dog pandoc
   #+end_src
 
 *** Ubuntu: Install the basics for getting started with anything else
