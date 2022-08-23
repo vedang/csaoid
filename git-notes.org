@@ -701,6 +701,7 @@ Voila! I have a new directory with a new branch that is linked to my original re
 1. Create the following folder structure to get started. For example, here we are developing the ~automerge-clj~ project.
    #+begin_src sh :eval no
      mkdir -p [work-dir]/automerge-clj/v1/
+     cd !$
      clojure -Tnew lib :name me.vedang/automerge-clj
      cd automerge-clj
      git init
