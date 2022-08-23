@@ -296,3 +296,10 @@ CLOSED: [2021-10-18 Mon 18:02]
   substituted a function which took optional arguments with another
   function which took 0 arguments. This seems to not work within
   native compilation.
+
+* Org Mode common stuff that I always look for
+:PROPERTIES:
+:CREATED:  [2022-07-13 Wed 13:59]
+:ID:       FF0D6989-D3BB-492F-865C-CBBE5E8B7DC3
+:END:
+- I'm always looking for stuff in [[brain:954F3561-36FC-4329-99DC-E1F4D7135CC1][Org-Mode Tables]], so check there for common tasks first.
