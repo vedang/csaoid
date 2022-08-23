@@ -32,19 +32,27 @@ The commands are ordered by type rather than difficulty, so you are going to fin
 :CREATED:  [2022-03-21 Mon 13:08]
 :ID:       212913e3-b336-428b-8248-85a232a6e2cf
 :END:
-  - !!
+  - ~!!~
 ** Copy the nth command on the shell
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:08]
 :ID:       3611494a-00d4-436d-bdff-fa72382b5ad8
 :END:
-  - !N
+  - ~!N~
 ** Copy the last argument of the previous command
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:08]
 :ID:       25231d06-2469-4f1b-9590-b8478efc28fb
 :END:
-  - !$ or Esc .
+  - ~!$~ or ~Esc .~
+** Copy the nth argument from the previous command
+:PROPERTIES:
+:CREATED:  [2022-08-23 Tue 14:34]
+:ID:       0C2C9273-419C-4733-9ED8-447E4770AF43
+:END:
+  - ~!:3~ gets you the 3rd argument of the previous command
+  - ~!*~ gets all the arguments of the previous command
+  - ~!:1-2~ gets all but the last three arguments of the previous command
 ** Just print any command in history starting with something. eg: rsync:p
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:08]
