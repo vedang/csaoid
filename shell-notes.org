@@ -283,8 +283,22 @@ ps -eo pid,comm,lstart,etime,time,args | grep <process>
 :CREATED:  [2022-03-21 Mon 13:08]
 :ID:       24624e24-e542-4279-85d5-b2d21013032e
 :END:
-  - https://www.thegeekstuff.com/2012/02/dig-command-examples/
-
+- The following notes are from: https://www.thegeekstuff.com/2012/02/dig-command-examples/
+- By default, the ANSWER section returns A records. Eg: ~dig redhat.com +noall +answer~
+- You can ask ~dig~ to return different record types using ~-t~ flag.
+  + Eg: ~dig -t MX redhat.com +noall +answer~
+  + ~dig -t NS redhat.com +noall +answer~
+- You can view all records with ~ANY~ type.
+  + ~dig -t ANY redhat.com +noall +answer~
+- You can do a reverse lookup on an IP address using ~-x~
+  + ~dig -x 209.132.183.81 +noall +answer~
+- You can use a specific DNS server to answer your query.
+  + ~dig @ns1.redhat.com redhat.com~
+- You can pass a newline separated domain name file to dig for bulk queries
+  + ~dig -f bulk.txt +noall +answer~
+  + where ~bulk.txt~ has one domain name per line
+- Default ~dig~ options can be stored in the ~$HOME/.digrc~ file
+  + ~cat $HOME/.digrc~ prints ~+noall +answer~
 * wget notes
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:08]
