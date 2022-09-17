@@ -235,7 +235,22 @@ ps -eo pid,comm,lstart,etime,time,args | grep <process>
 :ID:       e21e9f25-4f12-428b-9ec4-1c9338e8e441
 :END:
   - <cmd> | paste -sd+ - | bc
-* SSH break bad connection
+* SSH
+** Creating a new key pair
+#+begin_src shell
+  ssh-keygen -f full_output_file_path.id_rsa
+  # Fill out the necessary values to override the defaults The -f is
+  # provided here, because if you make a mistake this command will
+  # override your id_rsa file.
+#+end_src
+** Adding a key to ssh-agent
+#+begin_src shell
+  ssh-add -t 86400 -k ~/.ssh/id_rsa
+  # -t = time for which key should be stored in agent
+  # -k = key to add to agent
+#+end_src
+
+** SSH break bad connection
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:08]
 :ID:       dd92a658-1fc3-4699-9f62-45adb3781f0c
