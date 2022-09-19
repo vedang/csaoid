@@ -94,7 +94,7 @@ To load secrets, you can now create a function in your script as follows:
     brew install ledger podman skopeo pinentry-mac starship gnu-sed gnupg coreutils dog pandoc
   #+end_src
   #+begin_src sh :eval no
-    brew install --cask discord brave-browser keepassxc ripcord tresorit whatsapp mactex iterm2 signal zulip obsidian transmission vlc loom notion
+    brew install --cask discord brave-browser keepassxc ripcord tresorit whatsapp mactex iterm2 signal zulip obsidian transmission vlc loom notion macfuse
   #+end_src
 
 *** Ubuntu: Install the basics for getting started with anything else
