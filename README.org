@@ -1,6 +1,4 @@
 # -*- mode: org; -*-
-#+hugo_base_dir: ../../
-#+setupfile: ../setup.org
 
 * Cheat Sheets And Other Interesting Documents
   :PROPERTIES:
