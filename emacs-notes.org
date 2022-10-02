@@ -3,6 +3,7 @@
 :ID:       ce64c9a4-44e3-4b3a-860b-a74c6baff528
 :END:
 -*- mode: org; -*-
+#+filetags:  emacs
 
 * Emacs Refcards
 :PROPERTIES:
@@ -303,3 +304,95 @@ CLOSED: [2021-10-18 Mon 18:02]
 :ID:       FF0D6989-D3BB-492F-865C-CBBE5E8B7DC3
 :END:
 - I'm always looking for stuff in [[brain:954F3561-36FC-4329-99DC-E1F4D7135CC1][Org-Mode Tables]], so check there for common tasks first.
+
+* Dired Tips                                                          :dired:
+:PROPERTIES:
+:CREATED:  [2022-10-02 Sun 08:35]
+:ID:       F019FED4-F76A-4588-8A54-FC494FB3008B
+:END:
+** Dired tips from ilemming
+:PROPERTIES:
+:CREATED:  [2021-04-22 Thu 22:07]
+:ID:       df417075-8e47-4abe-905b-acd8866c494f
+:END:
+- All tips taken from https://twitter.com/search?lang=en&q=dired%20(from%3Ailemming)
+*** Show commits related to specific files                            :magit:
+:PROPERTIES:
+:URL:      https://twitter.com/iLemming/status/1193025618742349824
+:CREATED:  [2021-04-22 Thu 22:07]
+:ID:       b956ee3f-b02f-4010-9fef-34179a69e750
+:END:
+Did you know, you can mark files in Dired buffer and then do
+
+=M-x magit-dired-log=
+
+and it will show commits but only related to those files?
+*** Find files containing specific phrase
+:PROPERTIES:
+:CREATED:  [2021-04-22 Thu 22:07]
+:ID:       2fd8d651-ade1-4462-be7f-cc6666d7f7bf
+:END:
+Let's say you want to recursively find all =*.scss= files and then
+mark those that contain "mixin", so you can then move them or rename,
+delete etc.
+#+begin_example
+M-x find-name-dired
+% g mixin
+#+end_example
+*** Recursively display directory data. Peeking
+:PROPERTIES:
+:CREATED:  [2021-04-22 Thu 22:07]
+:ID:       cc4ab34a-7088-4677-8cf8-e89e7cdb298c
+:END:
+Of course you know about this feature of dired-mode.
+
+You can "peek" into a subdirectory by pressing <i>
+
+But did you know you can "insert" dirs recursively?
+
+Use an argument and -R option.
+
+=C-u i  -R RET=
+*** Dynamically filter directory listing
+:PROPERTIES:
+:CREATED:  [2021-04-22 Thu 22:07]
+:ID:       4750d3d0-b75b-4785-84b5-8c52d313fbbf
+:END:
+- Install =dired-narrow=
+*** Dired: Send content to external programs
+:PROPERTIES:
+:CREATED:  [2021-04-22 Thu 22:07]
+:ID:       fa4c35f8-b75a-421b-acde-c7666766a1cc
+:END:
+Let's continue on sending content to external apps.
+
+You can mark files in Dired-mode and pipe them into a program.
+
+- Mark files - =m=
+- M-x dired-do-shell-command - =!= or =X=
+- M-x dired-do-shell-command-async - =&=
+- Command: =wc-l= to run the command on each marked file, =wc -l *= to
+  run the command on all the files in one go.
+*** Dired: turn arbitrary shell output to a dired buffer
+:PROPERTIES:
+:CREATED:  [2021-04-22 Thu 22:07]
+:ID:       5840c7da-76ec-43fb-8cbb-d8369c7485bc
+:END:
+Did you know that textual representation of a directory can be turned into a legit Dired buffer in @emacs
+?
+
+- get output of "find" or "ls",
+- edit it,
+- then do `M-x dired-virtual`
+
+if you're still not convinced that Emacs is dope - stay tuned, I'll keep posting cool tips
+
+** Rename multiple files in Dired
+:PROPERTIES:
+:CREATED:  [2022-10-02 Sun 08:35]
+:ID:       FD5D2663-0E97-4243-AC29-D775F0C3B01E
+:END:
+- Use =wdired= for this.
+- Activate writable mode in Dired using =M-x dired-toggle-read-only= or =C-x C-q=
+- Make all the edits as you would in a normal buffer
+- Exit Wdired and commit the changes, using =C-x C-s= or =C-c C-c=
