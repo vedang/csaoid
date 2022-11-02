@@ -1,4 +1,3 @@
-
 # This file contains a list of ledger commands that I've found handy in situations
 # I've faced over time. These are commands that _I_ have used (successfully).
 # I'm not claiming that this is the only way or even the right
@@ -11,18 +10,44 @@
 
 # *NOTE*: I use the aliases I've defined in all the commands.
 * Ledger Aliases
-  - alias lreport='/path/to/ledger/contrib/report'
-    # ^ Reporting tool provided in ledger contrib
-  - alias gledger='gpg -d /path/to/my-file.gpg | ledger -f -'
-  - alias greport='gpg -d /path/to/my-file.gpg | lreport -f -'
-    # ^ convenient for reading my encrypted ledger file.
+#+begin_src sh :eval no
+  alias lreport='/path/to/ledger/contrib/report'
+  # ^ Reporting tool provided in ledger contrib
+  alias gledger='gpg -d /path/to/my-file.gpg | ledger -f -'
+  alias greport='gpg -d /path/to/my-file.gpg | lreport -f -'
+  # ^ convenient for reading my encrypted ledger file.
+#+end_src
 
-* Listing and Display
-
-  - gledger reg account:name -p "from 2017/01/22 to 2017/02/28" -X Rs --real
-    # ^ List all entries related to an account for a given period of time.
-  - gledger reg account:name and @"payee:name" -p "from 2016/04/01 to 2017/04/01" -X Rs --real
-    # ^ List all entries related to an account and a payee for a given period.
-    # Useful for finding things like: Show me all the interest I earned in this period.
-  - gledger reg %"tag:name" -p "from 2016/04/01" -X Rs --real
-    # ^ List all entries related to a tagged entity.
+* List all entries related to an account for a given period of time.
+#+begin_src sh :eval no
+  gledger reg account:name -p "from 2017/01/22 to 2017/02/28" -X Rs --real
+#+end_src
+* List all entries related to an account and a payee for a given period.
+Useful for finding things like: Show me all the interest I earned in this period.
+#+begin_src sh :eval no
+  gledger reg account:name and @"payee:name" -p "from 2016/04/01 to 2017/04/01" -X Rs --real
+#+end_src
+* List all entries related to a tagged entity.
+#+begin_src sh :eval no
+  gledger reg %"tag:name" -p "from 2016/04/01" -X Rs --real
+#+end_src
+* List all the commodities being tracked in the file
+#+begin_src sh :eval no
+  gledger prices | cut -d' ' -f2 | sort | uniq -c
+#+end_src
+* Investments
+** List the total amount invested in a certain account
+This is useful to see investments made in commodities (vs their current prices)
+#+begin_src sh :eval no
+  gledger reg accounts:name -X $ --price-db /path/to/price.log --basis
+#+end_src
+** List the current value of a certain account
+This is useful to see current value in commodities / stock. This is the default, but noting it down for completion
+#+begin_src sh :eval no
+  gledger reg accounts:name -X $ --price-db /path/to/price.log --market
+#+end_src
+** List the total gain made in an investment
+This is useful to get an idea of capital gains
+#+begin_src sh :eval no
+  gledger reg accounts:name -X $ --price-db /path/to/price.log --gain
+#+end_src
