@@ -424,13 +424,15 @@ at: https://github.com/ledger/ledger
 
 #+end_src
 
-** Ubuntu: Install youtube-dl for downloading videos from Youtube
+** Ubuntu: Install yt-dlp for downloading videos from Youtube
 :PROPERTIES:
 :CREATED:  [2021-07-06 Tue 19:44]
 :ID:       8ba6188d-0307-4a72-af51-3fc8703c06e9
 :END:
 #+begin_src sh :eval no
-sudo apt install youtube-dl
+sudo add-apt-repository ppa:yt-dlp/stable    # Add ppa repo to apt
+sudo apt update                              # Update package list
+sudo apt install yt-dlp                      # Install yt-dlp
 #+end_src
 
 ** Ubuntu: Install nvm, node and npm
@@ -494,3 +496,12 @@ CLOSED: [2022-03-29 Tue 10:52]
 	--keyfile /root/tarsnap.key \
 	--user me@email.com \
 	--machine mybox
+
+** Ubuntu: Install toxiproxy
+Project Page: https://github.com/Shopify/toxiproxy
+
+#+begin_src sh :eval no
+  git clone https://github.com/Shopify/toxiproxy
+  make build
+  ./toxiproxy-server
+#+end_src

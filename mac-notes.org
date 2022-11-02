@@ -270,9 +270,9 @@ Confirm installation by running ~java -version~
   brew install pympress
 #+end_src
 
-** Mac: Install youtube-dl for downloading videos from Youtube
+** Mac: Install yt-dlp for downloading videos from Youtube
 #+begin_src sh :eval no
-  brew install youtube-dl
+  brew install yt-dlp
 #+end_src
 
 ** Mac: Install nvm, node, npm, and npx
@@ -329,3 +329,10 @@ CLOSED: [2022-03-29 Tue 10:32]
     curl -O https://raw.githubusercontent.com/darold/pgFormatter/master/pg_format
   #+end_src
 - Make sure it is executable and copy it to somewhere on your PATH
+** Mac: Install toxiproxy
+Project Page: https://github.com/Shopify/toxiproxy
+
+#+begin_src sh :eval no
+  brew tap shopify/shopify
+  brew install toxiproxy
+#+end_src
