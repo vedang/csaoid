@@ -113,10 +113,16 @@ $ openssl enc -d -aes-256-cbc -a -in file.enc
     $ umount /mnt
     $ fsck /dev/nbd0p1
 * ffmpeg
+:PROPERTIES:
+:CREATED:  [2022-11-03 Thu 21:30]
+:ID:       7AEFA389-F48E-410B-B7ED-5B5441B37778
+:END:
 ** Recording a full desktop screencast
-   :PROPERTIES:
-   :URL:      https://www.howtogeek.com/446706/how-to-create-a-screencast-on-linux/
-   :END:
+:PROPERTIES:
+:URL:      https://www.howtogeek.com/446706/how-to-create-a-screencast-on-linux/
+:CREATED:  [2022-11-03 Thu 21:30]
+:ID:       F90B1527-C0E2-41B5-AFC6-44FB8BBE090E
+:END:
 *** Identify the max screen resolution that your system can support
 #+begin_src shell :results raw
   xrandr
@@ -148,9 +154,39 @@ echo $DISPLAY
 - =async,vsync= :: Deprecated options. Added to avoid cluttering output log.
 
 ** Converting from flac to mp3
+:PROPERTIES:
+:CREATED:  [2022-11-03 Thu 21:30]
+:ID:       7B559586-88C3-46FF-8366-F29E85593B20
+:END:
 #+BEGIN_SRC shell
   $ ffmpeg -i input.flac -ab 320k -map_metadata 0 -id3v2_version 3 output.mp3
 #+END_SRC
+** Cutting parts of an mp3 file
+:PROPERTIES:
+:CREATED:  [2022-11-03 Thu 21:30]
+:ID:       86E25318-962F-4391-9D76-3EBE68EE5B67
+:END:
+I needed to cut a 30 minute interview to only include the parts where Rani Maushi was being interviewed. ~ffmpeg~ solved the problem quickly.
+
+- The introduction is from 00:00 to 02:10, which describes the program
+  + ~ffmpeg -ss 0 -t 130 -i full_interview.mp3 -c:a copy 01_introduction.mp3~
+- Rani maushi's interview starts from 18:35 (1115s) to 24:25 (1465s), when the interview cuts into one of her favorite songs. (Cut the song out)
+  + ~ffmpeg -ss 1115 -t 350 -i rani_maushi_interview.mp3 -c:a copy 02_interview_part_1.mp3~
+- Song ends at 27:40 (1660), interview starts again, ends at 29:00 (1740).
+  + ~ffmpeg -ss 1660 -t 80 -i rani_maushi_interview.mp3 -c:a copy 03_interview_part_2.mp3~
+- Stitching the 3 parts together:
+  + ~ffmpeg -f concat -i interview_parts.txt -c copy meghana_chaphalkar_interview.mp3~
+  + ~interview_parts.txt~ was in the same folder and contained the following:
+    #+begin_example
+      file 01_introduction.mp3
+      file 02_interview_part_1.mp3
+      file 03_interview_part_2.mp3
+    #+end_example
+- Resources:
+  + https://stackoverflow.com/a/65099636/137430 is a great answer explaining all the moving parts
+  + https://stackoverflow.com/a/63431041/137430 explains when ~-c:a copy~ should be used and when it should be not. (it should be used when you don't need to recode the stream -- input and output formats are the same)
+  + https://superuser.com/a/1215832/69800 explains how to concatenate different mp3 files
+  + https://stackoverflow.com/q/38996925/137430 Question and answers explain the nuances of using the ~concat~ demuxer. Related: https://trac.ffmpeg.org/wiki/Concatenate
 * nmap
 ** Scan for all devices connected to your network
 #+BEGIN_SRC shell
