@@ -187,6 +187,7 @@ I needed to cut a 30 minute interview to only include the parts where Rani Maush
   + https://stackoverflow.com/a/63431041/137430 explains when ~-c:a copy~ should be used and when it should be not. (it should be used when you don't need to recode the stream -- input and output formats are the same)
   + https://superuser.com/a/1215832/69800 explains how to concatenate different mp3 files
   + https://stackoverflow.com/q/38996925/137430 Question and answers explain the nuances of using the ~concat~ demuxer. Related: https://trac.ffmpeg.org/wiki/Concatenate
+  + https://stackoverflow.com/questions/40602706/batch-reduce-bitrate-and-size-of-mp3-audio-files-with-ffmpeg#comment115596578_40668427 on reducing the bitrate (and therefore the size) of the output file
 * nmap
 ** Scan for all devices connected to your network
 #+BEGIN_SRC shell
