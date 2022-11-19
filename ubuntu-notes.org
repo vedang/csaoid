@@ -178,7 +178,7 @@ This is the first step because ~starship~ (installed later) requires a Nerd Font
 :END:
 - Common packages (Replace ~sudo apt~ with ~brew~ for Mac OS)
   #+begin_src sh :eval no
-    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl git jq hugo ffmpeg
+    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl git jq hugo ffmpeg qpdf zig fossil
   #+end_src
 - Linux specific packages
   #+begin_src sh :eval no
