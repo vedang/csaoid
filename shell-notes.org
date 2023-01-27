@@ -131,7 +131,7 @@ The commands are ordered by type rather than difficulty, so you are going to fin
    This command (above) is a shortcut for:
 
    #+begin_src shell-script :eval no
-     lein deps :tree 2&1 | tee deps.log
+     lein deps :tree 2>&1 | tee deps.log
    #+end_src
 ** Redirect error to one file and output to another file
 :PROPERTIES:
