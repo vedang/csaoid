@@ -188,6 +188,18 @@ I needed to cut a 30 minute interview to only include the parts where Rani Maush
   + https://superuser.com/a/1215832/69800 explains how to concatenate different mp3 files
   + https://stackoverflow.com/q/38996925/137430 Question and answers explain the nuances of using the ~concat~ demuxer. Related: https://trac.ffmpeg.org/wiki/Concatenate
   + https://stackoverflow.com/questions/40602706/batch-reduce-bitrate-and-size-of-mp3-audio-files-with-ffmpeg#comment115596578_40668427 on reducing the bitrate (and therefore the size) of the output file
+** Speed up or slow down a video using ffmpeg
+:PROPERTIES:
+:CREATED:  [2023-03-16 Thu 15:36]
+:ID:       00012ABB-AB3A-44BD-9FC0-3F29B68A4CF5
+:END:
+I recorded a run of ~dalai llama~ on my machine, and I want to share the recording, but since the llama is slow, it takes a long time to generate the data. I would rather cut out the empty parts of the video. To do this, I will wait for dalai to start producing data and then cut out 5 seconds after every second to speed up the demo.
+
+This command speeds up the video 8 times.
+~ffmpeg -ss 13 -i llama_in_action.mov -filter:v "setpts=0.125*PTS" -c:a aac -c:v libx264  02_llama_in_action.mov~
+
+To slow it down 4 times, use ~"setpts=4*PTS"~
+
 * nmap
 ** Scan for all devices connected to your network
 #+BEGIN_SRC shell
