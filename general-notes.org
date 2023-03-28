@@ -199,6 +199,17 @@ This command speeds up the video 8 times.
 ~ffmpeg -ss 13 -i llama_in_action.mov -filter:v "setpts=0.125*PTS" -c:a aac -c:v libx264  02_llama_in_action.mov~
 
 To slow it down 4 times, use ~"setpts=4*PTS"~
+** Convert a video to an animated gif
+:PROPERTIES:
+:CREATED:  [2023-03-22 Wed 13:44]
+:ID:       3120E5AB-CCBD-4922-9976-9D4BB9DED907
+:END:
+~ffmpeg -i video.mp4 -vf scale=500:-1 -ss 30 -t 10 -r 10 image.gif~
+
+- ~vf~ : applies a video filter, in this case ~scale~. Here we are scaling the width to 500 and the height accordingly.
+- ~ss~ : starting point in the video, in seconds
+- ~t~  : duration of gif, in seconds
+- ~r~  : frame rate to use. here, 10 fps
 
 * nmap
 ** Scan for all devices connected to your network
