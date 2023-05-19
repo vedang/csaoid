@@ -8,13 +8,16 @@
 #+options: toc:nil creator:t
 #+hugo_auto_set_lastmod: t
 
-* DONE ESR: the UNIX Philosophy                                    :programming:wisdom:
+* COMMENT Notes on exporting
+Each entry is separately tagged with ~wisdom~, instead of using ~#+filetags: wisdom~, because tag inheritance is not supported in ~ox-neuron~ yet. When I fix it, I will do the sensible thing and add a filetag.
+
+* DONE ESR: the UNIX Philosophy                          :wisdom:programming:
 CLOSED: [2018-06-12 Tue 09:56]
 :PROPERTIES:
 :url:      https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html
 :EXPORT_HUGO_CATEGORIES: notes
 :EXPORT_HUGO_ALIASES: /notes/esr-unix-philosophy/
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug esr-unix-philosophy
+:EXPORT_HUGO_SLUG: esr-unix-philosophy
 :CREATED:  [2022-07-04 Mon 10:04]
 :ID:       6941FD19-8E54-4D17-9ED7-12BDD8F4BAB2
 :END:
@@ -42,14 +45,14 @@ CLOSED: [2018-06-12 Tue 09:56]
 - Rule of Diversity :: Distrust all claims for the "one true way".
 - Rule of Extensibility :: Design for the future, because it will be here sooner than you think.
 
-* DONE Doug McIlroy: the UNIX philosophy                           :programming:wisdom:
+* DONE Doug McIlroy: the UNIX philosophy                 :wisdom:programming:
 CLOSED: [2018-06-12 Tue 10:01]
 :PROPERTIES:
 :citation: The Bell System Technical Journal. Bell Laboratories. M. D. McIlroy, E. N. Pinson, and B. A. Tague. “Unix Time-Sharing System Forward”. 1978. 57 (6, part 2). p. 1902.
 :url:      http://www.catb.org/~esr/writings/taoup/html/ch01s06.html
 :EXPORT_HUGO_CATEGORIES: notes
 :EXPORT_HUGO_ALIASES: /notes/doug-mcilroy-unix-philosophy/
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug doug-mcilroy-unix-philosophy
+:EXPORT_HUGO_SLUG: doug-mcilroy-unix-philosophy
 :CREATED:  [2022-07-04 Mon 10:05]
 :ID:       67ACD533-832E-4E7D-A1B0-D666E504F61D
 :END:
@@ -59,28 +62,20 @@ CLOSED: [2018-06-12 Tue 10:01]
 
 /Snippet from: [[https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html][The Art of Unix Programming]]/
 
-- *Make each program do one thing well*. To do a new job, build afresh
-  rather than complicate old programs by adding new features.
+- *Make each program do one thing well*. To do a new job, build afresh rather than complicate old programs by adding new features.
 
-- *Expect the output of every program to become the input to another*,
-  as yet unknown, program. Don't clutter output with extraneous
-  information. Avoid stringently columnar or binary input formats.
-  Don't insist on interactive input.
+- *Expect the output of every program to become the input to another*, as yet unknown, program. Don't clutter output with extraneous information. Avoid stringently columnar or binary input formats. Don't insist on interactive input.
 
-- *Design and build software, even operating systems, to be tried
-  early, ideally within weeks*. Don't hesitate to throw away the
-  clumsy parts and rebuild them.
+- *Design and build software, even operating systems, to be tried early, ideally within weeks*. Don't hesitate to throw away the clumsy parts and rebuild them.
 
-- *Use tools in preference to unskilled help to lighten a programming
-  task*, even if you have to detour to build the tools and expect to
-  throw some of them out after you've finished using them.
+- *Use tools in preference to unskilled help to lighten a programming task*, even if you have to detour to build the tools and expect to throw some of them out after you've finished using them.
 
-* DONE Rob Pike: Rules of Programming                              :programming:wisdom:
+* DONE Rob Pike: Rules of Programming                    :wisdom:programming:
 CLOSED: [2018-06-12 Tue 10:05]
 :PROPERTIES:
 :url:      https://users.ece.utexas.edu/~adnan/pike.html
 :EXPORT_HUGO_ALIASES: /notes/rob-pike-rules/
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug rob-pike-rules
+:EXPORT_HUGO_SLUG: rob-pike-rules
 :EXPORT_HUGO_CATEGORIES: notes
 :CREATED:  [2022-07-04 Mon 10:06]
 :ID:       68AF79A6-CC97-4747-A253-A60C4CF3D5AD
@@ -91,46 +86,29 @@ CLOSED: [2018-06-12 Tue 10:05]
 
 /Snippet from: [[https://www.lysator.liu.se/c/pikestyle.html][Notes on C Programming]]/
 
-- No Speed Hacks :: You can't tell where a program is going to spend its time.
-  Bottlenecks occur in surprising places, so don't try to second guess
-  and put in a speed hack until you've proven that's where the
-  bottleneck is.
+- No Speed Hacks :: You can't tell where a program is going to spend its time. Bottlenecks occur in surprising places, so don't try to second guess and put in a speed hack until you've proven that's where the bottleneck is.
 
-- Measure before tuning :: Don't tune for speed until you've measured,
-  and even then don't unless one part of the code overwhelms the rest.
+- Measure before tuning :: Don't tune for speed until you've measured, and even then don't unless one part of the code overwhelms the rest.
 
-- No Fancy Algorithms :: Fancy algorithms are slow when n is small,
-  and n is usually small. Fancy algorithms have big constants. Until
-  you know that n is frequently going to be big, don't get fancy.
-  (Even if n does get big, use Rule 2 first.)
+- No Fancy Algorithms :: Fancy algorithms are slow when n is small, and n is usually small. Fancy algorithms have big constants. Until you know that n is frequently going to be big, don't get fancy. (Even if n does get big, use Rule 2 first.)
 
-- Use Simple Data Structures :: Fancy algorithms are buggier than
-  simple ones, and they're much harder to implement. Use simple
-  algorithms as well as simple data structures.
+- Use Simple Data Structures :: Fancy algorithms are buggier than simple ones, and they're much harder to implement. Use simple algorithms as well as simple data structures.
 
-- Data Dominates :: If you've chosen the right data structures and
-  organized things well, the algorithms will almost always be
-  self-evident. Data structures, not algorithms, are central to
-  programming.
+- Data Dominates :: If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.
 
 ** Notes on the Rules                                              :noexport:
-- Rules 1 and 2 restate Tony Hoare's famous maxim "Premature
-  optimization is the root of all evil."
+- Rules 1 and 2 restate Tony Hoare's famous maxim "Premature optimization is the root of all evil."
 - Ken Thompson rephrased Rules 3 and 4 as "When in doubt, use brute force."
 - Rules 3 and 4 are instances of the design philosophy KISS.
-- Rule 5 was previously stated by Fred Brooks in The Mythical
-  Man-Month. Rule 5 is often shortened to "write stupid code that uses
-  smart objects".
-  + Fred Brooks: "Show me your flow charts and conceal your tables
-    and I shall continue to be mystified, show me your tables and I
-    won't usually need your flow charts; they'll be obvious".
+- Rule 5 was previously stated by Fred Brooks in The Mythical Man-Month. Rule 5 is often shortened to "write stupid code that uses smart objects".
+  + Fred Brooks: "Show me your flow charts and conceal your tables and I shall continue to be mystified, show me your tables and I won't usually need your flow charts; they'll be obvious".
 
-* DONE Gene Kim: The Five Ideals of DevOps                              :devops:wisdom:
+* DONE Gene Kim: The Five Ideals of DevOps                    :wisdom:devops:
 CLOSED: [2020-08-09 Sun 10:07]
 :PROPERTIES:
 :citation: The Unicorn Project
 :EXPORT_HUGO_CATEGORIES: notes
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug gene-kim-the-five-ideals
+:EXPORT_HUGO_SLUG: gene-kim-the-five-ideals
 :EXPORT_HUGO_ALIASES: /notes/gene-kim-the-five-ideals/
 :CREATED:  [2022-07-04 Mon 10:09]
 :ID:       A8F4AE71-2C93-48B5-8EC7-CCDABCA994F3
@@ -141,28 +119,21 @@ CLOSED: [2020-08-09 Sun 10:07]
 
 /Snippet from: [[https://www.amazon.in/Unicorn-Project-Developers-Disruption-Thriving-ebook/dp/B07QT9QR41][The Unicorn Project]], along with my own notes/
 
-- The First Ideal :: /*Locality and Simplicity*/. Build simple,
-  decoupled systems that can iterate in isolation.
+- The First Ideal :: /*Locality and Simplicity*/. Build simple, decoupled systems that can iterate in isolation.
 
-- The Second Ideal :: /*Focus, Flow and Joy*/. Work in small batches
-  with fast and continuous feedback.
+- The Second Ideal :: /*Focus, Flow and Joy*/. Work in small batches with fast and continuous feedback.
 
-- The Third Ideal :: /*Improvement of Daily Work*/. Make sure that daily
-  work can be done with minimum impediments. Prioritize productivity
-  over everything else.
+- The Third Ideal :: /*Improvement of Daily Work*/. Make sure that daily work can be done with minimum impediments. Prioritize productivity over everything else.
 
-- The Fourth Ideal :: /*Psychological Safety*/. Solving problems
-  requires preventing problems, which requires honesty, which requires
-  the absence of fear.
+- The Fourth Ideal :: /*Psychological Safety*/. Solving problems requires preventing problems, which requires honesty, which requires the absence of fear.
 
-- The Fifth Ideal :: /*Customer Focus*/. Build only that which
-  actually matters to our customers.
+- The Fifth Ideal :: /*Customer Focus*/. Build only that which actually matters to our customers.
 
 * DONE Gene Kim: The Three Ways of doing excellent Work :engineering_management:wisdom:
 CLOSED: [2020-08-11 Tue 10:09]
 :PROPERTIES:
 :citation: The Phoenix Project
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug gene-kim-the-three-ways
+:EXPORT_HUGO_SLUG: gene-kim-the-three-ways
 :EXPORT_HUGO_CATEGORIES: notes
 :EXPORT_HUGO_ALIASES: /notes/gene-kim-the-three-ways/
 :CREATED:  [2022-07-04 Mon 10:11]
@@ -174,51 +145,41 @@ CLOSED: [2020-08-11 Tue 10:09]
 
 /Snippet from: [[https://www.amazon.in/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B078Y98RG8/][The Phoenix Project]], along with my own notes/
 
-- Flow :: Maximizing the rate of flow of work is the key to success.
-  Limiting the work in progress is the fastest way to achieve Flow.
+- Flow :: Maximizing the rate of flow of work is the key to success. Limiting the work in progress is the fastest way to achieve Flow.
 
-- Fast Feedback :: Setup systems to get fast feedback at every stage
-  of work, from concept through shipping to maintaining in production.
+- Fast Feedback :: Setup systems to get fast feedback at every stage of work, from concept through shipping to maintaining in production.
 
-- Experimentation and Learning :: Keep dedicated time for experiments,
-  at every level of the company. A culture of innovation is necessary
-  for achieving and maintaining Flow and Feedback.
+- Experimentation and Learning :: Keep dedicated time for experiments, at every level of the company. A culture of innovation is necessary for achieving and maintaining Flow and Feedback.
 
 * DONE Gene Kim: The Four Types of Work          :engineering_management:wisdom:
 CLOSED: [2020-08-11 Tue 10:11]
-  :PROPERTIES:
-  :citation: The Phoenix Project
-  :EXPORT_HUGO_CATEGORIES: notes
-  :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug gene-kim-the-four-types
-  :EXPORT_HUGO_ALIASES: /notes/gene-kim-the-four-types/
-  :CREATED:  [2022-07-04 Mon 10:11]
-  :ID:       13EF26B9-E51E-49F4-99EE-57C62F5E20E1
-  :END:
+:PROPERTIES:
+:citation: The Phoenix Project
+:EXPORT_HUGO_CATEGORIES: notes
+:EXPORT_HUGO_SLUG: gene-kim-the-four-types-of-work
+:EXPORT_HUGO_ALIASES: /notes/gene-kim-the-four-types/
+:CREATED:  [2022-07-04 Mon 10:11]
+:ID:       13EF26B9-E51E-49F4-99EE-57C62F5E20E1
+:END:
 :LOGBOOK:
 - State "DONE"       from              [2022-07-04 Mon 10:11]
 :END:
 
 /Snippet from: [[https://www.amazon.in/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B078Y98RG8/][The Phoenix Project]], along with my own notes/
 
-- Business Projects :: "Feature Work". This is the most visible type
-  of work.
+- Business Projects :: "Feature Work". This is the most visible type of work.
 
-- Internal IT Projects :: Release Automation, QA Automation, Developer
-  Tooling and other internal enablers. Mostly un-tracked and
-  invisible, but crucial to long-term success.
+- Internal IT Projects :: Release Automation, QA Automation, Developer Tooling and other internal enablers. Mostly un-tracked and invisible, but crucial to long-term success.
 
-- Updates and Changes :: Generally generated from above to categories
-  of work. Introduces delay as breadth of existing surface area
-  increases.
+- Updates and Changes :: Generally generated from above to categories of work. Introduces delay as breadth of existing surface area increases.
 
-- Unplanned Work :: Fire-fighting at all levels of the company. Ruins
-  planned work, so root causes need to be aggressively remediated.
+- Unplanned Work :: Fire-fighting at all levels of the company. Ruins planned work, so root causes need to be aggressively remediated.
 
 * DONE Tim Peters: The Python Way                                  :programming:wisdom:
 CLOSED: [2020-08-22 Sat 10:13]
 :PROPERTIES:
 :url:      https://mail.python.org/pipermail/python-list/1999-June/001951.html
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug tim-peters-the-python-way
+:EXPORT_HUGO_SLUG: tim-peters-the-python-way
 :EXPORT_HUGO_CATEGORIES: notes
 :EXPORT_HUGO_ALIASES: /notes/tim-peters-the-python-way/
 :CREATED:  [2022-07-04 Mon 10:13]
@@ -273,7 +234,7 @@ CLOSED: [2020-08-11 Tue 10:15]
 :PROPERTIES:
 :url:      https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
 :EXPORT_HUGO_SECTION: notes
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :slug l-peter-deutsch-the-fallacies-of-distributed-computing
+:EXPORT_HUGO_SLUG: l-peter-deutsch-the-fallacies-of-distributed-computing
 :EXPORT_HUGO_ALIASES: /notes/l-peter-deutsch-the-fallacies-of-distributed-computing
 :EXPORT_HUGO_CATEGORIES: notes
 :CREATED:  [2022-07-04 Mon 10:15]
@@ -285,54 +246,54 @@ CLOSED: [2020-08-11 Tue 10:15]
 
 /Snippet from: [[https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing][The Wikipedia Article]], along with my own notes/
 
-- The network is reliable :: Think about error-handling on network
-  failures. Use the following patterns: Timeouts, Retries, Circuit
-  breakers, Graceful Degradation.
+- The network is reliable :: Think about error-handling on network failures. Use the following patterns: Timeouts, Retries, Circuit breakers, Graceful Degradation.
 
-- Latency is zero :: Think about bandwidth requirements and packet
-  loss. Use the following patterns: Small payloads, Compression,
-  Asynchronous Communication, Perceived Progress, Timeouts, Graceful
-  Degradation.
+- Latency is zero :: Think about bandwidth requirements and packet loss. Use the following patterns: Small payloads, Compression, Asynchronous Communication, Perceived Progress, Timeouts, Graceful Degradation.
 
-- Bandwidth is infinite :: The same as above. Think explicitly about
-  bottlenecks in Network traffic. Use the following patterns: Caching,
-  Etags.
+- Bandwidth is infinite :: The same as above. Think explicitly about bottlenecks in Network traffic. Use the following patterns: Caching, Etags.
 
-- The network is secure :: Think about encryption, compliance, data
-  risk. Understand the trade-offs with speed and simplicity.
-  Prioritize security over the network for any sensitive data.
+- The network is secure :: Think about encryption, compliance, data risk. Understand the trade-offs with speed and simplicity. Prioritize security over the network for any sensitive data.
 
-- Topology doesn't change :: Think about local state, tolerance for
-  staleness, co-ordination overheads, recovery mechanisms for split
-  brains, inability to reach endpoints.
+- Topology doesn't change :: Think about local state, tolerance for staleness, co-ordination overheads, recovery mechanisms for split brains, inability to reach endpoints.
 
-- There is one administrator :: Remember to test the end-to-end flow
-  and think through production components not controlled by you.
+- There is one administrator :: Remember to test the end-to-end flow and think through production components not controlled by you.
 
-- Transport cost is zero :: Think through data transfer costs in cloud
-  environments. Monitor payload sizes.
+- Transport cost is zero :: Think through data transfer costs in cloud environments. Monitor payload sizes.
 
-- The network is homogeneous :: Think about connection drops,
-  reconnects, client timeouts. Use the following patterns:
-  Idempotency, Eventual Consistency
+- The network is homogeneous :: Think about connection drops, reconnects, client timeouts. Use the following patterns: Idempotency, Eventual Consistency
 
-- Plan for the fallacies in your benchmarks and testing.
-
-* Nicole Forsgren: The Four Key Metrics of High Performance :engineering_management:
+* DONE Nicole Forsgren: The Four Key Metrics of High Performance :devops:wisdom:engineering_management:
+CLOSED: [2022-08-19 Fri 16:07]
 :PROPERTIES:
 :CREATED:  [2022-08-12 Fri 14:43]
 :ID:       8535FA6B-900C-4D92-9FE9-8A9523547743
+:EXPORT_HUGO_SECTION: notes
+:EXPORT_HUGO_SLUG: nicole-forsgren-four-key-metrics-of-high-performance
+:EXPORT_HUGO_CATEGORIES: notes
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2023-05-19 Fri 16:07]
 :END:
 /Snippet from [[https://itrevolution.com/book/accelerate/][Accelerate]]/
-- Lead Time ::
-- Mean Time to Recover ::
-- Change Failure Rate ::
-- Deployment Frequency ::
 
-* Randolph's Rules for Success                                         :life:
+- Lead Time :: Length of time between when the code is committed and when it is deployed to production. Smaller is better.
+- Mean Time to Recover :: Length of time from incident start to incident end. Smaller is better.
+- Change Failure Rate :: Number of deployments to production that need hotfixes. Smaller is better.
+- Deployment Frequency :: Number of times new code (not hotfixes) is deployed to production. Larger is better.
+
+Improving these metrics directly results in huge performance boosts for developer productivity.
+
+* DONE Marc Randolph: Rules for Success                         :wisdom:life:
+CLOSED: [2022-08-19 Fri 16:08]
 :PROPERTIES:
 :CREATED:  [2022-08-12 Fri 14:42]
 :ID:       48B7D59B-7F76-4C99-A9ED-F8AB4F1E3E45
+:EXPORT_HUGO_SECTION: notes
+:EXPORT_HUGO_SLUG: marc-randolph-rules-for-success
+:EXPORT_HUGO_CATEGORIES: notes
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2023-05-19 Fri 16:08]
 :END:
 /Snippet from [[https://www.amazon.com/That-Will-Never-Work-Netflix/dp/0316530204][That Will Never Work]]/
 
