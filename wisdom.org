@@ -27,23 +27,23 @@ CLOSED: [2018-06-12 Tue 09:56]
 
 /Snippet from: [[https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html][The Art of Unix Programming]]/
 
-- Rule of Modularity :: Write simple parts connected by clean interfaces.
-- Rule of Clarity :: Clarity is better than cleverness.
-- Rule of Composition :: Design programs to be connected to other programs.
-- Rule of Separation :: Separate policy from mechanism; separate interfaces from engines.
-- Rule of Simplicity :: Design for simplicity; add complexity only where you must.
-- Rule of Parsimony :: Write a big program only when it is clear by demonstration that nothing else will do.
-- Rule of Transparency :: Design for visibility to make inspection and debugging easier.
-- Rule of Robustness :: Robustness is the child of transparency and simplicity.
-- Rule of Representation :: Fold knowledge into data so program logic can be stupid and robust.
-- Rule of Least Surprise :: In interface design, always do the least surprising thing.
-- Rule of Silence :: When a program has nothing surprising to say, it should say nothing.
-- Rule of Repair :: When you must fail, fail noisily and as soon as possible.
-- Rule of Economy :: Programmer time is expensive; conserve it in preference to machine time.
-- Rule of Generation :: Avoid hand-hacking; write programs to write programs when you can.
-- Rule of Optimization :: Prototype before polishing. Get it working before you optimize it.
-- Rule of Diversity :: Distrust all claims for the "one true way".
-- Rule of Extensibility :: Design for the future, because it will be here sooner than you think.
+- *Rule of Modularity* : Write simple parts connected by clean interfaces.
+- *Rule of Clarity* : Clarity is better than cleverness.
+- *Rule of Composition* : Design programs to be connected to other programs.
+- *Rule of Separation* : Separate policy from mechanism; separate interfaces from engines.
+- *Rule of Simplicity* : Design for simplicity; add complexity only where you must.
+- *Rule of Parsimony* : Write a big program only when it is clear by demonstration that nothing else will do.
+- *Rule of Transparency* : Design for visibility to make inspection and debugging easier.
+- *Rule of Robustness* : Robustness is the child of transparency and simplicity.
+- *Rule of Representation* : Fold knowledge into data so program logic can be stupid and robust.
+- *Rule of Least Surprise* : In interface design, always do the least surprising thing.
+- *Rule of Silence* : When a program has nothing surprising to say, it should say nothing.
+- *Rule of Repair* : When you must fail, fail noisily and as soon as possible.
+- *Rule of Economy* : Programmer time is expensive; conserve it in preference to machine time.
+- *Rule of Generation* : Avoid hand-hacking; write programs to write programs when you can.
+- *Rule of Optimization* : Prototype before polishing. Get it working before you optimize it.
+- *Rule of Diversity* : Distrust all claims for the "one true way".
+- *Rule of Extensibility* : Design for the future, because it will be here sooner than you think.
 
 * DONE Doug McIlroy: the UNIX philosophy                 :wisdom:programming:
 CLOSED: [2018-06-12 Tue 10:01]
@@ -86,15 +86,15 @@ CLOSED: [2018-06-12 Tue 10:05]
 
 /Snippet from: [[https://www.lysator.liu.se/c/pikestyle.html][Notes on C Programming]]/
 
-- No Speed Hacks :: You can't tell where a program is going to spend its time. Bottlenecks occur in surprising places, so don't try to second guess and put in a speed hack until you've proven that's where the bottleneck is.
+- *No Speed Hacks* : You can't tell where a program is going to spend its time. Bottlenecks occur in surprising places, so don't try to second guess and put in a speed hack until you've proven that's where the bottleneck is.
 
-- Measure before tuning :: Don't tune for speed until you've measured, and even then don't unless one part of the code overwhelms the rest.
+- *Measure before tuning* : Don't tune for speed until you've measured, and even then don't unless one part of the code overwhelms the rest.
 
-- No Fancy Algorithms :: Fancy algorithms are slow when n is small, and n is usually small. Fancy algorithms have big constants. Until you know that n is frequently going to be big, don't get fancy. (Even if n does get big, use Rule 2 first.)
+- *No Fancy Algorithms* : Fancy algorithms are slow when n is small, and n is usually small. Fancy algorithms have big constants. Until you know that n is frequently going to be big, don't get fancy. (Even if n does get big, use Rule 2 first.)
 
-- Use Simple Data Structures :: Fancy algorithms are buggier than simple ones, and they're much harder to implement. Use simple algorithms as well as simple data structures.
+- *Use Simple Data Structures* : Fancy algorithms are buggier than simple ones, and they're much harder to implement. Use simple algorithms as well as simple data structures.
 
-- Data Dominates :: If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.
+- *Data Dominates* : If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.
 
 ** Notes on the Rules                                              :noexport:
 - Rules 1 and 2 restate Tony Hoare's famous maxim "Premature optimization is the root of all evil."
@@ -119,15 +119,15 @@ CLOSED: [2020-08-09 Sun 10:07]
 
 /Snippet from: [[https://www.amazon.in/Unicorn-Project-Developers-Disruption-Thriving-ebook/dp/B07QT9QR41][The Unicorn Project]], along with my own notes/
 
-- The First Ideal :: /*Locality and Simplicity*/. Build simple, decoupled systems that can iterate in isolation.
+- *The First Ideal* : /*Locality and Simplicity*/. Build simple, decoupled systems that can iterate in isolation.
 
-- The Second Ideal :: /*Focus, Flow and Joy*/. Work in small batches with fast and continuous feedback.
+- *The Second Ideal* : /*Focus, Flow and Joy*/. Work in small batches with fast and continuous feedback.
 
-- The Third Ideal :: /*Improvement of Daily Work*/. Make sure that daily work can be done with minimum impediments. Prioritize productivity over everything else.
+- *The Third Ideal* : /*Improvement of Daily Work*/. Make sure that daily work can be done with minimum impediments. Prioritize productivity over everything else.
 
-- The Fourth Ideal :: /*Psychological Safety*/. Solving problems requires preventing problems, which requires honesty, which requires the absence of fear.
+- *The Fourth Ideal* : /*Psychological Safety*/. Solving problems requires preventing problems, which requires honesty, which requires the absence of fear.
 
-- The Fifth Ideal :: /*Customer Focus*/. Build only that which actually matters to our customers.
+- *The Fifth Ideal* : /*Customer Focus*/. Build only that which actually matters to our customers.
 
 * DONE Gene Kim: The Three Ways of doing excellent Work :engineering_management:wisdom:
 CLOSED: [2020-08-11 Tue 10:09]
@@ -145,11 +145,11 @@ CLOSED: [2020-08-11 Tue 10:09]
 
 /Snippet from: [[https://www.amazon.in/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B078Y98RG8/][The Phoenix Project]], along with my own notes/
 
-- Flow :: Maximizing the rate of flow of work is the key to success. Limiting the work in progress is the fastest way to achieve Flow.
+- *Flow* : Maximizing the rate of flow of work is the key to success. Limiting the work in progress is the fastest way to achieve Flow.
 
-- Fast Feedback :: Setup systems to get fast feedback at every stage of work, from concept through shipping to maintaining in production.
+- *Fast Feedback* : Setup systems to get fast feedback at every stage of work, from concept through shipping to maintaining in production.
 
-- Experimentation and Learning :: Keep dedicated time for experiments, at every level of the company. A culture of innovation is necessary for achieving and maintaining Flow and Feedback.
+- *Experimentation and Learning* : Keep dedicated time for experiments, at every level of the company. A culture of innovation is necessary for achieving and maintaining Flow and Feedback.
 
 * DONE Gene Kim: The Four Types of Work          :engineering_management:wisdom:
 CLOSED: [2020-08-11 Tue 10:11]
@@ -167,13 +167,13 @@ CLOSED: [2020-08-11 Tue 10:11]
 
 /Snippet from: [[https://www.amazon.in/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B078Y98RG8/][The Phoenix Project]], along with my own notes/
 
-- Business Projects :: "Feature Work". This is the most visible type of work.
+- *Business Projects* : "Feature Work". This is the most visible type of work.
 
-- Internal IT Projects :: Release Automation, QA Automation, Developer Tooling and other internal enablers. Mostly un-tracked and invisible, but crucial to long-term success.
+- *Internal IT Projects* : Release Automation, QA Automation, Developer Tooling and other internal enablers. Mostly un-tracked and invisible, but crucial to long-term success.
 
-- Updates and Changes :: Generally generated from above to categories of work. Introduces delay as breadth of existing surface area increases.
+- *Updates and Changes* : Generally generated from above to categories of work. Introduces delay as breadth of existing surface area increases.
 
-- Unplanned Work :: Fire-fighting at all levels of the company. Ruins planned work, so root causes need to be aggressively remediated.
+- *Unplanned Work* : Fire-fighting at all levels of the company. Ruins planned work, so root causes need to be aggressively remediated.
 
 * DONE Tim Peters: The Python Way                                  :programming:wisdom:
 CLOSED: [2020-08-22 Sat 10:13]
@@ -191,43 +191,43 @@ CLOSED: [2020-08-22 Sat 10:13]
 
 /Snippet from: [[https://mail.python.org/pipermail/python-list/1999-June/001951.html][The Python Mailing List]]/
 
-- Beautiful is better than ugly.
+1. Beautiful is better than ugly.
 
-- Explicit is better than implicit.
+2. Explicit is better than implicit.
 
-- Simple is better than complex.
+3. Simple is better than complex.
 
-- Complex is better than complicated.
+4. Complex is better than complicated.
 
-- Flat is better than nested.
+5. Flat is better than nested.
 
-- Sparse is better than dense.
+6. Sparse is better than dense.
 
-- Readability counts.
+7. Readability counts.
 
-- Special cases aren't special enough to break the rules.
+8. Special cases aren't special enough to break the rules.
 
-- Although practicality beats purity.
+9. Although practicality beats purity.
 
-- Errors should never pass silently.
+10. Errors should never pass silently.
 
-- Unless explicitly silenced.
+11. Unless explicitly silenced.
 
-- In the face of ambiguity, refuse the temptation to guess.
+12. In the face of ambiguity, refuse the temptation to guess.
 
-- There should be one - and preferably only one - obvious way to do it.
+13. There should be one - and preferably only one - obvious way to do it.
 
-- Although that way may not be obvious at first unless you're Dutch.
+14. Although that way may not be obvious at first unless you're Dutch.
 
-- Now is better than never.
+15. Now is better than never.
 
-- Although never is often better than *right* now.
+16. Although never is often better than *right* now.
 
-- If the implementation is hard to explain, it's a bad idea.
+17. If the implementation is hard to explain, it's a bad idea.
 
-- If the implementation is easy to explain, it may be a good idea.
+18. If the implementation is easy to explain, it may be a good idea.
 
-- Namespaces are one honking great idea -- let's do more of those!
+19. Namespaces are one honking great idea -- let's do more of those!
 
 * DONE L Peter Deutsch: The Fallacies of Distributed Computing :distributed_systems:wisdom:
 CLOSED: [2020-08-11 Tue 10:15]
@@ -246,21 +246,21 @@ CLOSED: [2020-08-11 Tue 10:15]
 
 /Snippet from: [[https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing][The Wikipedia Article]], along with my own notes/
 
-- The network is reliable :: Think about error-handling on network failures. Use the following patterns: Timeouts, Retries, Circuit breakers, Graceful Degradation.
+- *The network is reliable* : Think about error-handling on network failures. Use the following patterns: Timeouts, Retries, Circuit breakers, Graceful Degradation.
 
-- Latency is zero :: Think about bandwidth requirements and packet loss. Use the following patterns: Small payloads, Compression, Asynchronous Communication, Perceived Progress, Timeouts, Graceful Degradation.
+- *Latency is zero* : Think about bandwidth requirements and packet loss. Use the following patterns: Small payloads, Compression, Asynchronous Communication, Perceived Progress, Timeouts, Graceful Degradation.
 
-- Bandwidth is infinite :: The same as above. Think explicitly about bottlenecks in Network traffic. Use the following patterns: Caching, Etags.
+- *Bandwidth is infinite* : The same as above. Think explicitly about bottlenecks in Network traffic. Use the following patterns: Caching, Etags.
 
-- The network is secure :: Think about encryption, compliance, data risk. Understand the trade-offs with speed and simplicity. Prioritize security over the network for any sensitive data.
+- *The network is secure* : Think about encryption, compliance, data risk. Understand the trade-offs with speed and simplicity. Prioritize security over the network for any sensitive data.
 
-- Topology doesn't change :: Think about local state, tolerance for staleness, co-ordination overheads, recovery mechanisms for split brains, inability to reach endpoints.
+- *Topology doesn't change* : Think about local state, tolerance for staleness, co-ordination overheads, recovery mechanisms for split brains, inability to reach endpoints.
 
-- There is one administrator :: Remember to test the end-to-end flow and think through production components not controlled by you.
+- *There is one administrator* : Remember to test the end-to-end flow and think through production components not controlled by you.
 
-- Transport cost is zero :: Think through data transfer costs in cloud environments. Monitor payload sizes.
+- *Transport cost is zero* : Think through data transfer costs in cloud environments. Monitor payload sizes.
 
-- The network is homogeneous :: Think about connection drops, reconnects, client timeouts. Use the following patterns: Idempotency, Eventual Consistency
+- *The network is homogeneous* : Think about connection drops, reconnects, client timeouts. Use the following patterns: Idempotency, Eventual Consistency
 
 * DONE Nicole Forsgren: The Four Key Metrics of High Performance :devops:wisdom:engineering_management:
 CLOSED: [2022-08-19 Fri 16:07]
@@ -276,10 +276,10 @@ CLOSED: [2022-08-19 Fri 16:07]
 :END:
 /Snippet from [[https://itrevolution.com/book/accelerate/][Accelerate]]/
 
-- Lead Time :: Length of time between when the code is committed and when it is deployed to production. Smaller is better.
-- Mean Time to Recover :: Length of time from incident start to incident end. Smaller is better.
-- Change Failure Rate :: Number of deployments to production that need hotfixes. Smaller is better.
-- Deployment Frequency :: Number of times new code (not hotfixes) is deployed to production. Larger is better.
+- *Lead Time* : Length of time between when the code is committed and when it is deployed to production. Smaller is better.
+- *Mean Time to Recover* : Length of time from incident start to incident end. Smaller is better.
+- *Change Failure Rate* : Number of deployments to production that need hotfixes. Smaller is better.
+- *Deployment Frequency* : Number of times new code (not hotfixes) is deployed to production. Larger is better.
 
 Improving these metrics directly results in huge performance boosts for developer productivity.
 
