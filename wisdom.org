@@ -171,7 +171,7 @@ CLOSED: [2020-08-11 Tue 10:11]
 
 - *Internal IT Projects* : Release Automation, QA Automation, Developer Tooling and other internal enablers. Mostly un-tracked and invisible, but crucial to long-term success.
 
-- *Updates and Changes* : Generally generated from above to categories of work. Introduces delay as breadth of existing surface area increases.
+- *Updates and Changes* : Generally generated from above two categories of work. Introduces delay as breadth of existing surface area increases.
 
 - *Unplanned Work* : Fire-fighting at all levels of the company. Ruins planned work, so root causes need to be aggressively remediated.
 
@@ -305,3 +305,29 @@ CLOSED: [2022-08-19 Fri 16:08]
 6. Quantify where possible.
 7. Be open-minded but skeptical.
 8. Be prompt.
+
+* DONE Yaron Minsky: Rules for Effective Programming     :programming:wisdom:
+CLOSED: [2023-05-26 Fri 19:42]
+:PROPERTIES:
+:CREATED:  [2023-05-26 Fri 15:04]
+:ID:       ED2F4D70-EF02-4B42-97A2-40D28D13B420
+:EXPORT_HUGO_SECTION: notes
+:EXPORT_HUGO_SLUG: yaron-minsky-rules-for-effective-programming
+:EXPORT_HUGO_CATEGORIES: notes
+:BRAIN_FRIENDS: 3EDD0417-9116-486D-927C-EAF4415EE170
+:END:
+:LOGBOOK:
+- State "DONE"       from "WORKING"    [2023-05-26 Fri 19:42]
+- State "WORKING"    from              [2023-05-26 Fri 15:04]
+:END:
+/Snippet from [[https://www.youtube.com/watch?v=-J8YyfrSwTk][Effective ML]]/
+
+1. *Favour Readers Over Writers*: Readers drive clarity and simplicity. Always write code such that it's easy to read
+2. *Create Uniform Interfaces*: Uniform interfaces help set expectations for how the code/data can be treated. They make it easier to jump into new code.
+3. *Make Illegal States Unrepresentable*: Think about the invariants of your data, and design datastructures so that your data cannot enter into an illegal state.
+4. *Code for Exhaustiveness*: Prefer explicit case matching over implicit default cases. A default case is a bug waiting to happen when the shape of the data changes.
+5. *Open Few Modules*: Or in the more general case, use namespaced functions to improve readability. OCaml has a nifty feature where you can use namespaced functions in a local scope! This improves the readability even more than having to require the namespace for the whole file.
+6. *Make Common Errors Obvious*: Make it explicit in the function name that this function can throw an exception. Then the caller knows to expect / handle a possible error.
+7. *Avoid Boilerplate*: Reduces code readability, increases chances of subtle bugs.
+8. *Avoid Complex Type Hackery*: The enemy of correctness is complexity. And complex types are complex.
+9. *Do not be puritanical about purity*: Remember that side-effects are the only way you actually change anything in the real world.
