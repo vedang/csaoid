@@ -433,18 +433,39 @@ $ git diff rev1:filename rev2:filename
 :CREATED:  [2022-03-21 Mon 13:20]
 :ID:       8471f379-1783-466f-9d22-e09a1378610a
 :END:
-   #+begin_src shell-script :eval no
-     git diff [commit-id-before] [commit-id-after] > my.patch
-   #+end_src
+#+begin_src shell-script :eval no
+  git diff [commit-id-before] [commit-id-after] > my.patch
+#+end_src
+A better approach is to [[id:2147d876-1839-409a-8644-d912895d97dc][Create a ready-to-send patch with the last 3 commits]]
 
 ** Create a ready-to-send patch with the last 3 commits
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:20]
 :ID:       2147d876-1839-409a-8644-d912895d97dc
 :END:
+#+begin_src shell-script :eval no
+  git format-patch -3
+#+end_src
+Note: In Magit, creating patches is tied to the ~W~ key.
+** Create a patch of the commits present in this branch but not in master
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 13:20]
+:ID:       cde92784-d8b5-4ffe-a18d-c0edc4be10dd
+:END:
    #+begin_src shell-script :eval no
-     git format-patch -3
+     git format-patch master --stdout > diff-with-master.patch
    #+end_src
+
+** Send a patch to the mailing list using git-send-email
+:PROPERTIES:
+:CREATED:  [2023-06-10 Sat 15:39]
+:ID:       02E9CDDF-8CF9-4228-804D-9A0227530596
+:END:
+This is surprisingly simpler than I thought it would be. Here is an
+excellent guide: https://git-send-email.io/, maintained by sourcehut.
+
+The important thing to remember is to keep the email entirely in
+plain-text.
 
 ** Apply commits selectively from one branch to another.
 :PROPERTIES:
@@ -462,15 +483,6 @@ $ git diff rev1:filename rev2:filename
    There is also an easier way of doing this:
    #+begin_src shell-script :eval no
      git cherry-pick R1..R2
-   #+end_src
-
-** Create a patch of the commits present in this branch but not in master
-:PROPERTIES:
-:CREATED:  [2022-03-21 Mon 13:20]
-:ID:       cde92784-d8b5-4ffe-a18d-c0edc4be10dd
-:END:
-   #+begin_src shell-script :eval no
-     git format-patch master --stdout > diff-with-master.patch
    #+end_src
 
 ** Check the stats of the patch
