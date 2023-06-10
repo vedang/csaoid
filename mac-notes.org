@@ -256,7 +256,17 @@ Confirm installation by running ~java -version~
 - Clone https://github.com/vedang/emacs-up to ~.emacs.d~
 - Clone https://github.com/cask/cask to ~.cask~ in order to run cask based tests
 - Symlink my  ~personal.el~ file and ~common.el~ file from private dotfiles into ~.emacs.d~
+** Mac: Install tree-sitter and add support to Emacs
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 16:42]
+:ID:       F60A7521-F82E-4C02-A680-2D3E330B7076
+:END:
+I am following the instructions mentioned here: https://www.masteringemacs.org/article/how-to-get-started-tree-sitter
 
+1. Installing Emacs: The step above this already installs emacs with ~tree-sitter~ support enabled on the latest master.
+2. Installing Tree-Sitter: I installed ~tree-sitter~ from source, as explained in the link above. (I mean, it's the standard way to install anything, very straightforward)
+
+These notes are now captured in detail in the README of my ~.emacs.d~ folder: [[id:4963A703-468F-4BA9-B680-590BCFBD36C0][Using Tree Sitter with emacs-up]]
 ** Mac: Install pip and python packages
 #+begin_src sh :eval no
   pip3 install Pygments concentration
