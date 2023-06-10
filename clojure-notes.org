@@ -1,0 +1,13 @@
+:PROPERTIES:
+:CREATED:  [2023-05-27 Sat 10:20]
+:ID:       88C27750-E66D-41B2-A7FD-46EDB7D687E1
+:END:
+#+title: Notes on using Clojure
+#+filetags:  clojure
+
+* Meta notes                                                       :noexport:
+:PROPERTIES:
+:CREATED:  [2023-05-27 Sat 10:21]
+:ID:       53205B7E-7255-4161-88FD-0178C3D7C7F5
+:END:
+I have been programming Clojure for 13 years as of this point in time. Why the hell did I not create a cheat sheet for Clojure before this?
