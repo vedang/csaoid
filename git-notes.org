@@ -551,6 +551,7 @@ The aim here is to inform another author of your public repository, what they ca
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:20]
 :ID:       2bcd3a87-a4a2-4a8a-9c14-e0ea7db787b7
+:DENOTELINK: [[denote:20220321T132000][Adding another repository as a submodule]]
 :END:
    #+begin_src shell-script :eval no
      git submodule add path_to_git_repo local_dir &&
@@ -562,8 +563,9 @@ The aim here is to inform another author of your public repository, what they ca
 
 ** Pulling from the remote and updating a submodule
 :PROPERTIES:
-:CREATED:  [2022-03-21 Mon 13:20]
+:CREATED:  [2022-03-21 Mon 13:22]
 :ID:       1686bf54-34e6-44e3-8e72-92a04b0428c8
+:DENOTELINK: [[denote:20220321T132200][Pulling from the remote and updating a submodule]]
 :END:
 - Git submodule update keeps the submodule in headless state. When you
   want to bring the submodule up-to-date, remember to checkout to a
@@ -582,17 +584,19 @@ The aim here is to inform another author of your public repository, what they ca
 
 ** Getting all the submodules in a repository while cloning it
 :PROPERTIES:
-:CREATED:  [2022-03-21 Mon 13:20]
+:CREATED:  [2022-03-21 Mon 13:24]
 :ID:       5dfd698b-99b5-4241-8066-bf322287fa36
+:DENOTELINK: [[denote:20220321T132400][Getting all the submodules in a repository while cloning it]]
 :END:
-   #+begin_src shell-script :eval no
-     git clone --recursive <path-to-remote-repo>
-   #+end_src
+#+begin_src shell-script :eval no
+  git clone --recursive <path-to-remote-repo>
+#+end_src
 
 ** Deleting a Submodule
 :PROPERTIES:
-:CREATED:  [2022-03-21 Mon 13:20]
+:CREATED:  [2022-03-21 Mon 13:25]
 :ID:       897ceec6-4ea9-4327-9c1c-fafc4ed873d7
+:DENOTELINK: [[denote:20220321T132500][Deleting a Submodule]]
 :END:
 1. Delete the relevant section from the =.gitmodules= file.
 2. Delete the relevant section from =.git/config=.
@@ -670,8 +674,13 @@ The aim here is to inform another author of your public repository, what they ca
 
 * Worktree (2.5+)
 :PROPERTIES:
-:CREATED:  [2022-03-21 Mon 13:20]
+:CREATED:  [2022-03-21 Mon 14:20]
 :ID:       b1435fef-b78d-4e57-9ec1-8ed06bb8a194
+:END:
+** Use Git Worktrees for working on multiple things in parallel
+:PROPERTIES:
+:CREATED:  [2022-03-21 Mon 14:20]
+:DENOTELINK: [[denote:20220321T142000][Use Git Worktrees for working on multiple things in parallel]]
 :END:
 Use Git Worktrees (2.5+) for working on multiple things in parallel. Suppose I want to run tests on the work I've done on ~feature/s~
 
@@ -701,6 +710,9 @@ Voila! I have a new directory with a new branch that is linked to my original re
 #+end_example
 
 ** List all existing git worktrees
+:PROPERTIES:
+:DENOTELINK: [[denote:20230713T173647][List all existing git worktrees]]
+:END:
 #+begin_src sh :eval no
   git worktree list
 #+end_src
@@ -709,6 +721,7 @@ Voila! I have a new directory with a new branch that is linked to my original re
 :CREATED:  [2022-06-20 Mon 16:31]
 :ID:       AF44377B-0096-4B34-AF36-DB8CB1995913
 :BRAIN_PARENTS: FEA65785-D5BF-4D8B-AF9F-C7759EB46A06
+:DENOTELINK: [[denote:20220620T163100][Using Joe Armstrong's method for re-writing from scratch with git-worktrees]]
 :END:
 1. Create the following folder structure to get started. For example, here we are developing the ~automerge-clj~ project.
    #+begin_src sh :eval no
@@ -718,21 +731,26 @@ Voila! I have a new directory with a new branch that is linked to my original re
      cd automerge-clj
      git init
    #+end_src
-2. In the step above, the ~clojure new~ command creates another ~automerge-clj~ directory inside our ~v1~ directory. This is going to be the master repo that will drive our prototyping.
-3. Now we make as many commits in ~automerge-clj/v1/automerge-clj~ as we want.
-4. Once we feel the need to start a new prototype
+2. In the step above, the =clojure new= command creates another ~automerge-clj~ directory inside our ~v1~ directory. This is going to be the master repo that will drive our prototyping.
+3. Create an Initial commit of the bare-minimum skeleton. This gives us a good starting point to come back to.
+4. Now we make as many commits in ~automerge-clj/v1/automerge-clj~ as we want.
+5. Once we feel the need to start a new prototype
    #+begin_src sh :eval no
      cd [work-dir]/automerge-clj/v1/automerge-clj
      git worktree add ../../v2
      cd ../../v2 # Here, git will have automatically created a new branch for us, called v2.
    #+end_src
-5. Unfortunately, ~git-worktree~ and ~git-checkout~ are not tied together well at this point, so we create a useless branch ~v2~ in this case. We need to create an orphaned branch at the starting point of the repo in order to start from scratch again.
-   #+begin_src sh :eval no
-     git checkout --orphan auto-v2  $(git rev-list HEAD | tail -n 1)
-     git rm -rf .
-   #+end_src
-6. At this point, we can either delete the ~v2~ branch or leave it dangling. In any case, we have a blank starting point to work from in the branch ~auto-v2~.
-7. Caveat: note that it's ~v1/automerge-clj/deps.edn~ (for example) vs just ~v2/deps.edn~. This is another gotcha I didn't bother working around.
+6. We need to create an orphaned branch at the starting point of the repo in order to start from scratch again. You can also do a =git reset --hard= with the rev-list command to start from a previous commit.
+   1. To start from scratch, discarding even the initial commit:
+      #+begin_src sh :eval no
+        git checkout --orphan auto-v2
+        git rm -rf .
+      #+end_src
+   2. To reset the current branch to a previous commit
+      #+begin_src sh :eval no
+        git reset --hard $(git rev-list HEAD | tail -n 1)
+      #+end_src
+7. Caveat: note that it's ~v1/automerge-clj/deps.edn~ (for example) vs just ~v2/deps.edn~. This is a gotcha but I don't bother working around it. I find I get used to it almost immediately.
 8. When done with prototypes, or when you want to clean up space, you can just
    #+begin_src sh :eval no
      # from the "main" v1/project directory
