@@ -346,3 +346,27 @@ Project Page: https://github.com/Shopify/toxiproxy
   brew tap shopify/shopify
   brew install toxiproxy
 #+end_src
+** Mac: Install awscli and rclone
+These are important tools for cloud storage management. Both need setup management.
+
+#+begin_src sh :eval no
+  brew install awscli
+#+end_src
+For AWS CLI config, run ~aws configure sso~ to create a profile that you can use for all other AWS commands.
+
+For rclone setup, refer to https://rclone.org/install/ and install the pre-compiled binary using curl
+#+begin_src sh :eval no
+  cd && \
+      curl -O https://downloads.rclone.org/rclone-current-osx-amd64.zip && \
+      unzip -a rclone-current-osx-amd64.zip && \
+      cd rclone-*-osx-amd64
+#+end_src
+
+#+begin_src sh :eval no
+  sudo mkdir -p /usr/local/bin && \
+      sudo mv rclone /usr/local/bin/
+#+end_src
+#+begin_src sh :eval no
+  cd .. && rm -rf rclone-*-osx-amd64 rclone-current-osx-amd64.zip
+#+end_src
+Run ~rclone config~ for setting up the necessary configuration
