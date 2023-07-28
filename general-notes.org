@@ -210,7 +210,9 @@ To slow it down 4 times, use ~"setpts=4*PTS"~
 - ~ss~ : starting point in the video, in seconds
 - ~t~  : duration of gif, in seconds
 - ~r~  : frame rate to use. here, 10 fps
-
+** Resize images using ffmpeg
+~ffmpeg -i 1.jpg -vf scale=480:-1 1_480.jpg~
+~ffmpeg -i 1.jpg -vf -qscale:v 5 1_qscale5.jpg~
 * nmap
 ** Scan for all devices connected to your network
 #+BEGIN_SRC shell
