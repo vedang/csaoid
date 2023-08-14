@@ -244,15 +244,12 @@ Confirm installation by running ~java -version~
 - Symlink ~notmuch/.notmuch-config~, ~.mbsyncrc~ and ~.msmtprc~ from private dotfiles to Home.
 - Symlink ~notmuch~ dir in private-dotfiles to ~<maildir>/.notmuch/hooks~
 
-** Mac: Install Emacs from jimeh
+** Mac: Install Emacs from EmacsForMacOSX
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       8e38eec9-c1df-4a8c-85f6-978cee261331
 :END:
-  #+begin_src sh :eval no
-    brew tap jimeh/emacs-builds
-    brew install emacs-app-good
-  #+end_src
+- Download and install the latest =nightly= from https://emacsformacosx.com/builds
 - Clone https://github.com/vedang/emacs-up to ~.emacs.d~
 - Clone https://github.com/cask/cask to ~.cask~ in order to run cask based tests
 - Symlink my  ~personal.el~ file and ~common.el~ file from private dotfiles into ~.emacs.d~
@@ -370,3 +367,9 @@ For rclone setup, refer to https://rclone.org/install/ and install the pre-compi
   cd .. && rm -rf rclone-*-osx-amd64 rclone-current-osx-amd64.zip
 #+end_src
 Run ~rclone config~ for setting up the necessary configuration
+
+* Mac: Install Iosevka font
+#+begin_src sh :eval no
+  brew tap homebrew/cask-fonts && brew install font-iosevka
+
+#+end_src
