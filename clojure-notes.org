@@ -11,3 +11,15 @@
 :ID:       53205B7E-7255-4161-88FD-0178C3D7C7F5
 :END:
 I have been programming Clojure for 13 years as of this point in time. Why the hell did I not create a cheat sheet for Clojure before this?
+
+* deps.edn
+** Convert a Clojure project from project.clj to deps.edn using lein2deps
+:PROPERTIES:
+:DENOTE: [[denote:20230821T103054]]
+:END:
+Run this command at the top-level of the project:
+
+#+begin_src sh :eval no
+  bb -Sdeps '{:deps {io.github.borkdude/lein2deps {:git/sha "6e192440c979e2c07c5855f9680b8f0350f42b63"}}}' \
+     -m lein2deps.api --print --write-file deps.edn
+#+end_src
