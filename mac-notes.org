@@ -171,11 +171,6 @@ Follow the instructions below to install Rust and Rust based CLI tools.
   #+begin_src sh :eval no
     cargo install git-delta ripgrep du-dust exa zoxide fd-find procs bat tokei sd hyperfine tealdeer choose broot sqlx-cli
   #+end_src
-- Install ~rust-analyzer~ for Rust LSP
-  #+begin_src sh :eval no
-    git clone https://github.com/rust-analyzer/rust-analyzer.git && cd rust-analyzer
-    cargo xtask install --server
-  #+end_src
 
 ** Mac: Install Go and Go based CLI Tools
 :PROPERTIES:
