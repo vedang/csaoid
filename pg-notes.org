@@ -1,4 +1,9 @@
 
 * Basics
-** Dropping a PG Table
-   - DROP TABLE [ IF EXISTS ]  <table_name> [, ...] [ CASCADE | RESTRICT ]
+** Create a database in PG
+- Connect to =psql=
+- Run =CREATE DATABASE dbname;=
+- Run =\c dbname= to switch to that database
+
+** Drop a Table in PG
+DROP TABLE [ IF EXISTS ]  <table_name> [, ...] [ CASCADE | RESTRICT ]
