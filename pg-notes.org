@@ -1,9 +1,29 @@
 
 * Basics
 ** Create a database in PG
+:PROPERTIES:
+:CREATED:  [2023-09-07 Thu 18:43]
+:ID:       C104DE53-F204-48F7-BC60-5C05574B9AE1
+:END:
 - Connect to =psql=
 - Run =CREATE DATABASE dbname;=
 - Run =\c dbname= to switch to that database
 
 ** Drop a Table in PG
+:PROPERTIES:
+:CREATED:  [2023-09-07 Thu 18:43]
+:ID:       D5EB5A86-EC16-47F5-BBD7-D578ED2365F0
+:END:
 DROP TABLE [ IF EXISTS ]  <table_name> [, ...] [ CASCADE | RESTRICT ]
+
+** Dump and Restore using plain-text files
+Take a dump of the production PG (note that the order of tables is important):
+=pg_dump --host localhost --port 15432 --username my_prod_user --format plain --verbose --file "magiclinks_dump" --no-owner --table public.students --table public.links my_prod_db=
+
+The data will be restored in the same order as the dump, so make sure that dependent tables are dumped later than primary tables.
+
+Restore in the local PG:
+=psql "postgres://localhost/my_local_db?sslmode=disable" < magiclinks_dump=
+
+Restore in production PG:
+=psql "postgres://my_prod_user:password@localhost:15432/my_prod_db?sslmode=disable" < magiclinks_dump=
