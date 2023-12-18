@@ -17,13 +17,26 @@
 DROP TABLE [ IF EXISTS ]  <table_name> [, ...] [ CASCADE | RESTRICT ]
 
 ** Dump and Restore using plain-text files
-Take a dump of the production PG (note that the order of tables is important):
-=pg_dump --host localhost --port 15432 --username my_prod_user --format plain --verbose --file "magiclinks_dump" --no-owner --table public.students --table public.links my_prod_db=
+
+*** Take a dump of the production PG (note that the order of tables is important):
+**** Take a dump in plain format
+=pg_dump --host localhost --port 15432 --username my_prod_user --format plain --verbose --file "magiclinks_dump" --no-owner --no-acl --table public.students --table public.links my_prod_db=
 
 The data will be restored in the same order as the dump, so make sure that dependent tables are dumped later than primary tables.
 
-Restore in the local PG:
+**** Take a dump in custom format
+=pg_dump --host localhost --port 15432 --username my_prod_user --format custom --verbose --file "20231205T190710--data-dump.sql" --no-owner --no-acl my_prod_db=
+
+*** Restore in the local PG:
 =psql "postgres://localhost/my_local_db?sslmode=disable" < magiclinks_dump=
 
-Restore in production PG:
+*** Restore in production PG:
 =psql "postgres://my_prod_user:password@localhost:15432/my_prod_db?sslmode=disable" < magiclinks_dump=
+
+*** Restore using pg_restore
+=pg_restore --dbname "postgres://localhost:5432/prod_sushant" --format custom --no-owner --no-acl "20231205T190710--prod-data-dump.sql"=
+
+** Drop a database in PG
+- =\l= to list all the databases
+- =\c= to connect to a *different* database than the one I want to drop
+- =DROP DATABASE dbname;= to drop the database
