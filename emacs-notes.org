@@ -185,6 +185,7 @@ Once compilation was successful, I extracted the ~.tbz~ file created under ~buil
 :PROPERTIES:
 :CREATED:  [2021-04-22 Thu 22:07]
 :ID:       df417075-8e47-4abe-905b-acd8866c494f
+:Denote:   [[denote:20210422T220700][Dired tips from ilemming]]
 :END:
 - All tips taken from https://twitter.com/search?lang=en&q=dired%20(from%3Ailemming)
 *** Show commits related to specific files                            :magit:
@@ -262,11 +263,21 @@ if you're still not convinced that Emacs is dope - stay tuned, I'll keep posting
 :PROPERTIES:
 :CREATED:  [2022-10-02 Sun 08:35]
 :ID:       FD5D2663-0E97-4243-AC29-D775F0C3B01E
+:Denote: [[denote:20221002T083500][Rename multiple files in Dired]]
 :END:
 - Use =wdired= for this.
 - Activate writable mode in Dired using =M-x dired-toggle-read-only= or =C-x C-q=
 - Make all the edits as you would in a normal buffer
 - Exit Wdired and commit the changes, using =C-x C-s= or =C-c C-c=
+** Move files from one directory to another in Dired
+:PROPERTIES:
+:CREATED:  [2023-12-29 Fri 11:22]
+:ID:       39CBDD64-6425-492F-B5A5-56272162B843
+:Denote: [[denote:20231229T112200][Move files from one directory to another in Dired]]
+:END:
+1. Open the target directory in Dired. Position the cursor on the =.= entry and copy the absolute path using =M-0 w=.
+2. Open the source directory in Dired. Mark all the files you want to move. Press =R= to trigger the move and paste the absolute path.
+3. Press Enter, done.
 * Emacs and SQL
 :PROPERTIES:
 :CREATED:  [2023-01-27 Fri 11:12]
