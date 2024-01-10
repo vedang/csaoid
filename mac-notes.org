@@ -169,7 +169,7 @@ Follow the instructions below to install Rust and Rust based CLI tools.
 - Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
 - Install all the tools I use
   #+begin_src sh :eval no
-    cargo install bat broot choose du-dust exa fd-find git-delta hyperfine procs ripgrep sd sqlx-cli tealdeer tokei vivid zoxide
+    cargo install atuin bat broot choose du-dust exa fd-find git-delta hyperfine procs ripgrep sd tealdeer tokei vivid zoxide
   #+end_src
 
 ** Mac: Install Go and Go based CLI Tools
