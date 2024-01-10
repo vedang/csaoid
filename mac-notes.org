@@ -184,7 +184,7 @@ Follow the instructions below to install Rust and Rust based CLI tools.
 - Install ~gopls~ (LSP) by following instructions in Go Wiki: https://pkg.go.dev/golang.org/x/tools/gopls#section-readme
 - Install Go CLI tools from ~brew~
   #+begin_src sh :eval no
-    brew install gron
+    brew install dbmate gron
   #+end_src
 
 ** Mac: Install tmux-tpm from source
