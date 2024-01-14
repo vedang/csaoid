@@ -3,18 +3,20 @@
 :ID:       1518f569-dbda-4abd-a1bb-39856423d5f5
 :END:
 #+title: Tips and Tricks on MacOS
-* Change the Lock Screen Keyboard Shortcut
+* Change the Lock Screen Keyboard Shortcut on your Mac
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       74e093a7-5b6d-4c16-af36-b37933d760fe
 :END:
+- Why? Because the default lock screen keyboard shortcut interferes with important Emacs key-bindings
 - Launch System Preferences and go to the Keyboard pane.
 - Select the 'Keyboard Shortcuts' tab.
 - From the list on the left, select 'Application Shortcuts'.
 - Click on the plus (+) button below to add your new shortcut.
 - In the dialog box we'll want to leave 'All Applications' selected in the first menu. Enter 'Lock Screen' as the Menu Title. Please note this has to be exactly the same name you entered when saving the service in Automator. Finally, enter your keyboard shortcut. Let's go with Option+Shift+Q
 - Click Add and you're all done!
-* Turn the wifi on/off from the terminal
+
+* Turn the wifi on/off from the terminal on your Mac
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       f06189ab-092c-42c0-a96c-b2a217633bd2
@@ -26,7 +28,8 @@
       # Turn the wifi on
       networksetup -setairportpower en0 on # or off
     #+end_src
-* Check if your machine is overheating
+
+* Check if your Mac machine is overheating
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       d0b7c3e0-b545-4150-a731-bebe0e549dc7
@@ -34,7 +37,8 @@
   #+begin_src sh :eval no
     pmset -g thermlog
   #+end_src
-* Using secrets in shell scripts and config files
+
+* Storing and Using secrets in shell scripts and config files on MacOSX
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:11]
 :ID:       3fa0dfe5-53ba-47c7-a19d-ef3bdfbb9940
@@ -94,7 +98,7 @@ To load secrets, you can now create a function in your script as follows:
     brew install ledger podman skopeo pinentry-mac starship gnu-sed gnupg coreutils dog pandoc fzf ffmpeg qpdf zig fossil
   #+end_src
   #+begin_src sh :eval no
-    brew install --cask discord brave-browser keepassxc ripcord tresorit whatsapp mactex iterm2 signal zulip obsidian transmission vlc loom notion macfuse
+    brew install --cask discord keepassxc tresorit whatsapp mactex iterm2 signal zulip transmission vlc macfuse
   #+end_src
 
 *** Ubuntu: Install the basics for getting started with anything else
@@ -306,16 +310,16 @@ CLOSED: [2022-03-29 Tue 10:32]
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       ecae10ce-f843-4315-9b56-e32961acd5f7
 :END:
-- ~brew install awscli~
-- ~awscli configure~
-- ~aws ecr get-login-password --region us-east-1 | podman login --username AWS --password-stdin <ecr-bucket>~
+- =brew install awscli=
+- =awscli configure=
+- =aws ecr get-login-password --region us-east-1 | podman login --username AWS --password-stdin <ecr-bucket>=
 
 ** Mac: Install tarsnap for setting up backup
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       e31877fe-10da-4ca7-9b57-188515d8bfc3
 :END:
-- ~brew install openssl~
+- =brew install openssl=
 - Follow instructions on the tarsnap site for compilation
 
 ** Mac: Install Alfred
@@ -366,5 +370,4 @@ Run ~rclone config~ for setting up the necessary configuration
 * Mac: Install Iosevka font
 #+begin_src sh :eval no
   brew tap homebrew/cask-fonts && brew install font-iosevka
-
 #+end_src
