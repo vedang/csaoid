@@ -284,14 +284,23 @@ These notes are now captured in detail in the README of my ~.emacs.d~ folder: [[
   brew install yt-dlp
 #+end_src
 
-** Mac: Install nvm, node, npm, and npx
-- Note that NVM version might have upgraded, so check the website! There is no better way at the moment.
+** Mac: Install tooling for Node and Javascript
+- Install =nvm=, which gives us node, npm, and npx at project level
+  + Note that NVM version might have upgraded, so check the website! There is no better way at the moment.
 #+begin_src sh :eval no
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
   nvm install node
   nvm install-latest-npm
 #+end_src
-
+- Install =node= at the system level, so that we can use tooling like language servers for JS / NPM based languages.
+  #+begin_src sh :eval no
+  brew install node
+  #+end_src
+** Mac: Install elm and tools for elm
+1. Install elm: =brew install elm=
+2. Install elm tooling:
+   1. =npm install -g @elm-tooling/elm-language-server=
+   2. =npm install -g elm-format=
 ** CANCELLED Mac: Install Jenv                                   :noexport:cancelled:
 CLOSED: [2022-03-29 Tue 10:32]
 :PROPERTIES:
