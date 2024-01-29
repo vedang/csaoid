@@ -269,7 +269,10 @@ These notes are now captured in detail in the README of my ~.emacs.d~ folder: [[
 #+end_src
 - ~Pygments~ provides source code highlighting in ~org-exports~
 - ~concentration~ is useful for blocking distractions when working.
-
+#+begin_src sh :eval no
+  brew install poetry
+#+end_src
+- Use ~poetry~ as the default venv wrapper for all python work
 ** Mac: Install pympress for PDF based presentations
 #+begin_src sh :eval no
   # Doesn't need other packages because they have been previously installed
