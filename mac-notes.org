@@ -227,13 +227,10 @@ Follow the instructions below to install ~tpm~ : The ~tmux~ plugin manager
 :ID:       b2ddefdf-390a-4e5a-aa92-c82eaa5013c3
 :END:
 #+begin_src sh :eval no
-  brew install java visualvm mvn
+  brew tap homebrew/cask-versions
+  brew install --cask temurin21
+  brew install visualvm mvn
 #+end_src
-~java~ needs to be symlinked when installed from ~brew~:
-#+begin_src sh :eval no
-  sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-#+end_src
-Confirm installation by running ~java -version~
 
 ** Mac: Setup email via notmuch
 - Install notmuch deps manually
