@@ -281,7 +281,7 @@ These notes are now captured in detail in the README of my ~.emacs.d~ folder: [[
   brew install yt-dlp
 #+end_src
 
-** Mac: Install tooling for Node and Javascript
+** Mac: Install tooling for Javascript
 - Install =nvm=, which gives us node, npm, and npx at project level
   + Note that NVM version might have upgraded, so check the website! There is no better way at the moment.
 #+begin_src sh :eval no
@@ -292,6 +292,10 @@ These notes are now captured in detail in the README of my ~.emacs.d~ folder: [[
 - Install =node= at the system level, so that we can use tooling like language servers for JS / NPM based languages.
   #+begin_src sh :eval no
   brew install node
+  #+end_src
+- Install =bun= at the system level, to use instead of =node=. I will try this out and in the future might remove the above step altogether.
+  #+begin_src sh :eval no
+  brew tap oven-sh/bun && brew install bun
   #+end_src
 ** Mac: Install elm and tools for elm
 1. Install elm: =brew install elm=
