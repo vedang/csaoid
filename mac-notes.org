@@ -380,7 +380,8 @@ For rclone setup, refer to https://rclone.org/install/ and install the pre-compi
 #+end_src
 Run ~rclone config~ for setting up the necessary configuration
 
-* Mac: Install Iosevka font
+** Mac: Install Iosevka font
 #+begin_src sh :eval no
   brew tap homebrew/cask-fonts && brew install font-iosevka
 #+end_src
+@TODO: Add instructions on how to install https://github.com/protesilaos/iosevka-comfy
