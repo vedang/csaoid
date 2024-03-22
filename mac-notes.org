@@ -173,7 +173,7 @@ Follow the instructions below to install Rust and Rust based CLI tools.
 - Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
 - Install all the tools I use
   #+begin_src sh :eval no
-    cargo install atuin bat broot choose du-dust exa fd-find git-delta hyperfine procs ripgrep sd tagref tealdeer tokei vivid zoxide
+  cargo install atuin bat broot choose du-dust exa fd-find git-delta hyperfine procs ripgrep sd tagref tealdeer tokei vivid zoxide
   #+end_src
 
 ** Mac: Install Go and Go based CLI Tools
@@ -183,12 +183,12 @@ Follow the instructions below to install Rust and Rust based CLI tools.
 :END:
 - Install ~golang~ from ~brew~
   #+begin_src sh :eval no
-    brew install golang
+  brew install golang
   #+end_src
 - Install ~gopls~ (LSP) by following instructions in Go Wiki: https://pkg.go.dev/golang.org/x/tools/gopls#section-readme
 - Install Go CLI tools from ~brew~
   #+begin_src sh :eval no
-    brew install dbmate gron
+  brew install dbmate gron
   #+end_src
 
 ** Mac: Install tmux-tpm from source
@@ -202,7 +202,7 @@ Follow the instructions below to install ~tpm~ : The ~tmux~ plugin manager
 - Symlink ~.tmux.conf~ to home dir
 - Clone the ~tmux-tpm~ repo
   #+begin_src sh :eval no
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   #+end_src
 - Execute ~C-b I~ inside tmux once to install all the plugins
 
@@ -235,7 +235,7 @@ Follow the instructions below to install ~tpm~ : The ~tmux~ plugin manager
 ** Mac: Setup email via notmuch
 - Install notmuch deps manually
   #+begin_src sh :eval no
-    brew install xapian gmime talloc zlib notmuch msmtp isync
+  brew install xapian gmime talloc zlib notmuch msmtp isync
   #+end_src
 - Symlink ~notmuch/.notmuch-config~, ~.mbsyncrc~ and ~.msmtprc~ from private dotfiles to Home.
 - Symlink ~notmuch~ dir in private-dotfiles to ~<maildir>/.notmuch/hooks~
