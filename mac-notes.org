@@ -73,6 +73,11 @@ To load secrets, you can now create a function in your script as follows:
   }
 #+end_src
 
+* Homebrew Tips and Tricks
+Denote file at: [[denote:20240330T203426][Homebrew tips and tricks]]
+** To see which installed packages use a certain package
+=brew uses --installed xz=
+
 * My personal Operating System setup from scratch for macOS Monterey
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
