@@ -317,11 +317,11 @@ CLOSED: [2022-03-29 Tue 10:32]
 - State "CANCELLED"  from              [2022-03-29 Tue 10:32] \\
   I don't use jenv anymore. Please go through [[file:jvm-notes.txt]] for details on how to maintain / switch between different versions of Java
 :END:
-  - Install jenv from : https://github.com/jenv/jenv
-  - Follow the instructions above to install it. The instructions
-    contain Mac specific information on how to install multiple
-    versions of java.
-  - List all installed versions with =jenv versions=
+- Install jenv from : https://github.com/jenv/jenv
+- Follow the instructions above to install it. The instructions
+  contain Mac specific information on how to install multiple
+  versions of java.
+- List all installed versions with =jenv versions=
 
 ** Mac: Install AWS CLI for accessing ECR
 :PROPERTIES:
