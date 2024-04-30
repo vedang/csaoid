@@ -103,7 +103,7 @@ Denote file at: [[denote:20240330T203426][Homebrew tips and tricks]]
     brew install ledger hledger podman skopeo pinentry-mac starship gnu-sed gnupg gnuplot coreutils dog pandoc fzf ffmpeg qpdf zig fossil
   #+end_src
   #+begin_src sh :eval no
-    brew install --cask discord keepassxc tresorit whatsapp mactex iterm2 signal zulip transmission vlc macfuse
+    brew install --cask discord iterm2 keepassxc macfuse mactex racket signal transmission tresorit vlc whatsapp zulip
   #+end_src
 
 *** Ubuntu: Install the basics for getting started with anything else
