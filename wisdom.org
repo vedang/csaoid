@@ -11,41 +11,6 @@
 * COMMENT Notes on exporting
 Each entry is separately tagged with ~wisdom~, instead of using ~#+filetags: wisdom~, because tag inheritance is not supported in ~ox-neuron~ yet. When I fix it, I will do the sensible thing and add a filetag.
 
-
-
-* DONE Rob Pike: Rules of Programming                    :wisdom:programming:
-CLOSED: [2018-06-12 Tue 10:05]
-:PROPERTIES:
-:url:      https://users.ece.utexas.edu/~adnan/pike.html
-:EXPORT_HUGO_ALIASES: /notes/rob-pike-rules/
-:EXPORT_HUGO_SLUG: rob-pike-rules
-:EXPORT_HUGO_CATEGORIES: notes
-:CREATED:  [2022-07-04 Mon 10:06]
-:ID:       68AF79A6-CC97-4747-A253-A60C4CF3D5AD
-:END:
-:LOGBOOK:
-- State "DONE"       from              [2022-07-04 Mon 10:05]
-:END:
-
-/Snippet from: [[https://www.lysator.liu.se/c/pikestyle.html][Notes on C Programming]]/
-
-- *No Speed Hacks* : You can't tell where a program is going to spend its time. Bottlenecks occur in surprising places, so don't try to second guess and put in a speed hack until you've proven that's where the bottleneck is.
-
-- *Measure before tuning* : Don't tune for speed until you've measured, and even then don't unless one part of the code overwhelms the rest.
-
-- *No Fancy Algorithms* : Fancy algorithms are slow when n is small, and n is usually small. Fancy algorithms have big constants. Until you know that n is frequently going to be big, don't get fancy. (Even if n does get big, use Rule 2 first.)
-
-- *Use Simple Data Structures* : Fancy algorithms are buggier than simple ones, and they're much harder to implement. Use simple algorithms as well as simple data structures.
-
-- *Data Dominates* : If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.
-
-** Notes on the Rules                                              :noexport:
-- Rules 1 and 2 restate Tony Hoare's famous maxim "Premature optimization is the root of all evil."
-- Ken Thompson rephrased Rules 3 and 4 as "When in doubt, use brute force."
-- Rules 3 and 4 are instances of the design philosophy KISS.
-- Rule 5 was previously stated by Fred Brooks in The Mythical Man-Month. Rule 5 is often shortened to "write stupid code that uses smart objects".
-  + Fred Brooks: "Show me your flow charts and conceal your tables and I shall continue to be mystified, show me your tables and I won't usually need your flow charts; they'll be obvious".
-
 * DONE Gene Kim: The Five Ideals of DevOps                    :wisdom:devops:
 CLOSED: [2020-08-09 Sun 10:07]
 :PROPERTIES:
