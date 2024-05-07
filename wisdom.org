@@ -11,29 +11,7 @@
 * COMMENT Notes on exporting
 Each entry is separately tagged with ~wisdom~, instead of using ~#+filetags: wisdom~, because tag inheritance is not supported in ~ox-neuron~ yet. When I fix it, I will do the sensible thing and add a filetag.
 
-* DONE Gene Kim: The Three Ways of doing excellent Work :engineering_management:wisdom:
-CLOSED: [2020-08-11 Tue 10:09]
-:PROPERTIES:
-:citation: The Phoenix Project
-:EXPORT_HUGO_SLUG: gene-kim-the-three-ways
-:EXPORT_HUGO_CATEGORIES: notes
-:EXPORT_HUGO_ALIASES: /notes/gene-kim-the-three-ways/
-:CREATED:  [2022-07-04 Mon 10:11]
-:ID:       1464672D-75FA-4E9A-9388-7255722AA32C
-:END:
-:LOGBOOK:
-- State "DONE"       from              [2022-07-04 Mon 10:09]
-:END:
-
-/Snippet from: [[https://www.amazon.in/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B078Y98RG8/][The Phoenix Project]], along with my own notes/
-
-- *Flow* : Maximizing the rate of flow of work is the key to success. Limiting the work in progress is the fastest way to achieve Flow.
-
-- *Fast Feedback* : Setup systems to get fast feedback at every stage of work, from concept through shipping to maintaining in production.
-
-- *Experimentation and Learning* : Keep dedicated time for experiments, at every level of the company. A culture of innovation is necessary for achieving and maintaining Flow and Feedback.
-
-* DONE Gene Kim: The Four Types of Work          :engineering_management:wisdom:
+* DONE Gene Kim: The Four Types of Work :engineering_management:wisdom:
 CLOSED: [2020-08-11 Tue 10:11]
 :PROPERTIES:
 :citation: The Phoenix Project
