@@ -11,41 +11,6 @@
 * COMMENT Notes on exporting
 Each entry is separately tagged with ~wisdom~, instead of using ~#+filetags: wisdom~, because tag inheritance is not supported in ~ox-neuron~ yet. When I fix it, I will do the sensible thing and add a filetag.
 
-
-
-* DONE L Peter Deutsch: The Fallacies of Distributed Computing :distributed_systems:wisdom:
-CLOSED: [2020-08-11 Tue 10:15]
-:PROPERTIES:
-:url:      https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
-:EXPORT_HUGO_SECTION: notes
-:EXPORT_HUGO_SLUG: l-peter-deutsch-the-fallacies-of-distributed-computing
-:EXPORT_HUGO_ALIASES: /notes/l-peter-deutsch-the-fallacies-of-distributed-computing
-:EXPORT_HUGO_CATEGORIES: notes
-:CREATED:  [2022-07-04 Mon 10:15]
-:ID:       D8B35F2D-9055-4C90-9742-818363F0F787
-:END:
-:LOGBOOK:
-- State "DONE"       from              [2022-07-04 Mon 10:15]
-:END:
-
-/Snippet from: [[https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing][The Wikipedia Article]], along with my own notes/
-
-- *The network is reliable* : Think about error-handling on network failures. Use the following patterns: Timeouts, Retries, Circuit breakers, Graceful Degradation.
-
-- *Latency is zero* : Think about bandwidth requirements and packet loss. Use the following patterns: Small payloads, Compression, Asynchronous Communication, Perceived Progress, Timeouts, Graceful Degradation.
-
-- *Bandwidth is infinite* : The same as above. Think explicitly about bottlenecks in Network traffic. Use the following patterns: Caching, Etags.
-
-- *The network is secure* : Think about encryption, compliance, data risk. Understand the trade-offs with speed and simplicity. Prioritize security over the network for any sensitive data.
-
-- *Topology doesn't change* : Think about local state, tolerance for staleness, co-ordination overheads, recovery mechanisms for split brains, inability to reach endpoints.
-
-- *There is one administrator* : Remember to test the end-to-end flow and think through production components not controlled by you.
-
-- *Transport cost is zero* : Think through data transfer costs in cloud environments. Monitor payload sizes.
-
-- *The network is homogeneous* : Think about connection drops, reconnects, client timeouts. Use the following patterns: Idempotency, Eventual Consistency
-
 * DONE Nicole Forsgren: The Four Key Metrics of High Performance :devops:wisdom:engineering_management:
 CLOSED: [2022-08-19 Fri 16:07]
 :PROPERTIES:
