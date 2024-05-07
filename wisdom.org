@@ -11,27 +11,6 @@
 * COMMENT Notes on exporting
 Each entry is separately tagged with ~wisdom~, instead of using ~#+filetags: wisdom~, because tag inheritance is not supported in ~ox-neuron~ yet. When I fix it, I will do the sensible thing and add a filetag.
 
-* DONE Nicole Forsgren: The Four Key Metrics of High Performance :devops:wisdom:engineering_management:
-CLOSED: [2022-08-19 Fri 16:07]
-:PROPERTIES:
-:CREATED:  [2022-08-12 Fri 14:43]
-:ID:       8535FA6B-900C-4D92-9FE9-8A9523547743
-:EXPORT_HUGO_SECTION: notes
-:EXPORT_HUGO_SLUG: nicole-forsgren-four-key-metrics-of-high-performance
-:EXPORT_HUGO_CATEGORIES: notes
-:END:
-:LOGBOOK:
-- State "DONE"       from              [2023-05-19 Fri 16:07]
-:END:
-/Snippet from [[https://itrevolution.com/book/accelerate/][Accelerate]]/
-
-- *Lead Time* : Length of time between when the code is committed and when it is deployed to production. Smaller is better.
-- *Mean Time to Recover* : Length of time from incident start to incident end. Smaller is better.
-- *Change Failure Rate* : Number of deployments to production that need hotfixes. Smaller is better.
-- *Deployment Frequency* : Number of times new code (not hotfixes) is deployed to production. Larger is better.
-
-Improving these metrics directly results in huge performance boosts for developer productivity.
-
 * DONE Marc Randolph: Rules for Success                         :wisdom:life:
 CLOSED: [2022-08-19 Fri 16:08]
 :PROPERTIES:
