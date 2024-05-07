@@ -11,32 +11,6 @@
 * COMMENT Notes on exporting
 Each entry is separately tagged with ~wisdom~, instead of using ~#+filetags: wisdom~, because tag inheritance is not supported in ~ox-neuron~ yet. When I fix it, I will do the sensible thing and add a filetag.
 
-* DONE Gene Kim: The Five Ideals of DevOps                    :wisdom:devops:
-CLOSED: [2020-08-09 Sun 10:07]
-:PROPERTIES:
-:citation: The Unicorn Project
-:EXPORT_HUGO_CATEGORIES: notes
-:EXPORT_HUGO_SLUG: gene-kim-the-five-ideals
-:EXPORT_HUGO_ALIASES: /notes/gene-kim-the-five-ideals/
-:CREATED:  [2022-07-04 Mon 10:09]
-:ID:       A8F4AE71-2C93-48B5-8EC7-CCDABCA994F3
-:END:
-:LOGBOOK:
-- State "DONE"       from              [2022-07-04 Mon 10:07]
-:END:
-
-/Snippet from: [[https://www.amazon.in/Unicorn-Project-Developers-Disruption-Thriving-ebook/dp/B07QT9QR41][The Unicorn Project]], along with my own notes/
-
-- *The First Ideal* : /*Locality and Simplicity*/. Build simple, decoupled systems that can iterate in isolation.
-
-- *The Second Ideal* : /*Focus, Flow and Joy*/. Work in small batches with fast and continuous feedback.
-
-- *The Third Ideal* : /*Improvement of Daily Work*/. Make sure that daily work can be done with minimum impediments. Prioritize productivity over everything else.
-
-- *The Fourth Ideal* : /*Psychological Safety*/. Solving problems requires preventing problems, which requires honesty, which requires the absence of fear.
-
-- *The Fifth Ideal* : /*Customer Focus*/. Build only that which actually matters to our customers.
-
 * DONE Gene Kim: The Three Ways of doing excellent Work :engineering_management:wisdom:
 CLOSED: [2020-08-11 Tue 10:09]
 :PROPERTIES:
