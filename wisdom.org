@@ -11,30 +11,7 @@
 * COMMENT Notes on exporting
 Each entry is separately tagged with ~wisdom~, instead of using ~#+filetags: wisdom~, because tag inheritance is not supported in ~ox-neuron~ yet. When I fix it, I will do the sensible thing and add a filetag.
 
-* DONE Doug McIlroy: the UNIX philosophy                 :wisdom:programming:
-CLOSED: [2018-06-12 Tue 10:01]
-:PROPERTIES:
-:citation: The Bell System Technical Journal. Bell Laboratories. M. D. McIlroy, E. N. Pinson, and B. A. Tague. “Unix Time-Sharing System Forward”. 1978. 57 (6, part 2). p. 1902.
-:url:      http://www.catb.org/~esr/writings/taoup/html/ch01s06.html
-:EXPORT_HUGO_CATEGORIES: notes
-:EXPORT_HUGO_ALIASES: /notes/doug-mcilroy-unix-philosophy/
-:EXPORT_HUGO_SLUG: doug-mcilroy-unix-philosophy
-:CREATED:  [2022-07-04 Mon 10:05]
-:ID:       67ACD533-832E-4E7D-A1B0-D666E504F61D
-:END:
-:LOGBOOK:
-- State "DONE"       from              [2022-07-04 Mon 10:01]
-:END:
 
-/Snippet from: [[https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html][The Art of Unix Programming]]/
-
-- *Make each program do one thing well*. To do a new job, build afresh rather than complicate old programs by adding new features.
-
-- *Expect the output of every program to become the input to another*, as yet unknown, program. Don't clutter output with extraneous information. Avoid stringently columnar or binary input formats. Don't insist on interactive input.
-
-- *Design and build software, even operating systems, to be tried early, ideally within weeks*. Don't hesitate to throw away the clumsy parts and rebuild them.
-
-- *Use tools in preference to unskilled help to lighten a programming task*, even if you have to detour to build the tools and expect to throw some of them out after you've finished using them.
 
 * DONE Rob Pike: Rules of Programming                    :wisdom:programming:
 CLOSED: [2018-06-12 Tue 10:05]
