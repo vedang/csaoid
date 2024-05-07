@@ -11,29 +11,6 @@
 * COMMENT Notes on exporting
 Each entry is separately tagged with ~wisdom~, instead of using ~#+filetags: wisdom~, because tag inheritance is not supported in ~ox-neuron~ yet. When I fix it, I will do the sensible thing and add a filetag.
 
-* DONE Marc Randolph: Rules for Success                         :wisdom:life:
-CLOSED: [2022-08-19 Fri 16:08]
-:PROPERTIES:
-:CREATED:  [2022-08-12 Fri 14:42]
-:ID:       48B7D59B-7F76-4C99-A9ED-F8AB4F1E3E45
-:EXPORT_HUGO_SECTION: notes
-:EXPORT_HUGO_SLUG: marc-randolph-rules-for-success
-:EXPORT_HUGO_CATEGORIES: notes
-:END:
-:LOGBOOK:
-- State "DONE"       from              [2023-05-19 Fri 16:08]
-:END:
-/Snippet from [[https://www.amazon.com/That-Will-Never-Work-Netflix/dp/0316530204][That Will Never Work]]/
-
-1. Do at least 10% more than you are asked.
-2. Never, ever, to anybody, present as fact opinions on things you don't know.
-3. Be courteous and considerate always - up and down.
-4. Don't knock, don't complain - stick to constructive, serious criticism.
-5. Don't be afraid to make decisions when you have the facts on which to make them.
-6. Quantify where possible.
-7. Be open-minded but skeptical.
-8. Be prompt.
-
 * DONE Yaron Minsky: Rules for Effective Programming     :programming:wisdom:
 CLOSED: [2023-05-26 Fri 19:42]
 :PROPERTIES:
