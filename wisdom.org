@@ -11,30 +11,6 @@
 * COMMENT Notes on exporting
 Each entry is separately tagged with ~wisdom~, instead of using ~#+filetags: wisdom~, because tag inheritance is not supported in ~ox-neuron~ yet. When I fix it, I will do the sensible thing and add a filetag.
 
-* DONE Gene Kim: The Four Types of Work :engineering_management:wisdom:
-CLOSED: [2020-08-11 Tue 10:11]
-:PROPERTIES:
-:citation: The Phoenix Project
-:EXPORT_HUGO_CATEGORIES: notes
-:EXPORT_HUGO_SLUG: gene-kim-the-four-types-of-work
-:EXPORT_HUGO_ALIASES: /notes/gene-kim-the-four-types/
-:CREATED:  [2022-07-04 Mon 10:11]
-:ID:       13EF26B9-E51E-49F4-99EE-57C62F5E20E1
-:END:
-:LOGBOOK:
-- State "DONE"       from              [2022-07-04 Mon 10:11]
-:END:
-
-/Snippet from: [[https://www.amazon.in/Phoenix-Project-DevOps-Helping-Business-ebook/dp/B078Y98RG8/][The Phoenix Project]], along with my own notes/
-
-- *Business Projects* : "Feature Work". This is the most visible type of work.
-
-- *Internal IT Projects* : Release Automation, QA Automation, Developer Tooling and other internal enablers. Mostly un-tracked and invisible, but crucial to long-term success.
-
-- *Updates and Changes* : Generally generated from above two categories of work. Introduces delay as breadth of existing surface area increases.
-
-- *Unplanned Work* : Fire-fighting at all levels of the company. Ruins planned work, so root causes need to be aggressively remediated.
-
 * DONE Tim Peters: The Python Way                                  :programming:wisdom:
 CLOSED: [2020-08-22 Sat 10:13]
 :PROPERTIES:
