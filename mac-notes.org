@@ -100,7 +100,7 @@ Denote file at: [[denote:20240330T203426][Homebrew tips and tricks]]
 - Install common packages from ~brew~, as mentioned in the section copied from my Ubuntu guide (pasted below)
 - After completing common package installation, install casks and packages specific to MacOS
   #+begin_src sh :eval no
-    brew install ledger hledger podman skopeo pinentry-mac starship gnu-sed gnupg gnuplot coreutils dog pandoc fzf ffmpeg qpdf zig fossil
+    brew install ledger hledger podman skopeo pinentry-mac starship gnu-sed gnupg gnuplot coreutils dog pandoc fzf ffmpeg qpdf zig fossil protobuf
   #+end_src
   #+begin_src sh :eval no
     brew install --cask discord iterm2 keepassxc macfuse mactex racket signal transmission tresorit vlc whatsapp zulip
