@@ -120,7 +120,7 @@ $ openssl enc -d -aes-256-cbc -a -in file.enc
 ** Recording a full desktop screencast
 :PROPERTIES:
 :URL:      https://www.howtogeek.com/446706/how-to-create-a-screencast-on-linux/
-:CREATED:  [2022-11-03 Thu 21:30]
+:CREATED:  [2022-11-03 Thu 21:35]
 :ID:       F90B1527-C0E2-41B5-AFC6-44FB8BBE090E
 :END:
 *** Identify the max screen resolution that your system can support
@@ -155,15 +155,35 @@ echo $DISPLAY
 
 ** Converting from flac to mp3
 :PROPERTIES:
-:CREATED:  [2022-11-03 Thu 21:30]
+:CREATED:  [2022-11-03 Thu 21:40]
 :ID:       7B559586-88C3-46FF-8366-F29E85593B20
 :END:
 #+BEGIN_SRC shell
   $ ffmpeg -i input.flac -ab 320k -map_metadata 0 -id3v2_version 3 output.mp3
 #+END_SRC
+
+** Convert a webm video to mp3 audio
+:PROPERTIES:
+:ID:       68FF9A6D-B1DA-49B4-9298-B43DBDB8D511
+:CREATED: [2024-11-20 Wed 19:47]
+:END:
+
+Youtube videos are downloaded as ~webm~. To keep only the audio:
+
+#+begin_src fish
+  ffmpeg -i in.mp4 -q:a 0 -map a out.mp3
+#+end_src
+
+#+begin_quote
+The better way to encode MP3 is to use -q:a for variable bit rate. 
+
+The q option can only be used with libmp3lame and corresponds to the LAME -V option. See Encoding VBR (Variable Bit Rate) mp3 audio: https://trac.ffmpeg.org/wiki/Encode/MP3
+
+#+end_quote
+
 ** Cutting parts of an mp3 file
 :PROPERTIES:
-:CREATED:  [2022-11-03 Thu 21:30]
+:CREATED:  [2022-11-03 Thu 21:45]
 :ID:       86E25318-962F-4391-9D76-3EBE68EE5B67
 :END:
 I needed to cut a 30 minute interview to only include the parts where Rani Maushi was being interviewed. ~ffmpeg~ solved the problem quickly.
@@ -188,6 +208,19 @@ I needed to cut a 30 minute interview to only include the parts where Rani Maush
   + https://superuser.com/a/1215832/69800 explains how to concatenate different mp3 files
   + https://stackoverflow.com/q/38996925/137430 Question and answers explain the nuances of using the ~concat~ demuxer. Related: https://trac.ffmpeg.org/wiki/Concatenate
   + https://stackoverflow.com/questions/40602706/batch-reduce-bitrate-and-size-of-mp3-audio-files-with-ffmpeg#comment115596578_40668427 on reducing the bitrate (and therefore the size) of the output file
+** Stitching the parts together to make a new mp3 file
+:PROPERTIES:
+:ID:       A34DF50D-0EEF-411D-9843-82489111D857
+:CREATED: [2024-11-21 Thu 10:45]
+:END:
+  + ~ffmpeg -f concat -i parts.txt -c copy new_file.mp3~
+  + ~interview_parts.txt~ was in the same folder and contained the following:
+    #+begin_example
+      file 01_part.mp3
+      file 02_part.mp3
+      file 03_part.mp3
+    #+end_example
+
 ** Speed up or slow down a video using ffmpeg
 :PROPERTIES:
 :CREATED:  [2023-03-16 Thu 15:36]
