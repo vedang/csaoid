@@ -111,8 +111,9 @@ Eg: (funcall #'equal :a :A) => nil
   (file-dependents (feature-file 'cl))
 #+end_src
 
-* Compiling and Running Emacs 28 on master branch (Ubuntu)
+* Compiling and Running the Emacs master branch on Ubuntu
 :PROPERTIES:
+:CREATED: [2021-11-27 Sat 09:55]
 :ID:       700381b6-78ef-4abb-9f68-6b514b5b83ba
 :END:
 ** Set up the prerequisite libraries
@@ -130,15 +131,18 @@ This command is created by:
 #+end_src
 ** Run the installation commands from inside Emacs source directory
 :PROPERTIES:
-:CREATED:  [2021-11-27 Sat 09:56]
+:CREATED:  [2021-11-27 Sat 10:00]
 :ID:       e7f2e40a-8df2-48ce-9311-fcd086e5f81a
 :END:
-#+begin_src shell-script
+
+Note: if you are doing this for the first time, you need to run =./autogen.sh= as the first command. This command creates the ~configure~ script and various Makefiles, which we use in the next commands.
+
+#+begin_src fish
   make distclean
   ./autogen.sh
-  ./configure --with-imagemagick --with-json --with-native-compilation --with-xft --with-xwidgets --with-pgtk
+  ./configure --with-imagemagick --with-json --with-native-compilation --with-xft --with-xwidgets --with-pgtk --with-tree-sitter
   # Alternative configure command:
-  ./configure --without-toolkit-scroll-bars --with-x-toolkit=gtk3 --with-xpm=ifavailable --with-jpeg=ifavailable --with-gif=ifavailable --with-tiff=ifavailable --with-xml2 --with-rsvg --without-pop --with-png --with-mailutils --with-native-compilation --with-cairo --with-harfbuzz
+  ./configure --without-toolkit-scroll-bars --with-x-toolkit=gtk3 --with-xpm=ifavailable --with-jpeg=ifavailable --with-gif=ifavailable --with-tiff=ifavailable --with-xml2 --with-rsvg --without-pop --with-png --with-mailutils --with-native-compilation --with-cairo --with-harfbuzz --with-tree-sitter --with-sqlite3
   # If everything works
   make bootstrap
   # If everything works
@@ -148,6 +152,12 @@ This command is created by:
   # Install the binary
   sudo make install
 #+end_src
+
+Notes:
+1. There is no ~Makefile~ before you run ~autogen.sh~ for the first time.
+2. You need to install ~libgccjit-<x>-dev~ where ~<x>~ is your gcc version. =gcc --version=. (for native compilation support)
+3. You need to install ~libtree-sitter-dev~ (for tree-sitter support)
+
 * Compiling and Running Emacs 29 on master branch (Mac)
 :PROPERTIES:
 :ID:       375BA0A4-6D52-4CDC-873B-1D0BBCE35682
