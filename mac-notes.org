@@ -390,3 +390,14 @@ Run ~rclone config~ for setting up the necessary configuration
   brew tap homebrew/cask-fonts && brew install font-iosevka
 #+end_src
 @TODO: Add instructions on how to install https://github.com/protesilaos/iosevka-comfy
+
+** Mac: Install llm from Simon Willson for CLI interaction with large language models
+#+begin_src fish
+  brew install llm
+#+end_src
+
+To make ~llm~ really powerful, also do the following:
+
+1. ~llm install llm-gemini~ (for Gemini model support)
+2. ~llm install llm-claude-3~ (for Claude Sonnet support)
+3. ~llm install llm-ollama~ (for running against Local models)
