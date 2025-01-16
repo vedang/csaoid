@@ -401,3 +401,10 @@ To make ~llm~ really powerful, also do the following:
 1. ~llm install llm-gemini~ (for Gemini model support)
 2. ~llm install llm-claude-3~ (for Claude Sonnet support)
 3. ~llm install llm-ollama~ (for running against Local models)
+
+** Mac: Install espanso for convenient text-expansion outside Emacs
+
+#+begin_src fish
+  brew tap espanso/espanso;
+  brew install espanso;
+#+end_src
