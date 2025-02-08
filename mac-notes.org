@@ -177,8 +177,8 @@ Follow the instructions below to install Rust and Rust based CLI tools.
 *** Ubuntu: Install Rust and Rust based CLI tools
 - Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
 - Install all the tools I use
-  #+begin_src sh :eval no
-  cargo install atuin bat broot choose du-dust exa fd-find git-delta hyperfine procs ripgrep sd tagref tealdeer tokei vivid zoxide
+  #+begin_src fish :eval no
+    cargo install atuin bat broot choose du-dust exa fd-find git-delta hyperfine procs ripgrep sd tagref tealdeer tokei vivid vl-convert zoxide
   #+end_src
 
 ** Mac: Install Go and Go based CLI Tools
@@ -401,6 +401,11 @@ To make ~llm~ really powerful, also do the following:
 1. ~llm install llm-gemini~ (for Gemini model support)
 2. ~llm install llm-claude-3~ (for Claude Sonnet support)
 3. ~llm install llm-ollama~ (for running against Local models)
+
+** Mac: Install repomix for loading code into an llm
+#+begin_src fish
+  brew install repomix
+#+end_src
 
 ** Mac: Install espanso for convenient text-expansion outside Emacs
 
