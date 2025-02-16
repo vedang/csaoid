@@ -100,10 +100,10 @@ Denote file at: [[denote:20240330T203426][Homebrew tips and tricks]]
 - Install common packages from ~brew~, as mentioned in the section copied from my Ubuntu guide (pasted below)
 - After completing common package installation, install casks and packages specific to MacOS
   #+begin_src sh :eval no
-    brew install ledger hledger podman skopeo pinentry-mac starship gnu-sed gnupg gnuplot coreutils dog pandoc fzf ffmpeg qpdf zig fossil protobuf
+    brew install ledger hledger podman skopeo pinentry-mac starship gnu-sed gnupg gnuplot coreutils dog neofetch pandoc ffmpeg qpdf zig fossil protobuf
   #+end_src
   #+begin_src sh :eval no
-    brew install --cask discord iterm2 keepassxc macfuse mactex racket signal transmission tresorit vlc whatsapp zulip
+    brew install --cask discord docker iterm2 keepassxc macfuse mactex racket signal transmission tresorit vlc whatsapp zulip
   #+end_src
 
 *** Ubuntu: Install the basics for getting started with anything else
@@ -135,6 +135,15 @@ Follow the instructions below to set up my private dotfiles.
 :END:
 - Symlink ~.gitconfig~ and ~.gitattributes~ from my public ~dotfiles~ to the home dir.
 
+** Mac: Install fish shell
+#+begin_src fish
+  brew install fish
+#+end_src
+
+After installing ~fish~, install ~fisher~. Then install the following plugins:
+- ~fisher install jorgebucaran/fisher~
+- ~fisher install jorgebucaran/nvm.fish~
+- ~fisher install ilancosman/tide@v5~
 ** Mac: Install starship prompt
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
@@ -146,7 +155,7 @@ We have already installed it using ~brew~ in one of the steps above. Follow the 
 - Install the ~starship~ prompt from https://starship.rs/
 - Symlink ~starship.toml~ to ~/.config/~
 
-** Mac: Install zsh and  oh-my-zsh
+** COMMENT Mac: Install zsh and  oh-my-zsh
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       e2512189-4002-4b62-8de6-e45b871accf8
@@ -160,11 +169,6 @@ Follow the instructions below to install and configure ~zsh~
 - Symlink ~.zhsrc~, ~.zshenv~ to home dir.
 - Symlink ~personal.zsh~ in ~/.oh-my-zsh/custom/~ dir.
 
-** Mac: Install fish shell
-After installing ~fish~, install ~fisher~. Then install the following plugins:
-- ~fisher install jorgebucaran/fisher~
-- ~fisher install jorgebucaran/nvm.fish~
-- ~fisher install ilancosman/tide@v5~
 ** Mac: Install Rust and Rust based CLI tools
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
