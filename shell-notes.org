@@ -405,17 +405,18 @@ All of this put together means that I can download the exact 4 posts I want in t
     nc localhost 3000
   #+end_src
 
-* Ripgrep (rg) notes
+* Ripgrep (rg) notes :rg:
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:08]
 :ID:       8f578e20-8026-41fb-a7b7-708b68ee3301
 :END:
-** Searching in the entire dir, including in ignore files
+** Ripgrep: Searching in the entire dir, including in ignore files
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:08]
 :ID:       18490df6-8024-4e92-a472-28d13a9483ea
+:DENOTE: [[denote:20220321T130800][48=1  Ripgrep: Searching in the entire dir, including in ignore files]]
 :END:
-#+begin_src sh :eval no
+#+begin_src fish :eval no
   rg --no-ignore <text to search>
   rg -uu <text to search>
 #+end_src
