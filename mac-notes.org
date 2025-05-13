@@ -78,6 +78,17 @@ Denote file at: [[denote:20240330T203426][Homebrew tips and tricks]]
 ** To see which installed packages use a certain package
 =brew uses --installed xz=
 
+* Programming languages on the Mac
+These are experiments that have not graduated to my main setup yet.
+** Install the Bend programming language
+Details at: https://github.com/HigherOrderCO/bend
+
+#+begin_src fish
+  brew install hvm
+  hvm --version
+  brew install bend-lang
+  bend --version
+#+end_src
 * My personal Operating System setup from scratch for macOS Monterey
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
