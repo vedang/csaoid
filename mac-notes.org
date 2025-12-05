@@ -114,7 +114,7 @@ Details at: https://github.com/HigherOrderCO/bend
     brew install ledger hledger podman skopeo pinentry-mac starship gnu-sed gnupg gnuplot coreutils dog neofetch pandoc ffmpeg qpdf zig fossil protobuf sccache
   #+end_src
   #+begin_src sh :eval no
-    brew install --cask discord docker iterm2 keepassxc macfuse mactex racket signal transmission tresorit vlc whatsapp zulip
+    brew install --cask discord docker iterm2 keepassxc maccy macfuse mactex racket signal transmission tresorit vlc whatsapp zulip
   #+end_src
 
 *** Ubuntu: Install the basics for getting started with anything else
