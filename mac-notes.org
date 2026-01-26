@@ -99,8 +99,7 @@ Details at: https://github.com/HigherOrderCO/bend
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       a623ed27-7628-44ae-8568-2088b1b3e79b
 :END:
-- Download Fantasque NF from https://www.nerdfonts.com/font-downloads
-- This is the first step because ~starship~ requires a Nerd Font to work correctly (installed later)
+- Download Fantasque NF and MesloLGS NF from https://www.nerdfonts.com/font-downloads
 
 ** Mac: Install the basics for getting started with anything else
 :PROPERTIES:
@@ -111,16 +110,16 @@ Details at: https://github.com/HigherOrderCO/bend
 - Install common packages from ~brew~, as mentioned in the section copied from my Ubuntu guide (pasted below)
 - After completing common package installation, install casks and packages specific to MacOS
   #+begin_src sh :eval no
-    brew install ledger hledger podman skopeo pinentry-mac starship gnu-sed gnupg gnuplot coreutils dog neofetch pandoc ffmpeg qpdf zig fossil protobuf sccache
+    brew install ledger pinentry-mac gnu-sed gnupg gnuplot coreutils dog neofetch pandoc ffmpeg qpdf zig fossil protobuf sccache marksman tailscale
   #+end_src
   #+begin_src sh :eval no
-    brew install --cask discord docker iterm2 keepassxc maccy macfuse mactex racket signal transmission tresorit vlc whatsapp zulip
+    brew install --cask brave-browser discord docker ghostty iterm2 keepassxc maccy macfuse mactex signal transmission tresorit vlc whatsapp zulip
   #+end_src
 
 *** Ubuntu: Install the basics for getting started with anything else
 - Common packages (Replace ~sudo apt~ with ~brew~ for Mac OS)
   #+begin_src sh :eval no
-    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl trurl git jq hugo direnv
+    sudo apt install tmux mercurial subversion aspell automake texinfo shellcheck tree wget curl trurl git jq direnv
   #+end_src
 - Linux specific packages
   #+begin_src sh :eval no
@@ -137,7 +136,7 @@ Follow the instructions below to set up my private dotfiles.
 *** Ubuntu: Set up file sharing to access private files
 - Setup my file-sharing systems to get access to my common files
 - Symlink my ssh keys and gpg keys from my file-sharing systems to the home dir
-- Make sure that [[id:39F38876-3B5D-4547-B608-A0384EFE540B][permissions are correctly set on the keys]]
+- Make sure that [[denote:20220104T133800::#h:4419B7EB-765E-4BF8-A6E8-1A4175A83C73][Notes on GnuPG / GPG::How to copy your .gpg folder and set the correct permissions]]
 
 ** Mac: Clone my public dotfiles into my source folder
 :PROPERTIES:
@@ -154,31 +153,7 @@ Follow the instructions below to set up my private dotfiles.
 After installing ~fish~, install ~fisher~. Then install the following plugins:
 - ~fisher install jorgebucaran/fisher~
 - ~fisher install jorgebucaran/nvm.fish~
-- ~fisher install ilancosman/tide@v5~
-** Mac: Install starship prompt
-:PROPERTIES:
-:CREATED:  [2022-03-21 Mon 13:10]
-:ID:       8bca4e63-1d26-40e5-9e83-3c4d5dc26e7d
-:END:
-We have already installed it using ~brew~ in one of the steps above. Follow the instructions below to install configuration files for ~starship~.
-
-*** Ubuntu: Install starship prompt
-- Install the ~starship~ prompt from https://starship.rs/
-- Symlink ~starship.toml~ to ~/.config/~
-
-** COMMENT Mac: Install zsh and  oh-my-zsh
-:PROPERTIES:
-:CREATED:  [2022-03-21 Mon 13:10]
-:ID:       e2512189-4002-4b62-8de6-e45b871accf8
-:END:
-Follow the instructions below to install and configure ~zsh~
-
-*** Ubuntu: Install zsh and oh-my-zsh
-- Refer to instructions here:
-  - https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
-  - https://github.com/ohmyzsh/ohmyzsh/wiki
-- Symlink ~.zhsrc~, ~.zshenv~ to home dir.
-- Symlink ~personal.zsh~ in ~/.oh-my-zsh/custom/~ dir.
+- ~fisher install ilancosman/tide@v6~
 
 ** Mac: Install Rust and Rust based CLI tools
 :PROPERTIES:
@@ -189,11 +164,10 @@ The CLI tools mentioned here are great productivity boosters. Check them out by 
 
 Follow the instructions below to install Rust and Rust based CLI tools.
 
-*** Ubuntu: Install Rust and Rust based CLI tools
 - Install Rust using Rustup as described at https://www.rust-lang.org/learn/get-started
 - Install all the tools I use
   #+begin_src fish :eval no
-    cargo install --locked atuin bat bend-lang broot cargo-generate choose difftastic dotslash dprint du-dust exa fd-find git-delta hvm hyperfine jless mergiraf procs ripgrep rust-analyzer sd sqlx-cli tagref taplo-cli tealdeer tokei vivid vl-convert websocat zoxide
+    cargo install --locked atuin bat difftastic dprint du-dust exa fd-find git-delta hyperfine jless mergiraf procs ripgrep rust-analyzer sd sqlx-cli tagref tealdeer tokei vivid vl-convert websocat zoxide
   #+end_src
 
 ** Mac: Install Go and Go based CLI Tools
@@ -211,6 +185,15 @@ Follow the instructions below to install Rust and Rust based CLI tools.
   brew install dbmate gron
   #+end_src
 
+** Mac: Install Jujutsu as my main VCS driver
+Note that we need to have completed the Rust step above before we do this.
+
+#+begin_src fish
+  # To install the *prerelease* version from the main branch
+  cargo install --git https://github.com/jj-vcs/jj.git \
+       --locked --bin jj jj-cli
+#+end_src
+
 ** Mac: Install tmux-tpm from source
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
@@ -218,7 +201,6 @@ Follow the instructions below to install Rust and Rust based CLI tools.
 :END:
 Follow the instructions below to install ~tpm~ : The ~tmux~ plugin manager
 
-*** Ubuntu: Install tmux-tpm from source
 - Symlink ~.tmux.conf~ to home dir
 - Clone the ~tmux-tpm~ repo
   #+begin_src sh :eval no
@@ -232,14 +214,8 @@ Follow the instructions below to install ~tpm~ : The ~tmux~ plugin manager
 :ID:       c25c8d41-6e2e-4412-8826-df0d97ee6cb8
 :END:
 #+begin_src sh :eval no
-  brew install leiningen clojure borkdude/brew/clj-kondo borkdude/brew/babashka cljstyle borkdude/brew/jet lilactown/brew/eql clojure-lsp/brew/clojure-lsp-native
+  brew install clojure/tools/clojure borkdude/brew/clj-kondo borkdude/brew/babashka cljstyle borkdude/brew/jet lilactown/brew/eql clojure-lsp/brew/clojure-lsp-native
 #+end_src
-
-*** Symlink my lein folder from private-dotfiles to ~.lein~ in home
-:PROPERTIES:
-:CREATED:  [2022-03-21 Mon 13:10]
-:ID:       ec38483d-2c98-40b0-94e1-65fc4f620934
-:END:
 
 *** Install jdk sources
 :PROPERTIES:
@@ -247,8 +223,7 @@ Follow the instructions below to install ~tpm~ : The ~tmux~ plugin manager
 :ID:       b2ddefdf-390a-4e5a-aa92-c82eaa5013c3
 :END:
 #+begin_src sh :eval no
-  brew tap homebrew/cask-versions
-  brew install --cask temurin21
+  brew install --cask temurin@25
   brew install visualvm mvn
 #+end_src
 
@@ -260,36 +235,28 @@ Follow the instructions below to install ~tpm~ : The ~tmux~ plugin manager
 - Symlink ~notmuch/.notmuch-config~, ~.mbsyncrc~ and ~.msmtprc~ from private dotfiles to Home.
 - Symlink ~notmuch~ dir in private-dotfiles to ~<maildir>/.notmuch/hooks~
 
-** Mac: Install Emacs from EmacsForMacOSX
+** Mac: Install Emacs from jimeh-builds
 :PROPERTIES:
 :CREATED:  [2022-03-21 Mon 13:10]
 :ID:       8e38eec9-c1df-4a8c-85f6-978cee261331
 :END:
-- Download and install the latest =nightly= from https://emacsformacosx.com/builds
-- Clone https://github.com/vedang/emacs-up to ~.emacs.d~
+- Download and install the latest version from jimeh-builds
+- Clone https://github.com/unravel-team/emacs to ~.emacs.d~
 - Clone https://github.com/cask/cask to ~.cask~ in order to run cask based tests
 - Symlink my  ~personal.el~ file and ~common.el~ file from private dotfiles into ~.emacs.d~
-** Mac: Install tree-sitter and add support to Emacs
-:PROPERTIES:
-:CREATED:  [2023-05-28 Sun 16:42]
-:ID:       F60A7521-F82E-4C02-A680-2D3E330B7076
-:END:
-I am following the instructions mentioned here: https://www.masteringemacs.org/article/how-to-get-started-tree-sitter
 
-1. Installing Emacs: The step above this already installs emacs with ~tree-sitter~ support enabled on the latest master.
-2. Installing Tree-Sitter: I installed ~tree-sitter~ from source, as explained in the link above. (I mean, it's the standard way to install anything, very straightforward)
-
-These notes are now captured in detail in the README of my ~.emacs.d~ folder: [[id:4963A703-468F-4BA9-B680-590BCFBD36C0][Using Tree Sitter with emacs-up]]
-** Mac: Install pip and python packages
+** Mac: Install uv for managing python tools and projects
 #+begin_src sh :eval no
-  pip3 install Pygments concentration
+  brew install uv
 #+end_src
 - ~Pygments~ provides source code highlighting in ~org-exports~
-- ~concentration~ is useful for blocking distractions when working.
 #+begin_src sh :eval no
-  brew install poetry
+  uv tool install shell_sage llm aider-ce
 #+end_src
-- Use ~poetry~ as the default venv wrapper for all python work
+*** LLM plugins
+1. ~llm install llm-gemini~ (for Gemini support)
+2. ~llm install llm-cerebras~ (for Cerebras support)
+
 ** Mac: Install pympress for PDF based presentations
 #+begin_src sh :eval no
   # Doesn't need other packages because they have been previously installed
@@ -302,41 +269,20 @@ These notes are now captured in detail in the README of my ~.emacs.d~ folder: [[
 #+end_src
 
 ** Mac: Install tooling for Javascript
-- Install =nvm=, which gives us node, npm, and npx at project level
-  + Note that NVM version might have upgraded, so check the website! There is no better way at the moment.
+- We have already installed =nvm= as part of =nvm.fish=. Now install node via nvm
 #+begin_src sh :eval no
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-  nvm install node
-  nvm install-latest-npm
+  nvm install 24
 #+end_src
-- Install =node= at the system level, so that we can use tooling like language servers for JS / NPM based languages.
+- We also set the ~nvm_default_version~ env var in our fish config, so that the default is v24
+- Finally, install =bun= at the system level, to use instead of =node=.
   #+begin_src sh :eval no
-  brew install node
-  #+end_src
-- Install =bun= at the system level, to use instead of =node=. I will try this out and in the future might remove the above step altogether.
-  #+begin_src sh :eval no
-  brew tap oven-sh/bun && brew install bun
+  curl command to install bun.sh
   #+end_src
 ** Mac: Install elm and tools for elm
 1. Install elm: =brew install elm=
 2. Install elm tooling:
-   1. =npm install -g @elm-tooling/elm-language-server=
-   2. =npm install -g elm-format=
-** CANCELLED Mac: Install Jenv                                   :noexport:cancelled:
-CLOSED: [2022-03-29 Tue 10:32]
-:PROPERTIES:
-:CREATED:  [2022-03-21 Mon 13:10]
-:ID:       e261ba2b-1df6-4851-a633-b4fdb133b9f2
-:END:
-:LOGBOOK:
-- State "CANCELLED"  from              [2022-03-29 Tue 10:32] \\
-  I don't use jenv anymore. Please go through [[file:jvm-notes.txt]] for details on how to maintain / switch between different versions of Java
-:END:
-- Install jenv from : https://github.com/jenv/jenv
-- Follow the instructions above to install it. The instructions
-  contain Mac specific information on how to install multiple
-  versions of java.
-- List all installed versions with =jenv versions=
+   1. =bun install -g @elm-tooling/elm-language-server=
+   2. =bun install -g elm-format=
 
 ** Mac: Install AWS CLI for accessing ECR
 :PROPERTIES:
@@ -355,12 +301,6 @@ CLOSED: [2022-03-29 Tue 10:32]
 - =brew install openssl=
 - Follow instructions on the tarsnap site for compilation
 
-** Mac: Install Alfred
-- Go through Mayank's post on Productivity for learning how to use Alfred: https://www.firesofmay.com/productivity-tips-tricks-tools/
-  + This post contains good instructions on Installing Alfred as well.
-  + Replace Spotlight with Alfred, as mentioned in the post
-  + IMHO, Alfred is worth paying for.
-- Install my personal Alfred workflows from my private dotfiles.
 ** Mac: Install pgFormatter
 - pgFormatter is a perl script and needs to be installed manually.
 - Download the ~pg_format~ script from https://raw.githubusercontent.com/darold/pgFormatter/master/pg_format
@@ -375,6 +315,7 @@ Project Page: https://github.com/Shopify/toxiproxy
   brew tap shopify/shopify
   brew install toxiproxy
 #+end_src
+
 ** Mac: Install awscli and rclone
 These are important tools for cloud storage management. Both need setup management.
 
@@ -404,18 +345,6 @@ Run ~rclone config~ for setting up the necessary configuration
 #+begin_src sh :eval no
   brew tap homebrew/cask-fonts && brew install font-iosevka
 #+end_src
-@TODO: Add instructions on how to install https://github.com/protesilaos/iosevka-comfy
-
-** Mac: Install llm from Simon Willson for CLI interaction with large language models
-#+begin_src fish
-  brew install llm
-#+end_src
-
-To make ~llm~ really powerful, also do the following:
-
-1. ~llm install llm-gemini~ (for Gemini model support)
-2. ~llm install llm-claude-3~ (for Claude Sonnet support)
-3. ~llm install llm-ollama~ (for running against Local models)
 
 ** Mac: Install repomix for loading code into an llm
 #+begin_src fish
@@ -428,8 +357,6 @@ To make ~llm~ really powerful, also do the following:
   brew tap espanso/espanso;
   brew install espanso;
 #+end_src
-
-** Mac: Install shellsage for working with AI in tmux
 
 ** Mac: Install tools for working with data
 #+begin_src fish
