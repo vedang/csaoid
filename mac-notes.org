@@ -362,3 +362,16 @@ Run ~rclone config~ for setting up the necessary configuration
 #+begin_src fish
   brew install sqlite-utils datasette
 #+end_src
+** Mac: Install all the agents
+*** Codex and Opencode
+#+begin_src fish
+  brew install codex anomalyco/tap/opencode
+#+end_src
+*** Pi Agent
+#+begin_src fish
+  bun install -g @mariozechner/pi-coding-agent
+#+end_src
+*** Claude Code
+#+begin_src fish
+  curl -fsSL https://claude.ai/install.sh | bash
+#+end_src
